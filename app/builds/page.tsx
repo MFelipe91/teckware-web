@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { ArrowRight, Cpu, MonitorPlay, MemoryStick, HardDrive, CircuitBoard, Zap, Wind, Box, CheckCircle2, XCircle, Gamepad2 } from 'lucide-react'
 import { getBuildsAction } from '@/app/admin/actions'
 import { YoutubeEmbed } from '@/components/builds/YoutubeEmbed'
@@ -58,9 +59,21 @@ export default async function BuildsPage() {
 
       {/* Header */}
       <section className="relative bg-[#03040A] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        <div className="glow-purple w-96 h-96 -top-32 right-0 opacity-30" />
-        <div className="glow-cyan w-64 h-64 bottom-0 left-0 opacity-20" />
+        {/* Background image — RGB Corsair build interior */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/andy-holmes-EOAKUQcsFIU-unsplash.jpg"
+            alt="PC Gamer interior RGB"
+            fill
+            className="object-cover object-center opacity-20"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#03040A]/60 via-[#03040A]/50 to-[#03040A]" />
+        </div>
+        <div className="absolute inset-0 bg-grid opacity-20" />
+        <div className="glow-purple w-96 h-96 -top-32 right-0 opacity-25" />
+        <div className="glow-cyan w-64 h-64 bottom-0 left-0 opacity-15" />
         <div className="relative max-w-7xl mx-auto">
           <span className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full border border-[#A855F7]/25 bg-[#A855F7]/8 text-[#A855F7] text-xs font-semibold tracking-widest uppercase">
             <Gamepad2 size={12} />

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
   Search, RefreshCw, Wrench, Cpu, Package, ArrowRight, Briefcase
@@ -16,6 +17,33 @@ const ICONS: Record<string, React.ComponentType<{ size?: number; className?: str
   'briefcase': Briefcase,
   'cpu': Cpu,
   'package': Package,
+}
+
+const SERVICE_IMAGES: Record<string, { src: string; alt: string }> = {
+  diagnostico: {
+    src: '/images/pexels-bertellifotografia-34552805.jpg',
+    alt: 'Monitor de temperatura NZXT — Diagnóstico PC',
+  },
+  formateo: {
+    src: '/images/samsung-memory-uevjOXJQzmU-unsplash.jpg',
+    alt: 'Instalación SSD Samsung en notebook — Formateo limpio',
+  },
+  mantenimiento: {
+    src: '/images/pexels-elias-gamez-2002621-10558600.jpg',
+    alt: 'Aplicando pasta térmica en laptop — Mantenimiento físico',
+  },
+  armado: {
+    src: '/images/martin-katler-7wCxlBfGMdk-unsplash.jpg',
+    alt: 'Componentes Intel i9, MSI GPU y HyperX RAM — Armado PC Gamer',
+  },
+  'cotizacion-build': {
+    src: '/images/onur-binay-z3MP5DDiEME-unsplash.jpg',
+    alt: 'PC Gamer RTX TUF Gaming build completo — Cotización a medida',
+  },
+  workstation: {
+    src: '/images/fotis-fotopoulos-DuHKoV44prg-unsplash.jpg',
+    alt: 'Workstation dual monitor con código — Servicio empresarial',
+  },
 }
 
 export function ServiciosDestacados() {
@@ -46,6 +74,7 @@ export function ServiciosDestacados() {
         >
           {SERVICIOS.map((servicio) => {
             const Icon = ICONS[servicio.icono] ?? Package
+            const image = SERVICE_IMAGES[servicio.id]
             const waLink = servicio.id === 'diagnostico'
               ? WA.diagnostico()
               : servicio.id === 'formateo'
@@ -58,42 +87,58 @@ export function ServiciosDestacados() {
               <motion.div
                 key={servicio.id}
                 variants={staggerItem}
-                className="group relative glass-card rounded-2xl p-6 card-hover border border-white/10"
+                className="group relative glass-card rounded-2xl overflow-hidden border border-white/10 card-hover flex flex-col"
               >
-                {/* Icon */}
-                <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-[#00D4FF]/10 border border-[#00D4FF]/20 mb-4">
-                  <Icon size={20} className="text-[#00D4FF]" />
-                </div>
+                {/* Card image */}
+                {image && (
+                  <div className="relative h-44 overflow-hidden shrink-0">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                    {/* Bottom fade so the image bleeds into card body */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-[#0D1117]/30 to-transparent" />
+                    {/* Icon badge over image */}
+                    <div className="absolute bottom-3 left-4 w-9 h-9 flex items-center justify-center rounded-xl bg-[#03040A]/80 border border-[#00D4FF]/30 backdrop-blur-sm">
+                      <Icon size={17} className="text-[#00D4FF]" />
+                    </div>
+                  </div>
+                )}
 
                 {/* Content */}
-                <h3 className="text-base font-bold text-[#F1F5F9] mb-2 leading-snug">
-                  {servicio.nombre}
-                </h3>
-                <p className="text-sm text-[#94A3B8] mb-5 leading-relaxed">
-                  {servicio.descripcion}
-                </p>
+                <div className="p-6 flex flex-col flex-1">
+                  <h3 className="text-base font-bold text-[#F1F5F9] mb-2 leading-snug">
+                    {servicio.nombre}
+                  </h3>
+                  <p className="text-sm text-[#94A3B8] mb-5 leading-relaxed flex-1">
+                    {servicio.descripcion}
+                  </p>
 
-                {/* Footer */}
-                <div className="flex items-center justify-between">
-                  <div>
-                    {servicio.precio === 'A cotizar' ? (
-                      <span className="text-sm font-semibold text-[#A855F7]">A cotizar</span>
-                    ) : (
-                      <span className="price text-xl font-bold text-[#F1F5F9]">
-                        {servicio.precio}
-                      </span>
-                    )}
-                    <span className="ml-2 text-xs text-[#475569]">{servicio.tiempo}</span>
+                  {/* Footer */}
+                  <div className="flex items-center justify-between">
+                    <div>
+                      {servicio.precio === 'A cotizar' ? (
+                        <span className="text-sm font-semibold text-[#A855F7]">A cotizar</span>
+                      ) : (
+                        <span className="price text-xl font-bold text-[#F1F5F9]">
+                          {servicio.precio}
+                        </span>
+                      )}
+                      <span className="ml-2 text-xs text-[#475569]">{servicio.tiempo}</span>
+                    </div>
+                    <a
+                      href={waLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-[#00D4FF] border border-[#00D4FF]/30 rounded-lg hover:bg-[#00D4FF]/10 transition-all min-h-[36px]"
+                    >
+                      Cotizar
+                      <ArrowRight size={12} />
+                    </a>
                   </div>
-                  <a
-                    href={waLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-[#00D4FF] border border-[#00D4FF]/30 rounded-lg hover:bg-[#00D4FF]/10 transition-all min-h-[36px]"
-                  >
-                    Cotizar
-                    <ArrowRight size={12} />
-                  </a>
                 </div>
               </motion.div>
             )

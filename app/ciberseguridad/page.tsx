@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import {
   ShieldAlert, Lock, GraduationCap, FileCheck2, AlertTriangle, Activity,
   ArrowRight, CheckCircle2, Eye, UserX, Database, Wifi,
@@ -62,9 +63,20 @@ export default function CiberseguridadPage() {
 
       {/* Hero */}
       <section className="relative bg-[#03040A] py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        <div className="glow-cyan w-96 h-96 -top-32 right-1/4 opacity-25" />
-        <div className="glow-purple w-64 h-64 bottom-0 left-0 opacity-20" />
+        <div className="absolute inset-0">
+          <Image
+            src="/images/ilya-pavlov-OqtafYT5kTw-unsplash.jpg"
+            alt="Código de seguridad en pantalla — Ciberseguridad TECKWARE"
+            fill
+            className="object-cover object-center opacity-15"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#03040A]/70 via-[#03040A]/50 to-[#03040A]" />
+        </div>
+        <div className="absolute inset-0 bg-grid opacity-20" />
+        <div className="glow-cyan w-96 h-96 -top-32 right-1/4 opacity-20" />
+        <div className="glow-purple w-64 h-64 bottom-0 left-0 opacity-18" />
         <div className="relative max-w-7xl mx-auto">
           <div className="max-w-3xl">
             <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-widest uppercase text-[#00D4FF] border border-[#00D4FF]/25 rounded-full bg-[#00D4FF]/8">

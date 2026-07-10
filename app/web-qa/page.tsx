@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import {
   Search, Layout, Building2, ClipboardCheck, Bot, Lightbulb,
   ArrowRight, CheckCircle2, Code2, Zap, Shield, BarChart3,
@@ -62,9 +63,20 @@ export default function WebQAPage() {
 
       {/* Hero */}
       <section className="relative bg-[#03040A] py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        <div className="glow-cyan w-96 h-96 -top-32 left-1/3 opacity-30" />
-        <div className="glow-purple w-64 h-64 bottom-0 right-0 opacity-25" />
+        <div className="absolute inset-0">
+          <Image
+            src="/images/fotis-fotopoulos-DuHKoV44prg-unsplash.jpg"
+            alt="Workstation de desarrollo web — pantallas con código"
+            fill
+            className="object-cover object-center opacity-15"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#03040A]/70 via-[#03040A]/50 to-[#03040A]" />
+        </div>
+        <div className="absolute inset-0 bg-grid opacity-20" />
+        <div className="glow-cyan w-96 h-96 -top-32 left-1/3 opacity-25" />
+        <div className="glow-purple w-64 h-64 bottom-0 right-0 opacity-20" />
         <div className="relative max-w-7xl mx-auto">
           <div className="max-w-3xl">
             <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-widest uppercase text-[#A855F7] border border-[#A855F7]/25 rounded-full bg-[#A855F7]/8">
