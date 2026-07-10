@@ -152,17 +152,31 @@
 
 /* ── Utilities ──────────────────────────────────────────────── */
 @layer utilities {
-  /* Background grid */
+  /* Background grid — thin tech lines (NVIDIA/ROG style) */
   .bg-grid {
     background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
+      linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
 
-  /* Gradient text */
+  /* Dot grid — ROG tactical overlay */
+  .bg-dot-grid {
+    background-image: radial-gradient(rgba(0,212,255,0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Gradient text — cyan to purple (NVIDIA-to-ROG) */
   .gradient-text {
-    background: linear-gradient(135deg, #00D4FF, #A855F7);
+    background: linear-gradient(120deg, #00D4FF 0%, #A855F7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Gradient text — red to orange (AMD Ryzen palette) */
+  .gradient-text-red {
+    background: linear-gradient(120deg, #FF4D4D 0%, #F97316 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -175,39 +189,91 @@
     background-clip: text;
   }
 
+  /* Neon glow text — NVIDIA electric */
+  .neon-text {
+    text-shadow: 0 0 20px rgba(0,212,255,0.6), 0 0 40px rgba(0,212,255,0.25);
+  }
+
   /* Glassmorphism */
   .glass-card {
-    background: rgba(13,17,32,0.8);
+    background: rgba(10,14,26,0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 0.5px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  /* Gradient border (ROG/MSI glowing border) */
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(0,212,255,0.5), rgba(168,85,247,0.3), rgba(230,30,50,0.4));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
   }
 
   /* Glow blobs */
   .glow-cyan {
     position: absolute;
     border-radius: 50%;
-    background: rgba(0,212,255,0.12);
-    filter: blur(80px);
+    background: rgba(0,212,255,0.14);
+    filter: blur(90px);
     pointer-events: none;
   }
 
   .glow-purple {
     position: absolute;
     border-radius: 50%;
-    background: rgba(168,85,247,0.10);
-    filter: blur(80px);
+    background: rgba(168,85,247,0.12);
+    filter: blur(90px);
     pointer-events: none;
   }
 
-  /* Card hover */
+  .glow-red {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(230,30,50,0.10);
+    filter: blur(90px);
+    pointer-events: none;
+  }
+
+  /* Angular clip — ROG diagonal cut */
+  .clip-angle-br {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+  }
+
+  /* Accent bar — AMD/ROG thin colored top line */
+  .accent-bar-top {
+    position: relative;
+  }
+  .accent-bar-top::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #E61E32, #00D4FF, #E61E32);
+    background-size: 200% 100%;
+    animation: accent-slide 4s linear infinite;
+  }
+
+  /* Card hover — stronger gaming glow */
   .card-hover {
-    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   }
   .card-hover:hover {
-    border-color: rgba(0,212,255,0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 20px 40px rgba(0,212,255,0.08);
+    border-color: rgba(0,212,255,0.35);
+    transform: translateY(-3px);
+    box-shadow:
+      0 0 0 1px rgba(0,212,255,0.12),
+      0 20px 50px rgba(0,212,255,0.10),
+      0 0 80px rgba(0,212,255,0.04);
   }
 
   /* Price monospace */
@@ -220,6 +286,27 @@
   .wa-pulse {
     animation: wa-pulse 2s ease infinite;
   }
+
+  /* Scan line overlay — gaming monitor aesthetic */
+  .scan-line::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.08) 2px,
+      rgba(0,0,0,0.08) 4px
+    );
+    pointer-events: none;
+  }
+
+  /* Tech separator line */
+  .tech-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,212,255,0.4), rgba(168,85,247,0.3), transparent);
+  }
 }
 
 /* ── Keyframes ──────────────────────────────────────────────── */
@@ -231,6 +318,16 @@
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
+}
+
+@keyframes accent-slide {
+  0%   { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes scan-move {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
 }
 
 .animate-marquee {

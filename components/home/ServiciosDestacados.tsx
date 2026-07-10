@@ -4,9 +4,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
-  Search, RefreshCw, Wrench, Cpu, Package, ArrowRight, Briefcase
+  Search, RefreshCw, Wrench, Cpu, Package, ArrowRight, Briefcase,
+  HardDrive, Zap, Gamepad2, MapPin, Receipt,
 } from 'lucide-react'
-import { SERVICIOS } from '@/lib/constants'
+import { SERVICIOS, IVA_NOTA } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
 import { staggerContainer, staggerItem, viewportConfig } from '@/lib/animations'
 
@@ -17,6 +18,10 @@ const ICONS: Record<string, React.ComponentType<{ size?: number; className?: str
   'briefcase': Briefcase,
   'cpu': Cpu,
   'package': Package,
+  'hard-drive': HardDrive,
+  'zap': Zap,
+  'gamepad': Gamepad2,
+  'map-pin': MapPin,
 }
 
 const SERVICE_IMAGES: Record<string, { src: string; alt: string }> = {
@@ -24,27 +29,29 @@ const SERVICE_IMAGES: Record<string, { src: string; alt: string }> = {
     src: '/images/pexels-bertellifotografia-34552805.jpg',
     alt: 'Monitor de temperatura NZXT — Diagnóstico PC',
   },
-  formateo: {
-    src: '/images/samsung-memory-uevjOXJQzmU-unsplash.jpg',
-    alt: 'Instalación SSD Samsung en notebook — Formateo limpio',
+  'mantencion-logica': {
+    src: '/images/onur-binay-z3MP5DDiEME-unsplash.jpg',
+    alt: 'PC Gamer RTX TUF Gaming — Mantención Lógica y Formateo',
   },
-  mantenimiento: {
+  'mantencion-full': {
     src: '/images/pexels-elias-gamez-2002621-10558600.jpg',
-    alt: 'Aplicando pasta térmica en laptop — Mantenimiento físico',
+    alt: 'Aplicando pasta térmica en laptop — Mantención Full',
   },
-  armado: {
+  'recuperacion-datos': {
+    src: '/images/samsung-memory-uevjOXJQzmU-unsplash.jpg',
+    alt: 'Disco SSD Samsung — Recuperación de Datos',
+  },
+  'mantencion-gpu': {
+    src: '/images/back2gaming-bXSC9GGir_A-unsplash.jpg',
+    alt: 'Tarjeta gráfica RTX AORUS — Mantención GPU',
+  },
+  'armado-estandar': {
     src: '/images/martin-katler-7wCxlBfGMdk-unsplash.jpg',
     alt: 'Componentes Intel i9, MSI GPU y HyperX RAM — Armado PC Gamer',
   },
-  'cotizacion-build': {
-    src: '/images/onur-binay-z3MP5DDiEME-unsplash.jpg',
-    alt: 'PC Gamer RTX TUF Gaming build completo — Cotización a medida',
-  },
-  workstation: {
-    src: '/images/fotis-fotopoulos-DuHKoV44prg-unsplash.jpg',
-    alt: 'Workstation dual monitor con código — Servicio empresarial',
-  },
 }
+
+const FEATURED = SERVICIOS.filter((s) => s.featured)
 
 export function ServiciosDestacados() {
   return (
@@ -72,15 +79,11 @@ export function ServiciosDestacados() {
           viewport={viewportConfig}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
         >
-          {SERVICIOS.map((servicio) => {
+          {FEATURED.map((servicio) => {
             const Icon = ICONS[servicio.icono] ?? Package
             const image = SERVICE_IMAGES[servicio.id]
-            const waLink = servicio.id === 'diagnostico'
-              ? WA.diagnostico()
-              : servicio.id === 'formateo'
-              ? WA.formateo()
-              : servicio.id === 'mantenimiento'
-              ? WA.mantenimiento()
+            const waLink = typeof WA[servicio.whatsappKey as keyof typeof WA] === 'function'
+              ? (WA[servicio.whatsappKey as keyof typeof WA] as () => string)()
               : WA.servicio(servicio.nombre)
 
             return (
@@ -99,9 +102,7 @@ export function ServiciosDestacados() {
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
-                    {/* Bottom fade so the image bleeds into card body */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-[#0D1117]/30 to-transparent" />
-                    {/* Icon badge over image */}
                     <div className="absolute bottom-3 left-4 w-9 h-9 flex items-center justify-center rounded-xl bg-[#03040A]/80 border border-[#00D4FF]/30 backdrop-blur-sm">
                       <Icon size={17} className="text-[#00D4FF]" />
                     </div>
@@ -145,7 +146,13 @@ export function ServiciosDestacados() {
           })}
         </motion.div>
 
-        <div className="text-center mt-10">
+        {/* IVA nota */}
+        <div className="flex items-center justify-center gap-2 mt-8 text-xs text-[#475569]">
+          <Receipt size={13} className="text-[#475569]" />
+          <span>{IVA_NOTA}</span>
+        </div>
+
+        <div className="text-center mt-6">
           <Link
             href="/servicios"
             className="inline-flex items-center gap-2 text-sm font-medium text-[#94A3B8] hover:text-[#00D4FF] transition-colors"
