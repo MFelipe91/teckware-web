@@ -1,16 +1,17 @@
-import type { MetadataRoute } from 'next'
-
-const BASE = 'https://teckware.cl'
+import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const base = 'https://www.teckware.cl'
+  const now = new Date()
+
   return [
-    { url: BASE, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
-    { url: `${BASE}/servicios`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${BASE}/web-qa`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${BASE}/ciberseguridad`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${BASE}/builds`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${BASE}/nosotros`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.6 },
-    { url: `${BASE}/contacto`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.7 },
-    { url: `${BASE}/solicitar`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.8 },
+    { url: base,                      lastModified: now, changeFrequency: 'weekly',  priority: 1.0 },
+    { url: `${base}/servicios`,       lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${base}/builds`,          lastModified: now, changeFrequency: 'weekly',  priority: 0.9 },
+    { url: `${base}/agendar`,         lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/web-qa`,          lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/ciberseguridad`,  lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/nosotros`,        lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${base}/contacto`,        lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
   ]
 }
