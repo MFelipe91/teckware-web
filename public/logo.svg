@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 72" role="img" aria-label="TECKWARE">
+  <defs>
+    <!-- Cyan glow filter -->
+    <filter id="g" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Softer glow for nodes -->
+    <filter id="ng" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ══════════════════════════════════════ -->
+  <!--   SÍMBOLO — HUD targeting + circuit T  -->
+  <!-- ══════════════════════════════════════ -->
+
+  <!-- Subtle background fill between brackets -->
+  <rect x="6" y="6" width="60" height="60" rx="2" fill="rgba(0,212,255,0.03)"/>
+
+  <!-- ── Corner brackets (HUD / gaming reticle) ── -->
+  <!-- Top-left -->
+  <path d="M 6,22 L 6,6 L 22,6"
+        fill="none" stroke="#00D4FF" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round" filter="url(#g)"/>
+  <!-- Top-right -->
+  <path d="M 50,6 L 66,6 L 66,22"
+        fill="none" stroke="#00D4FF" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round" filter="url(#g)"/>
+  <!-- Bottom-left -->
+  <path d="M 6,50 L 6,66 L 22,66"
+        fill="none" stroke="#00D4FF" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round" filter="url(#g)"/>
+  <!-- Bottom-right -->
+  <path d="M 50,66 L 66,66 L 66,50"
+        fill="none" stroke="#00D4FF" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round" filter="url(#g)"/>
+
+  <!-- ── Circuit traces (mid-sides) — hardware PCB feel ── -->
+  <line x1="6"  y1="36" x2="15" y2="36" stroke="#00D4FF" stroke-width="1"
+        stroke-linecap="round" opacity="0.35"/>
+  <line x1="57" y1="36" x2="66" y2="36" stroke="#00D4FF" stroke-width="1"
+        stroke-linecap="round" opacity="0.35"/>
+  <line x1="36" y1="6"  x2="36" y2="15" stroke="#00D4FF" stroke-width="1"
+        stroke-linecap="round" opacity="0.35"/>
+  <line x1="36" y1="57" x2="36" y2="66" stroke="#00D4FF" stroke-width="1"
+        stroke-linecap="round" opacity="0.35"/>
+
+  <!-- ── Letter T — circuit trace style ── -->
+  <!-- Horizontal bar -->
+  <line x1="19" y1="28" x2="53" y2="28"
+        stroke="#00D4FF" stroke-width="3" stroke-linecap="round" filter="url(#g)"/>
+  <!-- Vertical bar -->
+  <line x1="36" y1="28" x2="36" y2="55"
+        stroke="#00D4FF" stroke-width="3" stroke-linecap="round" filter="url(#g)"/>
+
+  <!-- ── Circuit nodes ── -->
+  <!-- Left end -->
+  <circle cx="19" cy="28" r="2.8" fill="#00D4FF"/>
+  <!-- Right end -->
+  <circle cx="53" cy="28" r="2.8" fill="#00D4FF"/>
+  <!-- Center junction — larger, glowing -->
+  <circle cx="36" cy="28" r="4" fill="#00D4FF" filter="url(#ng)"/>
+  <circle cx="36" cy="28" r="2" fill="#F1F5F9"/>
+  <!-- Bottom end — purple accent (gaming) -->
+  <circle cx="36" cy="55" r="3" fill="#A855F7" filter="url(#ng)"/>
+
+  <!-- ── Gaming pixel accent (top-right, inside bracket) ── -->
+  <!-- 2x2 grid of small squares in purple/cyan -->
+  <rect x="52" y="9"  width="4" height="4" rx="0.8" fill="#A855F7" opacity="0.95"/>
+  <rect x="57" y="9"  width="4" height="4" rx="0.8" fill="#A855F7" opacity="0.55"/>
+  <rect x="52" y="14" width="4" height="4" rx="0.8" fill="#A855F7" opacity="0.55"/>
+  <rect x="57" y="14" width="4" height="4" rx="0.8" fill="#00D4FF" opacity="0.40"/>
+
+  <!-- ── Shield arc (trust / seguridad) — subtle, behind T ── -->
+  <!-- Small shield outline at bottom-center, very subtle -->
+  <path d="M 36,42 C 30,44 28,48 28,52 C 28,56 32,60 36,61 C 40,60 44,56 44,52 C 44,48 42,44 36,42 Z"
+        fill="none" stroke="rgba(0,212,255,0.12)" stroke-width="1.2"/>
+
+  <!-- ══════════════════════════════════════ -->
+  <!--   WORDMARK                             -->
+  <!-- ══════════════════════════════════════ -->
+
+  <!-- [ bracket -->
+  <text x="79" y="50"
+        font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif"
+        font-weight="900" font-size="33" letter-spacing="-1"
+        fill="#00D4FF">[</text>
+
+  <!-- TECK -->
+  <text x="89" y="50"
+        font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif"
+        font-weight="900" font-size="33" letter-spacing="-1"
+        fill="#F1F5F9">TECK</text>
+
+  <!-- ] bracket -->
+  <text x="157" y="50"
+        font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif"
+        font-weight="900" font-size="33" letter-spacing="-1"
+        fill="#00D4FF">]</text>
+
+  <!-- ● dot accent — purple, superscript -->
+  <circle cx="172" cy="26" r="4" fill="#A855F7" filter="url(#ng)"/>
+
+  <!-- WARE -->
+  <text x="178" y="50"
+        font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif"
+        font-weight="900" font-size="33" letter-spacing="-1"
+        fill="#F1F5F9">WARE</text>
+
+  <!-- Separator line under wordmark -->
+  <line x1="79" y1="57" x2="268" y2="57"
+        stroke="rgba(0,212,255,0.18)" stroke-width="0.6"/>
+
+  <!-- Tagline -->
+  <text x="79" y="67"
+        font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif"
+        font-size="7.5" font-weight="500" letter-spacing="1.8"
+        fill="#475569">SERVICIOS INFORMÁTICOS · LA SERENA</text>
+</svg>

@@ -1,0 +1,351 @@
+export const EMPRESA = {
+  nombre: 'TECKWARE SpA',
+  rut: '78.398.912-3',
+  fundacion: 'Abril 2026',
+  ubicacion: 'La Serena, Región de Coquimbo, Chile',
+  direccion: 'Colón 352, La Serena',
+  email: 'mariofelipe@teckware.cl',
+  telefono: '+56 9 3020 9427',
+  whatsapp: 'https://wa.me/56930209427',
+  instagram: 'https://instagram.com/teckware.cl',
+  instagramHandle: '@teckware.cl',
+  dominio: 'https://teckware.cl',
+  tagline: 'Tu tecnología, nuestra prioridad.',
+  horario: 'Lun–Sáb 09:00–19:00',
+} as const
+
+export const SERVICIOS = [
+  {
+    id: 'diagnostico',
+    nombre: 'Diagnóstico / Revisión Electrónica',
+    descripcion: 'Análisis completo del estado de tu equipo. Identificamos el problema exacto antes de cualquier intervención.',
+    precio: '$25.000',
+    tiempo: '2–4 horas',
+    icono: 'search',
+    prioridad: 'alta',
+    whatsappKey: 'diagnostico',
+  },
+  {
+    id: 'formateo',
+    nombre: 'Formateo + Instalación Limpia',
+    descripcion: 'Sistema operativo desde cero, drivers actualizados, optimización completa. Tu equipo como nuevo.',
+    precio: '$35.000',
+    tiempo: '24–48 horas',
+    icono: 'refresh-cw',
+    prioridad: 'alta',
+    whatsappKey: 'formateo',
+  },
+  {
+    id: 'mantenimiento',
+    nombre: 'Mantenimiento Físico Completo',
+    descripcion: 'Limpieza de polvo, cambio de pasta térmica, revisión de conectores. Temperatura bajo control.',
+    precio: '$60.000',
+    tiempo: '24 horas',
+    icono: 'tool',
+    prioridad: 'alta',
+    whatsappKey: 'mantenimiento',
+  },
+  {
+    id: 'armado',
+    nombre: 'Armado PC Gamer',
+    descripcion: 'Ensamblado profesional con los componentes del cliente. Cable management incluido.',
+    precio: '$60.000',
+    tiempo: '48 horas',
+    icono: 'cpu',
+    prioridad: 'media',
+    whatsappKey: 'armado',
+  },
+  {
+    id: 'cotizacion-build',
+    nombre: 'Cotización + Build a Medida',
+    descripcion: 'Seleccionamos los componentes ideales para tu presupuesto y uso. Ensamblado incluido.',
+    precio: '$70.000',
+    tiempo: '3–5 días',
+    icono: 'package',
+    prioridad: 'media',
+    whatsappKey: 'build',
+  },
+  {
+    id: 'workstation',
+    nombre: 'Mantenimiento Workstation / Empresarial',
+    descripcion: 'Servicio técnico especializado para desktops y notebooks de trabajo profesional. Diagnóstico, limpieza, optimización y soporte para equipos de alto rendimiento.',
+    precio: 'A cotizar',
+    tiempo: '24–72 horas',
+    icono: 'briefcase',
+    prioridad: 'alta',
+    whatsappKey: 'workstation',
+  },
+] as const
+
+export const SERVICIOS_ADICIONALES = [
+  'Instalación suite ofimática (Office / LibreOffice)',
+  'Respaldo y migración de información',
+  'Instalación y configuración de software',
+  'Soporte remoto',
+  'Ciberseguridad básica para usuarios y empresas',
+  'Instalación de redes WiFi',
+  'Configuración de cámaras de seguridad IP',
+  'Soporte técnico mensual para empresas (contrato)',
+  'Gestión de cableado estructurado',
+] as const
+
+export const EQUIPOS = [
+  { nombre: 'Notebooks', icono: 'laptop' },
+  { nombre: 'MacBook', icono: 'apple' },
+  { nombre: 'PC Gamer', icono: 'monitor' },
+  { nombre: 'All-in-One', icono: 'monitor-smartphone' },
+  { nombre: 'Consolas', icono: 'gamepad-2' },
+  { nombre: 'Tablets / iPad', icono: 'tablet-smartphone' },
+] as const
+
+export const BUILDS = [
+  {
+    id: 'starter-beast',
+    nombre: 'Starter Beast',
+    specs: {
+      cpu: 'Ryzen 5 7600X',
+      gpu: 'RX 7600',
+      ram: '16GB DDR5',
+      storage: '512GB NVMe',
+    },
+    tag: 'Entry Level',
+    color: 'tech-blue',
+    disponible: true,
+  },
+  {
+    id: 'mid-beast-pro',
+    nombre: 'Mid Beast Pro',
+    specs: {
+      cpu: 'Ryzen 7 9700X',
+      gpu: 'RTX 4070 Ti',
+      ram: '32GB DDR5',
+      storage: '1TB NVMe',
+    },
+    tag: 'Más Pedido',
+    color: 'cyan',
+    disponible: true,
+  },
+  {
+    id: 'ultra-titan',
+    nombre: 'Ultra Titan',
+    specs: {
+      cpu: 'i9-14900K',
+      gpu: 'RTX 4090',
+      ram: '64GB DDR5',
+      storage: '2TB NVMe',
+    },
+    tag: 'Flagship',
+    color: 'purple',
+    disponible: false,
+  },
+] as const
+
+export const REVIEWS = [
+  {
+    nombre: 'Carlos G.',
+    ciudad: 'La Serena',
+    estrellas: 5,
+    comentario: 'Me armaron la PC en 3 días. Todo perfecto, specs exactos, ensamblado impecable.',
+    iniciales: 'CG',
+  },
+  {
+    nombre: 'Valentina P.',
+    ciudad: 'Coquimbo',
+    estrellas: 5,
+    comentario: 'Diagnóstico honesto, sin cobros escondidos. Rápido y precio justo.',
+    iniciales: 'VP',
+  },
+  {
+    nombre: 'Rodrigo N.',
+    ciudad: 'La Serena',
+    estrellas: 5,
+    comentario: 'Mantención física al notebook y quedó como nueva. Excelente atención.',
+    iniciales: 'RN',
+  },
+] as const
+
+export const STATS = [
+  { valor: '200+', label: 'Equipos reparados' },
+  { valor: '2h', label: 'Respuesta promedio' },
+  { valor: '5★', label: 'Calificación promedio' },
+  { valor: '100%', label: 'Satisfacción garantizada' },
+] as const
+
+export const PROCESO = [
+  {
+    numero: '01',
+    titulo: 'Diagnóstico',
+    descripcion: 'Revisamos tu equipo y te explicamos exactamente qué tiene y cuánto costará.',
+  },
+  {
+    numero: '02',
+    titulo: 'Presupuesto',
+    descripcion: 'Te enviamos un presupuesto claro antes de hacer cualquier intervención.',
+  },
+  {
+    numero: '03',
+    titulo: 'Reparación',
+    descripcion: 'Nuestro técnico trabaja en tu equipo con repuestos originales y herramientas profesionales.',
+  },
+  {
+    numero: '04',
+    titulo: 'Entrega',
+    descripcion: 'Te entregamos tu equipo funcionando perfectamente con garantía de 30 días.',
+  },
+] as const
+
+export const POR_QUE_ELEGIRNOS = [
+  {
+    titulo: 'Sin cobros ocultos',
+    descripcion: 'Diagnóstico con precio fijo. Sabes el costo antes de que empecemos a trabajar.',
+    icono: 'shield-check',
+  },
+  {
+    titulo: 'Técnico certificado',
+    descripcion: 'Ingeniería Informática con especialización en Ciberseguridad. No improvisamos.',
+    icono: 'award',
+  },
+  {
+    titulo: 'Respuesta en 2 horas',
+    descripcion: 'Cotizamos por WhatsApp al instante. Sin esperas, sin burocracia.',
+    icono: 'zap',
+  },
+  {
+    titulo: 'Garantía 30 días',
+    descripcion: 'Todos nuestros trabajos tienen garantía. Si falla algo, lo solucionamos sin costo.',
+    icono: 'refresh-cw',
+  },
+  {
+    titulo: 'Datos seguros',
+    descripcion: 'Tu información personal está protegida. No accedemos a tus archivos sin autorización.',
+    icono: 'lock',
+  },
+  {
+    titulo: 'Atención personalizada',
+    descripcion: 'Hablas directamente con el técnico, no con un call center. Cero intermediarios.',
+    icono: 'user-check',
+  },
+] as const
+
+export const WEB_QA_SERVICIOS = [
+  {
+    id: 'auditoria-web',
+    nombre: 'Auditoría Web Integral',
+    descripcion: 'Análisis completo de tu sitio web: rendimiento, SEO técnico, accesibilidad, seguridad y experiencia de usuario. Informe detallado con hallazgos priorizados.',
+    precio: 'Desde $120.000',
+    tiempo: '3–5 días hábiles',
+    icono: 'search',
+    badge: 'Más solicitado',
+  },
+  {
+    id: 'landing-page',
+    nombre: 'Desarrollo Landing Page',
+    descripcion: 'Landing page profesional orientada a conversión. Diseño moderno, rápida, optimizada para SEO y 100% mobile-first. Entrega en producción incluida.',
+    precio: 'Desde $350.000',
+    tiempo: '5–10 días hábiles',
+    icono: 'layout',
+    badge: null,
+  },
+  {
+    id: 'sitio-corporativo',
+    nombre: 'Sitio Corporativo / Pyme',
+    descripcion: 'Sitio web institucional multi-página con CMS simple, formulario de contacto, integración WhatsApp y optimización SEO local.',
+    precio: 'Desde $600.000',
+    tiempo: '2–4 semanas',
+    icono: 'building',
+    badge: null,
+  },
+  {
+    id: 'qa-manual',
+    nombre: 'QA Manual',
+    descripcion: 'Testing exploratorio y de regresión de tu aplicación web o móvil. Plan de pruebas, ejecución, reportes de bugs y verificación de correcciones.',
+    precio: 'Desde $80.000',
+    tiempo: 'Por sprint / proyecto',
+    icono: 'clipboard-check',
+    badge: null,
+  },
+  {
+    id: 'qa-automatizado',
+    nombre: 'QA Automatizado',
+    descripcion: 'Suite de pruebas end-to-end con Playwright o Cypress. Automatización de flujos críticos, integración CI/CD y reportes automáticos.',
+    precio: 'A cotizar',
+    tiempo: 'Por alcance',
+    icono: 'bot',
+    badge: 'Nuevo',
+  },
+  {
+    id: 'consultoria-web',
+    nombre: 'Consultoría Técnica Web',
+    descripcion: 'Sesión de consultoría para revisión de arquitectura, stack tecnológico, performance o estrategia digital. Ideal para emprendedores y PYMEs.',
+    precio: '$50.000/hr',
+    tiempo: '1–2 horas',
+    icono: 'lightbulb',
+    badge: null,
+  },
+] as const
+
+export const CIBER_SERVICIOS = [
+  {
+    id: 'auditoria-ciber',
+    nombre: 'Auditoría de Ciberseguridad',
+    descripcion: 'Evaluación de vulnerabilidades en tu infraestructura IT: redes, endpoints, cuentas y accesos. Informe ejecutivo + técnico con plan de remediación.',
+    precio: 'Desde $200.000',
+    tiempo: '5–7 días hábiles',
+    icono: 'shield-alert',
+    badge: 'Recomendado PYMEs',
+  },
+  {
+    id: 'hardening',
+    nombre: 'Hardening de Sistemas',
+    descripcion: 'Endurecimiento de equipos Windows/Linux: actualizaciones críticas, configuración de firewall, deshabilitación de servicios innecesarios y políticas de seguridad.',
+    precio: 'Desde $80.000',
+    tiempo: 'Por equipo / servidor',
+    icono: 'lock',
+    badge: null,
+  },
+  {
+    id: 'capacitacion',
+    nombre: 'Capacitación en Ciberseguridad',
+    descripcion: 'Taller práctico para tu equipo: phishing, contraseñas seguras, manejo de datos sensibles, respaldo de información e ingeniería social.',
+    precio: 'Desde $150.000',
+    tiempo: '2–4 horas',
+    icono: 'graduation-cap',
+    badge: null,
+  },
+  {
+    id: 'politicas',
+    nombre: 'Políticas de Seguridad',
+    descripcion: 'Diseño e implementación de políticas básicas de seguridad informática para tu empresa: uso de contraseñas, manejo de dispositivos, respaldo de datos y accesos.',
+    precio: 'Desde $120.000',
+    tiempo: '3–5 días hábiles',
+    icono: 'file-shield',
+    badge: null,
+  },
+  {
+    id: 'respuesta-incidentes',
+    nombre: 'Respuesta a Incidentes',
+    descripcion: 'Soporte de urgencia ante ransomware, acceso no autorizado, fuga de datos o infección por malware. Contención, análisis forense básico y recuperación.',
+    precio: 'Urgente: $150.000',
+    tiempo: 'Respuesta inmediata',
+    icono: 'alert-triangle',
+    badge: 'Urgente',
+  },
+  {
+    id: 'monitoreo',
+    nombre: 'Monitoreo y Alertas',
+    descripcion: 'Configuración de sistema de monitoreo básico para tu red y equipos empresariales. Alertas ante accesos sospechosos, cambios críticos y eventos de seguridad.',
+    precio: 'A cotizar',
+    tiempo: 'Servicio mensual',
+    icono: 'activity',
+    badge: null,
+  },
+] as const
+
+export const NAV_LINKS = [
+  { href: '/servicios', label: 'Servicios' },
+  { href: '/web-qa', label: 'Web & QA' },
+  { href: '/ciberseguridad', label: 'Ciberseguridad' },
+  { href: '/builds', label: 'PC Gamer' },
+  { href: '/nosotros', label: 'Nosotros' },
+  { href: '/contacto', label: 'Contacto' },
+] as const

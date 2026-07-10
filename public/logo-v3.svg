@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 72" role="img" aria-label="TECKWARE">
+  <defs>
+    <filter id="v3g" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="v3cg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D4FF"/>
+      <stop offset="100%" stop-color="#A855F7"/>
+    </linearGradient>
+    <linearGradient id="v3bar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#00D4FF"/>
+      <stop offset="100%" stop-color="#A855F7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ══ ICONO: HEXÁGONO SHIELD + CIRCUITO ══ -->
+
+  <!-- Hexágono exterior (flat-top) centrado en 36,36 r=30 -->
+  <polygon
+    points="6,36 21,10 51,10 66,36 51,62 21,62"
+    fill="rgba(0,212,255,0.05)"
+    stroke="url(#v3cg)" stroke-width="1.8"/>
+
+  <!-- Hexágono interior más pequeño (r=18) -->
+  <polygon
+    points="18,36 27,20 45,20 54,36 45,52 27,52"
+    fill="none"
+    stroke="rgba(0,212,255,0.18)" stroke-width="1"/>
+
+  <!-- Vértice accent top-right (gaming highlight) -->
+  <circle cx="51" cy="10" r="3" fill="#A855F7" filter="url(#v3g)"/>
+  <circle cx="66" cy="36" r="2" fill="#00D4FF" opacity="0.6"/>
+
+  <!-- T circuito centrado en el hexágono -->
+  <!-- Horizontal: y=30, de x=24 a x=48 -->
+  <line x1="24" y1="30" x2="48" y2="30"
+        stroke="#00D4FF" stroke-width="3.5" stroke-linecap="round" filter="url(#v3g)"/>
+  <!-- Vertical: de y=30 a y=52, x=36 -->
+  <line x1="36" y1="30" x2="36" y2="52"
+        stroke="#00D4FF" stroke-width="3.5" stroke-linecap="round" filter="url(#v3g)"/>
+
+  <!-- Nodos del circuito -->
+  <circle cx="24" cy="30" r="2.5" fill="#00D4FF"/>
+  <circle cx="48" cy="30" r="2.5" fill="#00D4FF"/>
+  <!-- Centro: doble círculo (bullseye) = confianza, precisión -->
+  <circle cx="36" cy="30" r="5"   fill="#00D4FF" filter="url(#v3g)"/>
+  <circle cx="36" cy="30" r="2.5" fill="#080B14"/>
+  <circle cx="36" cy="30" r="1"   fill="#00D4FF"/>
+  <!-- Nodo base purple -->
+  <circle cx="36" cy="52" r="3" fill="#A855F7" filter="url(#v3g)"/>
+
+  <!-- Trazas hacia los vértices del hex (PCB traces) -->
+  <line x1="24" y1="30" x2="18" y2="36" stroke="rgba(0,212,255,0.25)" stroke-width="1" stroke-linecap="round"/>
+  <line x1="48" y1="30" x2="54" y2="36" stroke="rgba(0,212,255,0.25)" stroke-width="1" stroke-linecap="round"/>
+
+  <!-- ══ WORDMARK ══ -->
+
+  <!-- TECKWARE: letras separadas con tratamiento de color -->
+  <!-- TECK en cyan, WARE en blanco — mismo tamaño, juntas -->
+  <text y="50"
+    font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+    font-weight="900" font-size="40" letter-spacing="-1.5">
+    <tspan x="82" fill="#00D4FF">TECK</tspan><tspan fill="#F1F5F9">WARE</tspan>
+  </text>
+
+  <!-- Barra degradado bajo el wordmark -->
+  <rect x="82" y="55" width="224" height="2" rx="1" fill="url(#v3bar)" opacity="0.7"/>
+
+  <!-- Tagline -->
+  <text x="82" y="67"
+    font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+    font-size="7.5" font-weight="600" letter-spacing="3" fill="#475569">
+    HARDWARE · GAMING · CONFIANZA
+  </text>
+</svg>
