@@ -1,0 +1,126 @@
+export type Build = {
+  id: string
+  nombre: string
+  tag: string
+  tagColor: 'cyan' | 'purple' | 'green' | 'orange'
+  descripcion: string
+  precio: number
+  disponible: boolean
+  featured: boolean
+  specs: {
+    cpu: string
+    gpu: string
+    ram: string
+    storage: string
+    motherboard: string
+    psu: string
+    cooling: string
+    case: string
+  }
+  fps: {
+    fortnite?: string
+    warzone?: string
+    valorant?: string
+    cyberpunk?: string
+    gta5?: string
+  }
+  youtubeId: string
+}
+
+export const INITIAL_BUILDS: Build[] = [
+  {
+    id: 'starter-beast',
+    nombre: 'Starter Beast',
+    tag: 'Entry Level',
+    tagColor: 'green',
+    descripcion: 'La combinación perfecta para entrar al gaming 1080p sin gastar de más. Rendimiento sólido en todos los títulos modernos.',
+    precio: 899000,
+    disponible: true,
+    featured: true,
+    specs: {
+      cpu: 'AMD Ryzen 5 7600X',
+      gpu: 'AMD Radeon RX 7600 8GB',
+      ram: '16GB DDR5 5600MHz (2×8GB)',
+      storage: '512GB NVMe M.2 PCIe 4.0',
+      motherboard: 'Gigabyte B650M AORUS Elite',
+      psu: 'Corsair CV650 650W 80+ Bronze',
+      cooling: 'Cooler Master Hyper 212',
+      case: 'Corsair 4000D Airflow',
+    },
+    fps: {
+      fortnite: '180–240 FPS',
+      warzone: '130–160 FPS',
+      valorant: '280–350 FPS',
+      cyberpunk: '70–90 FPS',
+      gta5: '140–180 FPS',
+    },
+    youtubeId: '',
+  },
+  {
+    id: 'mid-beast-pro',
+    nombre: 'Mid Beast Pro',
+    tag: 'Más Pedido',
+    tagColor: 'cyan',
+    descripcion: 'El punto dulce entre precio y rendimiento. Domina 1080p y alcanza 1440p con soltura. Ideal para gaming + streaming simultáneo.',
+    precio: 1890000,
+    disponible: true,
+    featured: true,
+    specs: {
+      cpu: 'AMD Ryzen 7 9700X',
+      gpu: 'NVIDIA RTX 4070 Ti 12GB',
+      ram: '32GB DDR5 6000MHz (2×16GB)',
+      storage: '1TB NVMe M.2 PCIe 4.0',
+      motherboard: 'MSI MAG B650 Tomahawk WiFi',
+      psu: 'Corsair RM850x 850W 80+ Gold',
+      cooling: 'Noctua NH-D15 (Dual Fan)',
+      case: 'Lian Li Lancool 216',
+    },
+    fps: {
+      fortnite: '280–350 FPS',
+      warzone: '180–220 FPS',
+      valorant: '400+ FPS',
+      cyberpunk: '100–130 FPS (RT On)',
+      gta5: '180–220 FPS',
+    },
+    youtubeId: '',
+  },
+  {
+    id: 'ultra-titan',
+    nombre: 'Ultra Titan',
+    tag: 'Flagship',
+    tagColor: 'purple',
+    descripcion: 'Sin compromisos. Máximo rendimiento disponible: gaming 4K, streaming, renders 3D y simulaciones al mismo tiempo.',
+    precio: 3990000,
+    disponible: false,
+    featured: true,
+    specs: {
+      cpu: 'Intel Core i9-14900K',
+      gpu: 'NVIDIA RTX 4090 24GB',
+      ram: '64GB DDR5 7200MHz (2×32GB)',
+      storage: '2TB NVMe M.2 PCIe 5.0',
+      motherboard: 'ASUS ROG Maximus Z790 Hero',
+      psu: 'Corsair HX1000i 1000W 80+ Platinum',
+      cooling: 'NZXT Kraken 360mm AIO',
+      case: 'Lian Li PC-O11D EVO XL',
+    },
+    fps: {
+      fortnite: '400+ FPS (1440p)',
+      warzone: '250+ FPS (1440p)',
+      valorant: '500+ FPS (1440p)',
+      cyberpunk: '140–160 FPS (4K Ultra RT)',
+      gta5: '250+ FPS (4K Max)',
+    },
+    youtubeId: '',
+  },
+]
+
+export async function getBuilds(): Promise<Build[]> {
+  try {
+    const { readFileSync } = await import('fs')
+    const { join } = await import('path')
+    const raw = readFileSync(join(process.cwd(), 'data', 'builds.json'), 'utf-8')
+    return JSON.parse(raw) as Build[]
+  } catch {
+    return INITIAL_BUILDS
+  }
+}

@@ -66,10 +66,10 @@ export function Hero() {
             className="flex flex-col sm:flex-row gap-4 mb-14"
           >
             <Link
-              href="/solicitar"
+              href="/agendar"
               className="flex items-center justify-center gap-2 px-6 py-3.5 bg-[#00D4FF] text-[#03040A] font-bold rounded-xl hover:bg-[#00A8CC] transition-colors duration-150 min-h-[52px] w-full sm:w-auto"
             >
-              Solicitar servicio
+              Agendar servicio
               <ArrowRight size={18} strokeWidth={2.5} />
             </Link>
             <a

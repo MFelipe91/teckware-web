@@ -1,5 +1,6 @@
 import { Hero } from '@/components/home/Hero'
 import { Ticker } from '@/components/home/Ticker'
+import { BookingStrip } from '@/components/home/BookingStrip'
 import { ServiciosDestacados } from '@/components/home/ServiciosDestacados'
 import { PorQueElegirnos } from '@/components/home/PorQueElegirnos'
 import { Proceso } from '@/components/home/Proceso'
@@ -11,6 +12,7 @@ export default function Home() {
     <>
       <Hero />
       <Ticker />
+      <BookingStrip />
       <ServiciosDestacados />
       <PorQueElegirnos />
       <Proceso />
