@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { MessageCircle, ArrowRight, Shield, Clock, Star, Gamepad2, Receipt } from 'lucide-react'
 import { WA } from '@/lib/whatsapp'
 import { staggerContainer, staggerItem } from '@/lib/animations'
+import { BLUR_DARK } from '@/lib/imageBlur'
 
 export function Hero() {
   return (
@@ -41,7 +42,11 @@ export function Hero() {
             fill
             className="object-cover object-center"
             priority
-            sizes="54vw"
+            fetchPriority="high"
+            quality={85}
+            sizes="(max-width: 1024px) 0vw, 54vw"
+            placeholder="blur"
+            blurDataURL={BLUR_DARK}
           />
           {/* Strong left fade into dark bg */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#020307] via-[#020307]/70 to-transparent" />

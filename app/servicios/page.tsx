@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   Search, RefreshCw, Wrench, Cpu, Package, ArrowRight,
   Laptop, Monitor, Gamepad2, Tablet, Apple, Briefcase,
@@ -7,6 +8,7 @@ import {
 } from 'lucide-react'
 import { SERVICIOS, SERVICIOS_ADICIONALES, EQUIPOS, IVA_NOTA } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
+import { BLUR_DARK } from '@/lib/imageBlur'
 
 export const metadata: Metadata = {
   title: 'Servicios',
@@ -41,10 +43,25 @@ export default function ServiciosPage() {
     <div className="min-h-screen bg-[#080B14] pt-24">
       {/* Header */}
       <section className="relative bg-[#020307] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-dot-grid opacity-25" />
-        <div className="absolute inset-0 bg-grid opacity-20" />
-        <div className="glow-cyan w-80 h-80 -top-20 right-0 opacity-35" />
-        <div className="glow-red w-64 h-64 bottom-0 left-0 opacity-40" />
+        {/* Foto de fondo — limpieza de fans PC */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/pexels-anete-lusina-31854230.jpg"
+            alt="Técnico limpiando fans de PC — Servicios TECKWARE"
+            fill
+            className="object-cover object-center opacity-10"
+            priority
+            quality={50}
+            sizes="100vw"
+            placeholder="blur"
+            blurDataURL={BLUR_DARK}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#020307]/80 via-[#020307]/60 to-[#020307]" />
+        </div>
+        <div className="absolute inset-0 bg-dot-grid opacity-20" />
+        <div className="absolute inset-0 bg-grid opacity-15" />
+        <div className="glow-cyan w-80 h-80 -top-20 right-0 opacity-30" />
+        <div className="glow-red w-64 h-64 bottom-0 left-0 opacity-30" />
         {/* Top accent line */}
         <div className="absolute top-0 left-0 right-0 h-[2px]"
           style={{ background: 'linear-gradient(90deg, transparent, #E61E32 30%, #00D4FF 70%, transparent)' }}

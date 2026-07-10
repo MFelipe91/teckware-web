@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import { BLUR_DARK } from '@/lib/imageBlur'
 import {
   Search, Layout, Building2, ClipboardCheck, Bot, Lightbulb,
   ArrowRight, CheckCircle2, Code2, Zap, Shield, BarChart3,
@@ -65,12 +66,15 @@ export default function WebQAPage() {
       <section className="relative bg-[#03040A] py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/fotis-fotopoulos-DuHKoV44prg-unsplash.jpg"
-            alt="Workstation de desarrollo web — pantallas con código"
+            src="/images/pexels-dkomov-34804020.jpg"
+            alt="Código en pantalla con tonos cálidos — Web & QA TECKWARE"
             fill
-            className="object-cover object-center opacity-15"
+            className="object-cover object-center opacity-18"
             priority
+            quality={55}
             sizes="100vw"
+            placeholder="blur"
+            blurDataURL={BLUR_DARK}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#03040A]/70 via-[#03040A]/50 to-[#03040A]" />
         </div>

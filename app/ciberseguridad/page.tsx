@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import { BLUR_DARK } from '@/lib/imageBlur'
 import {
   ShieldAlert, Lock, GraduationCap, FileCheck2, AlertTriangle, Activity,
   ArrowRight, CheckCircle2, Eye, UserX, Database, Wifi,
@@ -70,7 +71,10 @@ export default function CiberseguridadPage() {
             fill
             className="object-cover object-center opacity-15"
             priority
+            quality={55}
             sizes="100vw"
+            placeholder="blur"
+            blurDataURL={BLUR_DARK}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#03040A]/70 via-[#03040A]/50 to-[#03040A]" />
         </div>

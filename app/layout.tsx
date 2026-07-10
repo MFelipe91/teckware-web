@@ -141,6 +141,13 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preload hero image for LCP — only on desktop (54vw panel) */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/back2gaming-bXSC9GGir_A-unsplash.jpg"
+          media="(min-width: 1024px)"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

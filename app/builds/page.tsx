@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import { BLUR_DARK } from '@/lib/imageBlur'
 import { ArrowRight, Cpu, MonitorPlay, MemoryStick, HardDrive, CircuitBoard, Zap, Wind, Box, CheckCircle2, XCircle, Gamepad2 } from 'lucide-react'
 import { getBuildsAction } from '@/app/admin/actions'
 import { YoutubeEmbed } from '@/components/builds/YoutubeEmbed'
@@ -62,12 +63,15 @@ export default async function BuildsPage() {
         {/* Background image — RGB Corsair build interior */}
         <div className="absolute inset-0">
           <Image
-            src="/images/andy-holmes-EOAKUQcsFIU-unsplash.jpg"
-            alt="PC Gamer interior RGB"
+            src="/images/revendo-TN0dhAnylPI-unsplash.jpg"
+            alt="PC Gamer GIGABYTE Z790 con RTX y RAM XPG RGB — TECKWARE Builds"
             fill
-            className="object-cover object-center opacity-20"
+            className="object-cover object-center opacity-22"
             priority
+            quality={60}
             sizes="100vw"
+            placeholder="blur"
+            blurDataURL={BLUR_DARK}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#03040A]/60 via-[#03040A]/50 to-[#03040A]" />
         </div>

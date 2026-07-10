@@ -10,6 +10,7 @@ import {
 import { SERVICIOS, IVA_NOTA } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
 import { staggerContainer, staggerItem, viewportConfig } from '@/lib/animations'
+import { BLUR_DARK } from '@/lib/imageBlur'
 
 const ICONS: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   'search': Search,
@@ -26,28 +27,28 @@ const ICONS: Record<string, React.ComponentType<{ size?: number; className?: str
 
 const SERVICE_IMAGES: Record<string, { src: string; alt: string }> = {
   diagnostico: {
-    src: '/images/pexels-bertellifotografia-34552805.jpg',
-    alt: 'Monitor de temperatura NZXT — Diagnóstico PC',
+    src: '/images/pexels-zeleboba-20860011.jpg',
+    alt: 'Técnico reparando MacBook con destornillador — Diagnóstico TECKWARE',
   },
   'mantencion-logica': {
-    src: '/images/onur-binay-z3MP5DDiEME-unsplash.jpg',
-    alt: 'PC Gamer RTX TUF Gaming — Mantención Lógica y Formateo',
+    src: '/images/daniel-shapiro-WROdXvr9omQ-unsplash.jpg',
+    alt: 'Motherboard laptop con slot M.2 — Mantención Lógica y Formateo',
   },
   'mantencion-full': {
-    src: '/images/pexels-elias-gamez-2002621-10558600.jpg',
-    alt: 'Aplicando pasta térmica en laptop — Mantención Full',
+    src: '/images/pexels-anete-lusina-31854227.jpg',
+    alt: 'Limpieza de PC con soplador de aire — Mantención Full TECKWARE',
   },
   'recuperacion-datos': {
-    src: '/images/samsung-memory-uevjOXJQzmU-unsplash.jpg',
-    alt: 'Disco SSD Samsung — Recuperación de Datos',
+    src: '/images/pexels-zeleboba-19892557.jpg',
+    alt: 'Interior notebook con Samsung 990 PRO M.2 — Recuperación de Datos',
   },
   'mantencion-gpu': {
-    src: '/images/back2gaming-bXSC9GGir_A-unsplash.jpg',
-    alt: 'Tarjeta gráfica RTX AORUS — Mantención GPU',
+    src: '/images/pexels-david-bares-42311-424436.jpg',
+    alt: 'NZXT Kraken RGB + MSI GPU + ROG — Mantención GPU TECKWARE',
   },
   'armado-estandar': {
-    src: '/images/martin-katler-7wCxlBfGMdk-unsplash.jpg',
-    alt: 'Componentes Intel i9, MSI GPU y HyperX RAM — Armado PC Gamer',
+    src: '/images/pexels-muhammad-faheem-hayat-2157171429-38181602.jpg',
+    alt: 'PC Gamer en gabinete de vidrio con GeForce RTX — Armado PC Gamer TECKWARE',
   },
 }
 
@@ -100,7 +101,11 @@ export function ServiciosDestacados() {
                       alt={image.alt}
                       fill
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      quality={72}
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL={BLUR_DARK}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-[#0D1117]/30 to-transparent" />
                     <div className="absolute bottom-3 left-4 w-9 h-9 flex items-center justify-center rounded-xl bg-[#03040A]/80 border border-[#00D4FF]/30 backdrop-blur-sm">
