@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
-import { ArrowRight, ArrowLeft, CheckCircle2, Search, RefreshCw, Wrench, Cpu, Briefcase, Package, Monitor, Laptop, Apple, Gamepad2, Tablet } from 'lucide-react'
+import { useState, useRef } from 'react'
+import Image from 'next/image'
+import { ArrowRight, ArrowLeft, CheckCircle2, Search, RefreshCw, Wrench, Cpu, Briefcase, Package, Monitor, Laptop, Apple, Gamepad2, Tablet, Camera, X, Loader2, ImageIcon } from 'lucide-react'
 import { WA } from '@/lib/whatsapp'
 
 type Step = 1 | 2 | 3 | 4
@@ -16,6 +17,7 @@ type FormData = {
   telefono: string
   fechaPreferida: string
   horario: string
+  fotoUrls: string[]
 }
 
 const SERVICIOS = [
@@ -49,17 +51,22 @@ const EMPTY: FormData = {
   servicio: '', servicioLabel: '', equipoTipo: '',
   marca: '', problema: '', nombre: '',
   telefono: '', fechaPreferida: '', horario: '',
+  fotoUrls: [],
 }
 
 function buildWAMessage(f: FormData): string {
   const BASE = 'https://wa.me/56930209427?text='
   const enc = (t: string) => encodeURIComponent(t)
+  const fotos = f.fotoUrls.length
+    ? `\n📸 *Fotos adjuntas:*\n${f.fotoUrls.map((u, i) => `  ${i + 1}. ${u}`).join('\n')}\n`
+    : ''
   const msg =
     `*Nueva solicitud de servicio — teckware.cl* 📋\n\n` +
     `🛠️ *Servicio:* ${f.servicioLabel}\n` +
     `💻 *Equipo:* ${f.equipoTipo}${f.marca ? ` — ${f.marca}` : ''}\n` +
-    `📝 *Problema:* ${f.problema}\n\n` +
-    `📅 *Fecha preferida:* ${f.fechaPreferida || 'A coordinar'}\n` +
+    `📝 *Problema:* ${f.problema}\n` +
+    fotos +
+    `\n📅 *Fecha preferida:* ${f.fechaPreferida || 'A coordinar'}\n` +
     `⏰ *Horario:* ${f.horario || 'A coordinar'}\n\n` +
     `👤 *Nombre:* ${f.nombre}\n` +
     `📱 *Teléfono:* ${f.telefono}\n\n` +
@@ -76,6 +83,10 @@ function getTomorrow(): string {
 export default function AgendarPage() {
   const [step, setStep] = useState<Step>(1)
   const [form, setForm] = useState<FormData>(EMPTY)
+  const [previews, setPreviews] = useState<string[]>([])
+  const [uploading, setUploading] = useState(false)
+  const [uploadError, setUploadError] = useState('')
+  const fileRef = useRef<HTMLInputElement>(null)
 
   const set = (key: keyof FormData, val: string) =>
     setForm((f) => ({ ...f, [key]: val }))
@@ -83,6 +94,48 @@ export default function AgendarPage() {
   const canNext1 = !!form.servicio
   const canNext2 = !!form.equipoTipo && !!form.problema.trim()
   const canNext3 = !!form.nombre.trim() && !!form.telefono.trim()
+
+  async function handleFiles(files: FileList | null) {
+    if (!files || files.length === 0) return
+    const total = previews.length + files.length
+    if (total > 3) {
+      setUploadError('Máximo 3 fotos en total')
+      return
+    }
+    setUploadError('')
+    setUploading(true)
+
+    // Preview local inmediato
+    const newPreviews: string[] = []
+    for (const file of Array.from(files)) {
+      newPreviews.push(URL.createObjectURL(file))
+    }
+    setPreviews(prev => [...prev, ...newPreviews])
+
+    // Upload a Supabase
+    const fd = new FormData()
+    for (const file of Array.from(files)) fd.append('files', file)
+
+    try {
+      const res = await fetch('/api/upload', { method: 'POST', body: fd })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error ?? 'Error al subir')
+      setForm(f => ({ ...f, fotoUrls: [...f.fotoUrls, ...data.urls] }))
+    } catch (e: unknown) {
+      const msg = e instanceof Error ? e.message : 'Error al subir las fotos'
+      setUploadError(msg)
+      // revert previews on error
+      setPreviews(prev => prev.slice(0, prev.length - newPreviews.length))
+    } finally {
+      setUploading(false)
+      if (fileRef.current) fileRef.current.value = ''
+    }
+  }
+
+  function removePhoto(index: number) {
+    setPreviews(prev => prev.filter((_, i) => i !== index))
+    setForm(f => ({ ...f, fotoUrls: f.fotoUrls.filter((_, i) => i !== index) }))
+  }
 
   const progressPct = ((step - 1) / 3) * 100
 
@@ -214,6 +267,74 @@ export default function AgendarPage() {
                   className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-sm text-[#F1F5F9] placeholder-[#475569] focus:outline-none focus:border-[#00D4FF]/50 transition-colors resize-none"
                 />
               </div>
+
+              {/* Fotos opcionales */}
+              <div className="mt-5">
+                <label className="text-xs font-semibold text-[#94A3B8] uppercase tracking-wider block mb-1">
+                  Fotos del equipo o error{' '}
+                  <span className="text-[#475569] normal-case font-normal">(opcional · máx. 3)</span>
+                </label>
+                <p className="text-xs text-[#475569] mb-3">
+                  Sube fotos del daño, pantalla de error o interior del equipo para que Mario evalúe antes de la cita.
+                </p>
+
+                {/* Thumbnails */}
+                {previews.length > 0 && (
+                  <div className="flex gap-3 mb-3 flex-wrap">
+                    {previews.map((src, i) => (
+                      <div key={i} className="relative w-20 h-20 rounded-xl overflow-hidden border border-white/15 group">
+                        <Image src={src} alt={`Foto ${i + 1}`} fill className="object-cover" />
+                        <button
+                          onClick={() => removePhoto(i)}
+                          className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/70 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          <X size={10} />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Upload zone */}
+                {previews.length < 3 && (
+                  <button
+                    type="button"
+                    onClick={() => fileRef.current?.click()}
+                    disabled={uploading}
+                    className="flex items-center gap-3 w-full px-4 py-3.5 border border-dashed border-white/20 rounded-xl hover:border-[#00D4FF]/40 hover:bg-[#00D4FF]/4 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {uploading
+                      ? <Loader2 size={18} className="text-[#00D4FF] animate-spin shrink-0" />
+                      : previews.length === 0
+                      ? <Camera size={18} className="text-[#475569] shrink-0" />
+                      : <ImageIcon size={18} className="text-[#00D4FF] shrink-0" />
+                    }
+                    <span className="text-sm text-[#475569]">
+                      {uploading
+                        ? 'Subiendo fotos...'
+                        : previews.length === 0
+                        ? 'Agregar fotos (JPG, PNG, WebP)'
+                        : `Agregar más (${previews.length}/3)`
+                      }
+                    </span>
+                  </button>
+                )}
+
+                <input
+                  ref={fileRef}
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp,image/heic"
+                  multiple
+                  className="hidden"
+                  onChange={e => handleFiles(e.target.files)}
+                />
+
+                {uploadError && (
+                  <p className="text-xs text-red-400 mt-2 flex items-center gap-1">
+                    <X size={11} /> {uploadError}
+                  </p>
+                )}
+              </div>
             </div>
           )}
 
@@ -307,6 +428,18 @@ export default function AgendarPage() {
                     <span className="text-sm text-[#F1F5F9] flex-1">{value}</span>
                   </div>
                 ))}
+                {previews.length > 0 && (
+                  <div className="flex gap-3 py-2">
+                    <span className="text-xs text-[#475569] w-20 shrink-0 pt-1">Fotos</span>
+                    <div className="flex gap-2 flex-wrap">
+                      {previews.map((src, i) => (
+                        <div key={i} className="relative w-14 h-14 rounded-lg overflow-hidden border border-white/15">
+                          <Image src={src} alt={`Foto ${i + 1}`} fill className="object-cover" />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
 
               <div className="bg-[#00D4FF]/5 border border-[#00D4FF]/20 rounded-xl p-4 mb-6">

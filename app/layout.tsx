@@ -4,6 +4,7 @@ import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { WhatsAppFloat } from '@/components/layout/WhatsAppFloat'
+import { ChatWidget } from '@/components/layout/ChatWidget'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -150,6 +151,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <WhatsAppFloat />
+        <ChatWidget />
       </body>
     </html>
   )
