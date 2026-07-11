@@ -37,8 +37,8 @@ export function Hero() {
       <div className="absolute inset-y-0 right-0 w-[54%] hidden lg:block pointer-events-none">
         <div className="relative w-full h-full scan-line">
           <Image
-            src="/images/back2gaming-bXSC9GGir_A-unsplash.jpg"
-            alt="GeForce RTX — PC Gamer TECKWARE"
+            src="/images/gpubkn.jpg"
+            alt="GPU gaming — PC Gamer TECKWARE La Serena"
             fill
             className="object-cover object-center"
             priority

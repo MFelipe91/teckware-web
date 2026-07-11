@@ -145,7 +145,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/images/back2gaming-bXSC9GGir_A-unsplash.jpg"
+          href="/images/gpubkn.jpg"
           media="(min-width: 1024px)"
         />
         <script

@@ -37,7 +37,7 @@ export const SERVICIOS = [
   },
   {
     id: 'mantencion-full',
-    nombre: 'Mantención Full ⭐',
+    nombre: 'Mantención Full',
     descripcion: 'El más completo: limpieza física profunda + pasta térmica premium + formateo + Windows activado + Office. Todo en uno.',
     precio: '$75.000',
     tiempo: '24–48 horas',

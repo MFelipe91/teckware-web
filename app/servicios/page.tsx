@@ -46,8 +46,8 @@ export default function ServiciosPage() {
         {/* Foto de fondo — limpieza de fans PC */}
         <div className="absolute inset-0">
           <Image
-            src="/images/pexels-anete-lusina-31854230.jpg"
-            alt="Técnico limpiando fans de PC — Servicios TECKWARE"
+            src="/images/mantencionpc.jpg"
+            alt="Técnico realizando mantención de PC — Servicios TECKWARE"
             fill
             className="object-cover object-center opacity-10"
             priority

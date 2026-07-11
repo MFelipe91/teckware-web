@@ -66,8 +66,8 @@ export default function CiberseguridadPage() {
       <section className="relative bg-[#03040A] py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/ilya-pavlov-OqtafYT5kTw-unsplash.jpg"
-            alt="Código de seguridad en pantalla — Ciberseguridad TECKWARE"
+            src="/images/devia.jpg"
+            alt="Pantalla de código — Ciberseguridad TECKWARE"
             fill
             className="object-cover object-center opacity-15"
             priority

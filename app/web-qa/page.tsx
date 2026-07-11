@@ -66,8 +66,8 @@ export default function WebQAPage() {
       <section className="relative bg-[#03040A] py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/pexels-dkomov-34804020.jpg"
-            alt="Código en pantalla con tonos cálidos — Web & QA TECKWARE"
+            src="/images/developer01.jpg"
+            alt="Desarrollador trabajando en código — Web & QA TECKWARE"
             fill
             className="object-cover object-center opacity-18"
             priority

@@ -27,28 +27,28 @@ const ICONS: Record<string, React.ComponentType<{ size?: number; className?: str
 
 const SERVICE_IMAGES: Record<string, { src: string; alt: string }> = {
   diagnostico: {
-    src: '/images/pexels-zeleboba-20860011.jpg',
-    alt: 'Técnico reparando MacBook con destornillador — Diagnóstico TECKWARE',
+    src: '/images/diagnostico_tester.jpg',
+    alt: 'Técnico realizando diagnóstico electrónico — TECKWARE La Serena',
   },
   'mantencion-logica': {
-    src: '/images/daniel-shapiro-WROdXvr9omQ-unsplash.jpg',
-    alt: 'Motherboard laptop con slot M.2 — Mantención Lógica y Formateo',
+    src: '/images/mantencionpc.jpg',
+    alt: 'Mantención lógica y formateo de PC — TECKWARE La Serena',
   },
   'mantencion-full': {
-    src: '/images/pexels-anete-lusina-31854227.jpg',
-    alt: 'Limpieza de PC con soplador de aire — Mantención Full TECKWARE',
+    src: '/images/mantencionpc2.jpg',
+    alt: 'Mantención física completa de PC con limpieza y pasta térmica — TECKWARE',
   },
   'recuperacion-datos': {
-    src: '/images/pexels-zeleboba-19892557.jpg',
-    alt: 'Interior notebook con Samsung 990 PRO M.2 — Recuperación de Datos',
+    src: '/images/Recuperacion de datos.jpg',
+    alt: 'Recuperación de datos en disco dañado — TECKWARE La Serena',
   },
   'mantencion-gpu': {
-    src: '/images/pexels-david-bares-42311-424436.jpg',
-    alt: 'NZXT Kraken RGB + MSI GPU + ROG — Mantención GPU TECKWARE',
+    src: '/images/GPU001.jpg',
+    alt: 'Mantención GPU — cambio de pasta térmica y thermal pads — TECKWARE',
   },
   'armado-estandar': {
-    src: '/images/pexels-muhammad-faheem-hayat-2157171429-38181602.jpg',
-    alt: 'PC Gamer en gabinete de vidrio con GeForce RTX — Armado PC Gamer TECKWARE',
+    src: '/images/pcgamer01.jpg',
+    alt: 'Armado PC Gamer con cable management profesional — TECKWARE La Serena',
   },
 }
 

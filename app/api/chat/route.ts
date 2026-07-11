@@ -14,7 +14,7 @@ DATOS DE TECKWARE:
 SERVICIOS Y PRECIOS (todos con IVA incluido):
 - Diagnóstico Electrónico: $30.000 · 2–4 horas. Si decides reparar, el diagnóstico se descuenta del total.
 - Mantención Lógica (Formateo + Windows 10/11 + Optimización): $40.000 · 24–48 horas.
-- Mantención Full ⭐ (Limpieza física + pasta térmica + formateo + Windows activado + Office): $75.000 · 24–48 horas. El más completo.
+- Mantención Full (Limpieza física + pasta térmica + formateo + Windows activado + Office): $75.000 · 24–48 horas. El más completo.
 - Mantención GPU (pasta Thermal Grizzly + thermal pads para tarjeta gráfica): Desde $45.000 · 24 horas.
 - Recuperación de Datos (respaldo y recuperación de discos dañados): Desde $35.000 · 24–48 horas.
 - Armado PC Gamer Estándar (componentes del cliente, cable management): $75.000 · 48 horas.
