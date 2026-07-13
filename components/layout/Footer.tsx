@@ -16,7 +16,9 @@ export function Footer() {
           {/* Columna 1 — Marca */}
           <div className="space-y-4">
             <Link href="/" aria-label="TECKWARE inicio">
-              <Image src="/logo.svg" alt="TECKWARE" width={150} height={34} />
+              <div className="rounded-sm overflow-hidden border border-[#00D4FF]/15 shadow-[0_0_12px_rgba(0,212,255,0.06)] inline-block">
+                <Image src="/logo-tw.png" alt="TECKWARE" width={120} height={65} className="block" />
+              </div>
             </Link>
             <p className="text-sm text-[#94A3B8] leading-relaxed">
               {EMPRESA.tagline}
