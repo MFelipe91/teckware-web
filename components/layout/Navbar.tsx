@@ -40,16 +40,22 @@ export function Navbar() {
 
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="shrink-0" aria-label="TECKWARE inicio">
-          <div className="rounded-sm overflow-hidden border border-[#00D4FF]/20 shadow-[0_0_16px_rgba(0,212,255,0.1)]">
-            <Image
-              src="/logo-tw.png"
-              alt="TECKWARE — Soluciones Tecnológicas"
-              width={116}
-              height={63}
-              priority
-              className="block"
-            />
+        <Link href="/" className="shrink-0 flex items-center gap-2.5" aria-label="TECKWARE inicio">
+          <Image
+            src="/logo-emblem.png"
+            alt="TECKWARE emblema"
+            width={46}
+            height={49}
+            priority
+            className="block drop-shadow-[0_0_10px_rgba(0,212,255,0.4)]"
+          />
+          <div className="flex flex-col leading-none gap-[3px]">
+            <span className="text-[15px] font-black tracking-wide text-[#F1F5F9] leading-none">
+              TECK<span className="text-[#00D4FF]">WARE</span>
+            </span>
+            <span className="text-[7.5px] tracking-[0.22em] text-[#475569] uppercase leading-none">
+              Soluciones Tecnológicas
+            </span>
           </div>
         </Link>
 
