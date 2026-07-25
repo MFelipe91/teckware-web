@@ -114,13 +114,4 @@ export const INITIAL_BUILDS: Build[] = [
   },
 ]
 
-export async function getBuilds(): Promise<Build[]> {
-  try {
-    const { readFileSync } = await import('fs')
-    const { join } = await import('path')
-    const raw = readFileSync(join(process.cwd(), 'data', 'builds.json'), 'utf-8')
-    return JSON.parse(raw) as Build[]
-  } catch {
-    return INITIAL_BUILDS
-  }
-}
+// La lectura de builds ahora vive en lib/builds.ts (Supabase con fallback a INITIAL_BUILDS).

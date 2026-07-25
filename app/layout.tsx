@@ -5,6 +5,7 @@ import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { WhatsAppFloat } from '@/components/layout/WhatsAppFloat'
 import { ChatWidget } from '@/components/layout/ChatWidget'
+import { businessLd } from '@/lib/structured-data'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -100,37 +101,6 @@ export const metadata: Metadata = {
   },
 }
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'TECKWARE SpA',
-  description:
-    'Servicio técnico informático en La Serena. Reparación de notebooks, PC, MacBook y consolas.',
-  url: 'https://teckware.cl',
-  telephone: '+56930209427',
-  email: 'mariofelipe@teckware.cl',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Colón 352',
-    addressLocality: 'La Serena',
-    addressRegion: 'Región de Coquimbo',
-    addressCountry: 'CL',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: -29.9027,
-    longitude: -71.2519,
-  },
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-    opens: '09:00',
-    closes: '19:00',
-  },
-  sameAs: ['https://instagram.com/teckware.cl'],
-  priceRange: '$$',
-}
-
 export default function RootLayout({
   children,
 }: {
@@ -145,12 +115,12 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/images/gpubkn.jpg"
+          href="/images/hardware.jpg"
           media="(min-width: 1024px)"
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessLd) }}
         />
       </head>
       <body className="min-h-screen antialiased">

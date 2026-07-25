@@ -7,7 +7,8 @@ import {
   Search, RefreshCw, Wrench, Cpu, Package, ArrowRight, Briefcase,
   HardDrive, Zap, Gamepad2, MapPin, Receipt,
 } from 'lucide-react'
-import { SERVICIOS, IVA_NOTA } from '@/lib/constants'
+import { IVA_NOTA } from '@/lib/constants'
+import type { Servicio } from '@/lib/services'
 import { WA } from '@/lib/whatsapp'
 import { staggerContainer, staggerItem, viewportConfig } from '@/lib/animations'
 import { BLUR_DARK } from '@/lib/imageBlur'
@@ -31,15 +32,15 @@ const SERVICE_IMAGES: Record<string, { src: string; alt: string }> = {
     alt: 'Técnico realizando diagnóstico electrónico — TECKWARE La Serena',
   },
   'mantencion-logica': {
-    src: '/images/mantencionpc.jpg',
-    alt: 'Mantención lógica y formateo de PC — TECKWARE La Serena',
+    src: '/images/Formateo_windows11.jpg',
+    alt: 'Formateo e instalación de Windows y macOS — Mantención lógica TECKWARE La Serena',
   },
   'mantencion-full': {
     src: '/images/mantencionpc2.jpg',
     alt: 'Mantención física completa de PC con limpieza y pasta térmica — TECKWARE',
   },
   'recuperacion-datos': {
-    src: '/images/Recuperacion de datos.jpg',
+    src: '/images/recuperacion-datos.jpg',
     alt: 'Recuperación de datos en disco dañado — TECKWARE La Serena',
   },
   'mantencion-gpu': {
@@ -52,9 +53,9 @@ const SERVICE_IMAGES: Record<string, { src: string; alt: string }> = {
   },
 }
 
-const FEATURED = SERVICIOS.filter((s) => s.featured)
+export function ServiciosDestacados({ servicios }: { servicios: Servicio[] }) {
+  const FEATURED = servicios.filter((s) => s.featured)
 
-export function ServiciosDestacados() {
   return (
     <section className="bg-[#080B14] py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -91,8 +92,12 @@ export function ServiciosDestacados() {
               <motion.div
                 key={servicio.id}
                 variants={staggerItem}
-                className="group relative glass-card rounded-2xl overflow-hidden border border-white/10 card-hover flex flex-col"
+                className="group relative glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:border-[#00D4FF]/40 hover:shadow-[0_16px_50px_-12px_rgba(0,212,255,0.28)]"
               >
+                {/* Línea de acento superior — aparece al hover */}
+                <div className="absolute top-0 left-0 right-0 h-[2px] z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: 'linear-gradient(90deg, transparent, #00D4FF 50%, transparent)' }}
+                />
                 {/* Card image */}
                 {image && (
                   <div className="relative h-44 overflow-hidden shrink-0">
@@ -129,7 +134,7 @@ export function ServiciosDestacados() {
                       {servicio.precio === 'A cotizar' ? (
                         <span className="text-sm font-semibold text-[#A855F7]">A cotizar</span>
                       ) : (
-                        <span className="price text-xl font-bold text-[#F1F5F9]">
+                        <span className="price text-xl font-black text-[#00D4FF] tracking-tight">
                           {servicio.precio}
                         </span>
                       )}

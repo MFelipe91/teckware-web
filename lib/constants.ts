@@ -28,8 +28,8 @@ export const SERVICIOS = [
   {
     id: 'mantencion-logica',
     nombre: 'Mantención Lógica',
-    descripcion: 'Formateo + instalación de Windows 10/11 + optimización completa de software. Tu equipo como nuevo.',
-    precio: '$40.000',
+    descripcion: 'Formateo e instalación limpia de Windows o macOS + optimización completa del sistema, drivers y software. Tu equipo como nuevo.',
+    precio: '$45.000',
     tiempo: '24–48 horas',
     icono: 'refresh-cw',
     featured: true,
@@ -138,6 +138,114 @@ export const SERVICIOS = [
 ]
 
 export const IVA_NOTA = 'Todos los precios incluyen IVA · Se emite boleta de servicio · TECKWARE SpA'
+
+// Condiciones que aplican a TODOS los servicios (se muestran una vez).
+export const CONDICIONES_GENERALES = [
+  'Pago al retirar el equipo funcionando · Sin anticipo',
+  'Garantía de 30 días en la mano de obra',
+  'Precios con IVA incluido · Se emite boleta',
+  'Insumos incluidos · Repuestos y componentes se cotizan aparte',
+] as const
+
+// Detalle por servicio: qué incluye ("incluye") y una nota específica opcional.
+// La clave es el id del servicio (ver SERVICIOS arriba).
+export const SERVICIO_CONDICIONES: Record<string, { incluye: string[]; nota?: string }> = {
+  'diagnostico': {
+    incluye: [
+      'Revisión completa de hardware y software',
+      'Informe de la falla + presupuesto de reparación',
+      'Entrega en 2 a 4 horas',
+    ],
+    nota: 'El valor del diagnóstico se descuenta del total si realizas la reparación con nosotros.',
+  },
+  'mantencion-logica': {
+    incluye: [
+      'Formateo e instalación limpia de Windows o macOS',
+      'Drivers, actualizaciones y optimización del sistema',
+      'Respaldo básico de tus archivos incluido',
+      'Instalación de software esencial',
+    ],
+    nota: 'Programas con licencia pagada (Office u otros) se instalan según la licencia que tengas.',
+  },
+  'mantencion-full': {
+    incluye: [
+      'Limpieza física profunda (ventiladores y disipadores)',
+      'Cambio de pasta térmica premium',
+      'Formateo + sistema operativo + optimización',
+      'Respaldo básico de tus archivos incluido',
+    ],
+    nota: 'Incluye insumos (pasta térmica). Repuestos o piezas dañadas se cotizan aparte.',
+  },
+  'recuperacion-datos': {
+    incluye: [
+      'Diagnóstico del disco o medio de almacenamiento',
+      'Recuperación de archivos recuperables',
+      'Entrega de los datos en tu disco o pendrive',
+    ],
+    nota: 'El valor final depende del nivel de daño. En discos con daño físico severo no se garantiza el 100%.',
+  },
+  'mantencion-gpu': {
+    incluye: [
+      'Desarme y limpieza de la tarjeta gráfica',
+      'Cambio de pasta térmica Thermal Grizzly + thermal pads',
+      'Prueba de temperaturas después del servicio',
+    ],
+    nota: 'El valor varía según el modelo de GPU.',
+  },
+  'armado-estandar': {
+    incluye: [
+      'Ensamblaje profesional de tus componentes',
+      'Gestión de cables (cable management)',
+      'Instalación del sistema y prueba de estabilidad',
+    ],
+    nota: 'Valor por el armado. Los componentes los aportas tú o se cotizan aparte.',
+  },
+  'armado-alta-gama': {
+    incluye: [
+      'Ensamblaje avanzado con refrigeración líquida',
+      'Setup estético y personalización RGB profesional',
+      'Optimización y pruebas de rendimiento',
+    ],
+    nota: 'Componentes no incluidos. Ideal para builds de alto rendimiento.',
+  },
+  'consola-ps4': {
+    incluye: [
+      'Limpieza física completa',
+      'Cambio de pasta térmica',
+      'Prueba de funcionamiento',
+    ],
+    nota: 'Para PS3 y PS4. Repuestos, si se requieren, se cotizan aparte.',
+  },
+  'consola-ps5': {
+    incluye: [
+      'Limpieza física completa',
+      'Cambio de metal líquido',
+      'Prueba de temperaturas',
+    ],
+    nota: 'Recomendado una vez al año. Repuestos se cotizan aparte.',
+  },
+  'upgrade': {
+    incluye: [
+      'Asesoría de componentes compatibles con tu equipo',
+      'Instalación y configuración',
+    ],
+    nota: 'Valor de instalación y asesoría. Los componentes se cotizan aparte.',
+  },
+  'domicilio': {
+    incluye: [
+      'Visita técnica en La Serena y Coquimbo',
+      'Diagnóstico o servicio en tu hogar o empresa',
+    ],
+    nota: 'Tarifa de visita + servicio, a coordinar según ubicación.',
+  },
+  'workstation': {
+    incluye: [
+      'Servicio para equipos de trabajo profesional',
+      'Diagnóstico, limpieza y optimización',
+    ],
+    nota: 'Planes de soporte mensual para empresas disponibles (contrato).',
+  },
+}
 
 export const SERVICIOS_ADICIONALES = [
   'Instalación suite ofimática (Office / LibreOffice)',
@@ -258,8 +366,8 @@ export const PROCESO = [
 
 export const POR_QUE_ELEGIRNOS = [
   {
-    titulo: 'Sin cobros ocultos',
-    descripcion: 'Diagnóstico con precio fijo. Sabes el costo antes de que empecemos a trabajar.',
+    titulo: 'Precios claros y fijos',
+    descripcion: 'Presupuesto detallado antes de empezar. Sabes exactamente cuánto pagas y por qué.',
     icono: 'shield-check',
   },
   {

@@ -40,8 +40,8 @@ const SERVICES = [
     desc: 'PS4 $55.000 · PS5 $80.000 c/IVA',
     query: 'Mantención Consola',
     accent: '#A855F7',
-    image: '/images/pexels-david-bares-42311-424436.jpg',
-    imageAlt: 'Mantención de consolas PlayStation',
+    image: '/images/ps5-consola.jpg',
+    imageAlt: 'Consola PlayStation 5 — mantención y cambio de metal líquido TECKWARE',
   },
 ]
 

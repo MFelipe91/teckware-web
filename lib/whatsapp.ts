@@ -28,7 +28,7 @@ export const WA = {
     BASE + enc(`Hola TECKWARE! 👋\n\nMe interesa el build *${nombre}*.\n\n¿Está disponible y cuál es el precio actual?`),
 
   diagnostico:     () => svc('Diagnóstico Electrónico', '$30.000 c/IVA'),
-  mantencionLogica:() => svc('Mantención Lógica (Formateo + SO + Optimización)', '$40.000 c/IVA'),
+  mantencionLogica:() => svc('Mantención Lógica (Formateo Windows/macOS + Optimización)', '$45.000 c/IVA'),
   mantencionFull:  () => svc('Mantención Full (Limpieza + Pasta + Formateo + Win + Office)', '$75.000 c/IVA'),
   mantencionGPU:   () => svc('Mantención GPU (Pasta Thermal Grizzly + Thermal Pads)', 'Desde $45.000 c/IVA'),
   armadoEstandar:  () => svc('Armado PC Gamer Estándar', '$75.000 c/IVA'),

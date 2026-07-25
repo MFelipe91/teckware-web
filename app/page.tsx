@@ -6,14 +6,19 @@ import { PorQueElegirnos } from '@/components/home/PorQueElegirnos'
 import { Proceso } from '@/components/home/Proceso'
 import { Reviews } from '@/components/home/Reviews'
 import { CTABanner } from '@/components/home/CTABanner'
+import { getServices } from '@/lib/services'
 
-export default function Home() {
+// Revalida cada 30s para reflejar cambios de servicios destacados del panel
+export const revalidate = 30
+
+export default async function Home() {
+  const servicios = await getServices()
   return (
     <>
       <Hero />
       <Ticker />
       <BookingStrip />
-      <ServiciosDestacados />
+      <ServiciosDestacados servicios={servicios} />
       <PorQueElegirnos />
       <Proceso />
       <Reviews />

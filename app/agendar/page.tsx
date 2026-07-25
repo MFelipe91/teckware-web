@@ -2,8 +2,18 @@
 
 import { useState, useRef } from 'react'
 import Image from 'next/image'
-import { ArrowRight, ArrowLeft, CheckCircle2, Search, RefreshCw, Wrench, Cpu, Briefcase, Package, Monitor, Laptop, Apple, Gamepad2, Tablet, Camera, X, Loader2, ImageIcon } from 'lucide-react'
+import { ArrowRight, ArrowLeft, CheckCircle2, Search, RefreshCw, Wrench, Cpu, Briefcase, Package, Monitor, Laptop, Apple, Gamepad2, Tablet, Camera, X, Loader2, ImageIcon, Check, Info, ShieldCheck } from 'lucide-react'
 import { WA } from '@/lib/whatsapp'
+import { SERVICIO_CONDICIONES, CONDICIONES_GENERALES } from '@/lib/constants'
+
+// Mapea el id del servicio del wizard → la clave de condiciones en constants.ts
+const COND_MAP: Record<string, string> = {
+  diagnostico: 'diagnostico',
+  formateo: 'mantencion-logica',
+  mantenimiento: 'mantencion-full',
+  armado: 'armado-estandar',
+  workstation: 'workstation',
+}
 
 type Step = 1 | 2 | 3 | 4
 
@@ -21,10 +31,10 @@ type FormData = {
 }
 
 const SERVICIOS = [
-  { id: 'diagnostico',    label: 'Diagnóstico / Revisión',        icon: Search,    precio: '$25.000',    desc: 'Identificamos el problema exacto' },
-  { id: 'formateo',       label: 'Formateo + Instalación Limpia',  icon: RefreshCw, precio: '$35.000',    desc: 'SO desde cero, drivers optimizados' },
-  { id: 'mantenimiento',  label: 'Mantenimiento Físico',           icon: Wrench,    precio: '$60.000',    desc: 'Limpieza, pasta térmica, revisión' },
-  { id: 'armado',         label: 'Armado PC Gamer',               icon: Cpu,       precio: '$60.000',    desc: 'Ensamblado profesional con cable mgmt' },
+  { id: 'diagnostico',    label: 'Diagnóstico / Revisión',        icon: Search,    precio: '$30.000',    desc: 'Identificamos la falla exacta. Se descuenta si reparas.' },
+  { id: 'formateo',       label: 'Mantención Lógica · Formateo',   icon: RefreshCw, precio: '$45.000',    desc: 'Formateo e instalación de Windows o macOS + optimización' },
+  { id: 'mantenimiento',  label: 'Mantención Full · Físico + Sistema', icon: Wrench, precio: '$75.000', desc: 'Limpieza física + pasta térmica + formateo + software' },
+  { id: 'armado',         label: 'Armado PC Gamer',               icon: Cpu,       precio: '$75.000',    desc: 'Ensamblado profesional con cable management' },
   { id: 'workstation',    label: 'Workstation / Empresarial',      icon: Briefcase, precio: 'A cotizar',  desc: 'Equipos de trabajo profesional' },
   { id: 'otro',           label: 'Otro / Consultar',               icon: Package,   precio: 'A cotizar',  desc: 'Cuéntanos qué necesitas' },
 ]
@@ -95,6 +105,11 @@ export default function AgendarPage() {
   const canNext2 = !!form.equipoTipo && !!form.problema.trim()
   const canNext3 = !!form.nombre.trim() && !!form.telefono.trim()
 
+  // Condiciones del servicio seleccionado (mapeado a constants.ts)
+  const condSel = form.servicio && COND_MAP[form.servicio]
+    ? SERVICIO_CONDICIONES[COND_MAP[form.servicio]]
+    : undefined
+
   async function handleFiles(files: FileList | null) {
     if (!files || files.length === 0) return
     const total = previews.length + files.length
@@ -135,6 +150,18 @@ export default function AgendarPage() {
   function removePhoto(index: number) {
     setPreviews(prev => prev.filter((_, i) => i !== index))
     setForm(f => ({ ...f, fotoUrls: f.fotoUrls.filter((_, i) => i !== index) }))
+  }
+
+  // Guarda la solicitud en Supabase (fire-and-forget, no bloquea) y abre WhatsApp.
+  function handleFinalSubmit() {
+    fetch('/api/solicitudes', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+      keepalive: true,
+    }).catch((e) => console.error('No se pudo registrar la solicitud:', e))
+
+    window.open(buildWAMessage(form), '_blank', 'noopener,noreferrer')
   }
 
   const progressPct = ((step - 1) / 3) * 100
@@ -214,6 +241,30 @@ export default function AgendarPage() {
                   </button>
                 ))}
               </div>
+
+              {/* Condiciones del servicio seleccionado */}
+              {condSel && (
+                <div className="mt-5 rounded-xl border border-[#00D4FF]/20 bg-[#00D4FF]/[0.04] p-5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <ShieldCheck size={15} className="text-[#00D4FF]" />
+                    <span className="text-xs font-bold text-[#F1F5F9] uppercase tracking-wider">Qué incluye</span>
+                  </div>
+                  <ul className="space-y-1.5 mb-3">
+                    {condSel.incluye.map((linea) => (
+                      <li key={linea} className="flex items-start gap-2 text-[13px] text-[#94A3B8] leading-snug">
+                        <Check size={13} className="text-[#00D4FF] shrink-0 mt-0.5" strokeWidth={2.5} />
+                        <span>{linea}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  {condSel.nota && (
+                    <p className="flex items-start gap-2 text-xs text-[#64748B] leading-relaxed pt-3 border-t border-white/8">
+                      <Info size={12} className="text-[#475569] shrink-0 mt-0.5" />
+                      <span>{condSel.nota}</span>
+                    </p>
+                  )}
+                </div>
+              )}
             </div>
           )}
 
@@ -442,6 +493,22 @@ export default function AgendarPage() {
                 )}
               </div>
 
+              {/* Condiciones generales */}
+              <div className="rounded-xl border border-white/8 bg-white/[0.02] p-4 mb-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <ShieldCheck size={14} className="text-[#00D4FF]" />
+                  <span className="text-[11px] font-bold text-[#94A3B8] uppercase tracking-wider">Condiciones</span>
+                </div>
+                <ul className="space-y-1.5">
+                  {CONDICIONES_GENERALES.map((c) => (
+                    <li key={c} className="flex items-start gap-2 text-xs text-[#8B9DB5] leading-snug">
+                      <Check size={12} className="text-[#00D4FF] shrink-0 mt-0.5" strokeWidth={2.5} />
+                      <span>{c}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               <div className="bg-[#00D4FF]/5 border border-[#00D4FF]/20 rounded-xl p-4 mb-6">
                 <p className="text-xs text-[#94A3B8] leading-relaxed">
                   Al enviar, abriremos WhatsApp con todos tus datos pre-escritos.
@@ -449,15 +516,14 @@ export default function AgendarPage() {
                 </p>
               </div>
 
-              <a
-                href={buildWAMessage(form)}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
+                onClick={handleFinalSubmit}
                 className="flex items-center justify-center gap-2 w-full py-4 bg-[#00D4FF] text-[#03040A] font-bold rounded-xl hover:bg-[#00A8CC] transition-colors text-base min-h-[56px]"
               >
                 Enviar solicitud por WhatsApp
                 <ArrowRight size={18} strokeWidth={2.5} />
-              </a>
+              </button>
             </div>
           )}
 

@@ -5,7 +5,7 @@ const items = [
   '✓ PC Gamer a medida',
   '✓ MacBook reparación',
   '✓ Consolas PS4 / PS5 / Xbox',
-  '✓ Sin cobros ocultos',
+  '✓ Precio fijo y transparente',
   '✓ Garantía 30 días',
   '✓ Respuesta en 2 horas',
 ]

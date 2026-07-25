@@ -4,11 +4,18 @@ import Image from 'next/image'
 import {
   Search, RefreshCw, Wrench, Cpu, Package, ArrowRight,
   Laptop, Monitor, Gamepad2, Tablet, Apple, Briefcase,
-  HardDrive, Zap, MapPin, Receipt,
+  HardDrive, Zap, MapPin, Receipt, Check, Info, ShieldCheck,
 } from 'lucide-react'
-import { SERVICIOS, SERVICIOS_ADICIONALES, EQUIPOS, IVA_NOTA } from '@/lib/constants'
+import {
+  SERVICIOS_ADICIONALES, EQUIPOS, IVA_NOTA,
+  CONDICIONES_GENERALES, SERVICIO_CONDICIONES,
+} from '@/lib/constants'
+import { getServices } from '@/lib/services'
 import { WA } from '@/lib/whatsapp'
 import { BLUR_DARK } from '@/lib/imageBlur'
+
+// Revalida cada 30s para reflejar cambios de precios/servicios del panel admin
+export const revalidate = 30
 
 export const metadata: Metadata = {
   title: 'Servicios',
@@ -38,7 +45,25 @@ const EQUIPO_ICONS: Record<string, React.ComponentType<{ size?: number; classNam
   'tablet-smartphone': Tablet,
 }
 
-export default function ServiciosPage() {
+// Foto por servicio (por id). Fallback si alguno no tiene.
+const SERVICE_IMAGES: Record<string, string> = {
+  'diagnostico': '/images/diagnostico_tester.jpg',
+  'mantencion-logica': '/images/Formateo_windows11.jpg',
+  'mantencion-full': '/images/mantenimiento.jpg',
+  'recuperacion-datos': '/images/recuperacion-datos.jpg',
+  'mantencion-gpu': '/images/GPU001.jpg',
+  'armado-estandar': '/images/pcgamer01.jpg',
+  'armado-alta-gama': '/images/pc-montaje.jpg',
+  'consola-ps4': '/images/ps5-consola.jpg',
+  'consola-ps5': '/images/ps5-metal-liquido.jpg',
+  'upgrade': '/images/upgraderamssd.jpg',
+  'domicilio': '/images/mantencionpc2.jpg',
+  'workstation': '/images/developer01.jpg',
+}
+const FALLBACK_IMG = '/images/hardware-amd.jpg'
+
+export default async function ServiciosPage() {
+  const SERVICIOS = await getServices()
   return (
     <div className="min-h-screen bg-[#080B14] pt-24">
       {/* Header */}
@@ -82,43 +107,81 @@ export default function ServiciosPage() {
 
       {/* Servicios principales */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {SERVICIOS.map((servicio) => {
             const Icon = ICONS[servicio.icono] ?? Package
+            const img = SERVICE_IMAGES[servicio.id] ?? FALLBACK_IMG
+            const cond = SERVICIO_CONDICIONES[servicio.id]
             const waLink = typeof WA[servicio.whatsappKey as keyof typeof WA] === 'function'
               ? (WA[servicio.whatsappKey as keyof typeof WA] as () => string)()
               : WA.servicio(servicio.nombre)
             return (
               <div
                 key={servicio.id}
-                className="glass-card rounded-sm p-7 border border-white/8 card-hover"
+                className="group glass-card rounded-sm overflow-hidden border border-white/8 card-hover flex flex-col"
               >
-                <div className="flex items-start gap-5">
-                  <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-sm bg-[#00D4FF]/8 border border-[#00D4FF]/20">
-                    <Icon size={22} className="text-[#00D4FF]" />
+                {/* Foto */}
+                <div className="relative h-44 overflow-hidden shrink-0">
+                  <Image
+                    src={img}
+                    alt={`${servicio.nombre} — TECKWARE La Serena`}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    quality={72}
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL={BLUR_DARK}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050810] via-[#050810]/40 to-transparent" />
+                  <div className="absolute bottom-3 left-4 w-10 h-10 flex items-center justify-center rounded-sm bg-[#020307]/80 border border-[#00D4FF]/30 backdrop-blur-sm">
+                    <Icon size={18} className="text-[#00D4FF]" />
                   </div>
-                  <div className="flex-1">
-                    <h2 className="text-lg font-bold text-[#F1F5F9] mb-2 leading-snug">{servicio.nombre}</h2>
-                    <p className="text-sm text-[#8B9DB5] mb-5 leading-relaxed">{servicio.descripcion}</p>
-                    <div className="flex items-center justify-between flex-wrap gap-3">
-                      <div>
-                        {servicio.precio === 'A cotizar' ? (
-                          <span className="text-base font-bold text-[#A855F7]">A cotizar</span>
-                        ) : (
-                          <span className="price text-2xl font-black text-[#00D4FF]">{servicio.precio}</span>
-                        )}
-                        <span className="ml-2 text-xs text-[#475569]">{servicio.tiempo}</span>
-                      </div>
-                      <a
-                        href={waLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-[#00D4FF] text-[#020307] text-sm font-extrabold rounded-sm hover:bg-[#00B8D9] transition-colors min-h-[40px] shadow-[0_0_16px_rgba(0,212,255,0.2)]"
-                      >
-                        Solicitar
-                        <ArrowRight size={14} strokeWidth={2.5} />
-                      </a>
+                </div>
+
+                {/* Contenido */}
+                <div className="p-6 flex flex-col flex-1">
+                  <h2 className="text-lg font-bold text-[#F1F5F9] mb-2 leading-snug">{servicio.nombre}</h2>
+                  <p className="text-sm text-[#8B9DB5] mb-4 leading-relaxed">{servicio.descripcion}</p>
+
+                  {/* Qué incluye */}
+                  {cond?.incluye && (
+                    <ul className="space-y-1.5 mb-4">
+                      {cond.incluye.map((linea) => (
+                        <li key={linea} className="flex items-start gap-2 text-[13px] text-[#94A3B8] leading-snug">
+                          <Check size={14} className="text-[#00D4FF] shrink-0 mt-0.5" strokeWidth={2.5} />
+                          <span>{linea}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {/* Nota / condición específica */}
+                  {cond?.nota && (
+                    <p className="flex items-start gap-2 text-xs text-[#64748B] leading-relaxed mb-5 pt-3 border-t border-white/5">
+                      <Info size={13} className="text-[#475569] shrink-0 mt-0.5" />
+                      <span>{cond.nota}</span>
+                    </p>
+                  )}
+
+                  <div className="flex items-center justify-between flex-wrap gap-3 mt-auto">
+                    <div>
+                      {servicio.precio === 'A cotizar' ? (
+                        <span className="text-base font-bold text-[#A855F7]">A cotizar</span>
+                      ) : (
+                        <span className="price text-2xl font-black text-[#00D4FF]">{servicio.precio}</span>
+                      )}
+                      <span className="ml-2 text-xs text-[#475569]">{servicio.tiempo}</span>
                     </div>
+                    <a
+                      href={waLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-[#00D4FF] text-[#020307] text-sm font-extrabold rounded-sm hover:bg-[#00B8D9] transition-colors min-h-[40px] shadow-[0_0_16px_rgba(0,212,255,0.2)]"
+                    >
+                      Solicitar
+                      <ArrowRight size={14} strokeWidth={2.5} />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -126,8 +189,24 @@ export default function ServiciosPage() {
           })}
         </div>
 
+        {/* Condiciones generales */}
+        <div className="mt-14 rounded-2xl border border-[#00D4FF]/15 bg-[#00D4FF]/[0.04] p-6 sm:p-8">
+          <div className="flex items-center gap-2 mb-5">
+            <ShieldCheck size={18} className="text-[#00D4FF]" />
+            <h2 className="text-base font-bold text-[#F1F5F9]">Condiciones generales</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+            {CONDICIONES_GENERALES.map((c) => (
+              <div key={c} className="flex items-start gap-2.5 text-sm text-[#94A3B8] leading-snug">
+                <Check size={15} className="text-[#00D4FF] shrink-0 mt-0.5" strokeWidth={2.5} />
+                <span>{c}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* IVA nota */}
-        <div className="flex items-center justify-center gap-2 mt-10 text-xs text-[#475569]">
+        <div className="flex items-center justify-center gap-2 mt-8 text-xs text-[#475569]">
           <Receipt size={13} />
           <span>{IVA_NOTA}</span>
         </div>

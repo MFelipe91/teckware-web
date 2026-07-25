@@ -37,8 +37,8 @@ export function Hero() {
       <div className="absolute inset-y-0 right-0 w-[54%] hidden lg:block pointer-events-none">
         <div className="relative w-full h-full scan-line">
           <Image
-            src="/images/gpubkn.jpg"
-            alt="GPU gaming — PC Gamer TECKWARE La Serena"
+            src="/images/background1.jpg"
+            alt="Tarjeta gráfica GeForce RTX de alto rendimiento con iluminación RGB — soporte técnico TECKWARE La Serena"
             fill
             className="object-cover object-center"
             priority
@@ -77,7 +77,7 @@ export function Hero() {
             <div className="flex items-center gap-2 px-3 py-1.5 border border-[#00D4FF]/20 bg-[#00D4FF]/6 rounded-sm backdrop-blur-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E61E32] animate-pulse" />
               <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#00D4FF]">
-                Disponible ahora · La Serena, Chile
+                Disponible hoy · La Serena, Chile
               </span>
             </div>
           </motion.div>
@@ -87,12 +87,17 @@ export function Hero() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.1 }}
-            className="font-black text-[#F1F5F9] mb-5 text-wrap-balance"
+            className="mb-5 text-wrap-balance"
           >
-            Tu equipo vuelve{' '}
-            <br className="hidden sm:block" />
-            a la vida.{' '}
-            <span className="gradient-text neon-text">Garantizado.</span>
+            <span className="block text-4xl sm:text-5xl lg:text-6xl font-black text-[#F1F5F9] tracking-tight leading-[1.05]">
+              Soporte y Servicios
+            </span>
+            <span className="block text-4xl sm:text-5xl lg:text-6xl font-black text-[#F1F5F9] tracking-tight leading-[1.05]">
+              Informáticos Especializados
+            </span>
+            <span className="block mt-4 text-2xl sm:text-3xl font-bold text-[#00D4FF] neon-text tracking-tight leading-tight">
+              Construimos confianza y entregamos resultados
+            </span>
           </motion.h1>
 
           {/* Decorative tech line — MSI/ROG separator */}
@@ -110,8 +115,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg text-[#8B9DB5] mb-8 leading-relaxed"
           >
-            Reparamos notebooks, MacBook, PC Gamer y consolas en La Serena.
-            Diagnóstico honesto, precios fijos, entrega en 24–48 horas.
+            Soluciones tecnológicas integrales para empresas y personas en La Serena y
+            Coquimbo. Soporte técnico, mantención y ciberseguridad con diagnóstico preciso,
+            comunicación clara y resultados garantizados.
           </motion.p>
 
           {/* CTAs */}
@@ -157,7 +163,7 @@ export function Hero() {
             className="flex flex-wrap gap-2"
           >
             {[
-              { icon: Shield, label: 'Sin cobros ocultos' },
+              { icon: Shield, label: 'Precio fijo y transparente' },
               { icon: Clock, label: 'Respuesta en 2 horas' },
               { icon: Star, label: 'Garantía 30 días' },
               { icon: Receipt, label: 'Se emite boleta' },

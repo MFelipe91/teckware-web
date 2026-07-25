@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { BLUR_DARK } from '@/lib/imageBlur'
 import { ArrowRight, Cpu, MonitorPlay, MemoryStick, HardDrive, CircuitBoard, Zap, Wind, Box, CheckCircle2, XCircle, Gamepad2 } from 'lucide-react'
-import { getBuildsAction } from '@/app/admin/actions'
+import { getBuilds } from '@/lib/builds'
 import { YoutubeEmbed } from '@/components/builds/YoutubeEmbed'
 import { WA } from '@/lib/whatsapp'
 
@@ -52,8 +52,10 @@ function formatCLP(precio: number): string {
   return `$${precio.toLocaleString('es-CL')}`
 }
 
+export const revalidate = 30
+
 export default async function BuildsPage() {
-  const builds = await getBuildsAction()
+  const builds = await getBuilds()
 
   return (
     <div className="min-h-screen bg-[#080B14] pt-24">
