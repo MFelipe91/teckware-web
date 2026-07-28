@@ -1,19 +1,24 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
 import { MessageCircle, ArrowRight, Shield, Clock, Star, Gamepad2, Receipt } from 'lucide-react'
 import { WA } from '@/lib/whatsapp'
 import { staggerContainer, staggerItem } from '@/lib/animations'
-import { BLUR_DARK } from '@/lib/imageBlur'
+
+// Escena 3D solo en cliente — mantiene three.js fuera del bundle inicial
+const HeroCanvas = dynamic(() => import('@/components/three/HeroCanvas'), { ssr: false })
 
 export function Hero() {
   return (
     <section
-      className="relative min-h-screen flex items-center bg-[#020307] overflow-hidden"
+      className="relative min-h-screen flex items-center bg-[#03040A] overflow-hidden"
       aria-label="Inicio"
     >
+      {/* Escena 3D de hardware — fondo animado */}
+      <HeroCanvas />
+
       {/* Tech dot grid background */}
       <div className="absolute inset-0 bg-dot-grid opacity-30" />
       {/* Subtle line grid overlay */}
@@ -33,36 +38,16 @@ export function Hero() {
         }}
       />
 
-      {/* Hero image — desktop right panel with scan-line overlay */}
-      <div className="absolute inset-y-0 right-0 w-[54%] hidden lg:block pointer-events-none">
-        <div className="relative w-full h-full scan-line">
-          <Image
-            src="/images/background1.jpg"
-            alt="Tarjeta gráfica GeForce RTX de alto rendimiento con iluminación RGB — soporte técnico TECKWARE La Serena"
-            fill
-            className="object-cover object-center"
-            priority
-            fetchPriority="high"
-            quality={85}
-            sizes="(max-width: 1024px) 0vw, 54vw"
-            placeholder="blur"
-            blurDataURL={BLUR_DARK}
-          />
-          {/* Strong left fade into dark bg */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#020307] via-[#020307]/70 to-transparent" />
-          {/* Bottom fade */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#020307]/90 via-transparent to-[#020307]/40" />
-          {/* ROG-style diagonal cut on left edge */}
-          <div
-            className="absolute top-0 left-0 w-32 h-full"
-            style={{
-              background: 'linear-gradient(110deg, #020307 0%, #020307 40%, transparent 100%)',
-            }}
-          />
-        </div>
-      </div>
+      {/* Velo izquierdo — asegura contraste del texto sobre la escena 3D */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'linear-gradient(100deg, #03040A 0%, rgba(3,4,10,0.92) 32%, rgba(3,4,10,0.55) 55%, transparent 78%)',
+        }}
+      />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 w-full">
         <div className="max-w-xl lg:max-w-2xl">
 
           {/* AMD/ROG-style angular badge */}
