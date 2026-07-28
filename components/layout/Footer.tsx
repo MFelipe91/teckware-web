@@ -17,10 +17,10 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" aria-label="TECKWARE inicio">
               <Image
-                src="/logo-tw-transparent.png"
+                src="/logo-full.png"
                 alt="TECKWARE — Soluciones Tecnológicas"
-                width={155}
-                height={125}
+                width={130}
+                height={138}
                 className="block drop-shadow-[0_0_12px_rgba(0,212,255,0.2)]"
               />
             </Link>
