@@ -13,6 +13,7 @@ import {
 import { getServices } from '@/lib/services'
 import { WA } from '@/lib/whatsapp'
 import { BLUR_DARK } from '@/lib/imageBlur'
+import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 // Revalida cada 30s para reflejar cambios de precios/servicios del panel admin
 export const revalidate = 30
@@ -83,8 +84,7 @@ export default async function ServiciosPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#020307]/80 via-[#020307]/60 to-[#020307]" />
         </div>
-        <div className="absolute inset-0 bg-dot-grid opacity-20" />
-        <div className="absolute inset-0 bg-grid opacity-15" />
+        <CircuitBackground palette="mixed" density={1.1} opacity={0.55} />
         <div className="glow-cyan w-80 h-80 -top-20 right-0 opacity-30" />
         <div className="glow-red w-64 h-64 bottom-0 left-0 opacity-30" />
         {/* Top accent line */}
@@ -216,8 +216,9 @@ export default async function ServiciosPage() {
       <div className="tech-line mx-8" />
 
       {/* Servicios adicionales */}
-      <section className="bg-[#050810] py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative bg-[#050810] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <CircuitBackground palette="cyan" density={0.6} opacity={0.3} />
+        <div className="relative max-w-7xl mx-auto">
           <h2 className="text-[#F1F5F9] mb-2">Servicios adicionales</h2>
           <p className="text-[#8B9DB5] mb-10">Precio a cotizar según requerimiento.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -246,22 +247,25 @@ export default async function ServiciosPage() {
       </section>
 
       {/* Equipos atendidos */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <h2 className="text-[#F1F5F9] mb-2">Equipos que atendemos</h2>
-        <p className="text-[#8B9DB5] mb-10">Si tu equipo no está aquí, escríbenos igual.</p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-          {EQUIPOS.map((equipo) => {
-            const Icon = EQUIPO_ICONS[equipo.icono] ?? Monitor
-            return (
-              <div
-                key={equipo.nombre}
-                className="flex flex-col items-center gap-3 p-5 rounded-sm bg-white/[0.03] border border-white/8 hover:border-[#00D4FF]/25 hover:bg-[#00D4FF]/4 transition-all"
-              >
-                <Icon size={28} className="text-[#00D4FF]" />
-                <span className="text-xs font-medium text-[#8B9DB5] text-center">{equipo.nombre}</span>
-              </div>
-            )
-          })}
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 overflow-hidden">
+        <CircuitBackground palette="purple" density={0.5} opacity={0.22} />
+        <div className="relative">
+          <h2 className="text-[#F1F5F9] mb-2">Equipos que atendemos</h2>
+          <p className="text-[#8B9DB5] mb-10">Si tu equipo no está aquí, escríbenos igual.</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {EQUIPOS.map((equipo) => {
+              const Icon = EQUIPO_ICONS[equipo.icono] ?? Monitor
+              return (
+                <div
+                  key={equipo.nombre}
+                  className="flex flex-col items-center gap-3 p-5 rounded-sm bg-white/[0.03] border border-white/8 hover:border-[#00D4FF]/25 hover:bg-[#00D4FF]/4 transition-all"
+                >
+                  <Icon size={28} className="text-[#00D4FF]" />
+                  <span className="text-xs font-medium text-[#8B9DB5] text-center">{equipo.nombre}</span>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </section>
     </div>
