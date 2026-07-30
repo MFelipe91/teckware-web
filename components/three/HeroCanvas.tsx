@@ -85,14 +85,116 @@ export default function HeroCanvas() {
     fillLight.position.set(6, -5, 4)
     scene.add(fillLight)
 
+    // Niebla de profundidad: el horizonte se disuelve en la oscuridad.
+    // No afecta al hardware (empieza más lejos que la escena central).
+    scene.fog = new THREE.Fog(BG, 16, 62)
+
     // ─── Grid de fondo (plano Z = -5) ────────────────────────────────
     const grid = new THREE.GridHelper(40, 40, 0xffffff, 0xffffff)
     grid.rotation.x = Math.PI / 2
     grid.position.z = -5
     const gridMat = grid.material as THREE.LineBasicMaterial
     gridMat.transparent = true
-    gridMat.opacity = 0.035
+    gridMat.opacity = 0.022
     scene.add(grid)
+
+    // ─── Suelo que se pierde en el horizonte ─────────────────────────
+    // y = -8 es deliberado: con FOV 50° el semi-alto visible es ~0.466·d, así que
+    // el suelo recién entra en cuadro más allá de ~17u — justo donde empieza la
+    // niebla. Más arriba aparecería como rejilla brillante bajo el texto.
+    const floor = new THREE.GridHelper(160, 80, CYAN, 0x0d2033)
+    floor.position.set(0, -8, -30)
+    const floorMat = floor.material as THREE.LineBasicMaterial
+    floorMat.transparent = true
+    floorMat.opacity = 0.22
+    scene.add(floor)
+
+    // ─── Cielo de La Serena: campo de estrellas por capas ────────────
+    // Tres capas a distintas profundidades → paralaje real al mover el mouse.
+    const starLayers: THREE.Points[] = []
+    const buildStars = (count: number, spread: number, depth: number, size: number, alpha: number) => {
+      const geo = new THREE.BufferGeometry()
+      const pos = new Float32Array(count * 3)
+      const col = new Float32Array(count * 3)
+      const tint = new THREE.Color()
+      for (let i = 0; i < count; i++) {
+        const i3 = i * 3
+        pos[i3] = (Math.random() - 0.5) * spread
+        pos[i3 + 1] = (Math.random() - 0.5) * spread * 0.7
+        pos[i3 + 2] = -depth - Math.random() * 18
+
+        // Mayoría blanco-azuladas, algunas cyan/violeta — cielo real, no monocromo
+        const r = Math.random()
+        if (r > 0.9) tint.setHex(PURPLE)
+        else if (r > 0.72) tint.setHex(CYAN)
+        else tint.setRGB(0.82 + Math.random() * 0.18, 0.88 + Math.random() * 0.12, 1)
+        col[i3] = tint.r
+        col[i3 + 1] = tint.g
+        col[i3 + 2] = tint.b
+      }
+      geo.setAttribute('position', new THREE.BufferAttribute(pos, 3))
+      geo.setAttribute('color', new THREE.BufferAttribute(col, 3))
+      const m = new THREE.PointsMaterial({
+        size,
+        vertexColors: true,
+        transparent: true,
+        opacity: alpha,
+        sizeAttenuation: true,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+        fog: false, // las estrellas están "al infinito": la niebla no debe apagarlas
+      })
+      const pts = new THREE.Points(geo, m)
+      scene.add(pts)
+      starLayers.push(pts)
+      return pts
+    }
+    buildStars(1400, 130, 30, 0.075, 0.55) // lejanas y tenues
+    buildStars(700, 100, 22, 0.12, 0.7) // medias
+    buildStars(220, 80, 16, 0.2, 0.9) // cercanas y brillantes
+
+    // ─── Nebulosas: manchas de luz difusa que dan atmósfera ──────────
+    const nebulaTexture = (() => {
+      const s = 256
+      const cv = document.createElement('canvas')
+      cv.width = cv.height = s
+      const c2 = cv.getContext('2d')
+      if (c2) {
+        const g = c2.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2)
+        g.addColorStop(0, 'rgba(255,255,255,0.5)')
+        g.addColorStop(0.3, 'rgba(255,255,255,0.15)')
+        g.addColorStop(0.65, 'rgba(255,255,255,0.04)')
+        g.addColorStop(1, 'rgba(255,255,255,0)')
+        c2.fillStyle = g
+        c2.fillRect(0, 0, s, s)
+      }
+      return new THREE.CanvasTexture(cv)
+    })()
+
+    const nebulas: THREE.Sprite[] = []
+    const NEBULA_SPECS: { x: number; y: number; z: number; scale: number; color: number; op: number }[] = [
+      { x: -14, y: 6, z: -24, scale: 40, color: CYAN, op: 0.16 },
+      { x: 16, y: -6, z: -28, scale: 46, color: PURPLE, op: 0.14 },
+      { x: 2, y: 10, z: -34, scale: 52, color: 0x1b4fd4, op: 0.1 },
+      { x: -8, y: -10, z: -20, scale: 30, color: CYAN, op: 0.08 },
+    ]
+    for (const spec of NEBULA_SPECS) {
+      const sp = new THREE.Sprite(
+        new THREE.SpriteMaterial({
+          map: nebulaTexture,
+          color: spec.color,
+          transparent: true,
+          opacity: spec.op,
+          blending: THREE.AdditiveBlending,
+          depthWrite: false,
+          fog: false,
+        })
+      )
+      sp.position.set(spec.x, spec.y, spec.z)
+      sp.scale.setScalar(spec.scale)
+      scene.add(sp)
+      nebulas.push(sp)
+    }
 
     // ─── Grupo raíz (escala responsive) ──────────────────────────────
     const root = new THREE.Group()
@@ -360,6 +462,22 @@ export default function HeroCanvas() {
 
       // Parallax suave de cámara
       pointer.x += (target.x - pointer.x) * 0.045
+      // Cielo: deriva lentísima, cada capa a su ritmo → sensación de bóveda viva
+      for (let i = 0; i < starLayers.length; i++) {
+        starLayers[i].rotation.z = t * (0.004 + i * 0.0022)
+        starLayers[i].position.x = Math.sin(t * 0.05 + i) * 0.6
+      }
+
+      // Nebulosas: respiran y flotan, nunca en fase
+      for (let i = 0; i < nebulas.length; i++) {
+        const n = nebulas[i]
+        const base = NEBULA_SPECS[i]
+        const breathe = 1 + Math.sin(t * 0.16 + i * 1.7) * 0.07
+        n.scale.setScalar(base.scale * breathe)
+        n.position.x = base.x + Math.sin(t * 0.07 + i * 2.1) * 1.6
+        n.position.y = base.y + Math.cos(t * 0.06 + i * 1.3) * 1.1
+      }
+
       pointer.y += (target.y - pointer.y) * 0.045
       camera.position.x = pointer.x * 0.9
       camera.position.y = -pointer.y * 0.55
@@ -422,6 +540,9 @@ export default function HeroCanvas() {
         if (Array.isArray(m)) m.forEach((mm) => mm.dispose())
         else if (m) m.dispose()
       })
+
+      // dispose() del material no libera su textura: hay que hacerlo aparte
+      nebulaTexture.dispose()
 
       bloom.dispose()
       composer.dispose()

@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { ArrowRight, ArrowLeft, CheckCircle2, Search, RefreshCw, Wrench, Cpu, Briefcase, Package, Monitor, Laptop, Apple, Gamepad2, Tablet, Camera, X, Loader2, ImageIcon, Check, Info, ShieldCheck } from 'lucide-react'
 import { WA } from '@/lib/whatsapp'
 import { SERVICIO_CONDICIONES, CONDICIONES_GENERALES } from '@/lib/constants'
+import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 // Mapea el id del servicio del wizard → la clave de condiciones en constants.ts
 const COND_MAP: Record<string, string> = {
@@ -167,8 +168,9 @@ export default function AgendarPage() {
   const progressPct = ((step - 1) / 3) * 100
 
   return (
-    <div className="min-h-screen bg-[#03040A] pt-24 pb-20">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6">
+    <div className="relative min-h-screen bg-[#03040A] pt-24 pb-20 overflow-hidden">
+      <CircuitBackground variant="circuit" palette="cyan" density={0.55} opacity={0.3} />
+      <div className="relative max-w-2xl mx-auto px-4 sm:px-6">
 
         {/* Header */}
         <div className="text-center mb-10">
