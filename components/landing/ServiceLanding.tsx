@@ -5,6 +5,7 @@ import type { LucideIcon } from 'lucide-react'
 import { BLUR_DARK } from '@/lib/imageBlur'
 import { IVA_NOTA } from '@/lib/constants'
 import { faqLd } from '@/lib/structured-data'
+import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 export type LandingFeature = { icon: LucideIcon; titulo: string; desc: string }
 export type LandingPrecio = { nombre: string; precio: string; tiempo: string; href: string }
@@ -59,8 +60,7 @@ export function ServiceLanding(props: ServiceLandingProps) {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#020307]/80 via-[#020307]/60 to-[#020307]" />
         </div>
-        <div className="absolute inset-0 bg-dot-grid opacity-20" />
-        <div className="absolute inset-0 bg-grid opacity-15" />
+        <CircuitBackground variant="circuit" palette="mixed" density={1} opacity={0.5} />
         <div className="glow-cyan w-80 h-80 -top-20 right-0 opacity-30" />
         <div className="glow-red w-64 h-64 bottom-0 left-0 opacity-30" />
         <div
@@ -202,6 +202,7 @@ export function ServiceLanding(props: ServiceLandingProps) {
       {/* CTA FINAL */}
       <section className="px-4 sm:px-6 lg:px-8 pb-24">
         <div className="max-w-4xl mx-auto text-center p-10 sm:p-14 rounded-sm border border-[#00D4FF]/15 bg-[#00D4FF]/5 relative overflow-hidden">
+          <CircuitBackground variant="hex-mesh" palette="cyan" density={0.8} opacity={0.35} />
           <div className="glow-cyan w-72 h-72 -top-20 left-1/2 -translate-x-1/2 opacity-20" />
           <div className="relative">
             <h2 className="text-[#F1F5F9] mb-3">{ctaTitle}</h2>

@@ -6,6 +6,7 @@ import {
 } from 'lucide-react'
 import { POR_QUE_ELEGIRNOS } from '@/lib/constants'
 import { staggerContainer, staggerItem, viewportConfig } from '@/lib/animations'
+import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 const ICONS: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   'shield-check': ShieldCheck,
@@ -19,6 +20,7 @@ const ICONS: Record<string, React.ComponentType<{ size?: number; className?: str
 export function PorQueElegirnos() {
   return (
     <section className="bg-[#0D1120] py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <CircuitBackground variant="hex-mesh" palette="mixed" density={0.9} opacity={0.5} />
       <div className="glow-cyan w-96 h-96 -top-20 right-0 opacity-30" />
       <div className="glow-purple w-80 h-80 bottom-0 left-0 opacity-20" />
 

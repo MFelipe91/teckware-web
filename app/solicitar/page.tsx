@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { ArrowRight, Send } from 'lucide-react'
 import { contactSchema, type ContactForm, sanitize } from '@/lib/security'
 import { WA } from '@/lib/whatsapp'
+import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 export default function SolicitarPage() {
   const {
@@ -31,7 +32,7 @@ export default function SolicitarPage() {
     <div className="min-h-screen bg-[#080B14] pt-24">
       {/* Header */}
       <section className="relative bg-[#03040A] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-40" />
+        <CircuitBackground variant="circuit" palette="cyan" density={0.8} opacity={0.45} />
         <div className="glow-cyan w-72 h-72 -top-16 right-0 opacity-30" />
         <div className="relative max-w-7xl mx-auto text-center">
           <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-widest uppercase text-[#00D4FF] border border-[#00D4FF]/25 rounded-full bg-[#00D4FF]/8">

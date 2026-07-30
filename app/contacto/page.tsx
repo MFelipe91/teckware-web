@@ -4,6 +4,7 @@ import { MessageCircle, Mail, MapPin, Clock, ArrowRight } from 'lucide-react'
 import { InstagramIcon } from '@/components/shared/InstagramIcon'
 import { EMPRESA } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
+import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 export const metadata: Metadata = {
   title: 'Contacto',
@@ -16,7 +17,7 @@ export default function ContactoPage() {
     <div className="min-h-screen bg-[#080B14] pt-24">
       {/* Header */}
       <section className="relative bg-[#03040A] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-40" />
+        <CircuitBackground variant="constellation" palette="mixed" density={1.1} opacity={0.65} />
         <div className="glow-cyan w-72 h-72 -top-16 right-0 opacity-30" />
         <div className="relative max-w-7xl mx-auto text-center">
           <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-widest uppercase text-[#00D4FF] border border-[#00D4FF]/25 rounded-full bg-[#00D4FF]/8">

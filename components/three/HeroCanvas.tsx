@@ -304,8 +304,11 @@ export default function HeroCanvas() {
     // Clock.getElapsedTime() consume el delta y dejaría las partículas congeladas.
     const timer = new THREE.Timer()
     let raf = 0
+    let running = false
+    let onScreen = true
 
     const renderFrame = () => {
+      if (!running) return
       // Contenedor aún sin layout: no gastar GPU hasta que tenga tamaño
       if (width <= 1 || height <= 1) {
         raf = requestAnimationFrame(renderFrame)
@@ -366,18 +369,49 @@ export default function HeroCanvas() {
       raf = requestAnimationFrame(renderFrame)
     }
 
+    // ─── Arranque / pausa ─────────────────────────────────────────────
+    const start = () => {
+      if (running || reducedMotion) return
+      running = true
+      raf = requestAnimationFrame(renderFrame)
+    }
+
+    const stop = () => {
+      running = false
+      cancelAnimationFrame(raf)
+    }
+
     if (reducedMotion) {
       // Un solo frame estático: sin movimiento, pero la escena se ve
       composer.render()
     } else {
-      raf = requestAnimationFrame(renderFrame)
+      start()
     }
+
+    // Pausa el render (three.js + bloom es caro) cuando el hero sale de pantalla
+    const io = new IntersectionObserver(
+      (entries) => {
+        onScreen = entries[0]?.isIntersecting ?? false
+        if (onScreen && document.visibilityState === 'visible') start()
+        else stop()
+      },
+      { rootMargin: '100px' }
+    )
+    io.observe(mount)
+
+    const onVisibility = () => {
+      if (document.visibilityState === 'visible' && onScreen) start()
+      else stop()
+    }
+    document.addEventListener('visibilitychange', onVisibility)
 
     // ─── Limpieza ─────────────────────────────────────────────────────
     return () => {
-      cancelAnimationFrame(raf)
+      stop()
       clearTimeout(resizeTimer)
       ro.disconnect()
+      io.disconnect()
+      document.removeEventListener('visibilitychange', onVisibility)
       window.removeEventListener('pointermove', onPointerMove)
       window.removeEventListener('resize', onResize)
 

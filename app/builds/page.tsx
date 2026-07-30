@@ -5,6 +5,7 @@ import { ArrowRight, Cpu, MonitorPlay, MemoryStick, HardDrive, CircuitBoard, Zap
 import { getBuilds } from '@/lib/builds'
 import { YoutubeEmbed } from '@/components/builds/YoutubeEmbed'
 import { WA } from '@/lib/whatsapp'
+import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 export const metadata: Metadata = {
   title: 'PC Gamer a Pedido',
@@ -77,7 +78,7 @@ export default async function BuildsPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#03040A]/60 via-[#03040A]/50 to-[#03040A]" />
         </div>
-        <div className="absolute inset-0 bg-grid opacity-20" />
+        <CircuitBackground variant="hex-mesh" palette="purple" density={1} opacity={0.7} />
         <div className="glow-purple w-96 h-96 -top-32 right-0 opacity-25" />
         <div className="glow-cyan w-64 h-64 bottom-0 left-0 opacity-15" />
         <div className="relative max-w-7xl mx-auto">

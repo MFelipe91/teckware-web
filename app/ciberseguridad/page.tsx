@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'
 import { CIBER_SERVICIOS } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
+import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 export const metadata: Metadata = {
   title: 'Ciberseguridad para Empresas',
@@ -78,7 +79,7 @@ export default function CiberseguridadPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#03040A]/70 via-[#03040A]/50 to-[#03040A]" />
         </div>
-        <div className="absolute inset-0 bg-grid opacity-20" />
+        <CircuitBackground variant="grid-scan" palette="cyan" density={1.1} opacity={0.6} />
         <div className="glow-cyan w-96 h-96 -top-32 right-1/4 opacity-20" />
         <div className="glow-purple w-64 h-64 bottom-0 left-0 opacity-18" />
         <div className="relative max-w-7xl mx-auto">
@@ -300,6 +301,7 @@ export default function CiberseguridadPage() {
 
       {/* CTA final */}
       <section className="relative bg-[#03040A] py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <CircuitBackground variant="grid-scan" palette="cyan" density={0.5} opacity={0.28} />
         <div className="glow-cyan w-96 h-96 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-15" />
         <div className="relative max-w-3xl mx-auto text-center">
           <h2 className="text-[#F1F5F9] mb-4">

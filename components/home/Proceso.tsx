@@ -3,11 +3,13 @@
 import { motion } from 'framer-motion'
 import { PROCESO } from '@/lib/constants'
 import { staggerContainer, staggerItem, viewportConfig } from '@/lib/animations'
+import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 export function Proceso() {
   return (
-    <section className="bg-[#080B14] py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative bg-[#080B14] py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <CircuitBackground variant="circuit" palette="cyan" density={0.7} opacity={0.4} />
+      <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-14">
           <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-widest uppercase text-[#00D4FF] border border-[#00D4FF]/25 rounded-full bg-[#00D4FF]/8">
             Cómo funciona

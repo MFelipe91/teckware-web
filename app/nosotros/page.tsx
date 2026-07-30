@@ -4,6 +4,7 @@ import { Shield, Award, MapPin, Calendar, Building2, ArrowRight } from 'lucide-r
 import { EMPRESA } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
 import { BLUR_DARK } from '@/lib/imageBlur'
+import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 export const metadata: Metadata = {
   title: 'Nosotros',
@@ -31,7 +32,7 @@ export default function NosotrosPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#020307]/70 via-[#020307]/50 to-[#020307]" />
         </div>
-        <div className="absolute inset-0 bg-dot-grid opacity-20" />
+        <CircuitBackground variant="constellation" palette="cyan" density={1} opacity={0.6} />
         <div className="glow-cyan w-80 h-80 -top-20 -right-10 opacity-25" />
         <div className="glow-red w-64 h-64 bottom-0 left-10 opacity-20" />
         {/* Top accent line */}

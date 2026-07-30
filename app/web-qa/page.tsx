@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'
 import { WEB_QA_SERVICIOS } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
+import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 export const metadata: Metadata = {
   title: 'Consultoría Web & QA',
@@ -78,7 +79,7 @@ export default function WebQAPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#03040A]/70 via-[#03040A]/50 to-[#03040A]" />
         </div>
-        <div className="absolute inset-0 bg-grid opacity-20" />
+        <CircuitBackground variant="data-flow" palette="mixed" density={1.1} opacity={0.55} />
         <div className="glow-cyan w-96 h-96 -top-32 left-1/3 opacity-25" />
         <div className="glow-purple w-64 h-64 bottom-0 right-0 opacity-20" />
         <div className="relative max-w-7xl mx-auto">
@@ -232,6 +233,7 @@ export default function WebQAPage() {
 
       {/* CTA */}
       <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <CircuitBackground variant="data-flow" palette="purple" density={0.55} opacity={0.3} />
         <div className="glow-purple w-96 h-96 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20" />
         <div className="relative max-w-3xl mx-auto text-center">
           <h2 className="text-[#F1F5F9] mb-4">
