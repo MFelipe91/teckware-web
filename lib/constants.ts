@@ -9,7 +9,7 @@ export const EMPRESA = {
   whatsapp: 'https://wa.me/56930209427',
   instagram: 'https://instagram.com/teckware.cl',
   instagramHandle: '@teckware.cl',
-  dominio: 'https://teckware.cl',
+  dominio: 'https://www.teckware.cl',
   tagline: 'Tu tecnología, nuestra prioridad.',
   horario: 'Lun–Sáb 09:00–19:00',
 } as const

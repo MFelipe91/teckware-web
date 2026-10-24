@@ -5,7 +5,13 @@ import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { WhatsAppFloat } from '@/components/layout/WhatsAppFloat'
 import { ChatWidget } from '@/components/layout/ChatWidget'
+import { Analytics } from '@/components/layout/Analytics'
 import { businessLd } from '@/lib/structured-data'
+import { SITE_URL } from '@/lib/site'
+
+// Código de la etiqueta HTML de Search Console (solo si se verifica por "Prefijo de URL").
+// Con verificación por DNS (propiedad de Dominio, vía Cloudflare) no hace falta.
+const GOOGLE_VERIFICATION = process.env.GOOGLE_SITE_VERIFICATION
 
 const inter = Inter({
   subsets: ['latin'],
@@ -20,7 +26,7 @@ const jetbrains = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://teckware.cl'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'TECKWARE | Servicio Técnico, PC Gamer y Hardware — La Serena, Chile',
     template: '%s | TECKWARE La Serena',
@@ -72,7 +78,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_CL',
-    url: 'https://teckware.cl',
     siteName: 'TECKWARE SpA',
     images: [
       {
@@ -90,15 +95,13 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: 'https://teckware.cl' },
+  // Sin canonical aquí: se hereda a todas las rutas. Cada página declara el suyo.
   manifest: '/manifest.json',
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
   },
-  verification: {
-    google: 'PENDIENTE-AGREGAR-VERIFICATION-CODE',
-  },
+  ...(GOOGLE_VERIFICATION ? { verification: { google: GOOGLE_VERIFICATION } } : {}),
 }
 
 export default function RootLayout({
@@ -129,6 +132,7 @@ export default function RootLayout({
         <Footer />
         <WhatsAppFloat />
         <ChatWidget />
+        <Analytics />
       </body>
     </html>
   )

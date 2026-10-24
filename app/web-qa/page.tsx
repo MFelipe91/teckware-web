@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: 'Consultoría Web & QA',
   description:
     'Desarrollo web profesional, auditorías de sitios y QA para empresas en Chile. Landing pages, sitios corporativos, testing manual y automatizado.',
+  alternates: { canonical: '/web-qa' },
 }
 
 const ICONS: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {

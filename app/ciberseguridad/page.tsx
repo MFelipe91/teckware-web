@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: 'Ciberseguridad para Empresas',
   description:
     'Auditorías de ciberseguridad, hardening de sistemas, capacitación y respuesta a incidentes para PYMEs y empresas en Chile. La Serena y región.',
+  alternates: { canonical: '/ciberseguridad' },
 }
 
 const ICONS: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {

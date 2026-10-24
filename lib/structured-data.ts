@@ -1,6 +1,5 @@
 import { EMPRESA, SERVICIOS } from './constants'
-
-const SITE = 'https://teckware.cl'
+import { SITE_URL as SITE } from './site'
 const PHONE_E164 = '+56930209427'
 
 /** Convierte "$30.000" / "Desde $45.000" → { min, exact } en CLP. */

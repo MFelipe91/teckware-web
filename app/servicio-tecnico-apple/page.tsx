@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Servicio Técnico Apple / MacBook en La Serena',
   description:
     'Servicio técnico Apple en La Serena y Coquimbo: reparación y mantención de MacBook Air y Pro, cambio de pasta térmica, upgrade de SSD, batería, limpieza interna y diagnóstico. Equipos Intel y Apple Silicon (M1, M2, M3).',
-  alternates: { canonical: 'https://www.teckware.cl/servicio-tecnico-apple' },
+  alternates: { canonical: '/servicio-tecnico-apple' },
 }
 
 export default function ServicioTecnicoApplePage() {

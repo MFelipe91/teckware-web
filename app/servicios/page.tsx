@@ -22,6 +22,7 @@ export const metadata: Metadata = {
   title: 'Servicios',
   description:
     'Diagnóstico, formateo, mantención física, GPU, consolas y armado PC Gamer en La Serena. Precios con IVA incluido. Se emite boleta.',
+  alternates: { canonical: '/servicios' },
 }
 
 const ICONS: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {

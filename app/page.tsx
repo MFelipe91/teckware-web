@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { Hero } from '@/components/home/Hero'
 import { Ticker } from '@/components/home/Ticker'
 import { BookingStrip } from '@/components/home/BookingStrip'
@@ -10,6 +11,10 @@ import { getServices } from '@/lib/services'
 
 // Revalida cada 30s para reflejar cambios de servicios destacados del panel
 export const revalidate = 30
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+}
 
 export default async function Home() {
   const servicios = await getServices()

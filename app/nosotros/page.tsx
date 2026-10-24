@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: 'Nosotros',
   description:
     'Conoce a TECKWARE SpA — empresa de servicio técnico informático fundada en La Serena por Mario Felipe Busques Araya, Ingeniero en Ciberseguridad.',
+  alternates: { canonical: '/nosotros' },
 }
 
 export default function NosotrosPage() {

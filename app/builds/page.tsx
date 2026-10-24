@@ -10,6 +10,7 @@ import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 export const metadata: Metadata = {
   title: 'PC Gamer a Pedido',
   description: 'Builds de PC Gamer armados por TECKWARE en La Serena. Ryzen, Intel, RTX, RX — specs completas, benchmarks reales y precios en pesos chilenos.',
+  alternates: { canonical: '/builds' },
 }
 
 const TAG_STYLES: Record<string, string> = {

@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: 'Contacto',
   description:
     'Contacta a TECKWARE SpA en La Serena. WhatsApp, email e Instagram. Respuesta en menos de 2 horas.',
+  alternates: { canonical: '/contacto' },
 }
 
 export default function ContactoPage() {

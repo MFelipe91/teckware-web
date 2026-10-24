@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Mantención de PC Gamer en La Serena',
   description:
     'Mantención profesional de PC Gamer en La Serena y Coquimbo: limpieza interna, cambio de pasta térmica premium, revisión de temperaturas y optimización. Recupera el rendimiento y baja las temperaturas de tu equipo.',
-  alternates: { canonical: 'https://www.teckware.cl/mantencion-pc-gamer' },
+  alternates: { canonical: '/mantencion-pc-gamer' },
 }
 
 export default function MantencionPCGamerPage() {
