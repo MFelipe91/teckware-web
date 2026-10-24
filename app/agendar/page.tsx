@@ -4,7 +4,7 @@ import { useState, useRef } from 'react'
 import Image from 'next/image'
 import { ArrowRight, ArrowLeft, CheckCircle2, Search, RefreshCw, Wrench, Cpu, Briefcase, Package, Monitor, Laptop, Apple, Gamepad2, Tablet, Camera, X, Loader2, ImageIcon, Check, Info, ShieldCheck } from 'lucide-react'
 import { WA } from '@/lib/whatsapp'
-import { SERVICIO_CONDICIONES, CONDICIONES_GENERALES } from '@/lib/constants'
+import { EMPRESA, SERVICIO_CONDICIONES, CONDICIONES_GENERALES } from '@/lib/constants'
 import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 // Mapea el id del servicio del wizard → la clave de condiciones en constants.ts
@@ -50,10 +50,9 @@ const EQUIPOS = [
 ]
 
 const HORARIOS = [
-  'Mañana 09:00–12:00',
+  'Mañana 10:00–12:00',
   'Mediodía 12:00–15:00',
-  'Tarde 15:00–18:00',
-  'Tarde-noche 18:00–19:00',
+  'Tarde 15:00–18:30',
 ]
 
 const STEP_LABELS = ['Servicio', 'Equipo', 'Agenda', 'Resumen']
@@ -556,7 +555,7 @@ export default function AgendarPage() {
         </div>
 
         <p className="text-center text-xs text-[#475569] mt-6">
-          Atención Lun–Sáb 09:00–19:00 · La Serena, Chile
+          Atención {EMPRESA.horario} · La Serena, Chile
         </p>
       </div>
     </div>

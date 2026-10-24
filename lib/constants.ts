@@ -11,7 +11,7 @@ export const EMPRESA = {
   instagramHandle: '@teckware.cl',
   dominio: 'https://www.teckware.cl',
   tagline: 'Tu tecnología, nuestra prioridad.',
-  horario: 'Lun–Sáb 09:00–19:00',
+  horario: 'Lun–Vie 10:00–18:30',
 } as const
 
 export const SERVICIOS = [

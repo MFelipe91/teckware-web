@@ -7,7 +7,7 @@ const SYSTEM_PROMPT = `Eres Teck, el asistente virtual de TECKWARE SpA, empresa 
 DATOS DE TECKWARE:
 - Dirección: Colón 352, La Serena, Región de Coquimbo
 - WhatsApp: +56 9 3020 9427
-- Horario: Lunes a Sábado 09:00–19:00
+- Horario: Lunes a Viernes 10:00–18:30
 - Web: teckware.cl
 - Se emite BOLETA DE SERVICIO · TECKWARE SpA (empresa formal, RUT 78.398.912-3)
 

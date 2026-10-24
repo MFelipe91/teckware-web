@@ -86,9 +86,9 @@ export const businessLd = {
   ],
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-    opens: '09:00',
-    closes: '19:00',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '10:00',
+    closes: '18:30',
   },
   sameAs: [EMPRESA.instagram],
   hasOfferCatalog: buildOfferCatalog(),

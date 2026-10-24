@@ -46,7 +46,7 @@ export default function ServicioTecnicoLaSerenaPage() {
         { q: '¿Tengo que pagar algo por adelantado?', a: 'No. Trabajamos sin anticipo: pagas cuando retiras tu equipo funcionando.' },
         { q: '¿Qué garantía tienen los trabajos?', a: 'La mano de obra tiene 30 días de garantía. Si algo de lo que reparamos vuelve a fallar en ese plazo, lo revisamos sin costo.' },
         { q: '¿Atienden también en Coquimbo?', a: 'Sí. Atendemos clientes de La Serena y Coquimbo, y ofrecemos visita técnica a domicilio con tarifa según ubicación.' },
-        { q: '¿Cuál es el horario de atención?', a: 'De lunes a sábado de 09:00 a 19:00. Por WhatsApp respondemos rápido para cotizar y coordinar.' },
+        { q: '¿Cuál es el horario de atención?', a: 'De lunes a viernes de 10:00 a 18:30. Por WhatsApp respondemos rápido para cotizar y coordinar.' },
       ]}
       waHref={WA.servicio('Servicio técnico de computador')}
       ctaTitle="¿Tu computador está fallando?"
