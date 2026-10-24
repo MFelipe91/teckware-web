@@ -101,9 +101,9 @@ export default function ContactoPage() {
                 <MapPin size={22} className="text-[#00D4FF]" />
               </div>
               <div>
-                <h2 className="text-base font-bold text-[#F1F5F9] mb-1">Ubicación</h2>
+                <h2 className="text-base font-bold text-[#F1F5F9] mb-1">Zona de atención</h2>
                 <p className="text-sm text-[#94A3B8]">{EMPRESA.direccion}</p>
-                <p className="text-xs text-[#475569] mt-1">Oficina virtual — atención por coordinación</p>
+                <p className="text-xs text-[#475569] mt-1">Sin atención de público en local — coordinamos por WhatsApp</p>
               </div>
             </div>
             <div className="flex gap-4">

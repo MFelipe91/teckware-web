@@ -18,7 +18,7 @@ export default function PrivacidadPage() {
           <section>
             <h2 className="text-base font-bold text-[#F1F5F9] mb-3">1. Quiénes somos</h2>
             <p>
-              {EMPRESA.nombre}, RUT {EMPRESA.rut}, con domicilio en {EMPRESA.direccion},
+              {EMPRESA.nombre}, RUT {EMPRESA.rut}, con domicilio en {EMPRESA.domicilioLegal},
               es responsable del tratamiento de los datos personales que recopilamos a través
               de nuestro sitio web <strong className="text-[#F1F5F9]">teckware.cl</strong>.
             </p>

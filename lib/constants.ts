@@ -3,7 +3,10 @@ export const EMPRESA = {
   rut: '78.398.912-3',
   fundacion: 'Abril 2026',
   ubicacion: 'La Serena, Región de Coquimbo, Chile',
-  direccion: 'Colón 352, La Serena',
+  // No se atiende público en el domicilio: se muestra la zona de servicio (igual que la Ficha de Google).
+  direccion: 'La Serena y Coquimbo · Atención a domicilio',
+  // Solo para documentos legales (política de privacidad).
+  domicilioLegal: 'Colón 352, La Serena',
   email: 'mariofelipe@teckware.cl',
   telefono: '+56 9 3020 9427',
   whatsapp: 'https://wa.me/56930209427',

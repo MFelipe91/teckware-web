@@ -50,7 +50,7 @@ export const businessLd = {
   name: EMPRESA.nombre,
   legalName: EMPRESA.nombre,
   description:
-    'Servicio técnico de computadores, PC Gamer y notebooks en La Serena. Reparación, mantención, armado de PC Gaming, upgrade de hardware, MacBook y consolas.',
+    'Mantención preventiva especializada de PC gamer, computadores y notebooks en La Serena y Coquimbo. Armado de PC gamer, reparación, asesoría informática integral, automatización con IA y desarrollo de soluciones informáticas.',
   url: SITE,
   telephone: PHONE_E164,
   email: EMPRESA.email,
@@ -59,15 +59,13 @@ export const businessLd = {
   priceRange: '$$',
   currenciesAccepted: 'CLP',
   paymentAccepted: 'Efectivo, Transferencia, Tarjeta',
+  // Negocio de zona de servicio: sin calle ni coordenadas (coincide con la Ficha de Google).
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Colón 352',
     addressLocality: 'La Serena',
     addressRegion: 'Región de Coquimbo',
-    postalCode: '1700000',
     addressCountry: 'CL',
   },
-  geo: { '@type': 'GeoCoordinates', latitude: -29.9027, longitude: -71.2519 },
   areaServed: [
     { '@type': 'City', name: 'La Serena' },
     { '@type': 'City', name: 'Coquimbo' },

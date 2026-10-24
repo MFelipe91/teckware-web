@@ -106,7 +106,7 @@ export default function NosotrosPage() {
               { icon: Building2, label: 'Razón social', value: EMPRESA.nombre },
               { icon: Shield, label: 'RUT', value: EMPRESA.rut },
               { icon: Calendar, label: 'Fundación', value: EMPRESA.fundacion },
-              { icon: MapPin, label: 'Dirección', value: EMPRESA.direccion },
+              { icon: MapPin, label: 'Zona de atención', value: EMPRESA.direccion },
             ].map(({ icon: Icon, label, value }) => (
               <div
                 key={label}
