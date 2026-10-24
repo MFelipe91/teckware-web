@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 export default function MantencionPCGamerPage() {
   return (
     <ServiceLanding
+      path="/mantencion-pc-gamer"
       eyebrow="Mantención Gaming"
       titulo="Mantención de"
       tituloAccent="PC Gamer"

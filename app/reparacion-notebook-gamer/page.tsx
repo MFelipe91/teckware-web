@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 export default function ReparacionNotebookGamerPage() {
   return (
     <ServiceLanding
+      path="/reparacion-notebook-gamer"
       eyebrow="Notebooks Gaming"
       titulo="Reparación de"
       tituloAccent="Notebook Gamer"

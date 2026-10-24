@@ -94,6 +94,23 @@ export const businessLd = {
   hasOfferCatalog: buildOfferCatalog(),
 }
 
+/** JSON-LD de un servicio concreto (landing de servicio × ciudad). */
+export function serviceLd(s: { name: string; description: string; path: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: s.name,
+    description: s.description,
+    url: `${SITE}${s.path}`,
+    serviceType: s.name,
+    provider: { '@id': `${SITE}/#business` },
+    areaServed: [
+      { '@type': 'City', name: 'La Serena' },
+      { '@type': 'City', name: 'Coquimbo' },
+    ],
+  }
+}
+
 /** Genera JSON-LD de FAQ (para páginas con preguntas frecuentes → rich snippet). */
 export function faqLd(faqs: { q: string; a: string }[]) {
   return {

@@ -2,7 +2,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Mail, MapPin, Clock, Phone } from 'lucide-react'
 import { InstagramIcon } from '@/components/shared/InstagramIcon'
-import { EMPRESA, NAV_LINKS, SERVICIOS } from '@/lib/constants'
+import { EMPRESA, NAV_LINKS } from '@/lib/constants'
+import { LANDINGS } from '@/lib/landings'
 import { WA } from '@/lib/whatsapp'
 
 export function Footer() {
@@ -67,16 +68,14 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-[#F1F5F9] mb-4">Servicios</h3>
             <ul className="space-y-2">
-              {SERVICIOS.map((s) => (
-                <li key={s.id}>
-                  <a
-                    href={WA.servicio(s.nombre)}
-                    target="_blank"
-                    rel="noopener noreferrer"
+              {LANDINGS.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
                     className="text-sm text-[#94A3B8] hover:text-[#00D4FF] transition-colors"
                   >
-                    {s.nombre}
-                  </a>
+                    {l.label}
+                  </Link>
                 </li>
               ))}
             </ul>

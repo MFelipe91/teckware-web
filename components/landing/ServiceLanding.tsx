@@ -4,7 +4,8 @@ import { ArrowRight, MessageCircle, Check, ChevronDown, Receipt } from 'lucide-r
 import type { LucideIcon } from 'lucide-react'
 import { BLUR_DARK } from '@/lib/imageBlur'
 import { IVA_NOTA } from '@/lib/constants'
-import { faqLd } from '@/lib/structured-data'
+import { LANDINGS } from '@/lib/landings'
+import { faqLd, serviceLd } from '@/lib/structured-data'
 import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 export type LandingFeature = { icon: LucideIcon; titulo: string; desc: string }
@@ -12,6 +13,8 @@ export type LandingPrecio = { nombre: string; precio: string; tiempo: string; hr
 export type LandingFaq = { q: string; a: string }
 
 export type ServiceLandingProps = {
+  /** Ruta de la página (ej. '/formateo-pc-la-serena'): JSON-LD y "Otros servicios". */
+  path: string
   eyebrow: string
   titulo: string
   tituloAccent: string
@@ -32,9 +35,10 @@ export type ServiceLandingProps = {
 
 export function ServiceLanding(props: ServiceLandingProps) {
   const {
-    eyebrow, titulo, tituloAccent, subtitle, intro, heroImage, heroAlt,
+    path, eyebrow, titulo, tituloAccent, subtitle, intro, heroImage, heroAlt,
     featuresTitle, features, marcasTitle, marcas, precios, faqs, waHref, ctaTitle, ctaText,
   } = props
+  const otros = LANDINGS.filter((l) => l.href !== path)
 
   return (
     <div className="min-h-screen bg-[#080B14] pt-24">
@@ -42,6 +46,13 @@ export function ServiceLanding(props: ServiceLandingProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd(faqs)) }}
+      />
+      {/* JSON-LD Service → vincula este servicio al negocio local */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceLd({ name: `${titulo} ${tituloAccent}`, description: subtitle, path })),
+        }}
       />
 
       {/* HERO */}
@@ -197,6 +208,24 @@ export function ServiceLanding(props: ServiceLandingProps) {
             </details>
           ))}
         </div>
+      </section>
+
+      {/* OTROS SERVICIOS — enlazado interno entre landings */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <h2 className="text-[#F1F5F9] mb-8 text-center">Otros servicios en La Serena y Coquimbo</h2>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {otros.map((l) => (
+            <li key={l.href}>
+              <Link
+                href={l.href}
+                className="flex items-center justify-between gap-3 h-full px-4 py-3 rounded-sm bg-white/[0.03] border border-white/8 text-sm text-[#8B9DB5] hover:text-[#F1F5F9] hover:border-[#00D4FF]/30 transition-colors"
+              >
+                {l.label}
+                <ArrowRight size={14} className="text-[#00D4FF] shrink-0" />
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* CTA FINAL */}

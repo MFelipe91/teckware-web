@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 export default function ServicioTecnicoApplePage() {
   return (
     <ServiceLanding
+      path="/servicio-tecnico-apple"
       eyebrow="Apple / Mac"
       titulo="Servicio Técnico"
       tituloAccent="Apple & MacBook"
