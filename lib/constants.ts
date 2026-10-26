@@ -27,14 +27,14 @@ export const PLAZO_DETALLE = 'Entrega en 48 horas hábiles, con diagnóstico rea
 
 export const SERVICIOS = [
   {
-    id: 'diagnostico',
-    nombre: 'Diagnóstico Electrónico',
-    descripcion: 'Revisión técnica completa para identificar fallas antes de cualquier reparación. Si decides reparar, el diagnóstico se descuenta del total.',
-    precio: '$30.000',
+    id: 'mantencion-full',
+    nombre: 'Mantención Full',
+    descripcion: 'El más completo: limpieza física profunda + pasta térmica premium + formateo + Windows activado + Office. Todo en uno.',
+    precio: '$75.000',
     tiempo: PLAZO,
-    icono: 'search',
+    icono: 'tool',
     featured: true,
-    whatsappKey: 'diagnostico',
+    whatsappKey: 'mantencionFull',
   },
   {
     id: 'mantencion-logica',
@@ -47,24 +47,14 @@ export const SERVICIOS = [
     whatsappKey: 'mantencionLogica',
   },
   {
-    id: 'mantencion-full',
-    nombre: 'Mantención Full',
-    descripcion: 'El más completo: limpieza física profunda + pasta térmica premium + formateo + Windows activado + Office. Todo en uno.',
-    precio: '$75.000',
+    id: 'diagnostico',
+    nombre: 'Diagnóstico Electrónico',
+    descripcion: 'Revisión técnica completa para identificar fallas antes de cualquier reparación. Si decides reparar, el diagnóstico se descuenta del total.',
+    precio: '$30.000',
     tiempo: PLAZO,
-    icono: 'tool',
+    icono: 'search',
     featured: true,
-    whatsappKey: 'mantencionFull',
-  },
-  {
-    id: 'recuperacion-datos',
-    nombre: 'Recuperación de Datos',
-    descripcion: 'Respaldo y recuperación de archivos de equipos que no arrancan o discos dañados. Siempre antes del formateo.',
-    precio: 'Desde $35.000',
-    tiempo: PLAZO,
-    icono: 'hard-drive',
-    featured: true,
-    whatsappKey: 'recuperacion',
+    whatsappKey: 'diagnostico',
   },
   {
     id: 'mantencion-gpu',
@@ -75,6 +65,36 @@ export const SERVICIOS = [
     icono: 'cpu',
     featured: true,
     whatsappKey: 'mantencionGPU',
+  },
+  {
+    id: 'consola-ps5',
+    nombre: 'Mantención PS5',
+    descripcion: 'Servicio especializado con cambio de metal líquido. Recomendado una vez al año para mantener temperaturas óptimas.',
+    precio: '$80.000',
+    tiempo: PLAZO,
+    icono: 'gamepad',
+    featured: false,
+    whatsappKey: 'consolaPS5',
+  },
+  {
+    id: 'consola-ps4',
+    nombre: 'Mantención PS3 / PS4',
+    descripcion: 'Limpieza física completa, cambio de pasta térmica y mantención general para PlayStation 3 y 4.',
+    precio: '$55.000',
+    tiempo: PLAZO,
+    icono: 'gamepad',
+    featured: false,
+    whatsappKey: 'consolaPS4',
+  },
+  {
+    id: 'recuperacion-datos',
+    nombre: 'Recuperación de Datos',
+    descripcion: 'Respaldo y recuperación de archivos de equipos que no arrancan o discos dañados. Siempre antes del formateo.',
+    precio: 'Desde $35.000',
+    tiempo: PLAZO,
+    icono: 'hard-drive',
+    featured: true,
+    whatsappKey: 'recuperacion',
   },
   {
     id: 'armado-estandar',
@@ -97,26 +117,6 @@ export const SERVICIOS = [
     whatsappKey: 'armadoAltaGama',
   },
   {
-    id: 'consola-ps4',
-    nombre: 'Mantención PS3 / PS4',
-    descripcion: 'Limpieza física completa, cambio de pasta térmica y mantención general para PlayStation 3 y 4.',
-    precio: '$55.000',
-    tiempo: PLAZO,
-    icono: 'gamepad',
-    featured: false,
-    whatsappKey: 'consolaPS4',
-  },
-  {
-    id: 'consola-ps5',
-    nombre: 'Mantención PS5',
-    descripcion: 'Servicio especializado con cambio de metal líquido. Recomendado una vez al año para mantener temperaturas óptimas.',
-    precio: '$80.000',
-    tiempo: PLAZO,
-    icono: 'gamepad',
-    featured: false,
-    whatsappKey: 'consolaPS5',
-  },
-  {
     id: 'upgrade',
     nombre: 'Upgrade / Asesoría Personalizada',
     descripcion: 'Instalación y configuración de nuevos componentes. Cotización personalizada según tu equipo y componentes.',
@@ -127,16 +127,6 @@ export const SERVICIOS = [
     whatsappKey: 'upgrade',
   },
   {
-    id: 'domicilio',
-    nombre: 'Visita a domicilio',
-    descripcion: 'Para trabajos simples, como formateo o configuración, en La Serena y Coquimbo. Se suma un recargo por visita según ubicación; los trabajos de hardware se hacen en el taller.',
-    precio: 'A cotizar',
-    tiempo: 'A coordinar',
-    icono: 'map-pin',
-    featured: false,
-    whatsappKey: 'domicilio',
-  },
-  {
     id: 'workstation',
     nombre: 'Mantención Empresarial',
     descripcion: 'Servicio técnico para desktops y notebooks de trabajo profesional. Diagnóstico, limpieza, optimización y soporte para equipos de alto rendimiento.',
@@ -145,6 +135,16 @@ export const SERVICIOS = [
     icono: 'briefcase',
     featured: false,
     whatsappKey: 'workstation',
+  },
+  {
+    id: 'domicilio',
+    nombre: 'Visita a domicilio',
+    descripcion: 'Para trabajos simples, como formateo o configuración, en La Serena y Coquimbo. Se suma un recargo por visita según ubicación; los trabajos de hardware se hacen en el taller.',
+    precio: 'A cotizar',
+    tiempo: 'A coordinar',
+    icono: 'map-pin',
+    featured: false,
+    whatsappKey: 'domicilio',
   },
 ]
 
@@ -328,26 +328,28 @@ export const BUILDS = [
   },
 ] as const
 
+// Proceso real: el dueño confirma la hora, el equipo se trabaja en el taller y se entrega
+// terminado en PLAZO con informe técnico.
 export const PROCESO = [
   {
     numero: '01',
-    titulo: 'Diagnóstico',
-    descripcion: 'Revisamos tu equipo y te explicamos exactamente qué tiene y cuánto costará.',
+    titulo: 'Escríbenos',
+    descripcion: 'Cuéntanos por WhatsApp qué le pasa a tu equipo. Te orientamos y te damos el precio de lista.',
   },
   {
     numero: '02',
-    titulo: 'Presupuesto',
-    descripcion: 'Te enviamos un presupuesto claro antes de hacer cualquier intervención.',
+    titulo: 'Traes tu equipo',
+    descripcion: 'Te confirmamos la hora y la dirección del taller en La Serena. Lo recibimos y revisamos su estado contigo.',
   },
   {
     numero: '03',
-    titulo: 'Reparación',
-    descripcion: 'Nuestro técnico trabaja en tu equipo con repuestos originales y herramientas profesionales.',
+    titulo: 'Diagnóstico y trabajo',
+    descripcion: 'Hacemos el diagnóstico real y el trabajo. Si aparece algo fuera de lo cotizado, te avisamos antes de hacerlo.',
   },
   {
     numero: '04',
-    titulo: 'Entrega',
-    descripcion: 'Te entregamos tu equipo funcionando perfectamente con garantía de 30 días.',
+    titulo: 'Entrega con informe',
+    descripcion: `En ${PLAZO} tu equipo está listo, con informe técnico y garantía de 30 días. Pagas al retirar.`,
   },
 ] as const
 

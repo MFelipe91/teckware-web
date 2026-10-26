@@ -1,11 +1,7 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import {
   ShieldCheck, Award, Zap, RefreshCw, Lock, UserCheck
 } from 'lucide-react'
 import { POR_QUE_ELEGIRNOS } from '@/lib/constants'
-import { staggerContainer, staggerItem, viewportConfig } from '@/lib/animations'
 import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 const ICONS: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
@@ -38,19 +34,14 @@ export function PorQueElegirnos() {
           </p>
         </div>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={viewportConfig}
+        <div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           {POR_QUE_ELEGIRNOS.map((item) => {
             const Icon = ICONS[item.icono] ?? ShieldCheck
             return (
-              <motion.div
+              <div
                 key={item.titulo}
-                variants={staggerItem}
                 className="flex gap-4 p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-white/20 transition-colors"
               >
                 <div className="w-10 h-10 shrink-0 flex items-center justify-center rounded-xl bg-brand/10 border border-brand/20">
@@ -60,10 +51,10 @@ export function PorQueElegirnos() {
                   <h3 className="text-sm font-bold text-fg mb-1">{item.titulo}</h3>
                   <p className="text-sm text-fg-muted leading-relaxed">{item.descripcion}</p>
                 </div>
-              </motion.div>
+              </div>
             )
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   )

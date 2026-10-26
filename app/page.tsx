@@ -1,15 +1,17 @@
 import type { Metadata } from 'next'
 import { Hero } from '@/components/home/Hero'
-import { Ticker } from '@/components/home/Ticker'
-import { BookingStrip } from '@/components/home/BookingStrip'
+import { TrustStrip } from '@/components/home/TrustStrip'
 import { ServiciosDestacados } from '@/components/home/ServiciosDestacados'
 import { PorQueElegirnos } from '@/components/home/PorQueElegirnos'
 import { Proceso } from '@/components/home/Proceso'
+import { Segmentos } from '@/components/home/Segmentos'
+import { GuiasBlog } from '@/components/home/GuiasBlog'
 import { CTABanner } from '@/components/home/CTABanner'
 import { getServices } from '@/lib/services'
 
-// Revalida cada 30s para reflejar cambios de servicios destacados del panel
-export const revalidate = 30
+// Revalida cada 5 min: los servicios destacados del panel cambian poco y así no se
+// consulta Supabase en cada visita.
+export const revalidate = 300
 
 export const metadata: Metadata = {
   alternates: { canonical: '/' },
@@ -20,11 +22,12 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      <Ticker />
-      <BookingStrip />
+      <TrustStrip />
       <ServiciosDestacados servicios={servicios} />
-      <PorQueElegirnos />
       <Proceso />
+      <PorQueElegirnos />
+      <Segmentos />
+      <GuiasBlog />
       <CTABanner />
     </>
   )

@@ -1,69 +1,51 @@
-'use client'
-
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { MessageCircle, ArrowRight } from 'lucide-react'
+import { MessageCircle, CalendarCheck, MapPin } from 'lucide-react'
+import { EMPRESA, PLAZO } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
-import { fadeInUp, viewportConfig } from '@/lib/animations'
 
 export function CTABanner() {
   return (
     <section className="bg-ink-900 py-24 px-4 sm:px-6 lg:px-8">
-      <motion.div
-        variants={fadeInUp}
-        initial="initial"
-        whileInView="animate"
-        viewport={viewportConfig}
-        className="max-w-4xl mx-auto text-center relative"
-      >
-        {/* Fondo gradient */}
-        <div className="absolute inset-0 rounded-3xl overflow-hidden">
-          <div
-            className="absolute inset-0 rounded-3xl"
-            style={{
-              background: 'linear-gradient(135deg, color-mix(in oklab, var(--color-brand-bright) 8%, transparent) 0%, color-mix(in oklab, var(--color-silver) 5%, transparent) 100%)',
-              border: '1px solid color-mix(in oklab, var(--color-brand-bright) 15%, transparent)',
-            }}
-          />
-          <div className="glow-brand w-64 h-64 -top-16 -right-16 opacity-40" />
-          <div className="glow-silver w-48 h-48 -bottom-8 -left-8 opacity-30" />
-        </div>
+      <div className="relative max-w-4xl mx-auto overflow-hidden rounded-3xl border border-brand-bright/20 bg-ink-950 text-center">
+        <div className="glow-brand w-96 h-72 -top-32 left-1/2 -translate-x-1/2 opacity-50" aria-hidden="true" />
+        <div className="absolute top-0 inset-x-0 signature-line opacity-70" aria-hidden="true" />
 
         <div className="relative py-16 px-6 sm:px-12">
-          <span className="inline-block px-3 py-1 mb-5 text-xs font-semibold tracking-widest uppercase text-brand-bright border border-brand-bright/25 rounded-full bg-brand/8">
-            ¿Listo para empezar?
-          </span>
-
-          <h2 className="text-fg mb-4">
+          <h2 className="text-fg text-balance">
             Tu equipo tiene solución.{' '}
             <span className="gradient-text">Nosotros la encontramos.</span>
           </h2>
 
-          <p className="text-fg-muted mb-8 max-w-lg mx-auto">
-            Escríbenos por WhatsApp y te cotizamos en minutos. Sin compromiso,
-            sin letra chica.
+          <p className="mt-4 text-fg-muted max-w-lg mx-auto">
+            Cuéntanos por WhatsApp qué le pasa. Te orientamos, te damos el precio y coordinamos
+            una hora para recibirlo. Entrega en {PLAZO}, con informe técnico.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href={WA.general()}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-8 py-3.5 bg-whatsapp-solid text-white font-bold rounded-xl hover:bg-whatsapp-hover transition-colors duration-150 min-h-[52px]"
+              className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-brand text-white font-semibold hover:bg-brand-hover transition-colors min-h-[52px]"
             >
-              <MessageCircle size={18} strokeWidth={2.5} />
-              Escribir por WhatsApp
+              <MessageCircle size={19} aria-hidden="true" />
+              Escríbenos por WhatsApp
             </a>
             <Link
-              href="/solicitar"
-              className="flex items-center justify-center gap-2 px-8 py-3.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover transition-colors duration-150 min-h-[52px]"
+              href="/agendar"
+              className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl border border-silver/30 text-fg font-semibold hover:border-silver/60 hover:bg-white/5 transition-colors min-h-[52px]"
             >
-              Solicitar servicio
-              <ArrowRight size={18} strokeWidth={2.5} />
+              <CalendarCheck size={18} aria-hidden="true" />
+              Agendar servicio
             </Link>
           </div>
+
+          <p className="mt-8 inline-flex items-center gap-2 text-sm text-fg-subtle">
+            <MapPin size={15} className="text-brand-bright" aria-hidden="true" />
+            {EMPRESA.direccion} · {EMPRESA.horario}
+          </p>
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }

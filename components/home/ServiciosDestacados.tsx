@@ -1,8 +1,5 @@
-'use client'
-
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import {
   Search, RefreshCw, Wrench, Cpu, Package, ArrowRight, Briefcase,
   HardDrive, Zap, Gamepad2, MapPin, Receipt,
@@ -10,7 +7,6 @@ import {
 import { IVA_NOTA } from '@/lib/constants'
 import type { Servicio } from '@/lib/services'
 import { WA } from '@/lib/whatsapp'
-import { staggerContainer, staggerItem, viewportConfig } from '@/lib/animations'
 import { BLUR_DARK } from '@/lib/imageBlur'
 
 const ICONS: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
@@ -74,11 +70,7 @@ export function ServiciosDestacados({ servicios }: { servicios: Servicio[] }) {
         </div>
 
         {/* Grid */}
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={viewportConfig}
+        <div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           {FEATURED.map((servicio) => {
@@ -89,9 +81,8 @@ export function ServiciosDestacados({ servicios }: { servicios: Servicio[] }) {
               : WA.servicio(servicio.nombre)
 
             return (
-              <motion.div
+              <div
                 key={servicio.id}
-                variants={staggerItem}
                 className="group relative glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:border-brand-bright/40"
               >
                 {/* Línea de acento superior — aparece al hover */}
@@ -151,10 +142,10 @@ export function ServiciosDestacados({ servicios }: { servicios: Servicio[] }) {
                     </a>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             )
           })}
-        </motion.div>
+        </div>
 
         {/* IVA nota */}
         <div className="flex items-center justify-center gap-2 mt-8 text-xs text-fg-subtle">
