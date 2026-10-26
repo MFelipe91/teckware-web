@@ -150,6 +150,9 @@ async function derivatives(master) {
     .webp({ quality: 92, alphaQuality: 100 })
     .toFile(path.join(OUT, 'logo-horizontal.webp'))
 
+  // Hero: emblema solo, 560 px (unos 280–360 px CSS en escritorio).
+  await sharp(emblem).resize({ width: 560 }).webp({ quality: 80, alphaQuality: 90 }).toFile(path.join(OUT, 'emblem.webp'))
+
   // Footer y usos grandes: logo completo a 480 px de ancho (240 px CSS @2x).
   await sharp(master).resize({ width: 480 }).webp({ quality: 80, alphaQuality: 90 }).toFile(path.join(OUT, 'logo-stack.webp'))
   console.log('→ public/brand/logo-horizontal.webp, logo-stack.webp')

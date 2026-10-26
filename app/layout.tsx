@@ -115,13 +115,6 @@ export default function RootLayout({
   return (
     <html lang="es-CL" className={`${inter.variable} ${sora.variable}`}>
       <head>
-        {/* Preload hero image for LCP — only on desktop (54vw panel) */}
-        <link
-          rel="preload"
-          as="image"
-          href="/images/hardware.jpg"
-          media="(min-width: 1024px)"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(businessLd) }}
