@@ -21,7 +21,7 @@ export default function EmpresasPage() {
       subtitle="Mantención de equipos, asesoría, automatización con IA, desarrollo web y ciberseguridad, con un ingeniero informático que conoce tu operación y te habla claro."
       intro={[
         'En una pyme, un computador detenido es una persona que no puede trabajar. Nuestro foco es la prevención: mantener los equipos sanos, ordenar la tecnología que ya tienes y resolver rápido cuando algo falla.',
-        'Trabajamos directo contigo, sin intermediarios: evaluamos qué necesita tu empresa, te proponemos un plan por escrito con precio claro y lo ejecutamos en tus instalaciones en La Serena y Coquimbo, coordinando por WhatsApp.',
+        'Trabajamos directo contigo, sin intermediarios: evaluamos qué necesita tu empresa, te proponemos un plan por escrito con precio claro y lo ejecutamos en nuestro taller en La Serena, coordinando la entrega y el retiro por WhatsApp. Las tareas simples, como formateos o configuraciones, también las podemos hacer en tu oficina, con recargo por visita.',
       ]}
       cardsTitle="Cómo podemos ayudar a tu empresa"
       cards={[
@@ -76,14 +76,14 @@ export default function EmpresasPage() {
         { icon: GraduationCap, titulo: 'Ingeniería informática', desc: 'Especialistas en hardware, mantención preventiva, ciberseguridad y desarrollo.' },
         { icon: MessagesSquare, titulo: 'Hablas con quien hace el trabajo', desc: 'Sin call center: te explicamos el problema y la solución en simple.' },
         { icon: CalendarClock, titulo: 'Entrega en 48 horas hábiles', desc: 'Plazos claros desde el inicio, con diagnóstico real e informe técnico de cada equipo.' },
-        { icon: Home, titulo: 'En tus instalaciones', desc: 'Atendemos en tu oficina en La Serena y Coquimbo.' },
+        { icon: Home, titulo: 'Taller propio', desc: 'Los equipos se trabajan con calma y con las herramientas adecuadas en nuestro taller en La Serena.' },
         { icon: ShieldCheck, titulo: 'Garantía de 30 días', desc: 'Todos los trabajos tienen garantía.' },
         { icon: Receipt, titulo: 'Empresa formal', desc: 'TECKWARE SpA: presupuesto por escrito y boleta por cada servicio.' },
       ]}
       faqs={[
         { q: '¿Atienden empresas con varios equipos?', a: 'Sí. Cotizamos según la cantidad y el tipo de equipos, y coordinamos los horarios para que tu equipo pueda seguir trabajando.' },
         { q: '¿Qué tipo de tareas se pueden automatizar con IA?', a: 'Tareas repetitivas como responder consultas frecuentes, generar reportes, ordenar planillas o redactar documentos base. Primero revisamos tu proceso y te decimos si conviene automatizarlo.' },
-        { q: '¿Trabajan en nuestras oficinas?', a: 'Sí, en La Serena y Coquimbo. Si un equipo necesita más tiempo de taller, lo coordinamos contigo.' },
+        { q: '¿Trabajan en nuestras oficinas?', a: 'Para tareas simples, como formateos o configuraciones, sí, en La Serena y Coquimbo, con un recargo por visita. Los trabajos de hardware se hacen en nuestro taller en La Serena y coordinamos contigo la entrega y el retiro.' },
         { q: '¿Emiten boleta?', a: 'Sí. TECKWARE SpA emite boleta por cada servicio y todos los precios incluyen IVA.' },
         { q: '¿Cómo empezamos?', a: 'Escríbenos por WhatsApp con el nombre de tu empresa, cuántos equipos tienen y qué necesitan. Te respondemos con una propuesta.' },
       ]}

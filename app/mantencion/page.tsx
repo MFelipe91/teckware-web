@@ -22,7 +22,7 @@ export default function MantencionPage() {
       subtitle="Limpieza interna, pasta térmica, formateo y revisión de temperaturas para que tu equipo no falle cuando más lo necesitas. PC gamer, notebooks, consolas y empresas."
       intro={[
         'La mayoría de las fallas que vemos no llegan de golpe: el polvo tapa ventiladores, la pasta térmica se seca y el equipo empieza a calentarse, ponerse lento o apagarse solo. Una mantención a tiempo es más barata que una reparación y alarga la vida útil del equipo.',
-        'En cada mantención te explicamos qué encontramos, qué hicimos y cada cuánto conviene repetirla según cómo usas tu equipo. Trabajamos a domicilio o coordinando por WhatsApp en La Serena y Coquimbo, con boleta y garantía de 30 días.',
+        'En cada mantención te explicamos qué encontramos, qué hicimos y cada cuánto conviene repetirla según cómo usas tu equipo. Recibimos tu equipo en nuestro taller en La Serena, con hora coordinada por WhatsApp, para clientes de La Serena y Coquimbo. Con boleta y garantía de 30 días.',
       ]}
       cardsTitle="¿Qué equipo quieres mantener?"
       cards={[
@@ -80,7 +80,7 @@ export default function MantencionPage() {
         { icon: Thermometer, titulo: 'Menos temperatura, menos fallas', desc: 'El calor es lo que más desgasta los componentes. Limpiar y renovar la pasta térmica lo mantiene bajo control.' },
         { icon: TrendingUp, titulo: 'Rendimiento estable', desc: 'Sin polvo ni sobrecalentamiento, el equipo no baja su velocidad para protegerse.' },
         { icon: MessagesSquare, titulo: 'Te explicamos todo', desc: 'Sabes qué tenía tu equipo, qué hicimos y cuándo conviene volver a revisarlo.' },
-        { icon: Home, titulo: 'A domicilio', desc: 'Atendemos en La Serena y Coquimbo, coordinando todo por WhatsApp.' },
+        { icon: Home, titulo: 'Taller en La Serena', desc: 'Traes tu equipo con hora coordinada por WhatsApp. Para trabajos simples, como formateo, podemos ir a domicilio con recargo.' },
         { icon: ShieldCheck, titulo: 'Garantía de 30 días', desc: 'Todos los trabajos tienen garantía. Si algo falla por nuestro trabajo, lo solucionamos.' },
         { icon: Receipt, titulo: 'Empresa formal', desc: 'TECKWARE SpA: precio claro antes de empezar y boleta por cada servicio.' },
       ]}
@@ -89,7 +89,7 @@ export default function MantencionPage() {
         { q: '¿Qué diferencia hay entre mantención lógica y mantención full?', a: `La lógica es el software: formateo, instalación limpia del sistema y optimización (${precioServicio('mantencion-logica')}). La full suma la parte física: desarmado, limpieza interna y pasta térmica (${precioServicio('mantencion-full')}).` },
         { q: '¿Cuánto demora?', a: 'Se entrega en 48 horas hábiles (lunes a viernes), con el diagnóstico real y un informe técnico de lo que encontramos e hicimos.' },
         { q: '¿Pierdo mis archivos?', a: 'En la mantención física no se tocan tus archivos. Si el servicio incluye formateo, primero respaldamos lo que necesites.' },
-        { q: '¿Atienden a domicilio?', a: 'Sí, en La Serena y Coquimbo. No tenemos atención de público en local: coordinamos todo por WhatsApp.' },
+        { q: '¿Atienden a domicilio?', a: 'Preferimos trabajar en el taller, donde tenemos las herramientas para hacerlo bien. Para trabajos simples, como formateo, podemos ir a domicilio en La Serena y Coquimbo con un recargo según ubicación.' },
       ]}
       linksTitle="Guías de mantención"
       links={POSTS.map((p) => ({ href: `/blog/${p.slug}`, label: p.title }))}

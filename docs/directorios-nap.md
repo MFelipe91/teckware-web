@@ -9,7 +9,7 @@ posición en Maps. Copia y pega **exactamente** estos datos en cada directorio.
 ```
 Nombre:        TECKWARE
 Razón social:  TECKWARE SpA (RUT 78.398.912-3)
-Zona:          La Serena y Coquimbo, Región de Coquimbo (atención a domicilio, sin local)
+Zona:          La Serena y Coquimbo, Región de Coquimbo (taller en La Serena con hora coordinada; sin atención de público sin cita)
 Teléfono:      +56 9 3020 9427
 WhatsApp:      https://wa.me/56930209427
 Sitio web:     https://www.teckware.cl

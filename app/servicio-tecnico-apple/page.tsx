@@ -46,7 +46,7 @@ export default function ServicioTecnicoApplePage() {
         { q: 'Mi MacBook se calienta y el ventilador suena mucho, ¿qué hago?', a: 'Es señal de que necesita mantención térmica: limpieza interna y cambio de pasta. Es uno de los servicios más solicitados y mejora notablemente el rendimiento y el ruido.' },
         { q: '¿Puedo ampliar el disco de mi MacBook?', a: 'Depende del modelo. En equipos con SSD reemplazable sí es posible; en otros el almacenamiento viene soldado. Lo verificamos en el diagnóstico.' },
         { q: '¿Mis datos están seguros?', a: 'Sí. Manejamos tu información con confidencialidad y, cuando el trabajo lo requiere, hacemos respaldo previo. No accedemos a tus archivos sin autorización.' },
-        { q: '¿Atienden en La Serena y Coquimbo?', a: 'Sí, atendemos toda la zona La Serena–Coquimbo. Coordina por WhatsApp para dejar tu equipo o consultar por servicio a domicilio.' },
+        { q: '¿Atienden en La Serena y Coquimbo?', a: 'Sí, atendemos toda la zona La Serena–Coquimbo. Coordina por WhatsApp una hora para dejar tu equipo en nuestro taller en La Serena.' },
       ]}
       waHref={WA.servicio('Servicio Técnico Apple / MacBook')}
       ctaTitle="¿Tu Mac necesita una puesta a punto?"

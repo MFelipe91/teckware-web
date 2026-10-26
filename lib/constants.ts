@@ -3,8 +3,11 @@ export const EMPRESA = {
   rut: '78.398.912-3',
   fundacion: 'Abril 2026',
   ubicacion: 'La Serena, Región de Coquimbo, Chile',
-  // No se atiende público en el domicilio: se muestra la zona de servicio (igual que la Ficha de Google).
-  direccion: 'La Serena y Coquimbo · Atención a domicilio',
+  // Los equipos se reciben en el taller de La Serena con hora coordinada (sin atención de
+  // público sin cita). La dirección se entrega al agendar: en la web solo va la zona.
+  direccion: 'La Serena y Coquimbo · Taller en La Serena con hora coordinada',
+  modalidad: 'Recibimos tu equipo en nuestro taller en La Serena, con hora coordinada por WhatsApp.',
+  domicilioNota: 'Visita a domicilio solo para trabajos simples, como formateo, con recargo según ubicación.',
   // Solo para documentos legales (política de privacidad).
   domicilioLegal: 'Colón 352, La Serena',
   email: 'mariofelipe@teckware.cl',
@@ -125,8 +128,8 @@ export const SERVICIOS = [
   },
   {
     id: 'domicilio',
-    nombre: 'Soporte a Domicilio',
-    descripcion: 'Visita técnica en tu hogar o empresa en La Serena y Coquimbo. Tarifa de visita más servicio.',
+    nombre: 'Visita a domicilio',
+    descripcion: 'Para trabajos simples, como formateo o configuración, en La Serena y Coquimbo. Se suma un recargo por visita según ubicación; los trabajos de hardware se hacen en el taller.',
     precio: 'A cotizar',
     tiempo: 'A coordinar',
     icono: 'map-pin',
@@ -248,10 +251,10 @@ export const SERVICIO_CONDICIONES: Record<string, { incluye: string[]; nota?: st
   },
   'domicilio': {
     incluye: [
-      'Visita técnica en La Serena y Coquimbo',
-      'Diagnóstico o servicio en tu hogar o empresa',
+      'Trabajos simples en tu hogar u oficina (formateo, configuración)',
+      'La Serena y Coquimbo',
     ],
-    nota: 'Tarifa de visita + servicio, a coordinar según ubicación.',
+    nota: 'Valor del servicio + recargo por visita según ubicación. Los trabajos de hardware se hacen en el taller.',
   },
   'workstation': {
     incluye: [

@@ -37,7 +37,7 @@ prioridad de la mantención preventiva va en la descripción y el orden de servi
 
 ## Descripción (máx. 750 caracteres)
 
-> Mantención preventiva especializada de PC gamer, computadores y notebooks en La Serena y Coquimbo. Limpieza interna, pasta térmica premium, control de temperaturas y optimización para que tu equipo rinda más y dure más. También armamos PC gamer a medida, reparamos notebooks y PC, y damos asesoría informática integral a personas y empresas: integración de tecnología, automatización de procesos con IA y desarrollo de soluciones informáticas. Diagnóstico claro antes de cualquier trabajo, pago al retirar, boleta y 30 días de garantía en mano de obra. Atención a domicilio y con coordinación previa por WhatsApp.
+> Mantención preventiva especializada de PC gamer, computadores y notebooks en La Serena y Coquimbo. Limpieza interna, pasta térmica premium, control de temperaturas y optimización para que tu equipo rinda más y dure más. También armamos PC gamer a medida, reparamos notebooks y PC, y damos asesoría informática integral a personas y empresas: integración de tecnología, automatización de procesos con IA y desarrollo de soluciones informáticas. Entrega en 48 horas hábiles con diagnóstico real e informe técnico, pago al retirar, boleta y 30 días de garantía en mano de obra. Recibimos tu equipo en nuestro taller en La Serena con hora coordinada por WhatsApp; a domicilio solo para trabajos simples, con recargo.
 
 ## Servicios (en este orden)
 
@@ -54,7 +54,7 @@ prioridad de la mantención preventiva va en la descripción y el orden de servi
 11. Diagnóstico electrónico — $30.000 (se descuenta si reparas)
 12. Reparación de notebooks y PC — según diagnóstico
 13. Recuperación de datos — desde $35.000
-14. Soporte a domicilio (La Serena y Coquimbo) — a cotizar
+14. Visita a domicilio para trabajos simples (formateo, configuración) — servicio + recargo según ubicación
 
 ## Rutina recomendada
 

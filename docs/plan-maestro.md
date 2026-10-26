@@ -25,7 +25,7 @@
 | Empresa | TECKWARE SpA — RUT 78.398.912-3 |
 | Dueño | Mario Felipe Busques Araya |
 | Zona | **La Serena y Coquimbo** (Región de Coquimbo, Chile) |
-| Modalidad | **Negocio de zona de servicio: SIN atención de público.** A domicilio o coordinando por WhatsApp |
+| Modalidad | **Taller en La Serena con hora coordinada por WhatsApp** (sin atención de público sin cita; la dirección se entrega al agendar). A domicilio es poco común: solo trabajos simples (formateo, configuración) y con recargo |
 | Domicilio legal | Colón 352, La Serena — **solo** en `/privacidad`. Nunca mostrarlo en otro lado |
 | Horario | Lunes a viernes, 10:00–18:30 |
 | Teléfono / WhatsApp | +56 9 3020 9427 · https://wa.me/56930209427 |
@@ -238,7 +238,7 @@ navy). Hay un pack anterior en `public/images/teckware_logos_pack_1/`.
       de servicio. → WhatsApp principal, Agendar secundario.
 - [x] Cambiar "Disponible hoy" por algo siempre cierto ("Atención a domicilio · Lun–Vie
       10:00–18:30"), o calcularlo según la hora de Chile. → Sellos: garantía 30 días ·
-      boleta · a domicilio · entrega en 48 h hábiles (`PLAZO`) · horario (`EMPRESA.horario`).
+      boleta · taller en La Serena · entrega en 48 h hábiles (`PLAZO`) · horario (`EMPRESA.horario`).
 - [ ] Medir en la Preview de Vercel: LCP móvil, CLS y Lighthouse SEO/Accesibilidad.
 - **Listo cuando:** LCP < 2,5 s en móvil (PageSpeed o Speed Insights), CLS < 0,1, el H1 es
   visible sin JavaScript y Lighthouse SEO y Accesibilidad dan 100.
@@ -265,7 +265,7 @@ Propuesta de `NAV_LINKS`:
 Orden sugerido:
 
 1. **Hero** (6.3).
-2. **Franja de confianza:** garantía 30 días · boleta · a domicilio · pago al retirar.
+2. **Franja de confianza:** garantía 30 días · boleta · taller en La Serena · pago al retirar · informe técnico.
 3. **Servicios principales** con precio "desde", con la mantención primero y enlaces a las
    landings.
 4. **Cómo funciona** (`Proceso`): escribes → diagnóstico → aprobación → entrega.
@@ -300,7 +300,7 @@ Lista de fotos (horizontales, buena luz, sin datos de clientes visibles):
 - [ ] Aplicación de pasta térmica / metal líquido en un PS5.
 - [ ] Notebook desarmado.
 - [ ] Armado terminado con cable management.
-- [ ] Visita a domicilio o a una empresa.
+- [ ] Recepción de un equipo en el taller.
 
 Ruta sugerida: `public/images/real/`. Usar con `next/image` y nombres descriptivos
 (`mantencion-pc-gamer-la-serena.webp`). Las mismas fotos se suben a la Ficha de Google.

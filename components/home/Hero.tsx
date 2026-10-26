@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { MessageCircle, CalendarCheck, ShieldCheck, Receipt, Home, Timer, Clock } from 'lucide-react'
+import { MessageCircle, CalendarCheck, ShieldCheck, Receipt, MapPin, Timer, Clock } from 'lucide-react'
 import { EMPRESA, PLAZO } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
 
@@ -10,7 +10,7 @@ import { WA } from '@/lib/whatsapp'
 const SELLOS = [
   { icon: ShieldCheck, label: 'Garantía 30 días' },
   { icon: Receipt, label: 'Boleta · TECKWARE SpA' },
-  { icon: Home, label: 'A domicilio' },
+  { icon: MapPin, label: 'Taller en La Serena' },
   { icon: Timer, label: `Entrega en ${PLAZO}` },
   { icon: Clock, label: EMPRESA.horario },
 ]
@@ -43,8 +43,8 @@ export function Hero() {
 
             <p className="mt-5 text-base sm:text-lg leading-relaxed text-fg-muted max-w-xl">
               Cuidamos tu equipo como si fuera nuestro: te explicamos qué tiene, cuánto cuesta y
-              cómo evitar que vuelva a fallar. Para personas, gamers y pymes, a domicilio o
-              coordinando por WhatsApp.
+              cómo evitar que vuelva a fallar. Para personas, gamers y pymes de La Serena y
+              Coquimbo, con hora coordinada por WhatsApp.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">

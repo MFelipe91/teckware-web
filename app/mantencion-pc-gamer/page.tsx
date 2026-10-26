@@ -46,7 +46,7 @@ export default function MantencionPCGamerPage() {
         { q: '¿Cuánto bajan las temperaturas después de la mantención?', a: 'Depende del estado inicial, pero es común ver reducciones de 10 a 20 °C en CPU y GPU tras la limpieza y el cambio de pasta térmica.' },
         { q: '¿Qué pasta térmica utilizan?', a: 'Usamos pasta térmica de alto rendimiento (Thermal Grizzly) y, en tarjetas gráficas, también reemplazamos los thermal pads cuando es necesario.' },
         { q: '¿Cuánto demora el servicio?', a: 'La mantención se entrega en 48 horas hábiles, con diagnóstico real e informe técnico.' },
-        { q: '¿Atienden en La Serena y Coquimbo?', a: 'Sí. Atendemos en La Serena y Coquimbo, e incluso ofrecemos servicio a domicilio coordinado previamente.' },
+        { q: '¿Atienden en La Serena y Coquimbo?', a: 'Sí. Recibimos tu PC en nuestro taller en La Serena, con hora coordinada por WhatsApp, para clientes de La Serena y Coquimbo.' },
       ]}
       waHref={WA.servicio('Mantención de PC Gamer')}
       ctaTitle="¿Tu PC Gamer está caliente o ruidoso?"

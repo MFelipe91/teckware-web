@@ -45,7 +45,7 @@ export default function ServicioTecnicoLaSerenaPage() {
         { q: '¿Cuánto cuesta revisar mi computador?', a: 'El diagnóstico electrónico cuesta $30.000 con IVA y se entrega en 48 horas hábiles, con informe técnico. Si decides reparar con nosotros, ese monto se descuenta del total.' },
         { q: '¿Tengo que pagar algo por adelantado?', a: 'No. Trabajamos sin anticipo: pagas cuando retiras tu equipo funcionando.' },
         { q: '¿Qué garantía tienen los trabajos?', a: 'La mano de obra tiene 30 días de garantía. Si algo de lo que reparamos vuelve a fallar en ese plazo, lo revisamos sin costo.' },
-        { q: '¿Atienden también en Coquimbo?', a: 'Sí. Atendemos clientes de La Serena y Coquimbo, y ofrecemos visita técnica a domicilio con tarifa según ubicación.' },
+        { q: '¿Atienden también en Coquimbo?', a: 'Sí. Atendemos clientes de La Serena y Coquimbo en nuestro taller en La Serena, con hora coordinada. Para trabajos simples, como formateo, también vamos a domicilio con un recargo según ubicación.' },
         { q: '¿Cuál es el horario de atención?', a: 'De lunes a viernes de 10:00 a 18:30. Por WhatsApp respondemos rápido para cotizar y coordinar.' },
       ]}
       waHref={WA.servicio('Servicio técnico de computador')}
