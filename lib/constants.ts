@@ -313,37 +313,6 @@ export const BUILDS = [
   },
 ] as const
 
-export const REVIEWS = [
-  {
-    nombre: 'Carlos G.',
-    ciudad: 'La Serena',
-    estrellas: 5,
-    comentario: 'Me armaron la PC en 3 días. Todo perfecto, specs exactos, ensamblado impecable.',
-    iniciales: 'CG',
-  },
-  {
-    nombre: 'Valentina P.',
-    ciudad: 'Coquimbo',
-    estrellas: 5,
-    comentario: 'Diagnóstico honesto, sin cobros escondidos. Rápido y precio justo.',
-    iniciales: 'VP',
-  },
-  {
-    nombre: 'Rodrigo N.',
-    ciudad: 'La Serena',
-    estrellas: 5,
-    comentario: 'Mantención física al notebook y quedó como nueva. Excelente atención.',
-    iniciales: 'RN',
-  },
-] as const
-
-export const STATS = [
-  { valor: '200+', label: 'Equipos reparados' },
-  { valor: '2h', label: 'Respuesta promedio' },
-  { valor: '5★', label: 'Calificación promedio' },
-  { valor: '100%', label: 'Satisfacción garantizada' },
-] as const
-
 export const PROCESO = [
   {
     numero: '01',

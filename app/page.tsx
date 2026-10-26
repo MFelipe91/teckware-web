@@ -5,7 +5,6 @@ import { BookingStrip } from '@/components/home/BookingStrip'
 import { ServiciosDestacados } from '@/components/home/ServiciosDestacados'
 import { PorQueElegirnos } from '@/components/home/PorQueElegirnos'
 import { Proceso } from '@/components/home/Proceso'
-import { Reviews } from '@/components/home/Reviews'
 import { CTABanner } from '@/components/home/CTABanner'
 import { getServices } from '@/lib/services'
 
@@ -26,7 +25,6 @@ export default async function Home() {
       <ServiciosDestacados servicios={servicios} />
       <PorQueElegirnos />
       <Proceso />
-      <Reviews />
       <CTABanner />
     </>
   )
