@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
 import { SITE_URL } from '@/lib/site'
 import { LANDINGS } from '@/lib/landings'
+import { POSTS } from '@/lib/blog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE_URL
@@ -12,7 +13,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...LANDINGS.map((l) => ({
       url: `${base}${l.href}`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.85,
     })),
-    { url: `${base}/builds`,          lastModified: now, changeFrequency: 'weekly',  priority: 0.9 },
+    { url: `${base}/blog`,            lastModified: now, changeFrequency: 'weekly',  priority: 0.7 },
+    ...POSTS.map((p) => ({
+      url: `${base}/blog/${p.slug}`, lastModified: new Date(p.date), changeFrequency: 'monthly' as const, priority: 0.6,
+    })),
+    { url: `${base}/builds`,         lastModified: now, changeFrequency: 'weekly',  priority: 0.9 },
     { url: `${base}/agendar`,         lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/web-qa`,          lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/ciberseguridad`,  lastModified: now, changeFrequency: 'monthly', priority: 0.7 },

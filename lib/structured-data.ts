@@ -109,6 +109,24 @@ export function serviceLd(s: { name: string; description: string; path: string }
   }
 }
 
+/** JSON-LD de una guía del blog. */
+export function articleLd(a: { title: string; description: string; path: string; date: string; author: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: a.title,
+    description: a.description,
+    url: `${SITE}${a.path}`,
+    mainEntityOfPage: `${SITE}${a.path}`,
+    datePublished: a.date,
+    dateModified: a.date,
+    inLanguage: 'es-CL',
+    author: { '@type': 'Person', name: a.author },
+    publisher: { '@id': `${SITE}/#business` },
+    image: `${SITE}/og-image.png`,
+  }
+}
+
 /** Genera JSON-LD de FAQ (para páginas con preguntas frecuentes → rich snippet). */
 export function faqLd(faqs: { q: string; a: string }[]) {
   return {

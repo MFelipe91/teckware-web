@@ -57,6 +57,11 @@ export function Footer() {
                 </li>
               ))}
               <li>
+                <Link href="/blog" className="text-sm text-[#94A3B8] hover:text-[#00D4FF] transition-colors">
+                  Blog · Guías de mantención
+                </Link>
+              </li>
+              <li>
                 <Link href="/solicitar" className="text-sm text-[#00D4FF] hover:text-[#00A8CC] font-medium transition-colors">
                   Solicitar servicio →
                 </Link>
