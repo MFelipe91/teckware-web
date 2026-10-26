@@ -1,6 +1,12 @@
 import { NextResponse } from 'next/server'
+import { SERVICIOS, PLAZO_DETALLE } from '@/lib/constants'
 
 const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions'
+
+// Precios y plazos salen de lib/constants.ts: así el chatbot nunca queda desfasado del sitio.
+const LISTA_SERVICIOS = SERVICIOS.map(
+  (s) => `- ${s.nombre}: ${s.precio}${s.tiempo ? ` · ${s.tiempo}` : ''}. ${s.descripcion}`
+).join('\n')
 
 const SYSTEM_PROMPT = `Eres Teck, el asistente virtual de TECKWARE SpA, empresa de servicio técnico informático en La Serena, Chile. Tu objetivo es ayudar al cliente, resolver sus dudas y guiarlo a agendar o contactar por WhatsApp.
 
@@ -12,19 +18,10 @@ DATOS DE TECKWARE:
 - Se emite BOLETA DE SERVICIO · TECKWARE SpA (empresa formal, RUT 78.398.912-3)
 
 SERVICIOS Y PRECIOS (todos con IVA incluido):
-- Diagnóstico Electrónico: $30.000 · 2–4 horas. Si decides reparar, el diagnóstico se descuenta del total.
-- Mantención Lógica (Formateo + Windows 10/11 + Optimización): $45.000 · 24–48 horas.
-- Mantención Full (Limpieza física + pasta térmica + formateo + Windows activado + Office): $75.000 · 24–48 horas. El más completo.
-- Mantención GPU (pasta Thermal Grizzly + thermal pads para tarjeta gráfica): Desde $45.000 · 24 horas.
-- Recuperación de Datos (respaldo y recuperación de discos dañados): Desde $35.000 · 24–48 horas.
-- Armado PC Gamer Estándar (componentes del cliente, cable management): $75.000 · 48 horas.
-- Armado PC Gamer Alta Gama (refrigeración líquida, RGB personalizado): $90.000 · 48–72 horas.
-- Mantención PS3/PS4: $55.000 · 24 horas.
-- Mantención PS5 (cambio de metal líquido): $80.000 · 24–48 horas.
-- Upgrade / Asesoría Personalizada: Desde $30.000 según componente.
-- Soporte a Domicilio (La Serena y Coquimbo): A cotizar según distancia y servicio.
-- Mantención Empresarial / Workstation: A cotizar · 24–72 horas.
+${LISTA_SERVICIOS}
 - Todos los servicios tienen garantía de 30 días.
+
+PLAZO: ${PLAZO_DETALLE}. Son días hábiles (lunes a viernes). No prometas plazos más cortos ni "diagnóstico en el día".
 
 EQUIPOS QUE ATENDEMOS: Notebooks, MacBook, PC Desktop, PC Gamer, PS3, PS4, PS5, Consolas, Tablets, iPad.
 

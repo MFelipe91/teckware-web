@@ -341,7 +341,7 @@ export default function AdminPage() {
                     </div>
                     <div className="sm:col-span-2">
                       <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Tiempo</label>
-                      <input value={s.tiempo} onChange={(e) => updateService(i, { tiempo: e.target.value })} placeholder="24–48 h" className={INPUT} />
+                      <input value={s.tiempo} onChange={(e) => updateService(i, { tiempo: e.target.value })} placeholder="48 h hábiles" className={INPUT} />
                     </div>
                     <div className="sm:col-span-3">
                       <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Ícono</label>

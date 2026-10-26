@@ -9,7 +9,7 @@ import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 export const metadata: Metadata = {
   title: 'Contacto',
   description:
-    'Contacta a TECKWARE SpA en La Serena. WhatsApp, email e Instagram. Respuesta en menos de 2 horas.',
+    'Contacta a TECKWARE SpA en La Serena. WhatsApp, email e Instagram. Atención Lun–Vie 10:00–18:30.',
   alternates: { canonical: '/contacto' },
 }
 
@@ -29,7 +29,7 @@ export default function ContactoPage() {
             <span className="gradient-text">ahora</span>
           </h1>
           <p className="text-fg-muted max-w-lg mx-auto">
-            Respuesta garantizada en menos de 2 horas. Elige el canal que prefieras.
+            Te respondemos en horario hábil (Lun–Vie 10:00–18:30). Elige el canal que prefieras.
           </p>
         </div>
       </section>

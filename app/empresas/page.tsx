@@ -75,7 +75,7 @@ export default function EmpresasPage() {
       puntos={[
         { icon: GraduationCap, titulo: 'Ingeniería informática', desc: 'Especialistas en hardware, mantención preventiva, ciberseguridad y desarrollo.' },
         { icon: MessagesSquare, titulo: 'Hablas con quien hace el trabajo', desc: 'Sin call center: te explicamos el problema y la solución en simple.' },
-        { icon: CalendarClock, titulo: 'Solución en 24 a 48 horas', desc: 'Respuesta rápida por WhatsApp y plazos claros desde el inicio.' },
+        { icon: CalendarClock, titulo: 'Entrega en 48 horas hábiles', desc: 'Plazos claros desde el inicio, con diagnóstico real e informe técnico de cada equipo.' },
         { icon: Home, titulo: 'En tus instalaciones', desc: 'Atendemos en tu oficina en La Serena y Coquimbo.' },
         { icon: ShieldCheck, titulo: 'Garantía de 30 días', desc: 'Todos los trabajos tienen garantía.' },
         { icon: Receipt, titulo: 'Empresa formal', desc: 'TECKWARE SpA: presupuesto por escrito y boleta por cada servicio.' },

@@ -238,7 +238,7 @@ navy). Hay un pack anterior en `public/images/teckware_logos_pack_1/`.
       de servicio. → WhatsApp principal, Agendar secundario.
 - [x] Cambiar "Disponible hoy" por algo siempre cierto ("Atención a domicilio · Lun–Vie
       10:00–18:30"), o calcularlo según la hora de Chile. → Sellos: garantía 30 días ·
-      boleta · a domicilio · 24–48 h · horario (de `EMPRESA.horario`).
+      boleta · a domicilio · entrega en 48 h hábiles (`PLAZO`) · horario (`EMPRESA.horario`).
 - [ ] Medir en la Preview de Vercel: LCP móvil, CLS y Lighthouse SEO/Accesibilidad.
 - **Listo cuando:** LCP < 2,5 s en móvil (PageSpeed o Speed Insights), CLS < 0,1, el H1 es
   visible sin JavaScript y Lighthouse SEO y Accesibilidad dan 100.

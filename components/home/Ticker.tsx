@@ -1,5 +1,5 @@
 const items = [
-  '✓ Diagnóstico en el día',
+  '✓ Entrega en 48 h hábiles',
   '✓ Formateo + instalación limpia',
   '✓ Mantenimiento físico completo',
   '✓ PC Gamer a medida',
@@ -7,7 +7,7 @@ const items = [
   '✓ Consolas PS4 / PS5 / Xbox',
   '✓ Precio fijo y transparente',
   '✓ Garantía 30 días',
-  '✓ Respuesta en 2 horas',
+  '✓ Informe técnico de cada trabajo',
 ]
 
 export function Ticker() {

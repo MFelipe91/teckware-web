@@ -6,7 +6,7 @@ import { WA } from '@/lib/whatsapp'
 export const metadata: Metadata = {
   title: { absolute: 'Reparación de Notebooks en La Serena y Coquimbo | TECKWARE' },
   description:
-    'Reparación de notebooks HP, Lenovo, Dell, ASUS, Acer y más en La Serena y Coquimbo: no enciende, se calienta, lentitud, teclado, carga y upgrade a SSD. Diagnóstico en 2–4 horas.',
+    'Reparación de notebooks HP, Lenovo, Dell, ASUS, Acer y más en La Serena y Coquimbo: no enciende, se calienta, lentitud, teclado, carga y upgrade a SSD. Entrega en 48 horas hábiles con informe técnico.',
   alternates: { canonical: '/reparacion-notebook-la-serena' },
 }
 
@@ -37,13 +37,13 @@ export default function ReparacionNotebookLaSerenaPage() {
       marcasTitle="Marcas de notebooks que atendemos"
       marcas={['HP', 'Lenovo', 'Dell', 'ASUS', 'Acer', 'MSI', 'Samsung', 'Huawei', 'Toshiba', 'MacBook']}
       precios={[
-        { nombre: 'Diagnóstico electrónico', precio: '$30.000', tiempo: '2–4 h', href: WA.diagnostico() },
-        { nombre: 'Mantención Full notebook', precio: '$75.000', tiempo: '24–48 h', href: WA.mantencionFull() },
+        { nombre: 'Diagnóstico electrónico', precio: '$30.000', tiempo: '48 h hábiles', href: WA.diagnostico() },
+        { nombre: 'Mantención Full notebook', precio: '$75.000', tiempo: '48 h hábiles', href: WA.mantencionFull() },
         { nombre: 'Upgrade SSD / RAM', precio: 'Desde $30.000', tiempo: 'A coordinar', href: WA.upgrade() },
       ]}
       faqs={[
         { q: '¿Vale la pena reparar mi notebook o mejor compro uno nuevo?', a: 'Después del diagnóstico te decimos honestamente si conviene. Muchas veces un SSD, más RAM y una mantención dejan el equipo funcionando bien por varios años más.' },
-        { q: '¿Cuánto demora la reparación de un notebook?', a: 'El diagnóstico está en 2 a 4 horas. Una mantención o formateo toma 24 a 48 horas. Si hay que pedir repuestos, te informamos el plazo antes.' },
+        { q: '¿Cuánto demora la reparación de un notebook?', a: 'El trabajo se entrega en 48 horas hábiles, con diagnóstico real e informe técnico. Si hay que pedir repuestos, te informamos el plazo antes.' },
         { q: '¿Pierdo mis archivos?', a: 'En una mantención o upgrade no. En el formateo incluimos un respaldo básico de tus archivos. Si el disco está dañado, primero intentamos recuperar los datos.' },
         { q: '¿Los repuestos están incluidos en el precio?', a: 'Los insumos sí (por ejemplo, pasta térmica). Repuestos y componentes como teclados, baterías o SSD se cotizan aparte.' },
       ]}

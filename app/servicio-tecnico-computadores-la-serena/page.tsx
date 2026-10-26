@@ -6,7 +6,7 @@ import { WA } from '@/lib/whatsapp'
 export const metadata: Metadata = {
   title: { absolute: 'Servicio Técnico de Computadores en La Serena | TECKWARE' },
   description:
-    'Servicio técnico de computadores y notebooks en La Serena y Coquimbo. Diagnóstico en 2–4 horas, formateo, mantención, upgrade y reparación. Precio claro antes de reparar, pago al retirar y garantía de 30 días.',
+    'Servicio técnico de computadores y notebooks en La Serena y Coquimbo. Entrega en 48 horas hábiles con informe técnico: diagnóstico, formateo, mantención, upgrade y reparación. Precio claro antes de reparar, pago al retirar y garantía de 30 días.',
   alternates: { canonical: '/servicio-tecnico-computadores-la-serena' },
 }
 
@@ -22,7 +22,7 @@ export default function ServicioTecnicoLaSerenaPage() {
       heroAlt="Técnico revisando un computador en el servicio técnico TECKWARE de La Serena"
       intro={[
         'Si tu computador está lento, no enciende, se apaga solo, se calienta o se llenó de virus, en TECKWARE lo revisamos y te explicamos el problema en palabras simples. Atendemos personas, estudiantes, gamers y pymes de La Serena y Coquimbo.',
-        'Todo parte con un diagnóstico electrónico ($30.000, listo en 2 a 4 horas). Con el resultado te enviamos un presupuesto claro por WhatsApp y tú decides. Si reparas con nosotros, el valor del diagnóstico se descuenta del total.',
+        'Todo parte con un diagnóstico electrónico ($30.000, con informe técnico en 48 horas hábiles). Con el resultado te enviamos un presupuesto claro por WhatsApp y tú decides. Si reparas con nosotros, el valor del diagnóstico se descuenta del total.',
         'Trabajamos sin anticipo: pagas al retirar tu equipo funcionando. Todos los precios incluyen IVA, emitimos boleta y la mano de obra tiene garantía de 30 días.',
       ]}
       featuresTitle="Qué resolvemos"
@@ -37,12 +37,12 @@ export default function ServicioTecnicoLaSerenaPage() {
       marcasTitle="Equipos que atendemos"
       marcas={['HP', 'Lenovo', 'Dell', 'ASUS', 'Acer', 'MSI', 'Samsung', 'Apple MacBook', 'PC armados', 'All-in-One']}
       precios={[
-        { nombre: 'Diagnóstico electrónico', precio: '$30.000', tiempo: '2–4 h', href: WA.diagnostico() },
-        { nombre: 'Mantención Lógica (formateo)', precio: '$45.000', tiempo: '24–48 h', href: WA.mantencionLogica() },
-        { nombre: 'Mantención Full', precio: '$75.000', tiempo: '24–48 h', href: WA.mantencionFull() },
+        { nombre: 'Diagnóstico electrónico', precio: '$30.000', tiempo: '48 h hábiles', href: WA.diagnostico() },
+        { nombre: 'Mantención Lógica (formateo)', precio: '$45.000', tiempo: '48 h hábiles', href: WA.mantencionLogica() },
+        { nombre: 'Mantención Full', precio: '$75.000', tiempo: '48 h hábiles', href: WA.mantencionFull() },
       ]}
       faqs={[
-        { q: '¿Cuánto cuesta revisar mi computador?', a: 'El diagnóstico electrónico cuesta $30.000 con IVA y está listo en 2 a 4 horas. Si decides reparar con nosotros, ese monto se descuenta del total.' },
+        { q: '¿Cuánto cuesta revisar mi computador?', a: 'El diagnóstico electrónico cuesta $30.000 con IVA y se entrega en 48 horas hábiles, con informe técnico. Si decides reparar con nosotros, ese monto se descuenta del total.' },
         { q: '¿Tengo que pagar algo por adelantado?', a: 'No. Trabajamos sin anticipo: pagas cuando retiras tu equipo funcionando.' },
         { q: '¿Qué garantía tienen los trabajos?', a: 'La mano de obra tiene 30 días de garantía. Si algo de lo que reparamos vuelve a fallar en ese plazo, lo revisamos sin costo.' },
         { q: '¿Atienden también en Coquimbo?', a: 'Sí. Atendemos clientes de La Serena y Coquimbo, y ofrecemos visita técnica a domicilio con tarifa según ubicación.' },

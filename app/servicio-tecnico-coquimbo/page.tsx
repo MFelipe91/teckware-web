@@ -36,8 +36,8 @@ export default function ServicioTecnicoCoquimboPage() {
       ]}
       precios={[
         { nombre: 'Soporte a domicilio', precio: 'A cotizar', tiempo: 'A coordinar', href: WA.domicilio() },
-        { nombre: 'Diagnóstico electrónico', precio: '$30.000', tiempo: '2–4 h', href: WA.diagnostico() },
-        { nombre: 'Mantención empresarial', precio: 'A cotizar', tiempo: '24–72 h', href: WA.workstation() },
+        { nombre: 'Diagnóstico electrónico', precio: '$30.000', tiempo: '48 h hábiles', href: WA.diagnostico() },
+        { nombre: 'Mantención empresarial', precio: 'A cotizar', tiempo: '48 h hábiles', href: WA.workstation() },
       ]}
       faqs={[
         { q: '¿Atienden a domicilio en Coquimbo?', a: 'Sí. Hacemos visitas técnicas a hogares y empresas de Coquimbo. La tarifa depende de la ubicación y te la confirmamos por WhatsApp antes de agendar.' },

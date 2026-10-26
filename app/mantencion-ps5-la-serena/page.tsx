@@ -37,14 +37,14 @@ export default function MantencionPS5LaSerenaPage() {
       marcasTitle="Consolas que atendemos"
       marcas={['PS5 estándar', 'PS5 Digital', 'PS5 Slim', 'PS4', 'PS4 Slim', 'PS4 Pro', 'PS3']}
       precios={[
-        { nombre: 'Mantención PS5 (metal líquido)', precio: '$80.000', tiempo: '24–48 h', href: WA.consolaPS5() },
-        { nombre: 'Mantención PS4 / PS3', precio: '$55.000', tiempo: '24 h', href: WA.consolaPS4() },
-        { nombre: 'Diagnóstico de falla', precio: '$30.000', tiempo: '2–4 h', href: WA.diagnostico() },
+        { nombre: 'Mantención PS5 (metal líquido)', precio: '$80.000', tiempo: '48 h hábiles', href: WA.consolaPS5() },
+        { nombre: 'Mantención PS4 / PS3', precio: '$55.000', tiempo: '48 h hábiles', href: WA.consolaPS4() },
+        { nombre: 'Diagnóstico de falla', precio: '$30.000', tiempo: '48 h hábiles', href: WA.diagnostico() },
       ]}
       faqs={[
         { q: '¿Cada cuánto hay que hacerle mantención a la PS5?', a: 'Recomendamos una vez al año, o antes si notas el ventilador más ruidoso o la consola muy caliente.' },
         { q: '¿Por qué la PS5 usa metal líquido?', a: 'Porque conduce el calor mucho mejor que la pasta térmica común. Su aplicación requiere cuidado y aislamiento correcto, por eso es un servicio especializado.' },
-        { q: '¿Cuánto demora la mantención de PS5?', a: 'Entre 24 y 48 horas. La de PS4 o PS3 suele estar lista en 24 horas.' },
+        { q: '¿Cuánto demora la mantención de PS5?', a: 'Se entrega en 48 horas hábiles, tanto PS5 como PS4 o PS3, con informe técnico.' },
         { q: '¿Pierdo mis partidas o juegos?', a: 'No. La mantención es física y no toca el almacenamiento ni tu cuenta.' },
       ]}
       waHref={WA.consolaPS5()}

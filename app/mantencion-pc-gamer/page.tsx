@@ -37,15 +37,15 @@ export default function MantencionPCGamerPage() {
       marcasTitle="Compatible con todas las marcas"
       marcas={['ASUS', 'MSI', 'Gigabyte', 'ASRock', 'NVIDIA RTX', 'AMD Radeon', 'Intel', 'AMD Ryzen', 'Corsair', 'NZXT']}
       precios={[
-        { nombre: 'Mantención Full', precio: '$75.000', tiempo: '24–48 h', href: WA.mantencionFull() },
-        { nombre: 'Mantención GPU (pasta + pads)', precio: 'Desde $45.000', tiempo: '24 h', href: WA.mantencionGPU() },
-        { nombre: 'Armado / Upgrade Gamer', precio: 'Desde $75.000', tiempo: '48 h', href: WA.armadoEstandar() },
+        { nombre: 'Mantención Full', precio: '$75.000', tiempo: '48 h hábiles', href: WA.mantencionFull() },
+        { nombre: 'Mantención GPU (pasta + pads)', precio: 'Desde $45.000', tiempo: '48 h hábiles', href: WA.mantencionGPU() },
+        { nombre: 'Armado / Upgrade Gamer', precio: 'Desde $75.000', tiempo: '48 h hábiles', href: WA.armadoEstandar() },
       ]}
       faqs={[
         { q: '¿Cada cuánto debo hacer mantención a mi PC Gamer?', a: 'Recomendamos una mantención física al menos una vez al año. Si tu equipo está en un ambiente con mucho polvo o mascotas, cada 6–8 meses es lo ideal.' },
         { q: '¿Cuánto bajan las temperaturas después de la mantención?', a: 'Depende del estado inicial, pero es común ver reducciones de 10 a 20 °C en CPU y GPU tras la limpieza y el cambio de pasta térmica.' },
         { q: '¿Qué pasta térmica utilizan?', a: 'Usamos pasta térmica de alto rendimiento (Thermal Grizzly) y, en tarjetas gráficas, también reemplazamos los thermal pads cuando es necesario.' },
-        { q: '¿Cuánto demora el servicio?', a: 'La mantención Full suele estar lista en 24 a 48 horas. Si necesitas urgencia, coordinamos por WhatsApp.' },
+        { q: '¿Cuánto demora el servicio?', a: 'La mantención se entrega en 48 horas hábiles, con diagnóstico real e informe técnico.' },
         { q: '¿Atienden en La Serena y Coquimbo?', a: 'Sí. Atendemos en La Serena y Coquimbo, e incluso ofrecemos servicio a domicilio coordinado previamente.' },
       ]}
       waHref={WA.servicio('Mantención de PC Gamer')}

@@ -87,7 +87,7 @@ export default function MantencionPage() {
       faqs={[
         { q: '¿Cada cuánto conviene hacer mantención?', a: 'Para la mayoría de los equipos, una vez al año. Si hay mucho polvo, mascotas o el equipo trabaja muchas horas con carga (gaming, render), cada 6 a 8 meses.' },
         { q: '¿Qué diferencia hay entre mantención lógica y mantención full?', a: `La lógica es el software: formateo, instalación limpia del sistema y optimización (${precioServicio('mantencion-logica')}). La full suma la parte física: desarmado, limpieza interna y pasta térmica (${precioServicio('mantencion-full')}).` },
-        { q: '¿Cuánto demora?', a: 'Normalmente entre 24 y 48 horas. Si es urgente, escríbenos por WhatsApp y vemos la disponibilidad.' },
+        { q: '¿Cuánto demora?', a: 'Se entrega en 48 horas hábiles (lunes a viernes), con el diagnóstico real y un informe técnico de lo que encontramos e hicimos.' },
         { q: '¿Pierdo mis archivos?', a: 'En la mantención física no se tocan tus archivos. Si el servicio incluye formateo, primero respaldamos lo que necesites.' },
         { q: '¿Atienden a domicilio?', a: 'Sí, en La Serena y Coquimbo. No tenemos atención de público en local: coordinamos todo por WhatsApp.' },
       ]}

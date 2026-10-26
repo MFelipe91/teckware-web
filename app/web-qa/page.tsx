@@ -55,7 +55,7 @@ const DIFERENCIADORES = [
 
 const PROCESO_WEB = [
   { paso: '01', titulo: 'Briefing', desc: 'Reunión de 30 min por WhatsApp para entender tu proyecto, objetivos y plazos.' },
-  { paso: '02', titulo: 'Propuesta', desc: 'Presupuesto detallado con alcance, entregables y cronograma en 24 horas.' },
+  { paso: '02', titulo: 'Propuesta', desc: 'Presupuesto detallado con alcance, entregables y cronograma en 48 horas hábiles.' },
   { paso: '03', titulo: 'Ejecución', desc: 'Desarrollo o auditoría con actualizaciones de avance cada 2 días.' },
   { paso: '04', titulo: 'Entrega', desc: 'Deploy en producción o informe final con soporte post-entrega de 15 días.' },
 ]
@@ -241,7 +241,7 @@ export default function WebQAPage() {
             ¿Tienes un proyecto en mente?
           </h2>
           <p className="text-fg-muted mb-8 text-lg">
-            Cuéntanos qué necesitas. Respondemos con una propuesta en menos de 24 horas.
+            Cuéntanos qué necesitas. Respondemos con una propuesta en 48 horas hábiles.
           </p>
           <a
             href={WA.webQA()}

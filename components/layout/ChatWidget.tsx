@@ -100,7 +100,7 @@ export function ChatWidget() {
               <p className="text-sm font-bold text-fg leading-none mb-1">Teck · Asistente TECKWARE</p>
               <div className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
-                <span className="text-[10px] text-fg-subtle">En línea · responde al instante</span>
+                <span className="text-[10px] text-fg-subtle">Asistente virtual · te ayuda a cotizar</span>
               </div>
             </div>
             <button

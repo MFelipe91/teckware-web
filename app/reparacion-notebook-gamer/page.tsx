@@ -37,15 +37,15 @@ export default function ReparacionNotebookGamerPage() {
       marcasTitle="Marcas de notebook gamer que atendemos"
       marcas={['ASUS ROG', 'ASUS TUF', 'MSI', 'Lenovo Legion', 'Acer Predator', 'Acer Nitro', 'HP Omen', 'HP Victus', 'Dell G-Series', 'Alienware']}
       precios={[
-        { nombre: 'Diagnóstico', precio: '$30.000', tiempo: '2–4 h', href: WA.diagnostico() },
-        { nombre: 'Mantención Full (pasta + limpieza)', precio: '$75.000', tiempo: '24–48 h', href: WA.mantencionFull() },
+        { nombre: 'Diagnóstico', precio: '$30.000', tiempo: '48 h hábiles', href: WA.diagnostico() },
+        { nombre: 'Mantención Full (pasta + limpieza)', precio: '$75.000', tiempo: '48 h hábiles', href: WA.mantencionFull() },
         { nombre: 'Upgrade RAM / SSD', precio: 'Desde $30.000', tiempo: 'A coordinar', href: WA.upgrade() },
       ]}
       faqs={[
         { q: 'Mi notebook gamer se apaga solo jugando, ¿qué es?', a: 'Casi siempre es sobrecalentamiento por polvo acumulado y pasta térmica degradada. Con una mantención física completa se soluciona en la mayoría de los casos.' },
         { q: '¿Puedo ampliar la RAM y el disco de mi notebook gamer?', a: 'En la mayoría de los modelos sí. Verificamos la compatibilidad de tu equipo y te recomendamos el upgrade que mejor relación precio/rendimiento te dé.' },
         { q: '¿Reparan la marca X?', a: 'Atendemos todas las marcas: ASUS ROG/TUF, MSI, Lenovo Legion, Acer Predator/Nitro, HP Omen/Victus, Dell y más. Si tu modelo no aparece, escríbenos igual.' },
-        { q: '¿Cuánto demora la reparación?', a: 'Un diagnóstico toma 2 a 4 horas. Las mantenciones y upgrades suelen estar listos en 24 a 48 horas, según disponibilidad de repuestos.' },
+        { q: '¿Cuánto demora la reparación?', a: 'El trabajo se entrega en 48 horas hábiles, con diagnóstico real e informe técnico. Si hay que pedir repuestos, te informamos el plazo antes de empezar.' },
         { q: '¿Atienden en La Serena y Coquimbo?', a: 'Sí, atendemos toda la conurbación La Serena–Coquimbo. Coordina por WhatsApp para dejar o retirar tu equipo.' },
       ]}
       waHref={WA.servicio('Reparación de Notebook Gamer')}

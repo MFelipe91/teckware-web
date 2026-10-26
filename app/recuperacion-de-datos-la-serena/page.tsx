@@ -35,9 +35,9 @@ export default function RecuperacionDatosLaSerenaPage() {
         { icon: ShieldCheck, titulo: 'Presupuesto claro', desc: 'Te informamos qué se puede recuperar y cuánto cuesta antes de seguir.' },
       ]}
       precios={[
-        { nombre: 'Recuperación de datos', precio: 'Desde $35.000', tiempo: '24–48 h', href: WA.recuperacion() },
-        { nombre: 'Diagnóstico electrónico', precio: '$30.000', tiempo: '2–4 h', href: WA.diagnostico() },
-        { nombre: 'Formateo con respaldo', precio: '$45.000', tiempo: '24–48 h', href: WA.mantencionLogica() },
+        { nombre: 'Recuperación de datos', precio: 'Desde $35.000', tiempo: '48 h hábiles', href: WA.recuperacion() },
+        { nombre: 'Diagnóstico electrónico', precio: '$30.000', tiempo: '48 h hábiles', href: WA.diagnostico() },
+        { nombre: 'Formateo con respaldo', precio: '$45.000', tiempo: '48 h hábiles', href: WA.mantencionLogica() },
       ]}
       faqs={[
         { q: '¿Se pueden recuperar archivos de un notebook que no enciende?', a: 'En la mayoría de los casos sí, porque la información está en el disco y no en la placa. Retiramos el disco y recuperamos los archivos desde ahí.' },

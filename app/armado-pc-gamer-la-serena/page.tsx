@@ -37,14 +37,14 @@ export default function ArmadoPCGamerLaSerenaPage() {
       marcasTitle="Plataformas que armamos"
       marcas={['AMD Ryzen', 'Intel Core', 'NVIDIA GeForce RTX', 'AMD Radeon', 'ASUS', 'MSI', 'Gigabyte', 'ASRock', 'Corsair', 'NZXT']}
       precios={[
-        { nombre: 'Armado PC Gamer estándar', precio: '$75.000', tiempo: '48 h', href: WA.armadoEstandar() },
-        { nombre: 'Armado alta gama', precio: '$90.000', tiempo: '48–72 h', href: WA.armadoAltaGama() },
+        { nombre: 'Armado PC Gamer estándar', precio: '$75.000', tiempo: '48 h hábiles', href: WA.armadoEstandar() },
+        { nombre: 'Armado alta gama', precio: '$90.000', tiempo: '48–72 h hábiles', href: WA.armadoAltaGama() },
         { nombre: 'Asesoría y upgrade', precio: 'Desde $30.000', tiempo: 'A coordinar', href: WA.upgrade() },
       ]}
       faqs={[
         { q: '¿El precio del armado incluye los componentes?', a: 'No. El valor corresponde al servicio de armado. Los componentes los aportas tú o te los cotizamos aparte.' },
         { q: '¿Me ayudan a elegir las piezas?', a: 'Sí. Te asesoramos para elegir componentes compatibles según tu presupuesto y uso: gaming, streaming, edición o trabajo.' },
-        { q: '¿Cuánto demora el armado?', a: 'El armado estándar está listo en 48 horas. Uno de alta gama con refrigeración líquida, entre 48 y 72 horas.' },
+        { q: '¿Cuánto demora el armado?', a: 'El armado estándar está listo en 48 horas hábiles. Uno de alta gama con refrigeración líquida, entre 48 y 72 horas hábiles.' },
         { q: '¿Instalan Windows?', a: 'Sí, instalamos el sistema operativo y los drivers. Se activa con tu licencia.' },
       ]}
       waHref={WA.armadoEstandar()}

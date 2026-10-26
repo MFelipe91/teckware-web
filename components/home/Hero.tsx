@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { MessageCircle, CalendarCheck, ShieldCheck, Receipt, Home, Timer, Clock } from 'lucide-react'
-import { EMPRESA } from '@/lib/constants'
+import { EMPRESA, PLAZO } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
 
 // Server Component: el texto llega visible en el HTML (sin opacity: 0 inicial) para que
@@ -11,7 +11,7 @@ const SELLOS = [
   { icon: ShieldCheck, label: 'Garantía 30 días' },
   { icon: Receipt, label: 'Boleta · TECKWARE SpA' },
   { icon: Home, label: 'A domicilio' },
-  { icon: Timer, label: 'Solución en 24–48 h' },
+  { icon: Timer, label: `Entrega en ${PLAZO}` },
   { icon: Clock, label: EMPRESA.horario },
 ]
 

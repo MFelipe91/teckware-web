@@ -160,7 +160,7 @@ export default function NosotrosPage() {
         {/* CTA */}
         <section className="text-center pt-4">
           <h2 className="text-fg mb-4">¿Tienes un equipo con problemas?</h2>
-          <p className="text-fg-muted mb-8">Escríbenos. Te respondemos en menos de 2 horas.</p>
+          <p className="text-fg-muted mb-8">Escríbenos por WhatsApp. Te respondemos en horario hábil, Lun–Vie 10:00–18:30.</p>
           <a
             href={WA.general()}
             target="_blank"

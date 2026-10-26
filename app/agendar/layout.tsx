@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Agendar Servicio Técnico',
   description:
-    'Agenda tu servicio técnico en La Serena y Coquimbo: diagnóstico, mantención, formateo, PC Gamer y consolas. Te confirmamos por WhatsApp en menos de 2 horas.',
+    'Agenda tu servicio técnico en La Serena y Coquimbo: diagnóstico, mantención, formateo, PC Gamer y consolas. Te confirmamos por WhatsApp en horario hábil.',
   alternates: { canonical: '/agendar' },
 }
 

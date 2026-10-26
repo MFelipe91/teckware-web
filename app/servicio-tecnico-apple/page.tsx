@@ -37,8 +37,8 @@ export default function ServicioTecnicoApplePage() {
       marcasTitle="Equipos Apple que atendemos"
       marcas={['MacBook Air', 'MacBook Pro', 'Mac Intel', 'Apple Silicon M1', 'Apple M2', 'Apple M3', 'iMac', 'Mac mini']}
       precios={[
-        { nombre: 'Diagnóstico', precio: '$30.000', tiempo: '2–4 h', href: WA.diagnostico() },
-        { nombre: 'Mantención térmica MacBook', precio: 'A cotizar', tiempo: '24–48 h', href: WA.servicio('Mantención MacBook') },
+        { nombre: 'Diagnóstico', precio: '$30.000', tiempo: '48 h hábiles', href: WA.diagnostico() },
+        { nombre: 'Mantención térmica MacBook', precio: 'A cotizar', tiempo: '48 h hábiles', href: WA.servicio('Mantención MacBook') },
         { nombre: 'Upgrade SSD / Batería', precio: 'A cotizar', tiempo: 'A coordinar', href: WA.servicio('Upgrade / Batería MacBook') },
       ]}
       faqs={[

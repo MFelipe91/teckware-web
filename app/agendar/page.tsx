@@ -181,7 +181,7 @@ export default function AgendarPage() {
             ¿Qué necesita tu equipo?
           </h1>
           <p className="text-fg-muted text-sm">
-            Completa el formulario · Te confirmamos en menos de 2 horas por WhatsApp
+            Completa el formulario · Te confirmamos por WhatsApp en horario hábil (Lun–Vie 10:00–18:30)
           </p>
         </div>
 
@@ -513,7 +513,7 @@ export default function AgendarPage() {
               <div className="bg-brand/5 border border-brand-bright/20 rounded-xl p-4 mb-6">
                 <p className="text-xs text-fg-muted leading-relaxed">
                   Al enviar, abriremos WhatsApp con todos tus datos pre-escritos.
-                  Confirmaremos disponibilidad en menos de <strong className="text-fg">2 horas</strong>.
+                  Confirmamos disponibilidad en horario hábil. El trabajo se entrega en <strong className="text-fg">48 h hábiles</strong>.
                 </p>
               </div>
 
