@@ -26,8 +26,8 @@ const ICONS: Record<string, React.ComponentType<{ size?: number; className?: str
 }
 
 const BADGE_COLORS: Record<string, string> = {
-  'Más solicitado': 'bg-[#00D4FF]/15 text-[#00D4FF] border-[#00D4FF]/30',
-  'Nuevo': 'bg-[#A855F7]/15 text-[#A855F7] border-[#A855F7]/30',
+  'Más solicitado': 'bg-brand/15 text-brand-bright border-brand-bright/30',
+  'Nuevo': 'bg-brand/15 text-brand-bright border-brand/30',
 }
 
 const DIFERENCIADORES = [
@@ -62,10 +62,10 @@ const PROCESO_WEB = [
 
 export default function WebQAPage() {
   return (
-    <div className="min-h-screen bg-[#080B14] pt-24">
+    <div className="min-h-screen bg-ink-900 pt-24">
 
       {/* Hero */}
-      <section className="relative bg-[#03040A] py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative bg-ink-950 py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/images/developer01.jpg"
@@ -78,21 +78,21 @@ export default function WebQAPage() {
             placeholder="blur"
             blurDataURL={BLUR_DARK}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#03040A]/70 via-[#03040A]/50 to-[#03040A]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink-950/70 via-ink-950/50 to-ink-950" />
         </div>
         <CircuitBackground variant="data-flow" palette="mixed" density={1.1} opacity={0.55} />
-        <div className="glow-cyan w-96 h-96 -top-32 left-1/3 opacity-25" />
-        <div className="glow-purple w-64 h-64 bottom-0 right-0 opacity-20" />
+        <div className="glow-brand w-96 h-96 -top-32 left-1/3 opacity-25" />
+        <div className="glow-silver w-64 h-64 bottom-0 right-0 opacity-20" />
         <div className="relative max-w-7xl mx-auto">
           <div className="max-w-3xl">
-            <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-widest uppercase text-[#A855F7] border border-[#A855F7]/25 rounded-full bg-[#A855F7]/8">
+            <span className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-widest uppercase text-brand-bright border border-brand/25 rounded-full bg-brand/8">
               Web & QA
             </span>
-            <h1 className="text-[#F1F5F9] mb-6">
+            <h1 className="text-fg mb-6">
               Tu presencia web,{' '}
               <span className="gradient-text">hecha con criterio.</span>
             </h1>
-            <p className="text-[#94A3B8] text-lg leading-relaxed mb-8 max-w-2xl">
+            <p className="text-fg-muted text-lg leading-relaxed mb-8 max-w-2xl">
               Construimos sitios que convierten, auditamos los que ya tienes y aseguramos la calidad
               de tus aplicaciones con pruebas manuales y automatizadas.
             </p>
@@ -101,14 +101,14 @@ export default function WebQAPage() {
                 href={WA.webQA()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 bg-[#A855F7] text-white font-bold rounded-xl hover:bg-[#9333EA] transition-colors min-h-[48px]"
+                className="flex items-center gap-2 px-6 py-3 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover transition-colors min-h-[48px]"
               >
                 Solicitar cotización
                 <ArrowRight size={16} strokeWidth={2.5} />
               </a>
               <a
                 href="#servicios"
-                className="flex items-center gap-2 px-6 py-3 border border-white/15 text-[#94A3B8] font-medium rounded-xl hover:border-white/30 hover:text-[#F1F5F9] transition-all min-h-[48px]"
+                className="flex items-center gap-2 px-6 py-3 border border-white/15 text-fg-muted font-medium rounded-xl hover:border-white/30 hover:text-fg transition-all min-h-[48px]"
               >
                 Ver servicios
               </a>
@@ -120,8 +120,8 @@ export default function WebQAPage() {
       {/* Servicios */}
       <section id="servicios" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="mb-12">
-          <h2 className="text-[#F1F5F9] mb-3">Servicios disponibles</h2>
-          <p className="text-[#94A3B8] max-w-xl">
+          <h2 className="text-fg mb-3">Servicios disponibles</h2>
+          <p className="text-fg-muted max-w-xl">
             Desde una auditoría de una tarde hasta la construcción completa de tu plataforma digital.
           </p>
         </div>
@@ -134,27 +134,27 @@ export default function WebQAPage() {
                 className="relative glass-card rounded-2xl p-7 border border-white/10 card-hover"
               >
                 {s.badge && (
-                  <span className={`absolute top-5 right-5 px-2.5 py-0.5 text-[10px] font-bold tracking-wider uppercase rounded-full border ${BADGE_COLORS[s.badge] ?? 'bg-white/10 text-[#94A3B8] border-white/20'}`}>
+                  <span className={`absolute top-5 right-5 px-2.5 py-0.5 text-[10px] font-bold tracking-wider uppercase rounded-full border ${BADGE_COLORS[s.badge] ?? 'bg-white/10 text-fg-muted border-white/20'}`}>
                     {s.badge}
                   </span>
                 )}
                 <div className="flex items-start gap-5">
-                  <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-xl bg-[#A855F7]/10 border border-[#A855F7]/20">
-                    <Icon size={22} className="text-[#A855F7]" />
+                  <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-xl bg-brand/10 border border-brand/20">
+                    <Icon size={22} className="text-brand-bright" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-[#F1F5F9] mb-2">{s.nombre}</h3>
-                    <p className="text-sm text-[#94A3B8] mb-5 leading-relaxed">{s.descripcion}</p>
+                    <h3 className="text-lg font-bold text-fg mb-2">{s.nombre}</h3>
+                    <p className="text-sm text-fg-muted mb-5 leading-relaxed">{s.descripcion}</p>
                     <div className="flex items-center justify-between flex-wrap gap-3">
                       <div>
-                        <span className="text-xl font-black text-[#A855F7]">{s.precio}</span>
-                        <span className="ml-2 text-xs text-[#475569]">{s.tiempo}</span>
+                        <span className="text-xl font-black text-brand-bright">{s.precio}</span>
+                        <span className="ml-2 text-xs text-fg-subtle">{s.tiempo}</span>
                       </div>
                       <a
                         href={WA.webQA(s.nombre)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-[#A855F7] text-white text-sm font-bold rounded-lg hover:bg-[#9333EA] transition-colors min-h-[40px]"
+                        className="flex items-center gap-2 px-4 py-2 bg-brand text-white text-sm font-bold rounded-lg hover:bg-brand-hover transition-colors min-h-[40px]"
                       >
                         Solicitar
                         <ArrowRight size={14} strokeWidth={2.5} />
@@ -169,22 +169,22 @@ export default function WebQAPage() {
       </section>
 
       {/* Diferenciadores */}
-      <section className="bg-[#0D1120] py-24 px-4 sm:px-6 lg:px-8">
+      <section className="bg-ink-800 py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <h2 className="text-[#F1F5F9] mb-3">Cómo trabajamos</h2>
-            <p className="text-[#94A3B8] max-w-xl mx-auto">
+            <h2 className="text-fg mb-3">Cómo trabajamos</h2>
+            <p className="text-fg-muted max-w-xl mx-auto">
               Criterio técnico + comunicación directa + entregables concretos.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {DIFERENCIADORES.map(({ icono: Icon, titulo, descripcion }) => (
               <div key={titulo} className="glass-card rounded-2xl p-6 border border-white/10">
-                <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-[#A855F7]/10 border border-[#A855F7]/20 mb-4">
-                  <Icon size={20} className="text-[#A855F7]" />
+                <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-brand/10 border border-brand/20 mb-4">
+                  <Icon size={20} className="text-brand-bright" />
                 </div>
-                <h3 className="text-base font-bold text-[#F1F5F9] mb-2">{titulo}</h3>
-                <p className="text-sm text-[#94A3B8] leading-relaxed">{descripcion}</p>
+                <h3 className="text-base font-bold text-fg mb-2">{titulo}</h3>
+                <p className="text-sm text-fg-muted leading-relaxed">{descripcion}</p>
               </div>
             ))}
           </div>
@@ -194,24 +194,24 @@ export default function WebQAPage() {
       {/* Proceso */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="text-center mb-14">
-          <h2 className="text-[#F1F5F9] mb-3">El proceso</h2>
-          <p className="text-[#94A3B8]">Desde el primer mensaje hasta la entrega final.</p>
+          <h2 className="text-fg mb-3">El proceso</h2>
+          <p className="text-fg-muted">Desde el primer mensaje hasta la entrega final.</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {PROCESO_WEB.map(({ paso, titulo, desc }) => (
             <div key={paso} className="relative glass-card rounded-2xl p-6 border border-white/10">
-              <div className="text-4xl font-black text-[#A855F7]/15 mb-3 font-mono">{paso}</div>
-              <h3 className="text-base font-bold text-[#F1F5F9] mb-2">{titulo}</h3>
-              <p className="text-sm text-[#94A3B8] leading-relaxed">{desc}</p>
+              <div className="text-4xl font-black text-brand-bright/15 mb-3 tabular-nums">{paso}</div>
+              <h3 className="text-base font-bold text-fg mb-2">{titulo}</h3>
+              <p className="text-sm text-fg-muted leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Incluye */}
-      <section className="bg-[#0D1120] py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-ink-800 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-[#F1F5F9] mb-8 text-center">Todo proyecto incluye</h2>
+          <h2 className="text-fg mb-8 text-center">Todo proyecto incluye</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
               'Comunicación directa por WhatsApp',
@@ -224,8 +224,8 @@ export default function WebQAPage() {
               'Sin costos ocultos',
             ].map((item) => (
               <div key={item} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10">
-                <CheckCircle2 size={16} className="text-[#A855F7] shrink-0" />
-                <span className="text-sm text-[#94A3B8]">{item}</span>
+                <CheckCircle2 size={16} className="text-brand-bright shrink-0" />
+                <span className="text-sm text-fg-muted">{item}</span>
               </div>
             ))}
           </div>
@@ -234,20 +234,20 @@ export default function WebQAPage() {
 
       {/* CTA */}
       <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <CircuitBackground variant="data-flow" palette="purple" density={0.55} opacity={0.3} />
-        <div className="glow-purple w-96 h-96 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20" />
+        <CircuitBackground variant="data-flow" palette="silver" density={0.55} opacity={0.3} />
+        <div className="glow-silver w-96 h-96 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20" />
         <div className="relative max-w-3xl mx-auto text-center">
-          <h2 className="text-[#F1F5F9] mb-4">
+          <h2 className="text-fg mb-4">
             ¿Tienes un proyecto en mente?
           </h2>
-          <p className="text-[#94A3B8] mb-8 text-lg">
+          <p className="text-fg-muted mb-8 text-lg">
             Cuéntanos qué necesitas. Respondemos con una propuesta en menos de 24 horas.
           </p>
           <a
             href={WA.webQA()}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#A855F7] text-white font-bold rounded-xl hover:bg-[#9333EA] transition-colors text-lg min-h-[56px]"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover transition-colors text-lg min-h-[56px]"
           >
             Iniciar conversación
             <ArrowRight size={18} strokeWidth={2.5} />

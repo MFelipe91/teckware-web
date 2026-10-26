@@ -1,5 +1,5 @@
-import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Inter, Sora } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
@@ -19,10 +19,12 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
-const jetbrains = JetBrains_Mono({
+// Titulares: geométrica y técnica, combina con el wordmark del logo.
+const sora = Sora({
   subsets: ['latin'],
+  weight: ['600', '700'],
   display: 'swap',
-  variable: '--font-jetbrains',
+  variable: '--font-sora',
 })
 
 export const metadata: Metadata = {
@@ -101,16 +103,18 @@ export const metadata: Metadata = {
   ...(GOOGLE_VERIFICATION ? { verification: { google: GOOGLE_VERIFICATION } } : {}),
 }
 
+export const viewport: Viewport = {
+  themeColor: '#060B19', // ink-900
+}
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="es-CL" className={`${inter.variable} ${jetbrains.variable}`}>
+    <html lang="es-CL" className={`${inter.variable} ${sora.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* Preload hero image for LCP — only on desktop (54vw panel) */}
         <link
           rel="preload"

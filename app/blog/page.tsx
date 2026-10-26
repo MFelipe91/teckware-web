@@ -15,13 +15,13 @@ const fecha = (iso: string) =>
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-[#080B14] pt-24">
+    <div className="min-h-screen bg-ink-900 pt-24">
       <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-        <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-[0.2em] uppercase text-[#00D4FF] border border-[#00D4FF]/20 rounded-sm bg-[#00D4FF]/6">
+        <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-[0.2em] uppercase text-brand-bright border border-brand-bright/20 rounded-sm bg-brand/6">
           Blog
         </span>
-        <h1 className="text-[#F1F5F9] mb-4">Guías de mantención</h1>
-        <p className="text-[#8B9DB5] max-w-xl mx-auto">
+        <h1 className="text-fg mb-4">Guías de mantención</h1>
+        <p className="text-fg-muted max-w-xl mx-auto">
           Consejos prácticos para que tu PC, notebook o consola rinda más y dure más. Escritos desde el taller, en La Serena.
         </p>
       </section>
@@ -34,13 +34,13 @@ export default function BlogPage() {
                 href={`/blog/${p.slug}`}
                 className="group flex flex-col h-full glass-card rounded-sm p-7 border border-white/8 card-hover"
               >
-                <div className="flex items-center gap-3 mb-3 text-xs text-[#475569]">
+                <div className="flex items-center gap-3 mb-3 text-xs text-fg-subtle">
                   <time dateTime={p.date}>{fecha(p.date)}</time>
                   <span className="flex items-center gap-1"><Clock size={12} />{p.minutes} min</span>
                 </div>
-                <h2 className="text-lg font-bold text-[#F1F5F9] mb-3 leading-snug">{p.title}</h2>
-                <p className="text-sm text-[#8B9DB5] leading-relaxed mb-5">{p.description}</p>
-                <span className="mt-auto flex items-center gap-2 text-sm font-semibold text-[#00D4FF]">
+                <h2 className="text-lg font-bold text-fg mb-3 leading-snug">{p.title}</h2>
+                <p className="text-sm text-fg-muted leading-relaxed mb-5">{p.description}</p>
+                <span className="mt-auto flex items-center gap-2 text-sm font-semibold text-brand-bright">
                   Leer guía
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
                 </span>

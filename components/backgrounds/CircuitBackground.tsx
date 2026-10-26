@@ -10,7 +10,7 @@ export type BgVariant =
   | 'data-flow' // columnas de datos cayendo — web & QA
   | 'constellation' // nodos conectados a la distancia — nosotros / contacto
 
-export type BgPalette = 'cyan' | 'purple' | 'red' | 'mixed'
+export type BgPalette = 'brand' | 'gamer' | 'silver' | 'mixed'
 
 interface CircuitBackgroundProps {
   variant?: BgVariant
@@ -22,12 +22,23 @@ interface CircuitBackgroundProps {
   className?: string
 }
 
-/** Prefijos rgba( sin cerrar: se concatena el alfa + ')'. */
+/** Tokens de marca (app/globals.css) que usa cada paleta. */
 const PALETTES: Record<BgPalette, string[]> = {
-  cyan: ['rgba(0,212,255,', 'rgba(0,168,204,'],
-  purple: ['rgba(168,85,247,', 'rgba(126,58,196,'],
-  red: ['rgba(230,30,50,', 'rgba(249,115,22,'],
-  mixed: ['rgba(0,212,255,', 'rgba(168,85,247,', 'rgba(0,168,204,'],
+  brand: ['brand-bright', 'brand'],
+  gamer: ['gamer', 'brand-bright'],
+  silver: ['silver', 'brand-bright'],
+  mixed: ['brand-bright', 'silver', 'brand'],
+}
+
+/**
+ * El canvas no entiende variables CSS: se lee el valor resuelto del token y se devuelve
+ * como prefijo rgba( sin cerrar (se concatena el alfa + ')').
+ */
+function tokenRgbaPrefix(token: string): string {
+  const hex = getComputedStyle(document.documentElement).getPropertyValue(`--color-${token}`).trim()
+  const m = /^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(hex)
+  if (!m) return 'rgba(61,155,255,'
+  return `rgba(${parseInt(m[1], 16)},${parseInt(m[2], 16)},${parseInt(m[3], 16)},`
 }
 
 interface Point {
@@ -138,9 +149,9 @@ function circuitScene(ctx: Ctx, colors: string[], density: number): Scene {
       // Barrido de luz lateral
       const bx = beam * (w * 1.3) - w * 0.15
       const g = ctx.createLinearGradient(bx - 90, 0, bx + 90, 0)
-      g.addColorStop(0, 'rgba(0,212,255,0)')
-      g.addColorStop(0.5, 'rgba(0,212,255,0.05)')
-      g.addColorStop(1, 'rgba(0,212,255,0)')
+      g.addColorStop(0, colors[0] + '0)')
+      g.addColorStop(0.5, colors[0] + '0.05)')
+      g.addColorStop(1, colors[0] + '0)')
       ctx.fillStyle = g
       ctx.fillRect(bx - 90, 0, 180, h)
       beam += dt * 0.1
@@ -475,7 +486,7 @@ export function CircuitBackground({
     if (!ctx) return
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const colors = PALETTES[palette]
+    const colors = PALETTES[palette].map(tokenRgbaPrefix)
     const scene = BUILDERS[variant](ctx, colors, density)
 
     let width = 0

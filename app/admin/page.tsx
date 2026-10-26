@@ -21,12 +21,12 @@ const EMPTY_BUILD: Build = {
 }
 
 const ESTADO_STYLE: Record<string, string> = {
-  nuevo:       'bg-[#00D4FF]/15 text-[#00D4FF] border-[#00D4FF]/30',
-  contactado:  'bg-amber-500/15 text-amber-400 border-amber-500/30',
+  nuevo:       'bg-brand/15 text-brand-bright border-brand-bright/30',
+  contactado:  'bg-warning/15 text-warning border-warning/30',
   agendado:    'bg-violet-500/15 text-violet-400 border-violet-500/30',
   en_proceso:  'bg-blue-500/15 text-blue-400 border-blue-500/30',
-  completado:  'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
-  cancelado:   'bg-white/5 text-[#475569] border-white/10',
+  completado:  'bg-success/15 text-success border-success/30',
+  cancelado:   'bg-white/5 text-fg-subtle border-white/10',
 }
 
 type Tab = 'solicitudes' | 'servicios' | 'builds'
@@ -158,8 +158,8 @@ export default function AdminPage() {
   // LOADING inicial
   if (checking) {
     return (
-      <div className="min-h-screen bg-[#03040A] flex items-center justify-center">
-        <RefreshCw className="animate-spin text-[#00D4FF]" size={24} />
+      <div className="min-h-screen bg-ink-950 flex items-center justify-center">
+        <RefreshCw className="animate-spin text-brand-bright" size={24} />
       </div>
     )
   }
@@ -167,35 +167,35 @@ export default function AdminPage() {
   // LOGIN
   if (!authed) {
     return (
-      <div className="min-h-screen bg-[#03040A] flex items-center justify-center px-4">
+      <div className="min-h-screen bg-ink-950 flex items-center justify-center px-4">
         <div className="w-full max-w-sm">
           <div className="text-center mb-8">
-            <div className="w-14 h-14 rounded-2xl bg-[#00D4FF]/10 border border-[#00D4FF]/20 flex items-center justify-center mx-auto mb-4">
-              <Lock size={24} className="text-[#00D4FF]" />
+            <div className="w-14 h-14 rounded-2xl bg-brand/10 border border-brand-bright/20 flex items-center justify-center mx-auto mb-4">
+              <Lock size={24} className="text-brand-bright" />
             </div>
-            <h1 className="text-2xl font-black text-[#F1F5F9] mb-1">Panel Admin</h1>
-            <p className="text-sm text-[#475569]">TECKWARE SpA</p>
+            <h1 className="text-2xl font-black text-fg mb-1">Panel Admin</h1>
+            <p className="text-sm text-fg-subtle">TECKWARE SpA</p>
           </div>
           <form onSubmit={handleLogin} className="glass-card rounded-2xl border border-white/10 p-6">
-            <label className="text-xs font-semibold text-[#94A3B8] uppercase tracking-wider block mb-2">Contraseña</label>
+            <label className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">Contraseña</label>
             <div className="relative mb-4">
               <input
                 type={showPw ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => { setPassword(e.target.value); setPwError(false) }}
                 placeholder="Ingresa la contraseña"
-                className={`w-full bg-white/5 border rounded-xl px-4 py-3 pr-10 text-sm text-[#F1F5F9] placeholder-[#475569] focus:outline-none transition-colors ${pwError ? 'border-red-500/50' : 'border-white/15 focus:border-[#00D4FF]/50'}`}
+                className={`w-full bg-white/5 border rounded-xl px-4 py-3 pr-10 text-sm text-fg placeholder-fg-subtle focus:outline-none transition-colors ${pwError ? 'border-danger/50' : 'border-white/15 focus:border-brand-bright/50'}`}
               />
-              <button type="button" onClick={() => setShowPw(!showPw)} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#475569] hover:text-[#94A3B8]">
+              <button type="button" onClick={() => setShowPw(!showPw)} className="absolute right-3 top-1/2 -translate-y-1/2 text-fg-subtle hover:text-fg-muted">
                 {showPw ? <EyeOff size={16} /> : <Eye size={16} />}
               </button>
             </div>
-            {pwError && <p className="text-xs text-red-400 mb-4">Contraseña incorrecta</p>}
-            <button type="submit" className="w-full py-3 bg-[#00D4FF] text-[#03040A] font-bold rounded-xl hover:bg-[#00A8CC] transition-colors min-h-[44px]">
+            {pwError && <p className="text-xs text-danger mb-4">Contraseña incorrecta</p>}
+            <button type="submit" className="w-full py-3 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover transition-colors min-h-[44px]">
               Ingresar
             </button>
-            <p className="text-center text-xs text-[#475569] mt-4">
-              Configura <code className="text-[#94A3B8]">ADMIN_PASSWORD</code> en <code className="text-[#94A3B8]">.env.local</code> y en Vercel.
+            <p className="text-center text-xs text-fg-subtle mt-4">
+              Configura <code className="text-fg-muted">ADMIN_PASSWORD</code> en <code className="text-fg-muted">.env.local</code> y en Vercel.
             </p>
           </form>
         </div>
@@ -205,18 +205,18 @@ export default function AdminPage() {
 
   // DASHBOARD
   return (
-    <div className="min-h-screen bg-[#080B14] pt-24 pb-20">
+    <div className="min-h-screen bg-ink-900 pt-24 pb-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
           <div>
-            <h1 className="text-2xl font-black text-[#F1F5F9]">Panel Admin</h1>
-            <p className="text-sm text-[#475569]">
+            <h1 className="text-2xl font-black text-fg">Panel Admin</h1>
+            <p className="text-sm text-fg-subtle">
               {requests.filter((r) => r.estado === 'nuevo').length} solicitudes nuevas · {builds.length} builds
             </p>
           </div>
-          <button onClick={handleLogout} className="flex items-center gap-2 px-4 py-2.5 border border-white/15 text-[#94A3B8] font-medium rounded-xl hover:border-white/30 transition-all text-sm min-h-[40px]">
+          <button onClick={handleLogout} className="flex items-center gap-2 px-4 py-2.5 border border-white/15 text-fg-muted font-medium rounded-xl hover:border-white/30 transition-all text-sm min-h-[40px]">
             <LogOut size={15} /> Salir
           </button>
         </div>
@@ -228,13 +228,13 @@ export default function AdminPage() {
               key={id}
               onClick={() => setTab(id)}
               className={`flex items-center gap-2 px-4 py-3 text-sm font-semibold border-b-2 transition-colors ${
-                tab === id ? 'border-[#00D4FF] text-[#00D4FF]' : 'border-transparent text-[#475569] hover:text-[#94A3B8]'
+                tab === id ? 'border-brand-bright text-brand-bright' : 'border-transparent text-fg-subtle hover:text-fg-muted'
               }`}
             >
               <Icon size={15} />
               {label}
               {id === 'solicitudes' && requests.filter((r) => r.estado === 'nuevo').length > 0 && (
-                <span className="ml-1 px-1.5 py-0.5 text-[10px] font-bold rounded-full bg-[#00D4FF] text-[#03040A]">
+                <span className="ml-1 px-1.5 py-0.5 text-[10px] font-bold rounded-full bg-brand text-white">
                   {requests.filter((r) => r.estado === 'nuevo').length}
                 </span>
               )}
@@ -246,17 +246,17 @@ export default function AdminPage() {
         {tab === 'solicitudes' && (
           <div>
             <div className="flex items-center justify-between mb-4">
-              <p className="text-sm text-[#475569]">{requests.length} solicitudes en total</p>
-              <button onClick={refreshRequests} disabled={isPending} className="flex items-center gap-2 px-3 py-2 text-xs text-[#94A3B8] border border-white/15 rounded-lg hover:border-white/30 transition-all disabled:opacity-40">
+              <p className="text-sm text-fg-subtle">{requests.length} solicitudes en total</p>
+              <button onClick={refreshRequests} disabled={isPending} className="flex items-center gap-2 px-3 py-2 text-xs text-fg-muted border border-white/15 rounded-lg hover:border-white/30 transition-all disabled:opacity-40">
                 <RefreshCw size={13} className={isPending ? 'animate-spin' : ''} /> Actualizar
               </button>
             </div>
 
             {requests.length === 0 ? (
               <div className="glass-card rounded-2xl border border-white/10 p-12 text-center">
-                <Inbox size={32} className="text-[#475569] mx-auto mb-3" />
-                <p className="text-sm text-[#94A3B8]">Aún no hay solicitudes.</p>
-                <p className="text-xs text-[#475569] mt-1">Las solicitudes de /agendar aparecerán aquí.</p>
+                <Inbox size={32} className="text-fg-subtle mx-auto mb-3" />
+                <p className="text-sm text-fg-muted">Aún no hay solicitudes.</p>
+                <p className="text-xs text-fg-subtle mt-1">Las solicitudes de /agendar aparecerán aquí.</p>
               </div>
             ) : (
               <div className="space-y-3">
@@ -265,27 +265,27 @@ export default function AdminPage() {
                     <div className="flex items-start justify-between gap-4 flex-wrap">
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1 flex-wrap">
-                          <span className="text-sm font-bold text-[#F1F5F9]">{r.nombre}</span>
-                          <a href={`https://wa.me/${r.telefono.replace(/[^\d]/g, '')}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-xs text-[#22C55E] hover:underline">
+                          <span className="text-sm font-bold text-fg">{r.nombre}</span>
+                          <a href={`https://wa.me/${r.telefono.replace(/[^\d]/g, '')}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-xs text-whatsapp hover:underline">
                             <Phone size={11} /> {r.telefono}
                           </a>
-                          <span className="text-[10px] text-[#475569]">{fmtFecha(r.created_at)}</span>
+                          <span className="text-[10px] text-fg-subtle">{fmtFecha(r.created_at)}</span>
                         </div>
-                        <p className="text-xs text-[#94A3B8] mb-1">
-                          <span className="text-[#00D4FF] font-semibold">{r.servicio_label ?? r.servicio}</span>
+                        <p className="text-xs text-fg-muted mb-1">
+                          <span className="text-brand-bright font-semibold">{r.servicio_label ?? r.servicio}</span>
                           {r.equipo_tipo && <span> · {r.equipo_tipo}{r.marca ? ` (${r.marca})` : ''}</span>}
                         </p>
-                        {r.problema && <p className="text-xs text-[#8B9DB5] leading-relaxed">{r.problema}</p>}
+                        {r.problema && <p className="text-xs text-fg-muted leading-relaxed">{r.problema}</p>}
                         <div className="flex items-center gap-3 mt-2 flex-wrap">
                           {(r.horario || r.fecha_preferida) && (
-                            <span className="text-[10px] text-[#475569]">
+                            <span className="text-[10px] text-fg-subtle">
                               📅 {r.fecha_preferida ?? 'a coordinar'} · {r.horario ?? 'a coordinar'}
                             </span>
                           )}
                           {r.foto_urls?.length > 0 && (
                             <div className="flex gap-1.5">
                               {r.foto_urls.map((u, i) => (
-                                <a key={i} href={u} target="_blank" rel="noopener noreferrer" className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-[#00D4FF] hover:bg-white/10">
+                                <a key={i} href={u} target="_blank" rel="noopener noreferrer" className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-brand-bright hover:bg-white/10">
                                   📷 Foto {i + 1}
                                 </a>
                               ))}
@@ -300,10 +300,10 @@ export default function AdminPage() {
                           className={`text-[11px] font-bold uppercase tracking-wider rounded-lg border px-2.5 py-1.5 bg-transparent focus:outline-none cursor-pointer ${ESTADO_STYLE[r.estado] ?? ESTADO_STYLE.nuevo}`}
                         >
                           {ESTADOS.map((e) => (
-                            <option key={e} value={e} className="bg-[#080B14] text-[#F1F5F9]">{e.replace('_', ' ')}</option>
+                            <option key={e} value={e} className="bg-ink-900 text-fg">{e.replace('_', ' ')}</option>
                           ))}
                         </select>
-                        <button onClick={() => removeRequest(r.id)} className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/15 text-[#94A3B8] hover:border-red-500/30 hover:text-red-400 transition-all">
+                        <button onClick={() => removeRequest(r.id)} className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/15 text-fg-muted hover:border-danger/30 hover:text-danger transition-all">
                           <Trash2 size={13} />
                         </button>
                       </div>
@@ -319,10 +319,10 @@ export default function AdminPage() {
         {tab === 'servicios' && (
           <div>
             <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
-              <p className="text-sm text-[#475569]">{services.length} servicios · edita precios y detalles, se reflejan en la web</p>
+              <p className="text-sm text-fg-subtle">{services.length} servicios · edita precios y detalles, se reflejan en la web</p>
               <button
                 onClick={addService}
-                className="flex items-center gap-2 px-4 py-2.5 bg-[#00D4FF] text-[#03040A] font-bold rounded-xl hover:bg-[#00A8CC] transition-colors text-sm min-h-[40px]"
+                className="flex items-center gap-2 px-4 py-2.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover transition-colors text-sm min-h-[40px]"
               >
                 <Plus size={16} strokeWidth={2.5} /> Nuevo servicio
               </button>
@@ -332,49 +332,49 @@ export default function AdminPage() {
                 <div key={s.id || `new-${i}`} className="glass-card rounded-2xl border border-white/10 p-5">
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-start">
                     <div className="sm:col-span-4">
-                      <label className="text-[10px] font-semibold text-[#475569] uppercase tracking-wider block mb-1">Nombre</label>
+                      <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Nombre</label>
                       <input value={s.nombre} onChange={(e) => updateService(i, { nombre: e.target.value })} placeholder="Nombre del servicio" className={INPUT} />
                     </div>
                     <div className="sm:col-span-3">
-                      <label className="text-[10px] font-semibold text-[#475569] uppercase tracking-wider block mb-1">Precio</label>
+                      <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Precio</label>
                       <input value={s.precio} onChange={(e) => updateService(i, { precio: e.target.value })} placeholder="$40.000 / Desde $45.000 / A cotizar" className={INPUT} />
                     </div>
                     <div className="sm:col-span-2">
-                      <label className="text-[10px] font-semibold text-[#475569] uppercase tracking-wider block mb-1">Tiempo</label>
+                      <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Tiempo</label>
                       <input value={s.tiempo} onChange={(e) => updateService(i, { tiempo: e.target.value })} placeholder="24–48 h" className={INPUT} />
                     </div>
                     <div className="sm:col-span-3">
-                      <label className="text-[10px] font-semibold text-[#475569] uppercase tracking-wider block mb-1">Ícono</label>
+                      <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Ícono</label>
                       <select value={s.icono} onChange={(e) => updateService(i, { icono: e.target.value })} className={INPUT}>
                         {ICONOS_SERVICIO.map((ic) => <option key={ic} value={ic}>{ic}</option>)}
                       </select>
                     </div>
                     <div className="sm:col-span-12">
-                      <label className="text-[10px] font-semibold text-[#475569] uppercase tracking-wider block mb-1">Descripción</label>
+                      <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Descripción</label>
                       <textarea value={s.descripcion} onChange={(e) => updateService(i, { descripcion: e.target.value })} rows={2} placeholder="Descripción del servicio..." className={INPUT + ' resize-none'} />
                     </div>
                   </div>
                   <div className="flex items-center justify-between mt-4 flex-wrap gap-3">
                     <div className="flex items-center gap-4">
                       <label className="flex items-center gap-2 cursor-pointer">
-                        <input type="checkbox" checked={s.featured} onChange={(e) => updateService(i, { featured: e.target.checked })} className="w-4 h-4 accent-[#00D4FF]" />
-                        <span className="flex items-center gap-1 text-xs text-[#94A3B8]"><Star size={12} /> Destacado en home</span>
+                        <input type="checkbox" checked={s.featured} onChange={(e) => updateService(i, { featured: e.target.checked })} className="w-4 h-4 accent-brand-bright" />
+                        <span className="flex items-center gap-1 text-xs text-fg-muted"><Star size={12} /> Destacado en home</span>
                       </label>
                       <label className="flex items-center gap-2 cursor-pointer">
                         <input type="checkbox" checked={s.activo} onChange={(e) => updateService(i, { activo: e.target.checked })} className="w-4 h-4 accent-emerald-400" />
-                        <span className="text-xs text-[#94A3B8]">Visible</span>
+                        <span className="text-xs text-fg-muted">Visible</span>
                       </label>
                     </div>
                     <div className="flex items-center gap-2">
-                      {savedId === (s.id || s.nombre) && <span className="text-xs text-emerald-400">✓ Guardado</span>}
+                      {savedId === (s.id || s.nombre) && <span className="text-xs text-success">✓ Guardado</span>}
                       <button
                         onClick={() => saveService(i)}
                         disabled={isPending || !s.nombre.trim()}
-                        className="flex items-center gap-2 px-4 py-2 bg-[#00D4FF] text-[#03040A] text-sm font-bold rounded-lg hover:bg-[#00A8CC] transition-colors disabled:opacity-40 min-h-[38px]"
+                        className="flex items-center gap-2 px-4 py-2 bg-brand text-white text-sm font-bold rounded-lg hover:bg-brand-hover transition-colors disabled:opacity-40 min-h-[38px]"
                       >
                         <Save size={14} /> Guardar
                       </button>
-                      <button onClick={() => removeService(i)} className="w-9 h-9 flex items-center justify-center rounded-lg border border-white/15 text-[#94A3B8] hover:border-red-500/30 hover:text-red-400 transition-all">
+                      <button onClick={() => removeService(i)} className="w-9 h-9 flex items-center justify-center rounded-lg border border-white/15 text-fg-muted hover:border-danger/30 hover:text-danger transition-all">
                         <Trash2 size={14} />
                       </button>
                     </div>
@@ -382,7 +382,7 @@ export default function AdminPage() {
                 </div>
               ))}
             </div>
-            <p className="text-xs text-[#475569] text-center mt-8">
+            <p className="text-xs text-fg-subtle text-center mt-8">
               Los cambios se guardan en Supabase y aparecen en /servicios y en el home. El botón &quot;Guardar&quot; aplica cada servicio por separado.
             </p>
           </div>
@@ -394,7 +394,7 @@ export default function AdminPage() {
             <div className="flex justify-end mb-4">
               <button
                 onClick={() => setEditing({ ...EMPTY_BUILD })}
-                className="flex items-center gap-2 px-4 py-2.5 bg-[#00D4FF] text-[#03040A] font-bold rounded-xl hover:bg-[#00A8CC] transition-colors text-sm min-h-[40px]"
+                className="flex items-center gap-2 px-4 py-2.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover transition-colors text-sm min-h-[40px]"
               >
                 <Plus size={16} strokeWidth={2.5} /> Nuevo build
               </button>
@@ -402,39 +402,39 @@ export default function AdminPage() {
             <div className="grid grid-cols-1 gap-4">
               {builds.map((build) => (
                 <div key={build.id} className="glass-card rounded-2xl border border-white/10 p-5 flex items-center gap-5">
-                  <div className="w-10 h-10 rounded-xl bg-[#A855F7]/10 border border-[#A855F7]/20 flex items-center justify-center shrink-0">
-                    <span className="text-xs font-black text-[#A855F7]">{build.nombre.slice(0, 2)}</span>
+                  <div className="w-10 h-10 rounded-xl bg-gamer/10 border border-gamer/20 flex items-center justify-center shrink-0">
+                    <span className="text-xs font-black text-gamer-bright">{build.nombre.slice(0, 2)}</span>
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-0.5">
-                      <span className="text-sm font-bold text-[#F1F5F9]">{build.nombre}</span>
-                      <span className={`px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded-full border ${build.disponible ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30' : 'bg-white/5 text-[#475569] border-white/10'}`}>
+                      <span className="text-sm font-bold text-fg">{build.nombre}</span>
+                      <span className={`px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded-full border ${build.disponible ? 'bg-success/15 text-success border-success/30' : 'bg-white/5 text-fg-subtle border-white/10'}`}>
                         {build.disponible ? 'Disponible' : 'Bajo pedido'}
                       </span>
                       {build.youtubeId && (
-                        <span className="flex items-center gap-1 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded-full border bg-red-500/10 text-red-400 border-red-500/20">
+                        <span className="flex items-center gap-1 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded-full border bg-danger/10 text-danger border-danger/20">
                           <Video size={8} /> Video
                         </span>
                       )}
                     </div>
-                    <p className="text-xs text-[#475569] truncate">{build.specs.cpu} · {build.specs.gpu}</p>
+                    <p className="text-xs text-fg-subtle truncate">{build.specs.cpu} · {build.specs.gpu}</p>
                   </div>
                   <div className="text-right shrink-0">
-                    <div className="text-sm font-black text-[#F1F5F9]">${build.precio.toLocaleString('es-CL')}</div>
-                    <div className="text-[10px] text-[#475569]">{build.tag}</div>
+                    <div className="text-sm font-black text-fg">${build.precio.toLocaleString('es-CL')}</div>
+                    <div className="text-[10px] text-fg-subtle">{build.tag}</div>
                   </div>
                   <div className="flex gap-2 shrink-0">
-                    <button onClick={() => setEditing({ ...build })} className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/15 text-[#94A3B8] hover:border-[#00D4FF]/30 hover:text-[#00D4FF] transition-all">
+                    <button onClick={() => setEditing({ ...build })} className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/15 text-fg-muted hover:border-brand-bright/30 hover:text-brand-bright transition-all">
                       <Pencil size={13} />
                     </button>
-                    <button onClick={() => handleDelete(build.id)} className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/15 text-[#94A3B8] hover:border-red-500/30 hover:text-red-400 transition-all">
+                    <button onClick={() => handleDelete(build.id)} className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/15 text-fg-muted hover:border-danger/30 hover:text-danger transition-all">
                       <Trash2 size={13} />
                     </button>
                   </div>
                 </div>
               ))}
             </div>
-            <p className="text-xs text-[#475569] text-center mt-8">
+            <p className="text-xs text-fg-subtle text-center mt-8">
               Nota: los builds aún se guardan en archivo. Próximo paso: migrarlos a Supabase para producción en Vercel.
             </p>
           </div>
@@ -444,10 +444,10 @@ export default function AdminPage() {
       {/* Edit modal (builds) */}
       {editing && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-start justify-center p-4 overflow-y-auto">
-          <div className="bg-[#080B14] border border-white/15 rounded-2xl w-full max-w-2xl my-8">
+          <div className="bg-ink-900 border border-white/15 rounded-2xl w-full max-w-2xl my-8">
             <div className="flex items-center justify-between p-6 border-b border-white/10">
-              <h2 className="text-lg font-bold text-[#F1F5F9]">{editing.id ? 'Editar build' : 'Nuevo build'}</h2>
-              <button onClick={() => setEditing(null)} className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/15 text-[#94A3B8] hover:border-white/30 transition-all">
+              <h2 className="text-lg font-bold text-fg">{editing.id ? 'Editar build' : 'Nuevo build'}</h2>
+              <button onClick={() => setEditing(null)} className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/15 text-fg-muted hover:border-white/30 transition-all">
                 <X size={15} />
               </button>
             </div>
@@ -476,16 +476,16 @@ export default function AdminPage() {
               </Field>
               <div className="flex gap-6">
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" checked={editing.disponible} onChange={(e) => setEditing({ ...editing, disponible: e.target.checked })} className="w-4 h-4 accent-[#00D4FF]" />
-                  <span className="text-sm text-[#94A3B8]">Disponible ahora</span>
+                  <input type="checkbox" checked={editing.disponible} onChange={(e) => setEditing({ ...editing, disponible: e.target.checked })} className="w-4 h-4 accent-brand-bright" />
+                  <span className="text-sm text-fg-muted">Disponible ahora</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" checked={editing.featured} onChange={(e) => setEditing({ ...editing, featured: e.target.checked })} className="w-4 h-4 accent-[#A855F7]" />
-                  <span className="text-sm text-[#94A3B8]">Destacado en home</span>
+                  <input type="checkbox" checked={editing.featured} onChange={(e) => setEditing({ ...editing, featured: e.target.checked })} className="w-4 h-4 accent-gamer" />
+                  <span className="text-sm text-fg-muted">Destacado en home</span>
                 </label>
               </div>
               <div>
-                <div className="text-xs font-bold text-[#475569] uppercase tracking-wider mb-3">Especificaciones</div>
+                <div className="text-xs font-bold text-fg-subtle uppercase tracking-wider mb-3">Especificaciones</div>
                 <div className="grid grid-cols-2 gap-3">
                   {(['cpu', 'gpu', 'ram', 'storage', 'motherboard', 'psu', 'cooling', 'case'] as const).map((key) => (
                     <Field key={key} label={key.charAt(0).toUpperCase() + key.slice(1)}>
@@ -495,7 +495,7 @@ export default function AdminPage() {
                 </div>
               </div>
               <div>
-                <div className="text-xs font-bold text-[#475569] uppercase tracking-wider mb-3">FPS Estimados (opcional)</div>
+                <div className="text-xs font-bold text-fg-subtle uppercase tracking-wider mb-3">FPS Estimados (opcional)</div>
                 <div className="grid grid-cols-2 gap-3">
                   {(['fortnite', 'warzone', 'valorant', 'cyberpunk', 'gta5'] as const).map((key) => (
                     <Field key={key} label={key.charAt(0).toUpperCase() + key.slice(1)}>
@@ -506,7 +506,7 @@ export default function AdminPage() {
               </div>
               <Field label="ID de video YouTube (benchmark)">
                 <div className="relative">
-                  <Video size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#475569]" />
+                  <Video size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-fg-subtle" />
                   <input
                     value={editing.youtubeId}
                     onChange={(e) => setEditing({ ...editing, youtubeId: e.target.value.replace('https://www.youtube.com/watch?v=', '').replace('https://youtu.be/', '') })}
@@ -517,11 +517,11 @@ export default function AdminPage() {
               </Field>
             </div>
             <div className="flex gap-3 p-6 border-t border-white/10">
-              <button onClick={handleSave} disabled={isPending || !editing.nombre || !editing.precio} className="flex-1 flex items-center justify-center gap-2 py-3 bg-[#00D4FF] text-[#03040A] font-bold rounded-xl hover:bg-[#00A8CC] transition-colors disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]">
+              <button onClick={handleSave} disabled={isPending || !editing.nombre || !editing.precio} className="flex-1 flex items-center justify-center gap-2 py-3 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover transition-colors disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]">
                 <Save size={15} />
                 {isPending ? 'Guardando...' : 'Guardar build'}
               </button>
-              <button onClick={() => setEditing(null)} className="px-6 py-3 border border-white/15 text-[#94A3B8] font-medium rounded-xl hover:border-white/30 transition-all min-h-[44px]">
+              <button onClick={() => setEditing(null)} className="px-6 py-3 border border-white/15 text-fg-muted font-medium rounded-xl hover:border-white/30 transition-all min-h-[44px]">
                 Cancelar
               </button>
             </div>
@@ -532,12 +532,12 @@ export default function AdminPage() {
   )
 }
 
-const INPUT = 'w-full bg-white/5 border border-white/15 rounded-xl px-3 py-2.5 text-sm text-[#F1F5F9] placeholder-[#475569] focus:outline-none focus:border-[#00D4FF]/50 transition-colors'
+const INPUT = 'w-full bg-white/5 border border-white/15 rounded-xl px-3 py-2.5 text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors'
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <label className="text-[10px] font-semibold text-[#475569] uppercase tracking-wider block mb-1.5">{label}</label>
+      <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1.5">{label}</label>
       {children}
     </div>
   )

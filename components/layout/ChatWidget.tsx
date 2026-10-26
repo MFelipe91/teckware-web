@@ -90,24 +90,24 @@ export function ChatWidget() {
         aria-live="polite"
       >
         <div
-          className="flex flex-col rounded-2xl overflow-hidden border border-white/10 bg-[#0D1117] shadow-2xl shadow-black/60"
+          className="flex flex-col rounded-2xl overflow-hidden border border-white/10 bg-ink-800 shadow-2xl shadow-black/60"
           style={{ height: 460 }}
         >
           {/* Header */}
-          <div className="flex items-center gap-3 px-4 py-3 bg-[#080B14] border-b border-white/8 shrink-0">
-            <div className="w-8 h-8 rounded-full bg-[#00D4FF]/12 border border-[#00D4FF]/25 flex items-center justify-center">
-              <Bot size={14} className="text-[#00D4FF]" />
+          <div className="flex items-center gap-3 px-4 py-3 bg-ink-900 border-b border-white/8 shrink-0">
+            <div className="w-8 h-8 rounded-full bg-brand/12 border border-brand-bright/25 flex items-center justify-center">
+              <Bot size={14} className="text-brand-bright" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-bold text-[#F1F5F9] leading-none mb-1">Teck · Asistente TECKWARE</p>
+              <p className="text-sm font-bold text-fg leading-none mb-1">Teck · Asistente TECKWARE</p>
               <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] animate-pulse" />
-                <span className="text-[10px] text-[#64748B]">En línea · responde al instante</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
+                <span className="text-[10px] text-fg-subtle">En línea · responde al instante</span>
               </div>
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="text-[#475569] hover:text-[#94A3B8] transition-colors p-1 rounded-lg hover:bg-white/5"
+              className="text-fg-subtle hover:text-fg-muted transition-colors p-1 rounded-lg hover:bg-white/5"
               aria-label="Cerrar chat"
             >
               <X size={15} />
@@ -118,13 +118,13 @@ export function ChatWidget() {
           <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
             {unavailable ? (
               <div className="flex flex-col items-center justify-center h-full gap-4 text-center px-4">
-                <Bot size={32} className="text-[#475569]" />
-                <p className="text-sm text-[#94A3B8]">El chat IA no está disponible en este momento.</p>
+                <Bot size={32} className="text-fg-subtle" />
+                <p className="text-sm text-fg-muted">El chat IA no está disponible en este momento.</p>
                 <a
                   href={WA.general()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-5 py-2.5 bg-[#00D4FF] text-[#03040A] font-bold rounded-xl text-sm hover:bg-[#00B8D9] transition-colors"
+                  className="flex items-center gap-2 px-5 py-2.5 bg-brand text-white font-bold rounded-xl text-sm hover:bg-brand-hover transition-colors"
                 >
                   Chatear por WhatsApp
                   <ArrowRight size={14} />
@@ -135,17 +135,17 @@ export function ChatWidget() {
                 {msgs.map((msg, i) => (
                   <div key={i} className={`flex gap-2 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
                     {msg.role === 'assistant' && (
-                      <div className="w-6 h-6 rounded-full bg-[#00D4FF]/12 border border-[#00D4FF]/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <Bot size={10} className="text-[#00D4FF]" />
+                      <div className="w-6 h-6 rounded-full bg-brand/12 border border-brand-bright/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <Bot size={10} className="text-brand-bright" />
                       </div>
                     )}
                     {msg.role === 'user' ? (
-                      <div className="max-w-[80%] rounded-2xl rounded-tr-sm px-3 py-2 text-sm leading-relaxed bg-[#00D4FF]/15 text-[#F1F5F9]">
+                      <div className="max-w-[80%] rounded-2xl rounded-tr-sm px-3 py-2 text-sm leading-relaxed bg-brand/15 text-fg">
                         {msg.content}
                       </div>
                     ) : (
                       <div
-                        className="max-w-[80%] rounded-2xl rounded-tl-sm px-3 py-2 text-sm leading-relaxed bg-white/5 text-[#94A3B8]"
+                        className="max-w-[80%] rounded-2xl rounded-tl-sm px-3 py-2 text-sm leading-relaxed bg-white/5 text-fg-muted"
                         dangerouslySetInnerHTML={{ __html: renderMd(msg.content) }}
                       />
                     )}
@@ -154,14 +154,14 @@ export function ChatWidget() {
 
                 {loading && (
                   <div className="flex gap-2">
-                    <div className="w-6 h-6 rounded-full bg-[#00D4FF]/12 border border-[#00D4FF]/20 flex items-center justify-center shrink-0">
-                      <Bot size={10} className="text-[#00D4FF]" />
+                    <div className="w-6 h-6 rounded-full bg-brand/12 border border-brand-bright/20 flex items-center justify-center shrink-0">
+                      <Bot size={10} className="text-brand-bright" />
                     </div>
                     <div className="bg-white/5 rounded-2xl rounded-tl-sm px-3 py-3 flex gap-1 items-center">
                       {[0, 150, 300].map(d => (
                         <span
                           key={d}
-                          className="w-1.5 h-1.5 rounded-full bg-[#475569] animate-bounce"
+                          className="w-1.5 h-1.5 rounded-full bg-fg-subtle animate-bounce"
                           style={{ animationDelay: `${d}ms` }}
                         />
                       ))}
@@ -181,7 +181,7 @@ export function ChatWidget() {
                 <button
                   key={q}
                   onClick={() => sendText(q, msgs)}
-                  className="text-[10px] px-2.5 py-1.5 rounded-full border border-[#00D4FF]/25 text-[#00D4FF] hover:bg-[#00D4FF]/8 transition-colors"
+                  className="text-[10px] px-2.5 py-1.5 rounded-full border border-brand-bright/25 text-brand-bright hover:bg-brand/8 transition-colors"
                 >
                   {q}
                 </button>
@@ -200,28 +200,28 @@ export function ChatWidget() {
                   onChange={e => setInput(e.target.value)}
                   onKeyDown={e => e.key === 'Enter' && !loading && sendText(input, msgs)}
                   placeholder="Escribe tu consulta..."
-                  className="flex-1 bg-transparent text-sm text-[#F1F5F9] placeholder-[#475569] outline-none min-w-0 py-1"
+                  className="flex-1 bg-transparent text-sm text-fg placeholder-fg-subtle outline-none min-w-0 py-1"
                   disabled={loading}
                 />
                 <button
                   onClick={() => sendText(input, msgs)}
                   disabled={!input.trim() || loading}
-                  className="w-7 h-7 rounded-lg bg-[#00D4FF] flex items-center justify-center shrink-0 hover:bg-[#00B8D9] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="w-7 h-7 rounded-lg bg-brand flex items-center justify-center shrink-0 hover:bg-brand-hover transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                   aria-label="Enviar"
                 >
                   {loading
-                    ? <Loader2 size={12} className="text-[#03040A] animate-spin" />
-                    : <Send size={12} className="text-[#03040A]" />
+                    ? <Loader2 size={12} className="text-white animate-spin" />
+                    : <Send size={12} className="text-white" />
                   }
                 </button>
               </div>
               <div className="flex justify-between items-center mt-1.5 px-0.5">
-                <span className="text-[9px] text-[#334155]">La IA puede cometer errores</span>
+                <span className="text-[9px] text-fg-subtle">La IA puede cometer errores</span>
                 <a
                   href={WA.general()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[9px] text-[#475569] hover:text-[#00D4FF] transition-colors flex items-center gap-0.5"
+                  className="text-[9px] text-fg-subtle hover:text-brand-bright transition-colors flex items-center gap-0.5"
                 >
                   Preferir WhatsApp <ArrowRight size={8} />
                 </a>
@@ -234,15 +234,15 @@ export function ChatWidget() {
       {/* FAB */}
       <button
         onClick={() => setOpen(o => !o)}
-        className="fixed bottom-6 right-4 sm:right-6 z-50 w-14 h-14 rounded-full bg-[#00D4FF] hover:bg-[#00B8D9] shadow-lg shadow-[#00D4FF]/30 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95"
+        className="fixed bottom-6 right-4 sm:right-6 z-50 w-14 h-14 rounded-full bg-brand hover:bg-brand-hover shadow-lg shadow-brand-bright/30 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95"
         aria-label={open ? 'Cerrar chat' : 'Abrir chat con Teck IA'}
       >
         {open
-          ? <X size={22} className="text-[#03040A]" />
-          : <MessageSquare size={22} className="text-[#03040A]" />
+          ? <X size={22} className="text-white" />
+          : <MessageSquare size={22} className="text-white" />
         }
         {unread && !open && (
-          <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-[#080B14]" />
+          <span className="absolute -top-1 -right-1 w-4 h-4 bg-danger rounded-full border-2 border-ink-900" />
         )}
       </button>
     </>

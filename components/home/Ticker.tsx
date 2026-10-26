@@ -15,17 +15,17 @@ export function Ticker() {
 
   return (
     <div
-      className="bg-[#0D1120] border-y border-white/10 py-3 overflow-hidden"
+      className="bg-ink-800 border-y border-white/10 py-3 overflow-hidden"
       aria-hidden="true"
     >
       <div className="flex animate-marquee whitespace-nowrap">
         {doubled.map((item, i) => (
           <span
             key={i}
-            className="inline-flex items-center gap-6 mx-8 text-sm font-medium text-[#94A3B8]"
+            className="inline-flex items-center gap-6 mx-8 text-sm font-medium text-fg-muted"
           >
             {item}
-            <span className="text-[#00D4FF] opacity-40">|</span>
+            <span className="text-brand-bright opacity-40">|</span>
           </span>
         ))}
       </div>

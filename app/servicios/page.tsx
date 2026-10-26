@@ -67,9 +67,9 @@ const FALLBACK_IMG = '/images/hardware-amd.jpg'
 export default async function ServiciosPage() {
   const SERVICIOS = await getServices()
   return (
-    <div className="min-h-screen bg-[#080B14] pt-24">
+    <div className="min-h-screen bg-ink-900 pt-24">
       {/* Header */}
-      <section className="relative bg-[#020307] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative bg-ink-950 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Foto de fondo — limpieza de fans PC */}
         <div className="absolute inset-0">
           <Image
@@ -83,24 +83,24 @@ export default async function ServiciosPage() {
             placeholder="blur"
             blurDataURL={BLUR_DARK}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#020307]/80 via-[#020307]/60 to-[#020307]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink-950/80 via-ink-950/60 to-ink-950" />
         </div>
         <CircuitBackground palette="mixed" density={1.1} opacity={0.55} />
-        <div className="glow-cyan w-80 h-80 -top-20 right-0 opacity-30" />
-        <div className="glow-red w-64 h-64 bottom-0 left-0 opacity-30" />
+        <div className="glow-brand w-80 h-80 -top-20 right-0 opacity-30" />
+        <div className="glow-silver w-64 h-64 bottom-0 left-0 opacity-30" />
         {/* Top accent line */}
         <div className="absolute top-0 left-0 right-0 h-[2px]"
-          style={{ background: 'linear-gradient(90deg, transparent, #E61E32 30%, #00D4FF 70%, transparent)' }}
+          style={{ background: 'var(--gradient-signature)' }}
         />
         <div className="relative max-w-7xl mx-auto text-center">
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-[0.2em] uppercase text-[#00D4FF] border border-[#00D4FF]/20 rounded-sm bg-[#00D4FF]/6">
+          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-[0.2em] uppercase text-brand-bright border border-brand-bright/20 rounded-sm bg-brand/6">
             Servicios
           </span>
-          <h1 className="text-[#F1F5F9] mb-4">
+          <h1 className="text-fg mb-4">
             Todo lo que{' '}
             <span className="gradient-text">reparamos</span>
           </h1>
-          <p className="text-[#8B9DB5] max-w-xl mx-auto">
+          <p className="text-fg-muted max-w-xl mx-auto">
             Precios fijos y transparentes. Sin sorpresas al final.
           </p>
         </div>
@@ -134,23 +134,23 @@ export default async function ServiciosPage() {
                     placeholder="blur"
                     blurDataURL={BLUR_DARK}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050810] via-[#050810]/40 to-transparent" />
-                  <div className="absolute bottom-3 left-4 w-10 h-10 flex items-center justify-center rounded-sm bg-[#020307]/80 border border-[#00D4FF]/30 backdrop-blur-sm">
-                    <Icon size={18} className="text-[#00D4FF]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
+                  <div className="absolute bottom-3 left-4 w-10 h-10 flex items-center justify-center rounded-sm bg-ink-950/80 border border-brand-bright/30 backdrop-blur-sm">
+                    <Icon size={18} className="text-brand-bright" />
                   </div>
                 </div>
 
                 {/* Contenido */}
                 <div className="p-6 flex flex-col flex-1">
-                  <h2 className="text-lg font-bold text-[#F1F5F9] mb-2 leading-snug">{servicio.nombre}</h2>
-                  <p className="text-sm text-[#8B9DB5] mb-4 leading-relaxed">{servicio.descripcion}</p>
+                  <h2 className="text-lg font-bold text-fg mb-2 leading-snug">{servicio.nombre}</h2>
+                  <p className="text-sm text-fg-muted mb-4 leading-relaxed">{servicio.descripcion}</p>
 
                   {/* Qué incluye */}
                   {cond?.incluye && (
                     <ul className="space-y-1.5 mb-4">
                       {cond.incluye.map((linea) => (
-                        <li key={linea} className="flex items-start gap-2 text-[13px] text-[#94A3B8] leading-snug">
-                          <Check size={14} className="text-[#00D4FF] shrink-0 mt-0.5" strokeWidth={2.5} />
+                        <li key={linea} className="flex items-start gap-2 text-[13px] text-fg-muted leading-snug">
+                          <Check size={14} className="text-brand-bright shrink-0 mt-0.5" strokeWidth={2.5} />
                           <span>{linea}</span>
                         </li>
                       ))}
@@ -159,8 +159,8 @@ export default async function ServiciosPage() {
 
                   {/* Nota / condición específica */}
                   {cond?.nota && (
-                    <p className="flex items-start gap-2 text-xs text-[#64748B] leading-relaxed mb-5 pt-3 border-t border-white/5">
-                      <Info size={13} className="text-[#475569] shrink-0 mt-0.5" />
+                    <p className="flex items-start gap-2 text-xs text-fg-subtle leading-relaxed mb-5 pt-3 border-t border-white/5">
+                      <Info size={13} className="text-fg-subtle shrink-0 mt-0.5" />
                       <span>{cond.nota}</span>
                     </p>
                   )}
@@ -168,17 +168,17 @@ export default async function ServiciosPage() {
                   <div className="flex items-center justify-between flex-wrap gap-3 mt-auto">
                     <div>
                       {servicio.precio === 'A cotizar' ? (
-                        <span className="text-base font-bold text-[#A855F7]">A cotizar</span>
+                        <span className="text-base font-bold text-silver">A cotizar</span>
                       ) : (
-                        <span className="price text-2xl font-black text-[#00D4FF]">{servicio.precio}</span>
+                        <span className="price text-2xl font-black text-brand-bright">{servicio.precio}</span>
                       )}
-                      <span className="ml-2 text-xs text-[#475569]">{servicio.tiempo}</span>
+                      <span className="ml-2 text-xs text-fg-subtle">{servicio.tiempo}</span>
                     </div>
                     <a
                       href={waLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-[#00D4FF] text-[#020307] text-sm font-extrabold rounded-sm hover:bg-[#00B8D9] transition-colors min-h-[40px] shadow-[0_0_16px_rgba(0,212,255,0.2)]"
+                      className="flex items-center gap-2 px-4 py-2 bg-brand text-white text-sm font-extrabold rounded-sm hover:bg-brand-hover transition-colors min-h-[40px]"
                     >
                       Solicitar
                       <ArrowRight size={14} strokeWidth={2.5} />
@@ -191,15 +191,15 @@ export default async function ServiciosPage() {
         </div>
 
         {/* Condiciones generales */}
-        <div className="mt-14 rounded-2xl border border-[#00D4FF]/15 bg-[#00D4FF]/[0.04] p-6 sm:p-8">
+        <div className="mt-14 rounded-2xl border border-brand-bright/15 bg-brand/[0.04] p-6 sm:p-8">
           <div className="flex items-center gap-2 mb-5">
-            <ShieldCheck size={18} className="text-[#00D4FF]" />
-            <h2 className="text-base font-bold text-[#F1F5F9]">Condiciones generales</h2>
+            <ShieldCheck size={18} className="text-brand-bright" />
+            <h2 className="text-base font-bold text-fg">Condiciones generales</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
             {CONDICIONES_GENERALES.map((c) => (
-              <div key={c} className="flex items-start gap-2.5 text-sm text-[#94A3B8] leading-snug">
-                <Check size={15} className="text-[#00D4FF] shrink-0 mt-0.5" strokeWidth={2.5} />
+              <div key={c} className="flex items-start gap-2.5 text-sm text-fg-muted leading-snug">
+                <Check size={15} className="text-brand-bright shrink-0 mt-0.5" strokeWidth={2.5} />
                 <span>{c}</span>
               </div>
             ))}
@@ -207,7 +207,7 @@ export default async function ServiciosPage() {
         </div>
 
         {/* IVA nota */}
-        <div className="flex items-center justify-center gap-2 mt-8 text-xs text-[#475569]">
+        <div className="flex items-center justify-center gap-2 mt-8 text-xs text-fg-subtle">
           <Receipt size={13} />
           <span>{IVA_NOTA}</span>
         </div>
@@ -217,19 +217,19 @@ export default async function ServiciosPage() {
       <div className="tech-line mx-8" />
 
       {/* Servicios adicionales */}
-      <section className="relative bg-[#050810] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <CircuitBackground palette="cyan" density={0.6} opacity={0.3} />
+      <section className="relative bg-ink-950 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <CircuitBackground palette="brand" density={0.6} opacity={0.3} />
         <div className="relative max-w-7xl mx-auto">
-          <h2 className="text-[#F1F5F9] mb-2">Servicios adicionales</h2>
-          <p className="text-[#8B9DB5] mb-10">Precio a cotizar según requerimiento.</p>
+          <h2 className="text-fg mb-2">Servicios adicionales</h2>
+          <p className="text-fg-muted mb-10">Precio a cotizar según requerimiento.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {SERVICIOS_ADICIONALES.map((s) => (
               <div
                 key={s}
-                className="flex items-center gap-3 px-4 py-3 rounded-sm bg-white/[0.03] border border-white/8 hover:border-[#00D4FF]/20 transition-colors"
+                className="flex items-center gap-3 px-4 py-3 rounded-sm bg-white/[0.03] border border-white/8 hover:border-brand-bright/20 transition-colors"
               >
-                <span className="w-1 h-4 rounded-full bg-[#E61E32]/70 shrink-0" />
-                <span className="text-sm text-[#8B9DB5]">{s}</span>
+                <span className="w-1 h-4 rounded-full bg-brand/70 shrink-0" />
+                <span className="text-sm text-fg-muted">{s}</span>
               </div>
             ))}
           </div>
@@ -238,7 +238,7 @@ export default async function ServiciosPage() {
               href={WA.general()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#00D4FF] text-[#020307] font-extrabold rounded-sm hover:bg-[#00B8D9] transition-colors min-h-[48px] shadow-[0_0_20px_rgba(0,212,255,0.2)]"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white font-extrabold rounded-sm hover:bg-brand-hover transition-colors min-h-[48px]"
             >
               Consultar precio
               <ArrowRight size={16} strokeWidth={2.5} />
@@ -249,20 +249,20 @@ export default async function ServiciosPage() {
 
       {/* Equipos atendidos */}
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 overflow-hidden">
-        <CircuitBackground palette="purple" density={0.5} opacity={0.22} />
+        <CircuitBackground palette="silver" density={0.5} opacity={0.22} />
         <div className="relative">
-          <h2 className="text-[#F1F5F9] mb-2">Equipos que atendemos</h2>
-          <p className="text-[#8B9DB5] mb-10">Si tu equipo no está aquí, escríbenos igual.</p>
+          <h2 className="text-fg mb-2">Equipos que atendemos</h2>
+          <p className="text-fg-muted mb-10">Si tu equipo no está aquí, escríbenos igual.</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {EQUIPOS.map((equipo) => {
               const Icon = EQUIPO_ICONS[equipo.icono] ?? Monitor
               return (
                 <div
                   key={equipo.nombre}
-                  className="flex flex-col items-center gap-3 p-5 rounded-sm bg-white/[0.03] border border-white/8 hover:border-[#00D4FF]/25 hover:bg-[#00D4FF]/4 transition-all"
+                  className="flex flex-col items-center gap-3 p-5 rounded-sm bg-white/[0.03] border border-white/8 hover:border-brand-bright/25 hover:bg-brand/4 transition-all"
                 >
-                  <Icon size={28} className="text-[#00D4FF]" />
-                  <span className="text-xs font-medium text-[#8B9DB5] text-center">{equipo.nombre}</span>
+                  <Icon size={28} className="text-brand-bright" />
+                  <span className="text-xs font-medium text-fg-muted text-center">{equipo.nombre}</span>
                 </div>
               )
             })}

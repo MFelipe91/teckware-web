@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X, MessageCircle } from 'lucide-react'
-import { NAV_LINKS, EMPRESA } from '@/lib/constants'
+import { NAV_LINKS } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
 import { cn } from '@/lib/utils'
 
@@ -23,18 +23,18 @@ export function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         scrolled
-          ? 'bg-[#020307]/92 backdrop-blur-2xl border-b border-white/8 shadow-[0_4px_30px_rgba(0,0,0,0.4)]'
+          ? 'bg-ink-950/92 backdrop-blur-2xl border-b border-white/8 shadow-[0_4px_30px_rgba(0,0,0,0.4)]'
           : 'bg-transparent'
       )}
     >
-      {/* AMD/ROG sliding accent line — visible on scroll */}
+      {/* Línea firma plata → azul, visible al hacer scroll */}
       <div
         className={cn(
           'absolute bottom-0 left-0 right-0 h-[1px] transition-opacity duration-500',
           scrolled ? 'opacity-100' : 'opacity-0'
         )}
         style={{
-          background: 'linear-gradient(90deg, transparent, #E61E32 25%, #00D4FF 75%, transparent)',
+          background: 'var(--gradient-signature)',
         }}
       />
 
@@ -47,7 +47,8 @@ export function Navbar() {
             width={208}
             height={40}
             priority
-            className="block h-9 w-auto sm:h-10"
+            className="block h-9 sm:h-10"
+            style={{ width: 'auto' }}
           />
         </Link>
 
@@ -57,11 +58,11 @@ export function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="relative px-4 py-2 text-sm font-medium text-[#8B9DB5] hover:text-[#F1F5F9] rounded-sm transition-all duration-150 group"
+                className="relative px-4 py-2 text-sm font-medium text-fg-muted hover:text-fg rounded-sm transition-all duration-150 group"
               >
                 {link.label}
                 {/* ROG-style underline on hover */}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-[#00D4FF] transition-all duration-200 group-hover:w-4/5 rounded-full" />
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-brand transition-all duration-200 group-hover:w-4/5 rounded-full" />
               </Link>
             </li>
           ))}
@@ -73,7 +74,7 @@ export function Navbar() {
             href={WA.general()}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 bg-[#00D4FF] text-[#020307] text-sm font-extrabold rounded-sm hover:bg-[#00B8D9] transition-all duration-150 min-h-[40px] shadow-[0_0_20px_rgba(0,212,255,0.2)] hover:shadow-[0_0_28px_rgba(0,212,255,0.35)] tracking-wide"
+            className="flex items-center gap-2 px-4 py-2 bg-brand text-white text-sm font-extrabold rounded-sm hover:bg-brand-hover transition-all duration-150 min-h-[40px] tracking-wide"
           >
             <MessageCircle size={15} strokeWidth={2.5} />
             WhatsApp
@@ -83,7 +84,7 @@ export function Navbar() {
         {/* Mobile menu button */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden p-2 text-[#8B9DB5] hover:text-[#F1F5F9] rounded-sm hover:bg-white/5 transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
+          className="md:hidden p-2 text-fg-muted hover:text-fg rounded-sm hover:bg-white/5 transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
           aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={open}
         >
@@ -93,14 +94,14 @@ export function Navbar() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="md:hidden bg-[#020307]/97 backdrop-blur-2xl border-b border-white/8">
+        <div className="md:hidden bg-ink-950/97 backdrop-blur-2xl border-b border-white/8">
           <ul className="px-4 py-3 space-y-0.5">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-[#8B9DB5] hover:text-[#F1F5F9] hover:bg-white/4 rounded-sm transition-all border-l-2 border-transparent hover:border-[#00D4FF]/50"
+                  className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-fg-muted hover:text-fg hover:bg-white/4 rounded-sm transition-all border-l-2 border-transparent hover:border-brand-bright/50"
                 >
                   {link.label}
                 </Link>
@@ -112,7 +113,7 @@ export function Navbar() {
               href={WA.general()}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-3 bg-[#00D4FF] text-[#020307] text-sm font-extrabold rounded-sm hover:bg-[#00B8D9] transition-colors min-h-[44px] shadow-[0_0_20px_rgba(0,212,255,0.2)]"
+              className="flex items-center justify-center gap-2 w-full py-3 bg-brand text-white text-sm font-extrabold rounded-sm hover:bg-brand-hover transition-colors min-h-[44px]"
             >
               <MessageCircle size={16} strokeWidth={2.5} />
               Escribir por WhatsApp

@@ -7,10 +7,11 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js'
 import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js'
 
-const CYAN = 0x00d4ff
-const CYAN_DIM = 0x00a8cc
-const PURPLE = 0xa855f7
-const BG = 0x03040a
+/** Lee un token de marca de app/globals.css (WebGL no entiende variables CSS). */
+function token(name: string, fallback: number): number {
+  const v = getComputedStyle(document.documentElement).getPropertyValue(`--color-${name}`).trim()
+  return v ? new THREE.Color(v).getHex() : fallback
+}
 
 const PARTICLE_COUNT = 3000
 
@@ -41,6 +42,11 @@ export default function HeroCanvas() {
     }
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    const BRAND_BRIGHT = token('brand-bright', 0x3d9bff)
+    const BRAND = token('brand', 0x0b6bcb)
+    const SILVER = token('silver', 0xcccfd5)
+    const BG = token('ink-950', 0x02060f)
 
     // ─── Escena y cámara ──────────────────────────────────────────────
     const scene = new THREE.Scene()
@@ -77,11 +83,11 @@ export default function HeroCanvas() {
     // ─── Luces ────────────────────────────────────────────────────────
     scene.add(new THREE.AmbientLight(0x0a0a1a, 1))
 
-    const keyLight = new THREE.PointLight(CYAN, 2, 60)
+    const keyLight = new THREE.PointLight(BRAND_BRIGHT, 2, 60)
     keyLight.position.set(-6, 5, 6)
     scene.add(keyLight)
 
-    const fillLight = new THREE.PointLight(PURPLE, 1.5, 60)
+    const fillLight = new THREE.PointLight(SILVER, 1.5, 60)
     fillLight.position.set(6, -5, 4)
     scene.add(fillLight)
 
@@ -102,7 +108,7 @@ export default function HeroCanvas() {
     // y = -8 es deliberado: con FOV 50° el semi-alto visible es ~0.466·d, así que
     // el suelo recién entra en cuadro más allá de ~17u — justo donde empieza la
     // niebla. Más arriba aparecería como rejilla brillante bajo el texto.
-    const floor = new THREE.GridHelper(160, 80, CYAN, 0x0d2033)
+    const floor = new THREE.GridHelper(160, 80, BRAND_BRIGHT, 0x0d2033)
     floor.position.set(0, -8, -30)
     const floorMat = floor.material as THREE.LineBasicMaterial
     floorMat.transparent = true
@@ -125,8 +131,8 @@ export default function HeroCanvas() {
 
         // Mayoría blanco-azuladas, algunas cyan/violeta — cielo real, no monocromo
         const r = Math.random()
-        if (r > 0.9) tint.setHex(PURPLE)
-        else if (r > 0.72) tint.setHex(CYAN)
+        if (r > 0.9) tint.setHex(SILVER)
+        else if (r > 0.72) tint.setHex(BRAND_BRIGHT)
         else tint.setRGB(0.82 + Math.random() * 0.18, 0.88 + Math.random() * 0.12, 1)
         col[i3] = tint.r
         col[i3 + 1] = tint.g
@@ -173,10 +179,10 @@ export default function HeroCanvas() {
 
     const nebulas: THREE.Sprite[] = []
     const NEBULA_SPECS: { x: number; y: number; z: number; scale: number; color: number; op: number }[] = [
-      { x: -14, y: 6, z: -24, scale: 40, color: CYAN, op: 0.16 },
-      { x: 16, y: -6, z: -28, scale: 46, color: PURPLE, op: 0.14 },
-      { x: 2, y: 10, z: -34, scale: 52, color: 0x1b4fd4, op: 0.1 },
-      { x: -8, y: -10, z: -20, scale: 30, color: CYAN, op: 0.08 },
+      { x: -14, y: 6, z: -24, scale: 40, color: BRAND_BRIGHT, op: 0.16 },
+      { x: 16, y: -6, z: -28, scale: 46, color: SILVER, op: 0.14 },
+      { x: 2, y: 10, z: -34, scale: 52, color: BRAND, op: 0.1 },
+      { x: -8, y: -10, z: -20, scale: 30, color: BRAND_BRIGHT, op: 0.08 },
     ]
     for (const spec of NEBULA_SPECS) {
       const sp = new THREE.Sprite(
@@ -210,17 +216,17 @@ export default function HeroCanvas() {
 
     // ─── CPU: caja con pines en la base ──────────────────────────────
     const cpu = new THREE.Group()
-    const cpuBody = new THREE.Mesh(new THREE.BoxGeometry(1.3, 0.2, 1.3, 4, 1, 4), mat(CYAN))
+    const cpuBody = new THREE.Mesh(new THREE.BoxGeometry(1.3, 0.2, 1.3, 4, 1, 4), mat(BRAND_BRIGHT))
     cpu.add(cpuBody)
 
-    const cpuDie = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.08, 0.6), mat(CYAN, 0.75))
+    const cpuDie = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.08, 0.6), mat(BRAND_BRIGHT, 0.75))
     cpuDie.position.y = 0.14
     cpu.add(cpuDie)
 
     // Pines: filas delgadas bajo el encapsulado
     const pinGeo = new THREE.BoxGeometry(1.15, 0.06, 0.045)
     for (let i = 0; i < 7; i++) {
-      const pin = new THREE.Mesh(pinGeo, mat(CYAN_DIM, 0.55))
+      const pin = new THREE.Mesh(pinGeo, mat(BRAND, 0.55))
       pin.position.set(0, -0.15, -0.45 + i * 0.15)
       cpu.add(pin)
     }
@@ -230,10 +236,10 @@ export default function HeroCanvas() {
 
     // ─── GPU: caja larga con ventiladores giratorios ─────────────────
     const gpu = new THREE.Group()
-    const gpuBody = new THREE.Mesh(new THREE.BoxGeometry(2.8, 0.3, 1.2, 6, 1, 3), mat(PURPLE))
+    const gpuBody = new THREE.Mesh(new THREE.BoxGeometry(2.8, 0.3, 1.2, 6, 1, 3), mat(SILVER))
     gpu.add(gpuBody)
 
-    const gpuBracket = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.9, 1.15), mat(PURPLE, 0.7))
+    const gpuBracket = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.9, 1.15), mat(SILVER, 0.7))
     gpuBracket.position.x = -1.44
     gpu.add(gpuBracket)
 
@@ -242,10 +248,10 @@ export default function HeroCanvas() {
     const bladeGeo = new THREE.BoxGeometry(0.72, 0.04, 0.11)
     for (let i = 0; i < 2; i++) {
       const fan = new THREE.Group()
-      const ring = new THREE.Mesh(fanGeo, mat(PURPLE, 0.85))
+      const ring = new THREE.Mesh(fanGeo, mat(SILVER, 0.85))
       fan.add(ring)
       for (let b = 0; b < 3; b++) {
-        const blade = new THREE.Mesh(bladeGeo, mat(CYAN, 0.6))
+        const blade = new THREE.Mesh(bladeGeo, mat(BRAND_BRIGHT, 0.6))
         blade.rotation.y = (b / 3) * Math.PI * 2
         fan.add(blade)
       }
@@ -263,9 +269,9 @@ export default function HeroCanvas() {
     const chipGeo = new THREE.BoxGeometry(0.16, 0.16, 0.1)
     for (let i = 0; i < 4; i++) {
       const stick = new THREE.Group()
-      stick.add(new THREE.Mesh(stickGeo, mat(CYAN_DIM)))
+      stick.add(new THREE.Mesh(stickGeo, mat(BRAND)))
       for (let c = 0; c < 3; c++) {
-        const chip = new THREE.Mesh(chipGeo, mat(CYAN, 0.7))
+        const chip = new THREE.Mesh(chipGeo, mat(BRAND_BRIGHT, 0.7))
         chip.position.set(0, 0.32 - c * 0.32, 0.26)
         stick.add(chip)
       }
@@ -279,7 +285,7 @@ export default function HeroCanvas() {
     // ─── Placa madre: plano wireframe de base ────────────────────────
     const board = new THREE.Mesh(
       new THREE.PlaneGeometry(7.5, 5.5, 12, 9),
-      mat(CYAN_DIM, 0.22)
+      mat(BRAND, 0.22)
     )
     board.rotation.x = -Math.PI / 2.6
     board.position.set(0, -2.2, -1.2)
@@ -336,7 +342,7 @@ export default function HeroCanvas() {
     particleGeo.setAttribute('position', posAttr)
 
     const particleMat = new THREE.PointsMaterial({
-      color: CYAN,
+      color: BRAND_BRIGHT,
       size: 0.02,
       transparent: true,
       opacity: 0.6,
@@ -562,9 +568,9 @@ export default function HeroCanvas() {
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse at 25% 30%, rgba(0,212,255,0.10), transparent 55%),' +
-            'radial-gradient(ellipse at 75% 70%, rgba(168,85,247,0.10), transparent 55%),' +
-            '#03040A',
+            'radial-gradient(ellipse at 25% 30%, color-mix(in oklab, var(--color-brand-bright) 10%, transparent), transparent 55%),' +
+            'radial-gradient(ellipse at 75% 70%, color-mix(in oklab, var(--color-silver) 6%, transparent), transparent 55%),' +
+            'var(--color-ink-950)',
         }}
         aria-hidden="true"
       />

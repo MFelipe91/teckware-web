@@ -14,11 +14,11 @@ export function YoutubeEmbed({ videoId, title }: Props) {
 
   if (!videoId) {
     return (
-      <div className="aspect-video w-full bg-[#0D1120] flex flex-col items-center justify-center gap-3 rounded-t-2xl border-b border-white/8">
+      <div className="aspect-video w-full bg-ink-800 flex flex-col items-center justify-center gap-3 rounded-t-2xl border-b border-white/8">
         <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-          <Play size={20} className="text-[#475569] ml-0.5" />
+          <Play size={20} className="text-fg-subtle ml-0.5" />
         </div>
-        <span className="text-xs text-[#475569]">Video benchmark próximamente</span>
+        <span className="text-xs text-fg-subtle">Video benchmark próximamente</span>
       </div>
     )
   }
@@ -52,7 +52,7 @@ export function YoutubeEmbed({ videoId, title }: Props) {
         unoptimized
       />
       <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-        <div className="w-16 h-16 rounded-full bg-[#FF0000] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-200">
+        <div className="w-16 h-16 rounded-full bg-brand flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-200">
           <Play size={22} fill="white" stroke="none" className="ml-1" />
         </div>
       </div>

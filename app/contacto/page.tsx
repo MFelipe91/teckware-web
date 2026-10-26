@@ -15,20 +15,20 @@ export const metadata: Metadata = {
 
 export default function ContactoPage() {
   return (
-    <div className="min-h-screen bg-[#080B14] pt-24">
+    <div className="min-h-screen bg-ink-900 pt-24">
       {/* Header */}
-      <section className="relative bg-[#03040A] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative bg-ink-950 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <CircuitBackground variant="constellation" palette="mixed" density={1.1} opacity={0.65} />
-        <div className="glow-cyan w-72 h-72 -top-16 right-0 opacity-30" />
+        <div className="glow-brand w-72 h-72 -top-16 right-0 opacity-30" />
         <div className="relative max-w-7xl mx-auto text-center">
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-widest uppercase text-[#00D4FF] border border-[#00D4FF]/25 rounded-full bg-[#00D4FF]/8">
+          <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-widest uppercase text-brand-bright border border-brand-bright/25 rounded-full bg-brand/8">
             Contacto
           </span>
-          <h1 className="text-[#F1F5F9] mb-4">
+          <h1 className="text-fg mb-4">
             Hablemos{' '}
             <span className="gradient-text">ahora</span>
           </h1>
-          <p className="text-[#94A3B8] max-w-lg mx-auto">
+          <p className="text-fg-muted max-w-lg mx-auto">
             Respuesta garantizada en menos de 2 horas. Elige el canal que prefieras.
           </p>
         </div>
@@ -41,17 +41,17 @@ export default function ContactoPage() {
             href={WA.general()}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col gap-4 p-7 rounded-2xl border border-[#22C55E]/25 bg-[#22C55E]/5 hover:border-[#22C55E]/50 hover:bg-[#22C55E]/10 transition-all card-hover"
+            className="group flex flex-col gap-4 p-7 rounded-2xl border border-whatsapp/25 bg-whatsapp/5 hover:border-whatsapp/50 hover:bg-whatsapp/10 transition-all card-hover"
           >
-            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#22C55E]/15 border border-[#22C55E]/25">
-              <MessageCircle size={22} className="text-[#22C55E]" />
+            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-whatsapp/15 border border-whatsapp/25">
+              <MessageCircle size={22} className="text-whatsapp" />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-[#F1F5F9] mb-1">WhatsApp</h2>
-              <p className="text-sm text-[#94A3B8] mb-3">Canal principal. Respuesta más rápida.</p>
-              <span className="text-[#22C55E] font-semibold text-sm">{EMPRESA.telefono}</span>
+              <h2 className="text-lg font-bold text-fg mb-1">WhatsApp</h2>
+              <p className="text-sm text-fg-muted mb-3">Canal principal. Respuesta más rápida.</p>
+              <span className="text-whatsapp font-semibold text-sm">{EMPRESA.telefono}</span>
             </div>
-            <div className="flex items-center gap-1 text-xs text-[#22C55E] font-medium mt-auto">
+            <div className="flex items-center gap-1 text-xs text-whatsapp font-medium mt-auto">
               Escribir ahora <ArrowRight size={12} />
             </div>
           </a>
@@ -59,17 +59,17 @@ export default function ContactoPage() {
           {/* Email */}
           <a
             href={`mailto:${EMPRESA.email}`}
-            className="group flex flex-col gap-4 p-7 rounded-2xl border border-white/10 bg-white/[0.03] hover:border-[#00D4FF]/30 hover:bg-white/5 transition-all card-hover"
+            className="group flex flex-col gap-4 p-7 rounded-2xl border border-white/10 bg-white/[0.03] hover:border-brand-bright/30 hover:bg-white/5 transition-all card-hover"
           >
-            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#00D4FF]/10 border border-[#00D4FF]/20">
-              <Mail size={22} className="text-[#00D4FF]" />
+            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-brand/10 border border-brand-bright/20">
+              <Mail size={22} className="text-brand-bright" />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-[#F1F5F9] mb-1">Email</h2>
-              <p className="text-sm text-[#94A3B8] mb-3">Para consultas detalladas o presupuestos por escrito.</p>
-              <span className="text-[#00D4FF] font-semibold text-sm">{EMPRESA.email}</span>
+              <h2 className="text-lg font-bold text-fg mb-1">Email</h2>
+              <p className="text-sm text-fg-muted mb-3">Para consultas detalladas o presupuestos por escrito.</p>
+              <span className="text-brand-bright font-semibold text-sm">{EMPRESA.email}</span>
             </div>
-            <div className="flex items-center gap-1 text-xs text-[#00D4FF] font-medium mt-auto">
+            <div className="flex items-center gap-1 text-xs text-brand-bright font-medium mt-auto">
               Enviar email <ArrowRight size={12} />
             </div>
           </a>
@@ -79,17 +79,17 @@ export default function ContactoPage() {
             href={EMPRESA.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col gap-4 p-7 rounded-2xl border border-white/10 bg-white/[0.03] hover:border-[#A855F7]/30 hover:bg-white/5 transition-all card-hover"
+            className="group flex flex-col gap-4 p-7 rounded-2xl border border-white/10 bg-white/[0.03] hover:border-silver/30 hover:bg-white/5 transition-all card-hover"
           >
-            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#A855F7]/10 border border-[#A855F7]/20">
-              <InstagramIcon size={22} className="text-[#A855F7]" />
+            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-silver/10 border border-silver/20">
+              <InstagramIcon size={22} className="text-silver" />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-[#F1F5F9] mb-1">Instagram</h2>
-              <p className="text-sm text-[#94A3B8] mb-3">Sigue nuestro trabajo y proyectos recientes.</p>
-              <span className="text-[#A855F7] font-semibold text-sm">{EMPRESA.instagramHandle}</span>
+              <h2 className="text-lg font-bold text-fg mb-1">Instagram</h2>
+              <p className="text-sm text-fg-muted mb-3">Sigue nuestro trabajo y proyectos recientes.</p>
+              <span className="text-silver font-semibold text-sm">{EMPRESA.instagramHandle}</span>
             </div>
-            <div className="flex items-center gap-1 text-xs text-[#A855F7] font-medium mt-auto">
+            <div className="flex items-center gap-1 text-xs text-silver font-medium mt-auto">
               Ver perfil <ArrowRight size={12} />
             </div>
           </a>
@@ -97,36 +97,36 @@ export default function ContactoPage() {
           {/* Ubicación y horario */}
           <div className="flex flex-col gap-5 p-7 rounded-2xl border border-white/10 bg-white/[0.03]">
             <div className="flex gap-4">
-              <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-xl bg-[#00D4FF]/10 border border-[#00D4FF]/20">
-                <MapPin size={22} className="text-[#00D4FF]" />
+              <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-xl bg-brand/10 border border-brand-bright/20">
+                <MapPin size={22} className="text-brand-bright" />
               </div>
               <div>
-                <h2 className="text-base font-bold text-[#F1F5F9] mb-1">Zona de atención</h2>
-                <p className="text-sm text-[#94A3B8]">{EMPRESA.direccion}</p>
-                <p className="text-xs text-[#475569] mt-1">Sin atención de público en local — coordinamos por WhatsApp</p>
+                <h2 className="text-base font-bold text-fg mb-1">Zona de atención</h2>
+                <p className="text-sm text-fg-muted">{EMPRESA.direccion}</p>
+                <p className="text-xs text-fg-subtle mt-1">Sin atención de público en local — coordinamos por WhatsApp</p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-xl bg-[#00D4FF]/10 border border-[#00D4FF]/20">
-                <Clock size={22} className="text-[#00D4FF]" />
+              <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-xl bg-brand/10 border border-brand-bright/20">
+                <Clock size={22} className="text-brand-bright" />
               </div>
               <div>
-                <h2 className="text-base font-bold text-[#F1F5F9] mb-1">Horario</h2>
-                <p className="text-sm text-[#94A3B8]">{EMPRESA.horario}</p>
+                <h2 className="text-base font-bold text-fg mb-1">Horario</h2>
+                <p className="text-sm text-fg-muted">{EMPRESA.horario}</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* CTA formulario */}
-        <div className="mt-12 text-center p-10 rounded-3xl border border-[#00D4FF]/15 bg-[#00D4FF]/5">
-          <h2 className="text-[#F1F5F9] mb-3">¿Prefieres un formulario?</h2>
-          <p className="text-[#94A3B8] mb-6">
+        <div className="mt-12 text-center p-10 rounded-3xl border border-brand-bright/15 bg-brand/5">
+          <h2 className="text-fg mb-3">¿Prefieres un formulario?</h2>
+          <p className="text-fg-muted mb-6">
             Completa tus datos y te contactamos nosotros.
           </p>
           <Link
             href="/solicitar"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#00D4FF] text-[#03040A] font-bold rounded-xl hover:bg-[#00A8CC] transition-colors min-h-[48px]"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover transition-colors min-h-[48px]"
           >
             Ir al formulario
             <ArrowRight size={16} strokeWidth={2.5} />

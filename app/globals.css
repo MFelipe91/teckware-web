@@ -9,7 +9,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
-  --font-mono: var(--font-jetbrains);
+  --font-display: var(--font-sora);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -46,59 +46,81 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
-
-  /* TECKWARE brand colors — accessible as Tailwind utility classes */
-  --color-tw-bg-deep:     #03040A;
-  --color-tw-bg-primary:  #080B14;
-  --color-tw-bg-surface:  #0D1120;
-  --color-tw-bg-elevated: #111827;
-  --color-tw-navy:        #1B2A4A;
-  --color-tw-tech-blue:   #2E86AB;
-  --color-tw-cyan:        #00D4FF;
-  --color-tw-cyan-dim:    #00A8CC;
-  --color-tw-purple:      #A855F7;
-  --color-tw-green:       #22C55E;
-  --color-tw-orange:      #F97316;
-  --color-tw-red:         #EF4444;
-  --color-tw-text-primary:   #F1F5F9;
-  --color-tw-text-secondary: #94A3B8;
-  --color-tw-text-tertiary:  #475569;
 }
 
-/* ── TECKWARE dark theme (always-on) ─────────────────────── */
+/* ── Marca TECKWARE 2026 ─────────────────────────────────────
+   Única fuente de verdad de los colores: azul y plata del logo sobre navy.
+   Cambiar un valor aquí cambia todo el sitio (y shadcn, vía :root).
+   Contraste verificado con `node scripts/brand/contrast.mjs`. */
+@theme static {
+  /* Fondos (navy del logo) */
+  --color-ink-950: #02060F;
+  --color-ink-900: #060B19;
+  --color-ink-800: #0B1426;
+  --color-ink-700: #122039;
+
+  /* Azul del logo: "WARE" y hexágono */
+  --color-brand: #0B6BCB;          /* rellenos y botones (texto blanco encima) */
+  --color-brand-hover: #0A5DB0;
+  --color-brand-bright: #3D9BFF;   /* texto, enlaces e íconos sobre fondo oscuro */
+  --color-brand-deep: #0A4A9C;
+
+  /* Plata del logo: "TECK" y la T */
+  --color-silver: #CCCFD5;
+  --color-silver-dim: #8E97A6;
+
+  /* Texto */
+  --color-fg: #F1F5F9;
+  --color-fg-muted: #A3AEC2;
+  --color-fg-subtle: #8390A8;
+
+  /* Acento exclusivo de PC Gamer (nunca color de marca) */
+  --color-gamer: #A855F7;
+  --color-gamer-bright: #C08BFA;
+
+  /* WhatsApp (afordancia reconocible) y estados */
+  --color-whatsapp: #22C55E;
+  --color-whatsapp-solid: #15803D;  /* botón relleno con texto blanco */
+  --color-whatsapp-hover: #166534;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-danger: #F87171;
+}
+
+/* ── Tema oscuro (siempre activo), mapeado a los tokens ───── */
 :root {
-  --background: #080B14;
-  --foreground: #F1F5F9;
-  --card: #0D1120;
-  --card-foreground: #F1F5F9;
-  --popover: #111827;
-  --popover-foreground: #F1F5F9;
-  --primary: #00D4FF;
-  --primary-foreground: #03040A;
-  --secondary: #1B2A4A;
-  --secondary-foreground: #F1F5F9;
-  --muted: #111827;
-  --muted-foreground: #94A3B8;
-  --accent: #2E86AB;
-  --accent-foreground: #F1F5F9;
-  --destructive: #EF4444;
+  --background: var(--color-ink-900);
+  --foreground: var(--color-fg);
+  --card: var(--color-ink-800);
+  --card-foreground: var(--color-fg);
+  --popover: var(--color-ink-700);
+  --popover-foreground: var(--color-fg);
+  --primary: var(--color-brand);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--color-ink-700);
+  --secondary-foreground: var(--color-fg);
+  --muted: var(--color-ink-700);
+  --muted-foreground: var(--color-fg-muted);
+  --accent: var(--color-brand-deep);
+  --accent-foreground: var(--color-fg);
+  --destructive: var(--color-danger);
   --border: rgba(255,255,255,0.10);
   --input: rgba(255,255,255,0.08);
-  --ring: rgba(0,212,255,0.4);
-  --chart-1: #00D4FF;
-  --chart-2: #A855F7;
-  --chart-3: #22C55E;
-  --chart-4: #F97316;
-  --chart-5: #2E86AB;
+  --ring: color-mix(in oklab, var(--color-brand-bright) 45%, transparent);
+  --chart-1: var(--color-brand-bright);
+  --chart-2: var(--color-silver);
+  --chart-3: var(--color-success);
+  --chart-4: var(--color-warning);
+  --chart-5: var(--color-brand-deep);
   --radius: 0.625rem;
-  --sidebar: #0D1120;
-  --sidebar-foreground: #F1F5F9;
-  --sidebar-primary: #00D4FF;
-  --sidebar-primary-foreground: #03040A;
-  --sidebar-accent: #111827;
-  --sidebar-accent-foreground: #F1F5F9;
+  --sidebar: var(--color-ink-800);
+  --sidebar-foreground: var(--color-fg);
+  --sidebar-primary: var(--color-brand);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: var(--color-ink-700);
+  --sidebar-accent-foreground: var(--color-fg);
   --sidebar-border: rgba(255,255,255,0.08);
-  --sidebar-ring: rgba(0,212,255,0.4);
+  --sidebar-ring: color-mix(in oklab, var(--color-brand-bright) 45%, transparent);
 }
 
 /* ── Base ───────────────────────────────────────────────────── */
@@ -120,89 +142,90 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  h1, h2, h3 {
+    font-family: var(--font-sora), var(--font-inter), system-ui, sans-serif;
+  }
   h1 {
-    font-size: clamp(36px, 6vw, 72px);
-    font-weight: 900;
-    letter-spacing: -2px;
-    line-height: 1.05;
+    font-size: clamp(34px, 5.5vw, 64px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
   }
   h2 {
-    font-size: clamp(28px, 4vw, 48px);
-    font-weight: 800;
-    letter-spacing: -1px;
-    line-height: 1.1;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.12;
   }
   h3 {
-    font-size: clamp(20px, 3vw, 28px);
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    line-height: 1.2;
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
   }
 
   ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: #03040A; }
-  ::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.3); border-radius: 3px; }
-  ::-webkit-scrollbar-thumb:hover { background: rgba(0,212,255,0.5); }
+  ::-webkit-scrollbar-track { background: var(--color-ink-950); }
+  ::-webkit-scrollbar-thumb { background: color-mix(in oklab, var(--color-brand) 45%, transparent); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: color-mix(in oklab, var(--color-brand) 70%, transparent); }
 
   ::selection {
-    background: rgba(0,212,255,0.2);
-    color: #F1F5F9;
+    background: color-mix(in oklab, var(--color-brand) 35%, transparent);
+    color: var(--color-fg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-bright);
+    outline-offset: 2px;
   }
 }
 
 /* ── Utilities ──────────────────────────────────────────────── */
 @layer utilities {
-  /* Background grid — thin tech lines (NVIDIA/ROG style) */
+  /* Grilla técnica sutil */
   .bg-grid {
     background-image:
-      linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+      linear-gradient(color-mix(in oklab, var(--color-brand-bright) 5%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--color-brand-bright) 5%, transparent) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
-  /* Dot grid — ROG tactical overlay */
   .bg-dot-grid {
-    background-image: radial-gradient(rgba(0,212,255,0.15) 1px, transparent 1px);
+    background-image: radial-gradient(color-mix(in oklab, var(--color-silver) 14%, transparent) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
-  /* Gradient text — cyan to purple (NVIDIA-to-ROG) */
+  /* Texto con degradado plata → azul (como el logo) */
   .gradient-text {
-    background: linear-gradient(120deg, #00D4FF 0%, #A855F7 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Gradient text — red to orange (AMD Ryzen palette) */
-  .gradient-text-red {
-    background: linear-gradient(120deg, #FF4D4D 0%, #F97316 100%);
+    background: linear-gradient(120deg, var(--color-silver) 0%, var(--color-brand-bright) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .gradient-text-blue {
-    background: linear-gradient(135deg, #00D4FF, #2E86AB);
+    background: linear-gradient(135deg, var(--color-brand-bright), var(--color-brand));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Neon glow text — NVIDIA electric */
-  .neon-text {
-    text-shadow: 0 0 20px rgba(0,212,255,0.6), 0 0 40px rgba(0,212,255,0.25);
+  /* Solo para la sección PC Gamer */
+  .gradient-text-gamer {
+    background: linear-gradient(120deg, var(--color-brand-bright) 0%, var(--color-gamer-bright) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  /* Glassmorphism */
   .glass-card {
-    background: rgba(10,14,26,0.85);
+    background: color-mix(in oklab, var(--color-ink-800) 88%, transparent);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255,255,255,0.07);
   }
 
-  /* Gradient border (ROG/MSI glowing border) */
+  /* Borde con degradado plata → azul */
   .gradient-border {
     position: relative;
   }
@@ -212,44 +235,43 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, rgba(0,212,255,0.5), rgba(168,85,247,0.3), rgba(230,30,50,0.4));
+    background: linear-gradient(135deg, color-mix(in oklab, var(--color-silver) 45%, transparent), color-mix(in oklab, var(--color-brand) 55%, transparent));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
   }
 
-  /* Glow blobs */
-  .glow-cyan {
+  /* Halos de luz difusos */
+  .glow-brand {
     position: absolute;
     border-radius: 50%;
-    background: rgba(0,212,255,0.14);
+    background: color-mix(in oklab, var(--color-brand) 18%, transparent);
     filter: blur(90px);
     pointer-events: none;
   }
 
-  .glow-purple {
+  .glow-silver {
     position: absolute;
     border-radius: 50%;
-    background: rgba(168,85,247,0.12);
+    background: color-mix(in oklab, var(--color-silver) 7%, transparent);
     filter: blur(90px);
     pointer-events: none;
   }
 
-  .glow-red {
+  .glow-gamer {
     position: absolute;
     border-radius: 50%;
-    background: rgba(230,30,50,0.10);
+    background: color-mix(in oklab, var(--color-gamer) 12%, transparent);
     filter: blur(90px);
     pointer-events: none;
   }
 
-  /* Angular clip — ROG diagonal cut */
   .clip-angle-br {
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
   }
 
-  /* Accent bar — AMD/ROG thin colored top line */
+  /* Línea superior fina plata → azul */
   .accent-bar-top {
     position: relative;
   }
@@ -258,55 +280,49 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 2px;
-    background: linear-gradient(90deg, #E61E32, #00D4FF, #E61E32);
-    background-size: 200% 100%;
-    animation: accent-slide 4s linear infinite;
+    background: var(--gradient-signature);
   }
 
-  /* Card hover — stronger gaming glow */
   .card-hover {
     transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   }
   .card-hover:hover {
-    border-color: rgba(0,212,255,0.35);
+    border-color: color-mix(in oklab, var(--color-brand-bright) 35%, transparent);
     transform: translateY(-3px);
-    box-shadow:
-      0 0 0 1px rgba(0,212,255,0.12),
-      0 20px 50px rgba(0,212,255,0.10),
-      0 0 80px rgba(0,212,255,0.04);
+    box-shadow: 0 20px 50px color-mix(in oklab, var(--color-brand) 14%, transparent);
   }
 
-  /* Price monospace */
+  /* Precios: cifras alineadas */
   .price {
-    font-family: var(--font-jetbrains), 'JetBrains Mono', monospace;
-    letter-spacing: -0.5px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
   }
 
-  /* WhatsApp pulse */
   .wa-pulse {
     animation: wa-pulse 2s ease infinite;
   }
 
-  /* Scan line overlay — gaming monitor aesthetic */
-  .scan-line::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0,0,0,0.08) 2px,
-      rgba(0,0,0,0.08) 4px
-    );
-    pointer-events: none;
-  }
-
-  /* Tech separator line */
+  /* Línea separadora con la firma de la marca */
   .tech-line {
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(0,212,255,0.4), rgba(168,85,247,0.3), transparent);
+    background: var(--gradient-signature);
+    opacity: 0.6;
   }
+
+  .signature-line {
+    height: 2px;
+    background: var(--gradient-signature);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wa-pulse, .animate-marquee { animation: none; }
+    .card-hover:hover { transform: none; }
+  }
+}
+
+/* Firma visual: plata → azul, como el logo */
+:root {
+  --gradient-signature: linear-gradient(90deg, transparent, var(--color-silver) 30%, var(--color-brand-bright) 70%, transparent);
 }
 
 /* ── Keyframes ──────────────────────────────────────────────── */
@@ -318,11 +334,6 @@
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
-}
-
-@keyframes accent-slide {
-  0%   { background-position: 0% 0; }
-  100% { background-position: 200% 0; }
 }
 
 @keyframes scan-move {

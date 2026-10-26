@@ -57,18 +57,18 @@ export function ServiciosDestacados({ servicios }: { servicios: Servicio[] }) {
   const FEATURED = servicios.filter((s) => s.featured)
 
   return (
-    <section className="bg-[#080B14] py-24 px-4 sm:px-6 lg:px-8">
+    <section className="bg-ink-900 py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-14">
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-widest uppercase text-[#00D4FF] border border-[#00D4FF]/25 rounded-full bg-[#00D4FF]/8">
+          <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-widest uppercase text-brand-bright border border-brand-bright/25 rounded-full bg-brand/8">
             Servicios
           </span>
-          <h2 className="text-[#F1F5F9] mb-4">
+          <h2 className="text-fg mb-4">
             Lo que hacemos{' '}
             <span className="gradient-text">mejor</span>
           </h2>
-          <p className="text-[#94A3B8] max-w-xl mx-auto">
+          <p className="text-fg-muted max-w-xl mx-auto">
             Precios fijos, sin sorpresas. Sabes el costo antes de que empecemos.
           </p>
         </div>
@@ -92,11 +92,11 @@ export function ServiciosDestacados({ servicios }: { servicios: Servicio[] }) {
               <motion.div
                 key={servicio.id}
                 variants={staggerItem}
-                className="group relative glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:border-[#00D4FF]/40 hover:shadow-[0_16px_50px_-12px_rgba(0,212,255,0.28)]"
+                className="group relative glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:border-brand-bright/40"
               >
                 {/* Línea de acento superior — aparece al hover */}
                 <div className="absolute top-0 left-0 right-0 h-[2px] z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: 'linear-gradient(90deg, transparent, #00D4FF 50%, transparent)' }}
+                  style={{ background: 'linear-gradient(90deg, transparent, var(--color-brand-bright) 50%, transparent)' }}
                 />
                 {/* Card image */}
                 {image && (
@@ -112,19 +112,19 @@ export function ServiciosDestacados({ servicios }: { servicios: Servicio[] }) {
                       placeholder="blur"
                       blurDataURL={BLUR_DARK}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-[#0D1117]/30 to-transparent" />
-                    <div className="absolute bottom-3 left-4 w-9 h-9 flex items-center justify-center rounded-xl bg-[#03040A]/80 border border-[#00D4FF]/30 backdrop-blur-sm">
-                      <Icon size={17} className="text-[#00D4FF]" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink-800 via-ink-800/30 to-transparent" />
+                    <div className="absolute bottom-3 left-4 w-9 h-9 flex items-center justify-center rounded-xl bg-ink-950/80 border border-brand-bright/30 backdrop-blur-sm">
+                      <Icon size={17} className="text-brand-bright" />
                     </div>
                   </div>
                 )}
 
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-base font-bold text-[#F1F5F9] mb-2 leading-snug">
+                  <h3 className="text-base font-bold text-fg mb-2 leading-snug">
                     {servicio.nombre}
                   </h3>
-                  <p className="text-sm text-[#94A3B8] mb-5 leading-relaxed flex-1">
+                  <p className="text-sm text-fg-muted mb-5 leading-relaxed flex-1">
                     {servicio.descripcion}
                   </p>
 
@@ -132,19 +132,19 @@ export function ServiciosDestacados({ servicios }: { servicios: Servicio[] }) {
                   <div className="flex items-center justify-between">
                     <div>
                       {servicio.precio === 'A cotizar' ? (
-                        <span className="text-sm font-semibold text-[#A855F7]">A cotizar</span>
+                        <span className="text-sm font-semibold text-silver">A cotizar</span>
                       ) : (
-                        <span className="price text-xl font-black text-[#00D4FF] tracking-tight">
+                        <span className="price text-xl font-black text-brand-bright tracking-tight">
                           {servicio.precio}
                         </span>
                       )}
-                      <span className="ml-2 text-xs text-[#475569]">{servicio.tiempo}</span>
+                      <span className="ml-2 text-xs text-fg-subtle">{servicio.tiempo}</span>
                     </div>
                     <a
                       href={waLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-[#00D4FF] border border-[#00D4FF]/30 rounded-lg hover:bg-[#00D4FF]/10 transition-all min-h-[36px]"
+                      className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-brand-bright border border-brand-bright/30 rounded-lg hover:bg-brand/10 transition-all min-h-[36px]"
                     >
                       Cotizar
                       <ArrowRight size={12} />
@@ -157,15 +157,15 @@ export function ServiciosDestacados({ servicios }: { servicios: Servicio[] }) {
         </motion.div>
 
         {/* IVA nota */}
-        <div className="flex items-center justify-center gap-2 mt-8 text-xs text-[#475569]">
-          <Receipt size={13} className="text-[#475569]" />
+        <div className="flex items-center justify-center gap-2 mt-8 text-xs text-fg-subtle">
+          <Receipt size={13} className="text-fg-subtle" />
           <span>{IVA_NOTA}</span>
         </div>
 
         <div className="text-center mt-6">
           <Link
             href="/servicios"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#94A3B8] hover:text-[#00D4FF] transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-medium text-fg-muted hover:text-brand-bright transition-colors"
           >
             Ver todos los servicios
             <ArrowRight size={14} />
