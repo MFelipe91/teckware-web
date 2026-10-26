@@ -41,7 +41,7 @@ export const WA = {
   workstation:     () => BASE + enc('Hola TECKWARE! 👋\n\nMe interesa el servicio *Empresarial / Workstation*.\n\nEmpresa: \nEquipos (cantidad y tipo): \nRequerimiento: \n\nQuedo atento/a a su respuesta.'),
 
   // Formateo y mantenimiento (alias legacy)
-  formateo:        () => svc('Mantención Lógica (Formateo + SO + Optimización)', '$40.000 c/IVA'),
+  formateo:        () => svc('Mantención Lógica (Formateo + SO + Optimización)', '$45.000 c/IVA'),
   mantenimiento:   () => svc('Mantención Full', '$75.000 c/IVA'),
 
   webQA: (servicio?: string) =>
