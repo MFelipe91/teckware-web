@@ -55,7 +55,7 @@ export const businessLd = {
   telephone: PHONE_E164,
   email: EMPRESA.email,
   image: `${SITE}/og-image.png`,
-  logo: `${SITE}/icon.png`,
+  logo: `${SITE}/icon-512.png`,
   priceRange: '$$',
   currenciesAccepted: 'CLP',
   paymentAccepted: 'Efectivo, Transferencia, Tarjeta',

@@ -18,11 +18,11 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" aria-label="TECKWARE inicio">
               <Image
-                src="/logo-full.png"
+                src="/brand/logo-stack.webp"
                 alt="TECKWARE — Soluciones Tecnológicas"
-                width={130}
-                height={138}
-                className="block drop-shadow-[0_0_12px_rgba(0,212,255,0.2)]"
+                width={160}
+                height={166}
+                className="block"
               />
             </Link>
             <p className="text-sm text-[#94A3B8] leading-relaxed">

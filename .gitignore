@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# master de marca regenerable (scripts/brand/generate-assets.mjs)
+/design/

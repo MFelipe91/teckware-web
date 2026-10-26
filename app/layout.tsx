@@ -97,10 +97,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   // Sin canonical aquí: se hereda a todas las rutas. Cada página declara el suyo.
   manifest: '/manifest.json',
-  icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
-  },
+  // Íconos: app/favicon.ico, app/icon.svg y app/apple-icon.png (convención de archivos).
   ...(GOOGLE_VERIFICATION ? { verification: { google: GOOGLE_VERIFICATION } } : {}),
 }
 
