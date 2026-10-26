@@ -29,20 +29,18 @@ export function ChatWidget() {
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const [unavailable, setUnavailable] = useState(false)
-  const [unread, setUnread] = useState(false)
+  // Mensajes ya vistos: lo que llega con el chat cerrado se marca como no leído.
+  const [seenCount, setSeenCount] = useState(1)
+  const unread = msgs.length > seenCount
   const bottomRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    if (open) {
-      setUnread(false)
-      setTimeout(() => inputRef.current?.focus(), 300)
-    }
+    if (open) setTimeout(() => inputRef.current?.focus(), 300)
   }, [open])
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
-    if (!open && msgs.length > 1) setUnread(true)
   }, [msgs])
 
   const sendText = useCallback(async (text: string, history: Message[]) => {
@@ -82,7 +80,7 @@ export function ChatWidget() {
     <>
       {/* Panel */}
       <div
-        className={`fixed bottom-24 right-4 sm:right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)] transition-all duration-300 ${
+        className={`fixed bottom-[10.5rem] right-4 sm:right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)] transition-all duration-300 ${
           open
             ? 'opacity-100 translate-y-0 pointer-events-auto'
             : 'opacity-0 translate-y-3 pointer-events-none'
@@ -91,7 +89,7 @@ export function ChatWidget() {
       >
         <div
           className="flex flex-col rounded-2xl overflow-hidden border border-white/10 bg-ink-800 shadow-2xl shadow-black/60"
-          style={{ height: 460 }}
+          style={{ height: 'min(460px, calc(100dvh - 12rem))' }}
         >
           {/* Header */}
           <div className="flex items-center gap-3 px-4 py-3 bg-ink-900 border-b border-white/8 shrink-0">
@@ -106,7 +104,7 @@ export function ChatWidget() {
               </div>
             </div>
             <button
-              onClick={() => setOpen(false)}
+              onClick={() => { setOpen(false); setSeenCount(msgs.length) }}
               className="text-fg-subtle hover:text-fg-muted transition-colors p-1 rounded-lg hover:bg-white/5"
               aria-label="Cerrar chat"
             >
@@ -233,8 +231,8 @@ export function ChatWidget() {
 
       {/* FAB */}
       <button
-        onClick={() => setOpen(o => !o)}
-        className="fixed bottom-6 right-4 sm:right-6 z-50 w-14 h-14 rounded-full bg-brand hover:bg-brand-hover shadow-lg shadow-brand-bright/30 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95"
+        onClick={() => { setOpen(o => !o); setSeenCount(msgs.length) }}
+        className="fixed bottom-24 right-4 sm:right-6 z-50 w-14 h-14 rounded-full bg-brand hover:bg-brand-hover shadow-lg shadow-brand-bright/30 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95"
         aria-label={open ? 'Cerrar chat' : 'Abrir chat con Teck IA'}
       >
         {open

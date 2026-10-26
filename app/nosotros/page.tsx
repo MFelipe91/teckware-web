@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Shield, Award, MapPin, Calendar, Building2, ArrowRight } from 'lucide-react'
+import { Shield, MapPin, Calendar, Building2, ArrowRight } from 'lucide-react'
 import { EMPRESA } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
 import { BLUR_DARK } from '@/lib/imageBlur'

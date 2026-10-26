@@ -18,7 +18,7 @@ export default function TerminosPage() {
           <section>
             <h2 className="text-base font-bold text-fg mb-3">1. Partes</h2>
             <p>
-              El presente contrato se establece entre {EMPRESA.nombre} (en adelante "TECKWARE")
+              El presente contrato se establece entre {EMPRESA.nombre} (en adelante &ldquo;TECKWARE&rdquo;)
               y el cliente que solicita servicios técnicos.
             </p>
           </section>
