@@ -39,6 +39,10 @@ prevención.
 - **Plazo:** el equipo se entrega terminado en **48 horas hábiles**, con diagnóstico real e
   informe técnico.
 - Garantía 30 días, boleta, pago al retirar.
+- **Capacidad: máximo 5 equipos por día** (confirmados + pendientes). El asistente no sugiere días
+  llenos; si el cliente insiste, lo deja como pendiente para que el dueño decida.
+- **El recargo a domicilio lo cotiza siempre el dueño** según día, horario y, sobre todo,
+  distancia. El asistente nunca da un valor.
 
 ## 3. No-objetivos y anti-objetivos
 
@@ -121,6 +125,9 @@ tareas programadas, Google y MCP.
 | Número | El mismo **+56 9 3020 9427**, que sigue en la app **WhatsApp Business** (coexistencia) | Dueño |
 | Agenda | **Google Calendar** (más copia en Supabase) | Dueño |
 | Informe técnico | Estandarizar sobre los informes que el dueño ya usa (sección 8) | Dueño |
+| Avisos al dueño | **Solo WhatsApp** a su número personal para cada solicitud nueva y cada caso derivado. Las citas confirmadas quedan en **Google Calendar** (Google Workspace) con su recordatorio estándar: notificación el mismo día (por defecto 1 h antes) | Dueño |
+| Capacidad | Máximo **5 equipos por día** | Dueño |
+| Recargo a domicilio | Lo cotiza el dueño caso a caso | Dueño |
 | n8n | **n8n Cloud** para empezar: sin servidores que mantener | Mía |
 | Cerebro | Asistente en Next.js con el SDK oficial de Anthropic | Mía |
 | Modelo | **Claude Opus 5.5** (`claude-opus-5-5`) con esfuerzo `low`: el más capaz, para que suene natural y recabe bien los datos. Si el dueño prioriza costo: Sonnet 5.5 (`claude-sonnet-5-5`, ~mitad de precio) o Haiku 5.5 (`claude-haiku-5-5`, mucho más barato, conversa menos fino) | Mía; **el dueño decide si baja de modelo** |
@@ -221,9 +228,12 @@ Claude no crea cuentas ni acepta términos en nombre del dueño.
    funcionando en el celular). Se hace con "Embedded Signup" desde un proveedor (BSP / Tech
    Provider) o desde n8n, según lo que se soporte al activarlo; lo vemos juntos en la fase 0.
    Antes, respaldar los chats.
-3. **Cuenta de n8n Cloud.**
-4. **Cuenta en la consola de Anthropic** con API key y límite de gasto mensual.
-5. **Google Cloud:** acceso a la API de Calendar para el calendario de trabajo.
+3. **Cuenta de n8n Cloud** (no existe aún; tiene prueba gratis).
+4. **Cuenta en la consola de Anthropic (console.anthropic.com)** con API key y límite de gasto
+   mensual. **Ojo:** es distinta de la suscripción a Claude (claude.ai). Se factura aparte, por
+   uso.
+5. **Google Workspace** (ya existe): habilitar la API de Calendar en un proyecto de Google Cloud
+   del mismo Workspace y autorizar el calendario de trabajo.
 6. Aprobar el texto de las plantillas de Meta: confirmación con dirección, recordatorio, equipo
    listo y reseña.
 7. Compartir 1–2 informes técnicos actuales.
@@ -270,11 +280,12 @@ fase 1 se miden con el uso real antes de elegir el modelo final.
 - La espera para juntar mensajes seguidos (empezar con 8 s).
 - El diseño visual de los PDF (siguiendo la marca 2026).
 
-## 13. Preguntas abiertas para el dueño
+## 13. Respuestas del dueño (2026-10-26)
 
-1. ¿Por dónde quieres el aviso de cada solicitud nueva: WhatsApp a tu número personal, correo o
-   ambos?
-2. ¿Hay un tope de equipos que puedes recibir por día? Así el asistente no sugiere horarios de
-   más.
-3. ¿El recargo a domicilio tiene un valor base que el asistente pueda mencionar, o siempre "lo
-   cotiza Mario"?
+- Confirma él; el asistente solo recaba y propone.
+- Taller primero; domicilio poco común, solo para trabajos simples, con recargo que cotiza él.
+- Avisos solo por WhatsApp; citas en Google Calendar con su recordatorio del mismo día.
+- Máximo 5 equipos por día.
+- Ya tiene WhatsApp Business, Claude y Google Workspace. Falta n8n y confirmar la cuenta de la
+  API de Anthropic y la verificación del Meta Business Manager.
+- Informes técnicos: los comparte para estandarizar.
