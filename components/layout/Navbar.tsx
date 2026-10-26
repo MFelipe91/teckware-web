@@ -53,15 +53,15 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-0.5">
+        <ul className="hidden lg:flex items-center gap-0.5">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="relative px-4 py-2 text-sm font-medium text-fg-muted hover:text-fg rounded-sm transition-all duration-150 group"
+                className="relative px-3 xl:px-4 py-2 text-sm font-medium text-fg-muted hover:text-fg rounded-sm transition-all duration-150 group"
               >
                 {link.label}
-                {/* ROG-style underline on hover */}
+                {/* Subrayado al pasar el mouse */}
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-brand transition-all duration-200 group-hover:w-4/5 rounded-full" />
               </Link>
             </li>
@@ -69,7 +69,7 @@ export function Navbar() {
         </ul>
 
         {/* Desktop CTA */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <a
             href={WA.general()}
             target="_blank"
@@ -84,7 +84,7 @@ export function Navbar() {
         {/* Mobile menu button */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden p-2 text-fg-muted hover:text-fg rounded-sm hover:bg-white/5 transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
+          className="lg:hidden p-2 text-fg-muted hover:text-fg rounded-sm hover:bg-white/5 transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
           aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={open}
         >
@@ -94,7 +94,7 @@ export function Navbar() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="md:hidden bg-ink-950/97 backdrop-blur-2xl border-b border-white/8">
+        <div className="lg:hidden bg-ink-950/97 backdrop-blur-2xl border-b border-white/8">
           <ul className="px-4 py-3 space-y-0.5">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>

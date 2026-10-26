@@ -9,7 +9,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: base,                      lastModified: now, changeFrequency: 'weekly',  priority: 1.0 },
+    { url: `${base}/mantencion`,      lastModified: now, changeFrequency: 'monthly', priority: 0.95 },
     { url: `${base}/servicios`,       lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${base}/empresas`,        lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
     ...LANDINGS.map((l) => ({
       url: `${base}${l.href}`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.85,
     })),

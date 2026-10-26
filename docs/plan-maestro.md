@@ -255,9 +255,11 @@ Propuesta de `NAV_LINKS`:
 | Blog | `/blog` |
 | Contacto | `/contacto` |
 
-- [ ] El botón fijo del navbar dice "WhatsApp" o "Agendar".
-- [ ] Si se crean `/mantencion` y `/empresas`, se agregan al sitemap y al footer. Las URLs
+- [x] El botón fijo del navbar dice "WhatsApp" o "Agendar". → WhatsApp.
+- [x] Si se crean `/mantencion` y `/empresas`, se agregan al sitemap y al footer. Las URLs
       actuales **no se borran** (tienen SEO); solo cambian de lugar en el menú.
+      → Hubs creados con `components/landing/HubPage.tsx`; menú en `NAV_LINKS`. Web & QA,
+      Ciberseguridad y Nosotros quedan en el footer y enlazados desde `/empresas`.
 
 ### 6.5 Home, sección por sección
 Orden sugerido:

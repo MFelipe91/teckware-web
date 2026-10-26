@@ -140,6 +140,13 @@ export const SERVICIOS = [
   },
 ]
 
+/** Precio de un servicio por id, para no repetir montos fuera de SERVICIOS. */
+export function precioServicio(id: (typeof SERVICIOS)[number]['id']): string {
+  const s = SERVICIOS.find((x) => x.id === id)
+  if (!s) throw new Error(`Servicio desconocido: ${id}`)
+  return s.precio
+}
+
 export const IVA_NOTA = 'Todos los precios incluyen IVA · Se emite boleta de servicio · TECKWARE SpA'
 
 // Condiciones que aplican a TODOS los servicios (se muestran una vez).
@@ -483,11 +490,13 @@ export const CIBER_SERVICIOS = [
   },
 ] as const
 
+// Menú principal, en orden de prioridad del negocio (la mantención primero).
+// Web & QA y Ciberseguridad viven dentro de /empresas; Nosotros, en el footer.
 export const NAV_LINKS = [
-  { href: '/servicios', label: 'Servicios' },
-  { href: '/web-qa', label: 'Web & QA' },
-  { href: '/ciberseguridad', label: 'Ciberseguridad' },
+  { href: '/mantencion', label: 'Mantención' },
+  { href: '/servicios', label: 'Servicio técnico' },
   { href: '/builds', label: 'PC Gamer' },
-  { href: '/nosotros', label: 'Nosotros' },
+  { href: '/empresas', label: 'Empresas' },
+  { href: '/blog', label: 'Blog' },
   { href: '/contacto', label: 'Contacto' },
 ] as const

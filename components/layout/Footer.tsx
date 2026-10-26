@@ -56,11 +56,17 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link href="/blog" className="text-sm text-fg-muted hover:text-brand-bright transition-colors">
-                  Blog · Guías de mantención
-                </Link>
-              </li>
+              {[
+                { href: '/web-qa', label: 'Web & QA' },
+                { href: '/ciberseguridad', label: 'Ciberseguridad' },
+                { href: '/nosotros', label: 'Nosotros' },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-sm text-fg-muted hover:text-brand-bright transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <Link href="/solicitar" className="text-sm text-brand-bright hover:text-brand-bright font-medium transition-colors">
                   Solicitar servicio →
