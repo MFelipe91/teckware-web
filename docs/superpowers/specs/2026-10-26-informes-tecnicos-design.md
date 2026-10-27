@@ -33,7 +33,7 @@ borrador desde las notas del dueño.
 | **C. Propuesta / informe de consultoría** | Empresas: levantamiento, cotización, plan | `PT-2026-0001` |
 
 Sobre el folio: hoy es `IT-2026-NICOLAS-002`. Se propone un correlativo numérico por año
-(`IT-2026-0001`) porque:
+(`IT-2026-0001`, **elegido por el dueño**) porque:
 - ordena solo;
 - no expone el nombre del cliente en el nombre del archivo ni en el pie de cada página;
 - permite unir recepción, diagnóstico y entrega bajo la misma orden.
@@ -118,16 +118,15 @@ anexo de enlaces.
   CPU de 92 a 71 °C") y Claude arma el informe completo para que el dueño lo revise. Las
   mediciones las pone siempre el dueño desde sus capturas: Claude no inventa cifras.
 
-## 6. Inconsistencias a resolver antes de construir
+## 6. Decisiones del dueño (2026-10-26)
 
-1. **Garantía:** el informe dice **90 días** de mano de obra; la web, el chatbot y la Ficha de
-   Google dicen **30 días**. Hay que definir una regla: un valor general, o 30 días de base y 90
-   en ciertos trabajos (por ejemplo, reparaciones con cambio de componentes).
-2. **Nombre del técnico:** "Mario Felipe Busques Araya — Ing. Informático orientación
-   Ciberseguridad" y "Felipe Busqués Araya, Ingeniero en Informática". Conviene un solo nombre y
-   un solo título en todo: documentos, web, Ficha de Google y LinkedIn.
-3. **Riesgo inherente "estimado en un 15 %":** es una buena práctica informarlo, pero una cifra
-   fija es difícil de sostener y una cláusula que limite responsabilidad puede objetarse bajo la
-   Ley del Consumidor. Se sugiere redactarlo sin porcentaje ("toda intervención conlleva un riesgo
-   inherente por el desgaste previo no detectable…") y revisarlo con un abogado si se quiere
-   mantener la cifra.
+1. **Garantía: 30 días para todo**, igual que la web, el chatbot y la Ficha de Google. Las
+   plantillas la toman de la misma constante del sitio; no se escribe a mano. Los componentes
+   nuevos llevan además la garantía del fabricante.
+2. **Nombre en todos los documentos: Mario Felipe Busques Araya.** El sitio ya lo usa así.
+   Pendiente: unificar el título profesional (hoy aparecen tres versiones).
+3. **Folio: `IT-2026-0001`**, correlativo por año, compartido por la orden (`OR-`), el
+   diagnóstico y la entrega. El nombre del cliente va solo dentro del documento.
+4. **Riesgo inherente:** se sugiere redactarlo sin porcentaje fijo ("toda intervención sobre
+   equipos electrónicos conlleva un riesgo inherente por el desgaste previo no detectable…").
+   Si se quiere mantener la cifra, revisarlo antes con un abogado (Ley del Consumidor).
