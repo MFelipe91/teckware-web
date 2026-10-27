@@ -1,7 +1,8 @@
 # Entorno automatizado TECKWARE: WhatsApp + asistente + n8n + MCP
 
 > Diseño para revisión del dueño. Fecha: 2026-10-26 (v2, con las respuestas del dueño).
-> Estado: **borrador, sin construir.** Nada se implementa hasta que el dueño apruebe este
+> Estado: **EN PAUSA (2026-10-26): el dueño prioriza herramientas gratuitas.** Mientras tanto se usan las automatizaciones gratis de WhatsApp Business (`docs/whatsapp-business-mensajes.md`) y el chat web con Groq (plan gratuito).
+> Diseño original: borrador, sin construir. Nada se implementa hasta que el dueño apruebe este
 > documento y existan las cuentas de la sección 9 (las crea el dueño).
 
 ---
