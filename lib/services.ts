@@ -29,13 +29,19 @@ type ServiceRow = {
   orden: number
 }
 
+// Precio y plazo de los servicios definidos en código salen siempre de lib/constants.ts
+// (misma fuente que landings, chatbot y asistente). Supabase decide qué se muestra,
+// en qué orden y qué se destaca. Solo un servicio creado en el panel usa su propio precio.
+const CODIGO = new Map(SERVICIOS.map((s) => [s.id, s]))
+
 function rowToServicio(r: ServiceRow): Servicio {
+  const codigo = CODIGO.get(r.id)
   return {
     id: r.id,
     nombre: r.nombre,
     descripcion: r.descripcion ?? '',
-    precio: r.precio ?? 'A cotizar',
-    tiempo: r.tiempo ?? '',
+    precio: codigo?.precio ?? r.precio ?? 'A cotizar',
+    tiempo: codigo?.tiempo ?? r.tiempo ?? '',
     icono: r.icono ?? 'package',
     featured: r.featured,
     whatsappKey: r.whatsapp_key ?? '',

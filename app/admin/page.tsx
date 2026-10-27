@@ -11,6 +11,11 @@ import {
 import { ESTADOS, ICONOS_SERVICIO, type ServiceRequest, type ServiceRow } from '@/lib/admin-types'
 import type { Build } from '@/lib/builds-data'
 import { INITIAL_BUILDS } from '@/lib/builds-data'
+import { SERVICIOS } from '@/lib/constants'
+
+// Servicios cuyo precio y plazo viven en el código (lib/constants.ts): en el panel se muestran
+// pero no se editan, para que la web, el chatbot y el asistente digan siempre lo mismo.
+const PRECIO_CODIGO = new Map(SERVICIOS.map((s) => [s.id, s]))
 
 const EMPTY_BUILD: Build = {
   id: '', nombre: '', tag: 'Nuevo', tagColor: 'cyan', descripcion: '',
@@ -337,11 +342,19 @@ export default function AdminPage() {
                     </div>
                     <div className="sm:col-span-3">
                       <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Precio</label>
-                      <input value={s.precio} onChange={(e) => updateService(i, { precio: e.target.value })} placeholder="$40.000 / Desde $45.000 / A cotizar" className={INPUT} />
+                      {PRECIO_CODIGO.has(s.id) ? (
+                        <p className="px-3 py-2 text-sm text-fg" title="Se edita en lib/constants.ts">{PRECIO_CODIGO.get(s.id)!.precio} <span className="block text-[10px] text-fg-subtle">Fijo en el código</span></p>
+                      ) : (
+                        <input value={s.precio} onChange={(e) => updateService(i, { precio: e.target.value })} placeholder="$45.000 / Desde $45.000 / A cotizar" className={INPUT} />
+                      )}
                     </div>
                     <div className="sm:col-span-2">
                       <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Tiempo</label>
-                      <input value={s.tiempo} onChange={(e) => updateService(i, { tiempo: e.target.value })} placeholder="48 h hábiles" className={INPUT} />
+                      {PRECIO_CODIGO.has(s.id) ? (
+                        <p className="px-3 py-2 text-sm text-fg" title="Se edita en lib/constants.ts">{PRECIO_CODIGO.get(s.id)!.tiempo}</p>
+                      ) : (
+                        <input value={s.tiempo} onChange={(e) => updateService(i, { tiempo: e.target.value })} placeholder="48 h hábiles" className={INPUT} />
+                      )}
                     </div>
                     <div className="sm:col-span-3">
                       <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Ícono</label>

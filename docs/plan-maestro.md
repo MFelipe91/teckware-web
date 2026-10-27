@@ -284,8 +284,8 @@ Orden sugerido:
       (por ejemplo a 300). → 300.
 - [x] Sin animaciones que oculten contenido (framer-motion eliminado del proyecto).
 - [ ] Antes / después y reseñas reales: cuando existan fotos (6.7) y la Ficha esté verificada.
-- [ ] **Tabla `services` de Supabase desactualizada** (Mantención Lógica $40.000, plazos viejos):
-      decidir la fuente de precios y plazos (ver conversación del 2026-10-26).
+- [x] **Tabla `services` de Supabase desactualizada** (Mantención Lógica $40.000, plazos viejos):
+      → Precio y plazo salen siempre de `lib/constants.ts`; Supabase solo decide destacados, orden y activos.
 
 ### 6.6 Prueba social honesta
 - [x] **El dueño debe confirmar** si las REVIEWS y STATS de `lib/constants.ts` son reales.
