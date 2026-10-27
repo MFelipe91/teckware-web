@@ -78,7 +78,7 @@ export default function MantencionPage() {
       puntosTitle="Por qué hacer mantención preventiva"
       puntos={[
         { icon: Thermometer, titulo: 'Menos temperatura, menos fallas', desc: 'El calor es lo que más desgasta los componentes. Limpiar y renovar la pasta térmica lo mantiene bajo control.' },
-        { icon: TrendingUp, titulo: 'Rendimiento estable', desc: 'Sin polvo ni sobrecalentamiento, el equipo no baja su velocidad para protegerse.' },
+        { icon: TrendingUp, titulo: 'Probado antes y después', desc: 'Lo testeamos con OCCT, FurMark, Superposition y CrystalDiskInfo al recibirlo y al entregarlo: se va estable y medido.' },
         { icon: MessagesSquare, titulo: 'Te explicamos todo', desc: 'Sabes qué tenía tu equipo, qué hicimos y cuándo conviene volver a revisarlo.' },
         { icon: Home, titulo: 'Taller en La Serena', desc: 'Traes tu equipo con hora coordinada por WhatsApp. Para trabajos simples, como formateo, podemos ir a domicilio con recargo.' },
         { icon: ShieldCheck, titulo: 'Garantía de 30 días', desc: 'Todos los trabajos tienen garantía. Si algo falla por nuestro trabajo, lo solucionamos.' },

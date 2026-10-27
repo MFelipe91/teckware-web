@@ -29,7 +29,7 @@ export const SERVICIOS = [
   {
     id: 'mantencion-full',
     nombre: 'Mantención Full',
-    descripcion: 'El más completo: limpieza física profunda + pasta térmica premium + formateo + Windows activado + Office. Todo en uno.',
+    descripcion: 'El más completo: test inicial con software profesional, limpieza física profunda, pasta térmica Thermal Grizzly, actualización de BIOS, respaldo e instalación limpia de Windows, y test final para entregarlo estable.',
     precio: '$75.000',
     tiempo: PLAZO,
     icono: 'tool',
@@ -187,10 +187,12 @@ export const SERVICIO_CONDICIONES: Record<string, { incluye: string[]; nota?: st
   },
   'mantencion-full': {
     incluye: [
+      'Test inicial: OCCT, FurMark, Superposition y CrystalDiskInfo',
       'Limpieza física profunda (ventiladores y disipadores)',
-      'Cambio de pasta térmica premium',
-      'Formateo + sistema operativo + optimización',
-      'Respaldo básico de tus archivos incluido',
+      'Pasta térmica Thermal Grizzly',
+      'Actualización de BIOS',
+      'Respaldo e instalación limpia de Windows',
+      'Test final de estabilidad + informe técnico',
     ],
     nota: 'Incluye insumos (pasta térmica). Repuestos o piezas dañadas se cotizan aparte.',
   },
@@ -344,7 +346,7 @@ export const PROCESO = [
   {
     numero: '03',
     titulo: 'Diagnóstico y trabajo',
-    descripcion: 'Hacemos el diagnóstico real y el trabajo. Si aparece algo fuera de lo cotizado, te avisamos antes de hacerlo.',
+    descripcion: 'Lo testeamos con software profesional, hacemos el trabajo físico y de sistema, y volvemos a testear. Si aparece algo fuera de lo cotizado, te avisamos antes.',
   },
   {
     numero: '04',

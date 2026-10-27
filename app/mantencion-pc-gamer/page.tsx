@@ -28,10 +28,10 @@ export default function MantencionPCGamerPage() {
       featuresTitle="Qué incluye la mantención"
       features={[
         { icon: Fan, titulo: 'Limpieza interna profunda', desc: 'Removemos polvo de ventiladores, disipadores, filtros y componentes con herramientas profesionales.' },
-        { icon: Thermometer, titulo: 'Cambio de pasta térmica', desc: 'Aplicamos pasta térmica premium en CPU (y GPU si aplica) para bajar temperaturas varios grados.' },
-        { icon: Gauge, titulo: 'Control de temperaturas', desc: 'Medimos temperaturas en reposo y bajo carga (stress test) para verificar el resultado real.' },
+        { icon: Thermometer, titulo: 'Pasta térmica Thermal Grizzly', desc: 'Pasta térmica de alto rendimiento en el procesador (y en la GPU si corresponde) para bajar temperaturas.' },
+        { icon: Gauge, titulo: 'Test antes y después', desc: 'OCCT, FurMark, Superposition y CrystalDiskInfo: medimos CPU, GPU, temperaturas y salud de los discos al recibirlo y al entregarlo.' },
         { icon: Cpu, titulo: 'Revisión de componentes', desc: 'Chequeamos conexiones, ventiladores, almacenamiento y estado general del hardware.' },
-        { icon: Wrench, titulo: 'Optimización opcional', desc: 'Podemos sumar formateo, actualización de drivers y optimización de Windows para gaming.' },
+        { icon: Wrench, titulo: 'Sistema al día', desc: 'Actualización de BIOS, respaldo de tus archivos e instalación limpia de Windows.' },
         { icon: ShieldCheck, titulo: 'Garantía incluida', desc: 'Todos los trabajos tienen garantía. Trabajo transparente y precio fijo, sin sorpresas.' },
       ]}
       marcasTitle="Compatible con todas las marcas"
