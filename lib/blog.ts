@@ -1,6 +1,8 @@
 // Guías del blog (SEO de contenido). Cada guía enlaza a la landing del servicio
 // relacionado. Para agregar una: sumar un objeto aquí; el sitemap y /blog la toman solos.
 
+import { EMPRESA } from '@/lib/constants'
+
 export type BlogSection = { h2: string; p: string[]; list?: string[] }
 
 export type BlogPost = {
@@ -14,7 +16,7 @@ export type BlogPost = {
   sections: BlogSection[]
 }
 
-export const BLOG_AUTHOR = 'Mario Felipe Busques Araya'
+export const BLOG_AUTHOR = EMPRESA.responsable
 
 export const POSTS: BlogPost[] = [
   {

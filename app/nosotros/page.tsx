@@ -9,7 +9,7 @@ import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 export const metadata: Metadata = {
   title: 'Nosotros',
   description:
-    'Conoce a TECKWARE SpA — empresa de servicio técnico informático fundada en La Serena por Mario Felipe Busques Araya, Ingeniero en Ciberseguridad.',
+    'Conoce a TECKWARE SpA — empresa de servicio técnico informático fundada en La Serena por Mario Felipe Busques Araya, Ingeniero Informático con certificaciones en ciberseguridad.',
   alternates: { canonical: '/nosotros' },
 }
 
@@ -62,8 +62,7 @@ export default function NosotrosPage() {
             <div className="space-y-4">
               <p className="text-fg-muted leading-relaxed">
                 TECKWARE SpA nació en abril de 2026 en La Serena, Región de Coquimbo,
-                fundada por Mario Felipe Busques Araya — Ingeniero Informático con especialización
-                en Ciberseguridad.
+                fundada por {EMPRESA.responsable}, {EMPRESA.tituloProfesional}.
               </p>
               <p className="text-fg-muted leading-relaxed">
                 La idea surgió de una realidad concreta: en La Serena existía una brecha entre

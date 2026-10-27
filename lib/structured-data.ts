@@ -89,6 +89,7 @@ export const businessLd = {
     closes: '18:30',
   },
   sameAs: [EMPRESA.instagram],
+  founder: { '@type': 'Person', name: EMPRESA.responsable, jobTitle: EMPRESA.tituloProfesional },
   hasOfferCatalog: buildOfferCatalog(),
 }
 
@@ -121,7 +122,7 @@ export function articleLd(a: { title: string; description: string; path: string;
     datePublished: a.date,
     dateModified: a.date,
     inLanguage: 'es-CL',
-    author: { '@type': 'Person', name: a.author },
+    author: { '@type': 'Person', name: a.author, jobTitle: EMPRESA.tituloProfesional },
     publisher: { '@id': `${SITE}/#business` },
     image: `${SITE}/og-image.png`,
   }

@@ -30,7 +30,7 @@ export function PorQueElegirnos() {
             <span className="gradient-text">más</span>
           </h2>
           <p className="text-fg-muted max-w-xl mx-auto">
-            Ingeniero en Informática con especialización en Ciberseguridad al frente de cada reparación.
+            Un ingeniero informático con certificaciones en ciberseguridad al frente de cada trabajo.
           </p>
         </div>
 

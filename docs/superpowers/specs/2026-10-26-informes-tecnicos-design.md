@@ -124,7 +124,7 @@ anexo de enlaces.
    plantillas la toman de la misma constante del sitio; no se escribe a mano. Los componentes
    nuevos llevan además la garantía del fabricante.
 2. **Nombre en todos los documentos: Mario Felipe Busques Araya.** El sitio ya lo usa así.
-   Pendiente: unificar el título profesional (hoy aparecen tres versiones).
+   Título: **Ingeniero Informático con certificaciones en ciberseguridad** (`EMPRESA.tituloProfesional`).
 3. **Folio: `IT-2026-0001`**, correlativo por año, compartido por la orden (`OR-`), el
    diagnóstico y la entrega. El nombre del cliente va solo dentro del documento.
 4. **Riesgo inherente:** se sugiere redactarlo sin porcentaje fijo ("toda intervención sobre

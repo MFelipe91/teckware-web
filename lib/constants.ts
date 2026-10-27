@@ -17,6 +17,9 @@ export const EMPRESA = {
   instagramHandle: '@teckware.cl',
   dominio: 'https://www.teckware.cl',
   tagline: 'Tu tecnología, nuestra prioridad.',
+  // Técnico responsable: el mismo nombre y título en la web, los informes y la Ficha de Google.
+  responsable: 'Mario Felipe Busques Araya',
+  tituloProfesional: 'Ingeniero Informático con certificaciones en ciberseguridad',
   horario: 'Lun–Vie 10:00–18:30',
 } as const
 
@@ -362,8 +365,8 @@ export const POR_QUE_ELEGIRNOS = [
     icono: 'shield-check',
   },
   {
-    titulo: 'Técnico certificado',
-    descripcion: 'Ingeniería Informática con especialización en Ciberseguridad. No improvisamos.',
+    titulo: 'Ingeniero a cargo',
+    descripcion: 'Ingeniero Informático con certificaciones en ciberseguridad. Diagnóstico con método y pruebas, no al ojo.',
     icono: 'award',
   },
   {
