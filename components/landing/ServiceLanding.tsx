@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, MessageCircle, Check, ChevronDown, Receipt } from 'lucide-react'
+import { ArrowRight, Check, ChevronDown, Receipt } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { BLUR_DARK } from '@/lib/imageBlur'
 import { IVA_NOTA } from '@/lib/constants'
 import { LANDINGS } from '@/lib/landings'
 import { faqLd, serviceLd } from '@/lib/structured-data'
 import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
+import { CtaPair } from '@/components/shared/CtaPair'
 
 export type LandingFeature = { icon: LucideIcon; titulo: string; desc: string }
 export type LandingPrecio = { nombre: string; precio: string; tiempo: string; href: string }
@@ -79,32 +80,15 @@ export function ServiceLanding(props: ServiceLandingProps) {
           style={{ background: 'var(--gradient-signature)' }}
         />
         <div className="relative max-w-3xl mx-auto text-center">
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-[0.2em] uppercase text-brand-bright border border-brand-bright/20 rounded-sm bg-brand/6">
+          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-[0.2em] uppercase text-brand-bright border border-brand-bright/20 rounded-xl bg-brand/6">
             {eyebrow}
           </span>
           <h1 className="text-fg mb-4">
             {titulo}{' '}
-            <span className="gradient-text">{tituloAccent}</span>
+            <span className="gradient-text sm:whitespace-nowrap">{tituloAccent}</span>
           </h1>
           <p className="text-fg-muted max-w-xl mx-auto mb-8">{subtitle}</p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href="/agendar"
-              className="flex items-center gap-2 px-6 py-3 bg-brand text-white font-extrabold rounded-sm hover:bg-brand-hover transition-colors min-h-[48px]"
-            >
-              Agendar ahora
-              <ArrowRight size={16} strokeWidth={2.5} />
-            </Link>
-            <a
-              href={waHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 border border-whatsapp/40 text-whatsapp font-bold rounded-sm hover:bg-whatsapp/10 transition-colors min-h-[48px]"
-            >
-              <MessageCircle size={16} />
-              Consultar por WhatsApp
-            </a>
-          </div>
+          <CtaPair waHref={waHref} />
         </div>
       </section>
 
@@ -125,8 +109,8 @@ export function ServiceLanding(props: ServiceLandingProps) {
         <p className="text-fg-muted mb-12 text-center">Trabajo profesional, transparente y con garantía.</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {features.map(({ icon: Icon, titulo, desc }) => (
-            <div key={titulo} className="glass-card rounded-sm p-7 border border-white/8 card-hover">
-              <div className="w-12 h-12 mb-5 flex items-center justify-center rounded-sm bg-brand/8 border border-brand-bright/20">
+            <div key={titulo} className="glass-card rounded-xl p-7 border border-white/8 card-hover">
+              <div className="w-12 h-12 mb-5 flex items-center justify-center rounded-xl bg-brand/8 border border-brand-bright/20">
                 <Icon size={22} className="text-brand-bright" />
               </div>
               <h3 className="text-base font-bold text-fg mb-2 leading-snug">{titulo}</h3>
@@ -145,7 +129,7 @@ export function ServiceLanding(props: ServiceLandingProps) {
               {marcas.map((m) => (
                 <span
                   key={m}
-                  className="flex items-center gap-2 px-4 py-2 rounded-sm bg-white/[0.03] border border-white/8 text-sm text-fg-muted"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.03] border border-white/8 text-sm text-fg-muted"
                 >
                   <Check size={13} className="text-brand-bright" />
                   {m}
@@ -163,7 +147,7 @@ export function ServiceLanding(props: ServiceLandingProps) {
           <p className="text-fg-muted mb-12 text-center">Valores con IVA incluido. Se emite boleta.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {precios.map((p) => (
-              <div key={p.nombre} className="glass-card rounded-sm p-7 border border-white/8 card-hover flex flex-col">
+              <div key={p.nombre} className="glass-card rounded-xl p-7 border border-white/8 card-hover flex flex-col">
                 <h3 className="text-base font-bold text-fg mb-3">{p.nombre}</h3>
                 <div className="mb-5">
                   {p.precio.includes('cotizar') ? (
@@ -177,7 +161,7 @@ export function ServiceLanding(props: ServiceLandingProps) {
                   href={p.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto flex items-center justify-center gap-2 px-4 py-2.5 bg-brand text-white text-sm font-extrabold rounded-sm hover:bg-brand-hover transition-colors min-h-[40px]"
+                  className="mt-auto flex items-center justify-center gap-2 px-4 py-2.5 bg-brand text-white text-sm font-extrabold rounded-xl hover:bg-brand-hover transition-colors min-h-[40px]"
                 >
                   Solicitar
                   <ArrowRight size={14} strokeWidth={2.5} />
@@ -199,7 +183,7 @@ export function ServiceLanding(props: ServiceLandingProps) {
         <h2 className="text-fg mb-10 text-center">Preguntas frecuentes</h2>
         <div className="space-y-3">
           {faqs.map((f) => (
-            <details key={f.q} className="group glass-card rounded-sm border border-white/8 overflow-hidden">
+            <details key={f.q} className="group glass-card rounded-xl border border-white/8 overflow-hidden">
               <summary className="flex items-center justify-between gap-4 cursor-pointer p-5 text-sm font-semibold text-fg list-none">
                 {f.q}
                 <ChevronDown size={16} className="text-brand-bright shrink-0 transition-transform group-open:rotate-180" />
@@ -218,7 +202,7 @@ export function ServiceLanding(props: ServiceLandingProps) {
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="flex items-center justify-between gap-3 h-full px-4 py-3 rounded-sm bg-white/[0.03] border border-white/8 text-sm text-fg-muted hover:text-fg hover:border-brand-bright/30 transition-colors"
+                className="flex items-center justify-between gap-3 h-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/8 text-sm text-fg-muted hover:text-fg hover:border-brand-bright/30 transition-colors"
               >
                 {l.label}
                 <ArrowRight size={14} className="text-brand-bright shrink-0" />
@@ -230,30 +214,13 @@ export function ServiceLanding(props: ServiceLandingProps) {
 
       {/* CTA FINAL */}
       <section className="px-4 sm:px-6 lg:px-8 pb-24">
-        <div className="max-w-4xl mx-auto text-center p-10 sm:p-14 rounded-sm border border-brand-bright/15 bg-brand/5 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto text-center p-10 sm:p-14 rounded-xl border border-brand-bright/15 bg-brand/5 relative overflow-hidden">
           <CircuitBackground variant="hex-mesh" palette="brand" density={0.8} opacity={0.35} />
           <div className="glow-brand w-72 h-72 -top-20 left-1/2 -translate-x-1/2 opacity-20" />
           <div className="relative">
             <h2 className="text-fg mb-3">{ctaTitle}</h2>
             <p className="text-fg-muted mb-8 max-w-lg mx-auto">{ctaText}</p>
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <Link
-                href="/agendar"
-                className="flex items-center gap-2 px-7 py-3.5 bg-brand text-white font-extrabold rounded-sm hover:bg-brand-hover transition-colors min-h-[52px]"
-              >
-                Agendar servicio
-                <ArrowRight size={16} strokeWidth={2.5} />
-              </Link>
-              <a
-                href={waHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-7 py-3.5 border border-whatsapp/40 text-whatsapp font-bold rounded-sm hover:bg-whatsapp/10 transition-colors min-h-[52px]"
-              >
-                <MessageCircle size={16} />
-                WhatsApp directo
-              </a>
-            </div>
+            <CtaPair waHref={waHref} />
           </div>
         </div>
       </section>

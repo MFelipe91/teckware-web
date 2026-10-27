@@ -1,5 +1,10 @@
+import { precioServicio } from '@/lib/constants'
+
 const BASE = 'https://wa.me/56930209427?text='
 const enc = (text: string) => encodeURIComponent(text)
+
+// Precios desde lib/constants.ts: los mensajes nunca quedan desfasados del sitio.
+const conIva = (id: Parameters<typeof precioServicio>[0]) => `${precioServicio(id)} c/IVA`
 
 const svc = (nombre: string, precio: string) =>
   BASE + enc(`Hola TECKWARE! 👋\n\nMe interesa: *${nombre}* (${precio}).\n\nQuedo atento/a a su respuesta.`)
@@ -27,22 +32,22 @@ export const WA = {
   build: (nombre: string) =>
     BASE + enc(`Hola TECKWARE! 👋\n\nMe interesa el build *${nombre}*.\n\n¿Está disponible y cuál es el precio actual?`),
 
-  diagnostico:     () => svc('Diagnóstico Electrónico', '$30.000 c/IVA'),
-  mantencionLogica:() => svc('Mantención Lógica (Formateo Windows/macOS + Optimización)', '$45.000 c/IVA'),
-  mantencionFull:  () => svc('Mantención Full (Limpieza + Pasta + Formateo + Win + Office)', '$75.000 c/IVA'),
-  mantencionGPU:   () => svc('Mantención GPU (Pasta Thermal Grizzly + Thermal Pads)', 'Desde $45.000 c/IVA'),
-  armadoEstandar:  () => svc('Armado PC Gamer Estándar', '$75.000 c/IVA'),
-  armadoAltaGama:  () => svc('Armado PC Gamer Alta Gama', '$90.000 c/IVA'),
-  consolaPS4:      () => svc('Mantención PS3/PS4', '$55.000 c/IVA'),
-  consolaPS5:      () => svc('Mantención PS5 (Metal Líquido)', '$80.000 c/IVA'),
-  recuperacion:    () => svc('Recuperación de Datos', 'Desde $35.000 c/IVA'),
+  diagnostico:     () => svc('Diagnóstico Electrónico', conIva('diagnostico')),
+  mantencionLogica:() => svc('Mantención Lógica (Formateo Windows/macOS + Optimización)', conIva('mantencion-logica')),
+  mantencionFull:  () => svc('Mantención Full (test + limpieza + pasta Thermal Grizzly + BIOS + Windows limpio + test final)', conIva('mantencion-full')),
+  mantencionGPU:   () => svc('Mantención GPU (Pasta Thermal Grizzly + Thermal Pads)', conIva('mantencion-gpu')),
+  armadoEstandar:  () => svc('Armado PC Gamer Estándar', conIva('armado-estandar')),
+  armadoAltaGama:  () => svc('Armado PC Gamer Alta Gama', conIva('armado-alta-gama')),
+  consolaPS4:      () => svc('Mantención PS3/PS4', conIva('consola-ps4')),
+  consolaPS5:      () => svc('Mantención PS5 (Metal Líquido)', conIva('consola-ps5')),
+  recuperacion:    () => svc('Recuperación de Datos', conIva('recuperacion-datos')),
   upgrade:         () => BASE + enc('Hola TECKWARE! 👋\n\nMe interesa una *Asesoría y Upgrade Personalizado*.\n\nEquipo actual: \nComponente a instalar/cambiar: \nPresupuesto aproximado: \n\nQuedo atento/a a su respuesta.'),
   domicilio:       () => BASE + enc('Hola TECKWARE! 👋\n\nMe interesa una *visita a domicilio* para un trabajo simple (formateo o configuración).\n\nComuna / sector: \nQué necesitas: \nDisponibilidad horaria:\n\nQuedo atento/a a su respuesta.'),
   workstation:     () => BASE + enc('Hola TECKWARE! 👋\n\nMe interesa el servicio *Empresarial / Workstation*.\n\nEmpresa: \nEquipos (cantidad y tipo): \nRequerimiento: \n\nQuedo atento/a a su respuesta.'),
 
   // Formateo y mantenimiento (alias legacy)
-  formateo:        () => svc('Mantención Lógica (Formateo + SO + Optimización)', '$45.000 c/IVA'),
-  mantenimiento:   () => svc('Mantención Full', '$75.000 c/IVA'),
+  formateo:        () => svc('Mantención Lógica (Formateo + SO + Optimización)', conIva('mantencion-logica')),
+  mantenimiento:   () => svc('Mantención Full', conIva('mantencion-full')),
 
   webQA: (servicio?: string) =>
     BASE + enc(

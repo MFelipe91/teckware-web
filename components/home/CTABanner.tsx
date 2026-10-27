@@ -1,7 +1,6 @@
-import Link from 'next/link'
-import { MessageCircle, CalendarCheck, MapPin } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 import { EMPRESA, PLAZO } from '@/lib/constants'
-import { WA } from '@/lib/whatsapp'
+import { CtaPair } from '@/components/shared/CtaPair'
 
 export function CTABanner() {
   return (
@@ -21,23 +20,8 @@ export function CTABanner() {
             una hora para recibirlo. Entrega en {PLAZO}, con informe técnico.
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href={WA.general()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-brand text-white font-semibold hover:bg-brand-hover transition-colors min-h-[52px]"
-            >
-              <MessageCircle size={19} aria-hidden="true" />
-              Escríbenos por WhatsApp
-            </a>
-            <Link
-              href="/agendar"
-              className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl border border-silver/30 text-fg font-semibold hover:border-silver/60 hover:bg-white/5 transition-colors min-h-[52px]"
-            >
-              <CalendarCheck size={18} aria-hidden="true" />
-              Agendar servicio
-            </Link>
+          <div className="mt-8">
+            <CtaPair />
           </div>
 
           <p className="mt-8 inline-flex items-center gap-2 text-sm text-fg-subtle">

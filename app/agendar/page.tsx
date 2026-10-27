@@ -4,7 +4,7 @@ import { useState, useRef } from 'react'
 import Image from 'next/image'
 import { ArrowRight, ArrowLeft, CheckCircle2, Search, RefreshCw, Wrench, Cpu, Briefcase, Package, Monitor, Laptop, Apple, Gamepad2, Tablet, Camera, X, Loader2, ImageIcon, Check, Info, ShieldCheck } from 'lucide-react'
 import { WA } from '@/lib/whatsapp'
-import { EMPRESA, SERVICIO_CONDICIONES, CONDICIONES_GENERALES } from '@/lib/constants'
+import { EMPRESA, SERVICIO_CONDICIONES, CONDICIONES_GENERALES, precioServicio } from '@/lib/constants'
 import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 // Mapea el id del servicio del wizard → la clave de condiciones en constants.ts
@@ -32,10 +32,10 @@ type FormData = {
 }
 
 const SERVICIOS = [
-  { id: 'diagnostico',    label: 'Diagnóstico / Revisión',        icon: Search,    precio: '$30.000',    desc: 'Identificamos la falla exacta. Se descuenta si reparas.' },
-  { id: 'formateo',       label: 'Mantención Lógica · Formateo',   icon: RefreshCw, precio: '$45.000',    desc: 'Formateo e instalación de Windows o macOS + optimización' },
-  { id: 'mantenimiento',  label: 'Mantención Full · Físico + Sistema', icon: Wrench, precio: '$75.000', desc: 'Limpieza física + pasta térmica + formateo + software' },
-  { id: 'armado',         label: 'Armado PC Gamer',               icon: Cpu,       precio: '$75.000',    desc: 'Ensamblado profesional con cable management' },
+  { id: 'diagnostico',    label: 'Diagnóstico / Revisión',        icon: Search,    precio: precioServicio('diagnostico'),    desc: 'Identificamos la falla exacta. Se descuenta si reparas.' },
+  { id: 'formateo',       label: 'Mantención Lógica · Formateo',   icon: RefreshCw, precio: precioServicio('mantencion-logica'),    desc: 'Formateo e instalación de Windows o macOS + optimización' },
+  { id: 'mantenimiento',  label: 'Mantención Full · Físico + Sistema', icon: Wrench, precio: precioServicio('mantencion-full'), desc: 'Test, limpieza, pasta Thermal Grizzly, BIOS, Windows limpio y test final' },
+  { id: 'armado',         label: 'Armado PC Gamer',               icon: Cpu,       precio: precioServicio('armado-estandar'),    desc: 'Ensamblado profesional con cable management' },
   { id: 'workstation',    label: 'Workstation / Empresarial',      icon: Briefcase, precio: 'A cotizar',  desc: 'Equipos de trabajo profesional' },
   { id: 'otro',           label: 'Otro / Consultar',               icon: Package,   precio: 'A cotizar',  desc: 'Cuéntanos qué necesitas' },
 ]

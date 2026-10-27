@@ -13,8 +13,8 @@ import type { Build } from '@/lib/builds-data'
 import { INITIAL_BUILDS } from '@/lib/builds-data'
 import { SERVICIOS } from '@/lib/constants'
 
-// Servicios cuyo precio y plazo viven en el código (lib/constants.ts): en el panel se muestran
-// pero no se editan, para que la web, el chatbot y el asistente digan siempre lo mismo.
+// Servicios cuyos textos, precio y plazo viven en el código (lib/constants.ts): en el panel se
+// muestran pero no se editan, para que la web y el chatbot digan siempre lo mismo.
 const PRECIO_CODIGO = new Map(SERVICIOS.map((s) => [s.id, s]))
 
 const EMPTY_BUILD: Build = {
@@ -338,7 +338,11 @@ export default function AdminPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-start">
                     <div className="sm:col-span-4">
                       <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Nombre</label>
-                      <input value={s.nombre} onChange={(e) => updateService(i, { nombre: e.target.value })} placeholder="Nombre del servicio" className={INPUT} />
+                      {PRECIO_CODIGO.has(s.id) ? (
+                        <p className="px-3 py-2 text-sm text-fg" title="Se edita en lib/constants.ts">{PRECIO_CODIGO.get(s.id)!.nombre}</p>
+                      ) : (
+                        <input value={s.nombre} onChange={(e) => updateService(i, { nombre: e.target.value })} placeholder="Nombre del servicio" className={INPUT} />
+                      )}
                     </div>
                     <div className="sm:col-span-3">
                       <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Precio</label>
@@ -364,7 +368,11 @@ export default function AdminPage() {
                     </div>
                     <div className="sm:col-span-12">
                       <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Descripción</label>
-                      <textarea value={s.descripcion} onChange={(e) => updateService(i, { descripcion: e.target.value })} rows={2} placeholder="Descripción del servicio..." className={INPUT + ' resize-none'} />
+                      {PRECIO_CODIGO.has(s.id) ? (
+                        <p className="px-3 py-2 text-sm text-fg-muted" title="Se edita en lib/constants.ts">{PRECIO_CODIGO.get(s.id)!.descripcion}</p>
+                      ) : (
+                        <textarea value={s.descripcion} onChange={(e) => updateService(i, { descripcion: e.target.value })} rows={2} placeholder="Descripción del servicio..." className={INPUT + ' resize-none'} />
+                      )}
                     </div>
                   </div>
                   <div className="flex items-center justify-between mt-4 flex-wrap gap-3">

@@ -1,8 +1,9 @@
 import Link from 'next/link'
-import { ArrowRight, MessageCircle, CalendarCheck, ChevronDown, Receipt } from 'lucide-react'
+import { ArrowRight, ChevronDown, Receipt } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { IVA_NOTA, PROCESO } from '@/lib/constants'
 import { faqLd, serviceLd } from '@/lib/structured-data'
+import { CtaPair } from '@/components/shared/CtaPair'
 
 // Plantilla de los hubs de categoría (/mantencion, /empresas): agrupan servicios y
 // enlazan a sus landings, así el menú apunta a una página que posiciona la categoría.
@@ -75,23 +76,8 @@ export function HubPage(props: HubPageProps) {
             {titulo} <span className="gradient-text sm:whitespace-nowrap">{tituloAccent}</span>
           </h1>
           <p className="mt-5 text-lg text-fg-muted max-w-2xl mx-auto">{subtitle}</p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href={waHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-brand text-white font-semibold hover:bg-brand-hover transition-colors min-h-[48px]"
-            >
-              <MessageCircle size={18} aria-hidden="true" />
-              Escríbenos por WhatsApp
-            </a>
-            <Link
-              href="/agendar"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl border border-silver/30 text-fg font-semibold hover:border-silver/60 hover:bg-white/5 transition-colors min-h-[48px]"
-            >
-              <CalendarCheck size={18} aria-hidden="true" />
-              Agendar servicio
-            </Link>
+          <div className="mt-8">
+            <CtaPair waHref={waHref} />
           </div>
         </div>
       </section>
@@ -215,24 +201,9 @@ export function HubPage(props: HubPageProps) {
           <div className="relative">
             <h2 className="text-fg text-balance">{ctaTitle}</h2>
             <p className="mt-4 text-fg-muted max-w-xl mx-auto">{ctaText}</p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
-                href={waHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-brand text-white font-semibold hover:bg-brand-hover transition-colors min-h-[48px]"
-              >
-                <MessageCircle size={18} aria-hidden="true" />
-                Escríbenos por WhatsApp
-              </a>
-              <Link
-                href="/agendar"
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl border border-silver/30 text-fg font-semibold hover:border-silver/60 hover:bg-white/5 transition-colors min-h-[48px]"
-              >
-                <CalendarCheck size={18} aria-hidden="true" />
-                Agendar servicio
-              </Link>
-            </div>
+            <div className="mt-8">
+            <CtaPair waHref={waHref} />
+          </div>
           </div>
         </div>
       </section>
