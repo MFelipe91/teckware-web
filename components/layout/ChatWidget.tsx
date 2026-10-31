@@ -8,7 +8,7 @@ type Message = { role: 'user' | 'assistant'; content: string }
 
 const WELCOME: Message = {
   role: 'assistant',
-  content: '¡Hola! Soy **Teck** 👋 el asistente de TECKWARE. ¿En qué te puedo ayudar hoy? Puedo contarte precios y plazos, o ayudarte a agendar tu hora en el taller.',
+  content: '¡Hola! Soy **Teck**, el asistente de TECKWARE. ¿En qué te puedo ayudar hoy? Puedo contarte precios y plazos, o ayudarte a agendar tu hora en el taller.',
 }
 
 const QUICK = [
@@ -39,6 +39,7 @@ export function ChatWidget() {
   const unread = msgs.length > seenCount
   const bottomRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const fabRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     if (open) setTimeout(() => inputRef.current?.focus(), 300)
@@ -46,7 +47,7 @@ export function ChatWidget() {
 
   useEffect(() => {
     if (!open) return
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false) }
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') { setOpen(false); fabRef.current?.focus() } }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [open])
@@ -83,7 +84,7 @@ export function ChatWidget() {
     } catch {
       setMsgs(prev => [...prev, {
         role: 'assistant',
-        content: 'Ahora no pude responderte. Escríbenos directo por WhatsApp 😊',
+        content: 'Ahora no pude responderte. Escríbenos directo por WhatsApp.',
       }])
     } finally {
       setLoading(false)
@@ -104,25 +105,24 @@ export function ChatWidget() {
         }`}
       >
         <div
-          className="flex flex-col rounded-2xl overflow-hidden border border-white/10 bg-ink-800 shadow-2xl shadow-black/60"
+          className="flex flex-col rounded-sm overflow-hidden border border-white/10 bg-ink-800 shadow-black/60"
           style={{ height: 'min(460px, calc(100dvh - 12rem))' }}
         >
           {/* Header */}
           <div className="flex items-center gap-3 px-4 py-3 bg-ink-900 border-b border-white/8 shrink-0">
-            <div className="w-8 h-8 rounded-full bg-brand/12 border border-brand-bright/25 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-sm bg-brand/12 border border-brand-bright/25 flex items-center justify-center">
               <Bot size={14} className="text-brand-bright" />
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-bold text-fg leading-none mb-1">Teck · Asistente TECKWARE</p>
               <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
                 <span className="text-xs text-fg-subtle">Asistente virtual · te ayuda a cotizar</span>
               </div>
             </div>
             <button
-              onClick={() => { setOpen(false); setSeenCount(msgs.length) }}
+              onClick={() => { setOpen(false); setSeenCount(msgs.length); fabRef.current?.focus() }}
               type="button"
-              className="text-fg-subtle hover:text-fg-muted transition-colors p-2 rounded-lg hover:bg-white/5"
+              className="text-fg-subtle hover:text-fg-muted transition-colors p-2 rounded-sm hover:bg-white/5"
               aria-label="Cerrar chat"
             >
               <X size={15} />
@@ -139,7 +139,7 @@ export function ChatWidget() {
                   href={WA.general()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-5 py-2.5 bg-brand text-white font-bold rounded-xl text-sm hover:bg-brand-hover transition-colors"
+                  className="btn btn-primario"
                 >
                   Chatear por WhatsApp
                   <ArrowRight size={14} />
@@ -150,17 +150,17 @@ export function ChatWidget() {
                 {msgs.map((msg, i) => (
                   <div key={i} className={`flex gap-2 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
                     {msg.role === 'assistant' && (
-                      <div className="w-6 h-6 rounded-full bg-brand/12 border border-brand-bright/20 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-6 h-6 rounded-sm bg-brand/12 border border-brand-bright/20 flex items-center justify-center shrink-0 mt-0.5">
                         <Bot size={10} className="text-brand-bright" />
                       </div>
                     )}
                     {msg.role === 'user' ? (
-                      <div className="max-w-[80%] rounded-2xl rounded-tr-sm px-3 py-2 text-sm leading-relaxed bg-brand/15 text-fg">
+                      <div className="max-w-[80%] rounded-sm rounded-tr-sm px-3 py-2 text-sm leading-relaxed bg-brand/15 text-fg">
                         {msg.content}
                       </div>
                     ) : (
                       <div
-                        className="max-w-[80%] rounded-2xl rounded-tl-sm px-3 py-2 text-sm leading-relaxed bg-white/5 text-fg-muted"
+                        className="max-w-[80%] rounded-sm rounded-tl-sm px-3 py-2 text-sm leading-relaxed bg-white/5 text-fg-muted"
                         dangerouslySetInnerHTML={{ __html: renderMd(msg.content) }}
                       />
                     )}
@@ -169,10 +169,10 @@ export function ChatWidget() {
 
                 {loading && (
                   <div className="flex gap-2">
-                    <div className="w-6 h-6 rounded-full bg-brand/12 border border-brand-bright/20 flex items-center justify-center shrink-0">
+                    <div className="w-6 h-6 rounded-sm bg-brand/12 border border-brand-bright/20 flex items-center justify-center shrink-0">
                       <Bot size={10} className="text-brand-bright" />
                     </div>
-                    <div className="bg-white/5 rounded-2xl rounded-tl-sm px-3 py-3 flex gap-1 items-center">
+                    <div className="bg-white/5 rounded-sm rounded-tl-sm px-3 py-3 flex gap-1 items-center">
                       {[0, 150, 300].map(d => (
                         <span
                           key={d}
@@ -197,7 +197,7 @@ export function ChatWidget() {
                   key={q}
                   type="button"
                   onClick={() => sendText(q, msgs)}
-                  className="text-xs px-3 py-1.5 rounded-full border border-brand-bright/25 text-brand-bright hover:bg-brand/8 transition-colors"
+                  className="text-sm px-3 py-1.5 rounded-sm border border-brand-bright/25 text-brand-bright hover:bg-brand/8 transition-colors"
                 >
                   {q}
                 </button>
@@ -208,7 +208,7 @@ export function ChatWidget() {
           {/* Input */}
           {!unavailable && (
             <div className="px-3 pb-3 shrink-0">
-              <div className="flex gap-2 items-center bg-white/5 border border-white/10 rounded-xl px-3 py-1.5">
+              <div className="flex gap-2 items-center bg-white/5 border border-white/10 rounded-sm px-3 py-1.5">
                 <input
                   ref={inputRef}
                   type="text"
@@ -224,7 +224,7 @@ export function ChatWidget() {
                 <button
                   onClick={() => sendText(input, msgs)}
                   disabled={!input.trim() || loading}
-                  className="w-7 h-7 rounded-lg bg-brand flex items-center justify-center shrink-0 hover:bg-brand-hover transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="w-7 h-7 rounded-sm bg-brand flex items-center justify-center shrink-0 hover:bg-brand-hover transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                   aria-label="Enviar"
                 >
                   {loading
@@ -251,9 +251,10 @@ export function ChatWidget() {
 
       {/* FAB */}
       <button
+        ref={fabRef}
         onClick={() => { setOpen(o => !o); setSeenCount(msgs.length) }}
         type="button"
-        className="fixed bottom-[4.5rem] sm:bottom-24 right-4 sm:right-6 z-50 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-brand hover:bg-brand-hover shadow-lg shadow-brand-bright/30 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95"
+        className="fab fixed bottom-[4.5rem] sm:bottom-24 right-4 sm:right-6 z-50 w-12 h-12 sm:w-14 sm:h-14 bg-brand hover:bg-brand-hover flex items-center justify-center transition-colors"
         aria-label={open ? 'Cerrar chat' : 'Abrir chat con Teck IA'}
       >
         {open
@@ -261,7 +262,7 @@ export function ChatWidget() {
           : <MessageSquare size={22} className="text-white" />
         }
         {unread && !open && (
-          <span className="absolute -top-1 -right-1 w-4 h-4 bg-danger rounded-full border-2 border-ink-900" />
+          <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-danger rounded-full" />
         )}
       </button>
     </>

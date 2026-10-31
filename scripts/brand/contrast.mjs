@@ -24,11 +24,13 @@ const ratio = (a, b) => {
 const pairs = [
   ...['ink-950', 'ink-900', 'ink-800', 'ink-700'].flatMap((bg) => [
     ['fg', bg, 4.5], ['fg-muted', bg, 4.5], ['fg-subtle', bg, 4.5],
-    ['brand-bright', bg, 4.5], ['silver', bg, 4.5], ['gamer-bright', bg, 4.5],
+    ['brand-bright', bg, 4.5], ['silver', bg, 4.5],
     ['whatsapp', bg, 4.5], ['danger', bg, 4.5],
   ]),
   ['white', 'brand', 4.5], ['white', 'brand-hover', 4.5], ['white', 'whatsapp-solid', 4.5],
   ['brand', 'ink-900', 3],
+  // Banda plateada
+  ['ink-900', 'silver', 4.5], ['ink-800', 'silver', 4.5], ['ink-700', 'silver', 4.5], ['white', 'brand-deep', 4.5],
 ]
 
 const tokens = (n) => (n === 'white' ? '#FFFFFF' : token(n))

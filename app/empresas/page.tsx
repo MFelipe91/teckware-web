@@ -3,12 +3,14 @@ import { Building2, Compass, Bot, Code2, ShieldCheck, Wrench, GraduationCap, Mes
 import { HubPage } from '@/components/landing/HubPage'
 import { precioServicio } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
+import { ogPagina } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Soporte informático para empresas en La Serena y Coquimbo',
   description:
     'Soporte informático para pymes en La Serena y Coquimbo: mantención preventiva de equipos, asesoría tecnológica, automatización con IA, desarrollo web y ciberseguridad. Empresa formal con boleta.',
   alternates: { canonical: '/empresas' },
+  openGraph: ogPagina('/empresas'),
 }
 
 export default function EmpresasPage() {

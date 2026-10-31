@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, ArrowRight, Clock, MessageCircle } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import { POSTS, BLOG_AUTHOR, getPost } from '@/lib/blog'
 import { articleLd } from '@/lib/structured-data'
 import { WA } from '@/lib/whatsapp'
@@ -25,6 +25,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       type: 'article',
+      url: `/blog/${post.slug}`,
+      locale: 'es_CL',
+      siteName: 'TECKWARE SpA',
       title: post.title,
       description: post.description,
       publishedTime: post.date,
@@ -45,7 +48,7 @@ export default async function BlogPostPage({ params }: Props) {
   const otros = POSTS.filter((p) => p.slug !== post.slug)
 
   return (
-    <div className="min-h-screen bg-ink-900 pt-24">
+    <div className="min-h-screen bg-ink-900 pt-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -67,20 +70,18 @@ export default async function BlogPostPage({ params }: Props) {
           Todas las guías
         </Link>
 
-        <h1 className="text-fg mb-4">{post.title}</h1>
-        <div className="flex flex-wrap items-center gap-3 mb-10 text-xs text-fg-subtle">
+        <h1 className="mb-5 text-[clamp(2.25rem,4.6vw,3.75rem)]">{post.title}</h1>
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-1 mb-10 text-sm text-fg-subtle">
           <span>Por {BLOG_AUTHOR}</span>
-          <span>·</span>
           <time dateTime={post.date}>{fecha(post.date)}</time>
-          <span>·</span>
-          <span className="flex items-center gap-1"><Clock size={12} />{post.minutes} min de lectura</span>
+          <span>{post.minutes} min de lectura</span>
         </div>
 
         <p className="text-lg text-fg-muted leading-relaxed mb-10">{post.intro}</p>
 
         {post.sections.map((s) => (
           <section key={s.h2} className="mb-10">
-            <h2 className="text-fg text-2xl mb-4">{s.h2}</h2>
+            <h2 className="text-fg text-3xl mb-4">{s.h2}</h2>
             {s.p.map((t, i) => (
               <p key={i} className="text-fg-muted leading-relaxed mb-4">{t}</p>
             ))}
@@ -95,26 +96,24 @@ export default async function BlogPostPage({ params }: Props) {
         ))}
 
         {/* CTA al servicio relacionado */}
-        <aside className="mt-14 p-8 rounded-xl border border-brand-bright/15 bg-brand/5">
-          <p className="text-fg font-bold mb-2">¿Prefieres que lo revisemos nosotros?</p>
-          <p className="text-sm text-fg-muted mb-6">
+        <aside className="panel-corte mt-14 p-7 sm:p-8">
+          <p className="font-display text-2xl font-semibold text-fg mb-2">¿Prefieres que lo revisemos nosotros?</p>
+          <p className="text-fg-muted leading-relaxed mb-6">
             Diagnóstico claro antes de cualquier trabajo, pago al retirar y 30 días de garantía. Atendemos en La Serena y Coquimbo.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
               href={post.related.href}
-              className="flex items-center gap-2 px-5 py-3 bg-brand text-white text-sm font-semibold rounded-xl hover:bg-brand-hover transition-colors min-h-[44px]"
+              className="btn btn-primario"
             >
               {post.related.label}
-              <ArrowRight size={14} strokeWidth={2.5} />
             </Link>
             <a
               href={WA.servicio(post.related.label)}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-3 border border-whatsapp/40 text-whatsapp text-sm font-bold rounded-xl hover:bg-whatsapp/10 transition-colors min-h-[44px]"
+              className="btn btn-secundario"
             >
-              <MessageCircle size={14} />
               Consultar por WhatsApp
             </a>
           </div>
@@ -123,16 +122,12 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* Otras guías */}
       <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        <h2 className="text-fg text-xl mb-5">Otras guías</h2>
-        <ul className="space-y-3">
+        <h2 className="text-fg text-3xl mb-5">Otras guías</h2>
+        <ul className="border-t border-white/10">
           {otros.map((p) => (
-            <li key={p.slug}>
-              <Link
-                href={`/blog/${p.slug}`}
-                className="flex items-center justify-between gap-3 px-4 py-3 rounded-xl bg-white/[0.03] border border-white/8 text-sm text-fg-muted hover:text-fg hover:border-brand-bright/30 transition-colors"
-              >
+            <li key={p.slug} className="border-b border-white/10">
+              <Link href={`/blog/${p.slug}`} className="block py-3 text-fg-muted hover:text-brand-bright transition-colors">
                 {p.title}
-                <ArrowRight size={14} className="text-brand-bright shrink-0" />
               </Link>
             </li>
           ))}

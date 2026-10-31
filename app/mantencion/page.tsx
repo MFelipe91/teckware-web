@@ -4,12 +4,14 @@ import { HubPage } from '@/components/landing/HubPage'
 import { precioServicio } from '@/lib/constants'
 import { POSTS } from '@/lib/blog'
 import { WA } from '@/lib/whatsapp'
+import { ogPagina } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Mantención de computadores en La Serena y Coquimbo',
   description:
     'Mantención preventiva de PC gamer, notebooks, consolas y equipos de empresa en La Serena y Coquimbo: limpieza, pasta térmica, formateo y revisión de temperaturas. Garantía 30 días y boleta.',
   alternates: { canonical: '/mantencion' },
+  openGraph: ogPagina('/mantencion'),
 }
 
 export default function MantencionPage() {

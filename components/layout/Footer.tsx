@@ -43,7 +43,7 @@ export function Footer() {
 
           {/* Columna 2 — Navegación */}
           <div>
-            <h3 className="text-sm font-semibold text-fg mb-4">Navegación</h3>
+            <h2 className="font-display text-base font-semibold text-silver mb-4">Navegación</h2>
             <ul className="space-y-1">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
@@ -68,7 +68,7 @@ export function Footer() {
               ))}
               <li>
                 <Link href="/solicitar" className="inline-block py-1 text-sm text-brand-bright hover:underline font-medium">
-                  Solicitar servicio →
+                  Solicitar servicio
                 </Link>
               </li>
             </ul>
@@ -76,7 +76,7 @@ export function Footer() {
 
           {/* Columna 3 — Servicios */}
           <div>
-            <h3 className="text-sm font-semibold text-fg mb-4">Servicios</h3>
+            <h2 className="font-display text-base font-semibold text-silver mb-4">Servicios</h2>
             <ul className="space-y-1">
               {LANDINGS.map((l) => (
                 <li key={l.href}>
@@ -93,7 +93,7 @@ export function Footer() {
 
           {/* Columna 4 — Contacto */}
           <div>
-            <h3 className="text-sm font-semibold text-fg mb-4">Contacto</h3>
+            <h2 className="font-display text-base font-semibold text-silver mb-4">Contacto</h2>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-fg-muted">
                 <MapPin size={15} className="text-brand-bright mt-0.5 shrink-0" />

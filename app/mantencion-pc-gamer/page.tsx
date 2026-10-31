@@ -2,12 +2,14 @@ import type { Metadata } from 'next'
 import { Wrench, Thermometer, Fan, Cpu, Gauge, ShieldCheck } from 'lucide-react'
 import { ServiceLanding } from '@/components/landing/ServiceLanding'
 import { WA } from '@/lib/whatsapp'
+import { ogPagina } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Mantención de PC Gamer en La Serena',
   description:
     'Mantención profesional de PC Gamer en La Serena y Coquimbo: limpieza interna, cambio de pasta térmica premium, revisión de temperaturas y optimización. Recupera el rendimiento y baja las temperaturas de tu equipo.',
   alternates: { canonical: '/mantencion-pc-gamer' },
+  openGraph: ogPagina('/mantencion-pc-gamer'),
 }
 
 export default function MantencionPCGamerPage() {

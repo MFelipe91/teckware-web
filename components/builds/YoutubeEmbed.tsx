@@ -44,7 +44,7 @@ export function YoutubeEmbed({ videoId, title }: Props) {
         unoptimized
       />
       <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-        <div className="w-16 h-16 rounded-full bg-brand flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-200">
+        <div className="w-16 h-16 rounded-full bg-brand flex items-center justify-center shadow-xl transition-transform duration-200">
           <Play size={22} fill="white" stroke="none" className="ml-1" />
         </div>
       </div>

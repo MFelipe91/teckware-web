@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { EMPRESA } from '@/lib/constants'
+import { ogPagina } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Política de Privacidad',
   description: 'Política de privacidad y manejo de datos personales de TECKWARE SpA.',
   alternates: { canonical: '/privacidad' },
+  openGraph: ogPagina('/privacidad'),
   robots: { index: false, follow: false },
 }
 
@@ -12,7 +14,7 @@ export default function PrivacidadPage() {
   return (
     <div className="min-h-screen bg-ink-900 pt-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h1 className="text-fg mb-2">Política de Privacidad</h1>
+        <h1 className="mb-2">Política de Privacidad</h1>
         <p className="text-fg-subtle text-sm mb-10">Última actualización: Octubre 2026</p>
 
         <div className="space-y-8 text-fg-muted text-sm leading-relaxed">

@@ -37,7 +37,7 @@ test('axe en estados interactivos y teclado', async ({ page, context, request, b
   await page.getByText('Cuéntanos sobre tu equipo').waitFor()
   const trasPaso = await foco(page)
   casos.push({ caso: 'Foco al pasar de paso', esperado: 'Va al nuevo contenido, no se pierde', obtenido: trasPaso.elemento, ok: trasPaso.elemento !== 'body' && !/Siguiente/.test(trasPaso.elemento) })
-  const anuncio = await page.locator('[aria-live]').filter({ hasText: /Cuéntanos/ }).count()
+  const anuncio = trasPaso.elemento.startsWith('h2') ? 1 : await page.locator('[aria-live]').filter({ hasText: /Cuéntanos/ }).count()
   casos.push({ caso: 'Cambio de paso anunciado a lector de pantalla', esperado: 'Región aria-live o foco en el título', obtenido: anuncio ? 'anunciado' : 'sin anuncio', ok: anuncio > 0 })
   axe['agendar paso 2'] = await revisarAxe(page)
 

@@ -2,12 +2,14 @@ import type { Metadata } from 'next'
 import { Laptop, Thermometer, Keyboard, Battery, MemoryStick, ShieldCheck } from 'lucide-react'
 import { ServiceLanding } from '@/components/landing/ServiceLanding'
 import { WA } from '@/lib/whatsapp'
+import { ogPagina } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: { absolute: 'Reparación de Notebooks en La Serena y Coquimbo | TECKWARE' },
   description:
     'Reparación de notebooks HP, Lenovo, Dell, ASUS, Acer y más en La Serena y Coquimbo: no enciende, se calienta, lentitud, teclado, carga y upgrade a SSD. Entrega en 48 horas hábiles con informe técnico.',
   alternates: { canonical: '/reparacion-notebook-la-serena' },
+  openGraph: ogPagina('/reparacion-notebook-la-serena'),
 }
 
 export default function ReparacionNotebookLaSerenaPage() {

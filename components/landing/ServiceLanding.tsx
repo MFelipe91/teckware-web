@@ -1,13 +1,12 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import { ArrowRight, Check, ChevronDown, Receipt } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-import { BLUR_DARK } from '@/lib/imageBlur'
 import { IVA_NOTA } from '@/lib/constants'
 import { LANDINGS } from '@/lib/landings'
 import { faqLd, serviceLd } from '@/lib/structured-data'
-import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
+import { BandaCta } from '@/components/shared/BandaCta'
 import { CtaPair } from '@/components/shared/CtaPair'
+import { ListaFaq } from '@/components/shared/ListaFaq'
+import { PageHeader } from '@/components/shared/PageHeader'
 
 export type LandingFeature = { icon: LucideIcon; titulo: string; desc: string }
 export type LandingPrecio = { nombre: string; precio: string; tiempo: string; href: string }
@@ -21,8 +20,9 @@ export type ServiceLandingProps = {
   tituloAccent: string
   subtitle: string
   intro: string[]
-  heroImage: string
-  heroAlt: string
+  /** Reservadas para la foto real de cada landing (plan maestro, 6.8). */
+  heroImage?: string
+  heroAlt?: string
   featuresTitle: string
   features: LandingFeature[]
   marcasTitle?: string
@@ -36,194 +36,94 @@ export type ServiceLandingProps = {
 
 export function ServiceLanding(props: ServiceLandingProps) {
   const {
-    path, eyebrow, titulo, tituloAccent, subtitle, intro, heroImage, heroAlt,
+    path, titulo, tituloAccent, subtitle, intro,
     featuresTitle, features, marcasTitle, marcas, precios, faqs, waHref, ctaTitle, ctaText,
   } = props
   const otros = LANDINGS.filter((l) => l.href !== path)
+  const nombre = `${titulo} ${tituloAccent}`
 
   return (
     <div className="min-h-screen bg-ink-900">
       {/* JSON-LD FAQ → rich snippet en Google */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd(faqs)) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd(faqs)) }} />
       {/* JSON-LD Service → vincula este servicio al negocio local */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceLd({ name: `${titulo} ${tituloAccent}`, description: subtitle, path })),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd({ name: nombre, description: subtitle, path })) }}
       />
 
-      {/* HERO */}
-      <section className="relative bg-ink-950 pt-44 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src={heroImage}
-            alt={heroAlt}
-            fill
-            className="object-cover object-center opacity-10"
-            priority
-            quality={50}
-            sizes="100vw"
-            placeholder="blur"
-            blurDataURL={BLUR_DARK}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink-950/80 via-ink-950/60 to-ink-950" />
-        </div>
-        <CircuitBackground variant="circuit" palette="mixed" density={1} opacity={0.5} />
-        <div className="glow-brand w-80 h-80 -top-20 right-0 opacity-30" />
-        <div className="glow-silver w-64 h-64 bottom-0 left-0 opacity-30" />
-        <div
-          className="absolute top-0 left-0 right-0 h-[2px]"
-          style={{ background: 'var(--gradient-signature)' }}
-        />
-        <div className="relative max-w-3xl mx-auto text-center">
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-[0.2em] uppercase text-brand-bright border border-brand-bright/20 rounded-full bg-brand/6">
-            {eyebrow}
-          </span>
-          <h1 className="text-fg mb-4">
-            {titulo}{' '}
-            <span className="gradient-text sm:whitespace-nowrap">{tituloAccent}</span>
-          </h1>
-          <p className="text-fg-muted max-w-xl mx-auto mb-8">{subtitle}</p>
-          <CtaPair waHref={waHref} />
-        </div>
-      </section>
+      <PageHeader titulo={nombre} bajada={subtitle}>
+        <CtaPair waHref={waHref} />
+      </PageHeader>
 
-      {/* INTRO SEO */}
-      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      {/* Texto a la izquierda, lo que incluye a la derecha */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
         <div className="space-y-4">
-          {intro.map((p, i) => (
-            <p key={i} className="text-fg-muted leading-relaxed">{p}</p>
-          ))}
+          {intro.map((p, i) => <p key={i} className="text-fg-muted leading-relaxed">{p}</p>)}
         </div>
-      </section>
-
-      <div className="tech-line mx-8" />
-
-      {/* FEATURES — qué incluye */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <h2 className="text-fg mb-2 text-center">{featuresTitle}</h2>
-        <p className="text-fg-muted mb-12 text-center">Trabajo profesional, transparente y con garantía.</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map(({ icon: Icon, titulo, desc }) => (
-            <div key={titulo} className="glass-card rounded-xl p-7 border border-white/8 card-hover">
-              <div className="w-12 h-12 mb-5 flex items-center justify-center rounded-xl bg-brand/8 border border-brand-bright/20">
-                <Icon size={22} className="text-brand-bright" />
-              </div>
-              <h3 className="text-base font-bold text-fg mb-2 leading-snug">{titulo}</h3>
-              <p className="text-sm text-fg-muted leading-relaxed">{desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* MARCAS / EQUIPOS */}
-      {marcas && marcas.length > 0 && (
-        <section className="bg-ink-950 py-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-fg mb-8">{marcasTitle ?? 'Marcas que atendemos'}</h2>
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              {marcas.map((m) => (
-                <span
-                  key={m}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.03] border border-white/8 text-sm text-fg-muted"
-                >
-                  <Check size={13} className="text-brand-bright" />
-                  {m}
-                </span>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* PRECIOS */}
-      {precios && precios.length > 0 && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <h2 className="text-fg mb-2 text-center">Precios de referencia</h2>
-          <p className="text-fg-muted mb-12 text-center">Valores con IVA incluido. Se emite boleta.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {precios.map((p) => (
-              <div key={p.nombre} className="glass-card rounded-xl p-7 border border-white/8 card-hover flex flex-col">
-                <h3 className="text-base font-bold text-fg mb-3">{p.nombre}</h3>
-                <div className="mb-5">
-                  {p.precio.includes('cotizar') ? (
-                    <span className="text-xl font-bold text-silver">{p.precio}</span>
-                  ) : (
-                    <span className="price text-3xl font-black text-brand-bright">{p.precio}</span>
-                  )}
-                  <span className="ml-2 text-xs text-fg-subtle">{p.tiempo}</span>
+        <div>
+          <h2 className="text-fg text-3xl sm:text-4xl mb-6">{featuresTitle}</h2>
+          <ul className="border-t border-white/10">
+            {features.map(({ icon: Icon, titulo, desc }) => (
+              <li key={titulo} className="grid grid-cols-[24px_minmax(0,1fr)] gap-x-4 py-4 border-b border-white/10">
+                <Icon size={20} className="text-brand-bright mt-1" aria-hidden="true" />
+                <div>
+                  <h3 className="text-[1.125rem] text-fg">{titulo}</h3>
+                  <p className="mt-1 text-sm text-fg-muted leading-relaxed">{desc}</p>
                 </div>
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-auto flex items-center justify-center gap-2 px-4 py-2.5 bg-brand text-white text-sm font-semibold rounded-xl hover:bg-brand-hover transition-colors min-h-[40px]"
-                >
-                  Solicitar
-                  <ArrowRight size={14} strokeWidth={2.5} />
-                </a>
-              </div>
+              </li>
             ))}
-          </div>
-          <div className="flex items-center justify-center gap-2 mt-10 text-xs text-fg-subtle">
-            <Receipt size={13} />
-            <span>{IVA_NOTA}</span>
+          </ul>
+        </div>
+      </section>
+
+      {precios && precios.length > 0 && (
+        <section className="bg-ink-950 px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+          <div className="max-w-[76rem] mx-auto grid gap-8 lg:gap-20 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
+            <div>
+              <h2 className="text-fg">Precios de referencia</h2>
+              <p className="mt-4 text-sm text-fg-muted">{IVA_NOTA}</p>
+            </div>
+            <ul className="border-t border-white/10">
+              {precios.map((p) => (
+                <li key={p.nombre} className="py-4 border-b border-white/10 grid grid-cols-[minmax(0,1fr)_auto] gap-x-6 gap-y-1 items-baseline">
+                  <h3 className="text-fg">{p.nombre}</h3>
+                  <span className="price text-xl text-fg text-right">{p.precio}</span>
+                  <span className="text-sm text-fg-subtle">{p.tiempo}</span>
+                  <a href={p.href} target="_blank" rel="noopener noreferrer" className="btn btn-terciario justify-self-end" aria-label={`Solicitar ${p.nombre}`}>
+                    Solicitar
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       )}
 
-      <div className="tech-line mx-8" />
+      {marcas && marcas.length > 0 && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20">
+          <h2 className="text-fg text-3xl sm:text-4xl mb-5">{marcasTitle ?? 'Marcas que atendemos'}</h2>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 font-display text-lg text-fg-muted">
+            {marcas.map((m) => <li key={m}>{m}</li>)}
+          </ul>
+        </section>
+      )}
 
-      {/* FAQ */}
-      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <h2 className="text-fg mb-10 text-center">Preguntas frecuentes</h2>
-        <div className="space-y-3">
-          {faqs.map((f) => (
-            <details key={f.q} className="group glass-card rounded-xl border border-white/8 overflow-hidden">
-              <summary className="flex items-center justify-between gap-4 cursor-pointer p-5 text-sm font-semibold text-fg list-none">
-                {f.q}
-                <ChevronDown size={16} className="text-brand-bright shrink-0 transition-transform group-open:rotate-180" />
-              </summary>
-              <p className="px-5 pb-5 text-sm text-fg-muted leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+      <ListaFaq faqs={faqs} />
 
-      {/* OTROS SERVICIOS — enlazado interno entre landings */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <h2 className="text-fg mb-8 text-center">Otros servicios en La Serena y Coquimbo</h2>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      {/* Enlazado interno entre landings */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
+        <h2 className="text-fg text-3xl sm:text-4xl mb-6">Otros servicios en La Serena y Coquimbo</h2>
+        <ul className="grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3 border-t border-white/10">
           {otros.map((l) => (
-            <li key={l.href}>
-              <Link
-                href={l.href}
-                className="flex items-center justify-between gap-3 h-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/8 text-sm text-fg-muted hover:text-fg hover:border-brand-bright/30 transition-colors"
-              >
-                {l.label}
-                <ArrowRight size={14} className="text-brand-bright shrink-0" />
-              </Link>
+            <li key={l.href} className="border-b border-white/10">
+              <Link href={l.href} className="block py-3 text-fg-muted hover:text-brand-bright transition-colors">{l.label}</Link>
             </li>
           ))}
         </ul>
       </section>
 
-      {/* CTA FINAL */}
-      <section className="px-4 sm:px-6 lg:px-8 pb-24">
-        <div className="max-w-4xl mx-auto text-center p-10 sm:p-14 rounded-xl border border-brand-bright/15 bg-brand/5 relative overflow-hidden">
-          <CircuitBackground variant="hex-mesh" palette="brand" density={0.8} opacity={0.35} />
-          <div className="glow-brand w-72 h-72 -top-20 left-1/2 -translate-x-1/2 opacity-20" />
-          <div className="relative">
-            <h2 className="text-fg mb-3">{ctaTitle}</h2>
-            <p className="text-fg-muted mb-8 max-w-lg mx-auto">{ctaText}</p>
-            <CtaPair waHref={waHref} />
-          </div>
-        </div>
-      </section>
+      <BandaCta titulo={ctaTitle} texto={ctaText} waHref={waHref} />
     </div>
   )
 }

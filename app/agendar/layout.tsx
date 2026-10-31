@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { ogPagina } from '@/lib/seo'
 
 // page.tsx es 'use client' y no puede exportar metadata; va aquí.
 export const metadata: Metadata = {
@@ -6,6 +7,7 @@ export const metadata: Metadata = {
   description:
     'Agenda tu servicio técnico en La Serena y Coquimbo: diagnóstico, mantención, formateo, PC Gamer y consolas. Te confirmamos por WhatsApp en horario hábil.',
   alternates: { canonical: '/agendar' },
+  openGraph: ogPagina('/agendar'),
 }
 
 export default function AgendarLayout({ children }: { children: React.ReactNode }) {

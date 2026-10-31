@@ -175,28 +175,29 @@ export default function AdminPage() {
       <div className="min-h-screen bg-ink-950 flex items-center justify-center px-4">
         <div className="w-full max-w-sm">
           <div className="text-center mb-8">
-            <div className="w-14 h-14 rounded-2xl bg-brand/10 border border-brand-bright/20 flex items-center justify-center mx-auto mb-4">
+            <div className="w-14 h-14 rounded-sm bg-brand/10 border border-brand-bright/20 flex items-center justify-center mx-auto mb-4">
               <Lock size={24} className="text-brand-bright" />
             </div>
             <h1 className="text-2xl font-black text-fg mb-1">Panel Admin</h1>
             <p className="text-sm text-fg-subtle">TECKWARE SpA</p>
           </div>
-          <form onSubmit={handleLogin} className="glass-card rounded-2xl border border-white/10 p-6">
-            <label className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">Contraseña</label>
+          <form onSubmit={handleLogin} className="panel rounded-sm border border-white/10 p-6">
+            <label htmlFor="admin-clave" className="text-sm font-semibold text-fg-muted block mb-2">Contraseña</label>
             <div className="relative mb-4">
               <input
+                id="admin-clave"
                 type={showPw ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => { setPassword(e.target.value); setPwError(false) }}
                 placeholder="Ingresa la contraseña"
                 className={`w-full bg-white/5 border rounded-xl px-4 py-3 pr-10 text-sm text-fg placeholder-fg-subtle focus:outline-none transition-colors ${pwError ? 'border-danger/50' : 'border-white/15 focus:border-brand-bright/50'}`}
               />
-              <button type="button" onClick={() => setShowPw(!showPw)} className="absolute right-3 top-1/2 -translate-y-1/2 text-fg-subtle hover:text-fg-muted">
+              <button type="button" onClick={() => setShowPw(!showPw)} aria-label={showPw ? 'Ocultar contraseña' : 'Mostrar contraseña'} className="absolute right-1 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center text-fg-subtle hover:text-fg-muted">
                 {showPw ? <EyeOff size={16} /> : <Eye size={16} />}
               </button>
             </div>
             {pwError && <p className="text-xs text-danger mb-4">Contraseña incorrecta</p>}
-            <button type="submit" className="w-full py-3 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover transition-colors min-h-[44px]">
+            <button type="submit" className="btn btn-primario w-full">
               Ingresar
             </button>
             <p className="text-center text-xs text-fg-subtle mt-4">
@@ -221,7 +222,7 @@ export default function AdminPage() {
               {requests.filter((r) => r.estado === 'nuevo').length} solicitudes nuevas · {builds.length} builds
             </p>
           </div>
-          <button onClick={handleLogout} className="flex items-center gap-2 px-4 py-2.5 border border-white/15 text-fg-muted font-medium rounded-xl hover:border-white/30 transition-all text-sm min-h-[40px]">
+          <button onClick={handleLogout} className="flex items-center gap-2 px-4 py-2.5 border border-white/15 text-fg-muted font-medium rounded-sm hover:border-white/30 transition-all text-sm min-h-[40px]">
             <LogOut size={15} /> Salir
           </button>
         </div>
@@ -239,7 +240,7 @@ export default function AdminPage() {
               <Icon size={15} />
               {label}
               {id === 'solicitudes' && requests.filter((r) => r.estado === 'nuevo').length > 0 && (
-                <span className="ml-1 px-1.5 py-0.5 text-[10px] font-bold rounded-full bg-brand text-white">
+                <span className="btn btn-primario">
                   {requests.filter((r) => r.estado === 'nuevo').length}
                 </span>
               )}
@@ -252,13 +253,13 @@ export default function AdminPage() {
           <div>
             <div className="flex items-center justify-between mb-4">
               <p className="text-sm text-fg-subtle">{requests.length} solicitudes en total</p>
-              <button onClick={refreshRequests} disabled={isPending} className="flex items-center gap-2 px-3 py-2 text-xs text-fg-muted border border-white/15 rounded-lg hover:border-white/30 transition-all disabled:opacity-40">
+              <button onClick={refreshRequests} disabled={isPending} className="flex items-center gap-2 px-3 py-2 text-xs text-fg-muted border border-white/15 rounded-sm hover:border-white/30 transition-all disabled:opacity-40">
                 <RefreshCw size={13} className={isPending ? 'animate-spin' : ''} /> Actualizar
               </button>
             </div>
 
             {requests.length === 0 ? (
-              <div className="glass-card rounded-2xl border border-white/10 p-12 text-center">
+              <div className="panel rounded-sm border border-white/10 p-12 text-center">
                 <Inbox size={32} className="text-fg-subtle mx-auto mb-3" />
                 <p className="text-sm text-fg-muted">Aún no hay solicitudes.</p>
                 <p className="text-xs text-fg-subtle mt-1">Las solicitudes de /agendar aparecerán aquí.</p>
@@ -266,7 +267,7 @@ export default function AdminPage() {
             ) : (
               <div className="space-y-3">
                 {requests.map((r) => (
-                  <div key={r.id} className="glass-card rounded-2xl border border-white/10 p-5">
+                  <div key={r.id} className="panel rounded-sm border border-white/10 p-5">
                     <div className="flex items-start justify-between gap-4 flex-wrap">
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1 flex-wrap">
@@ -308,7 +309,7 @@ export default function AdminPage() {
                             <option key={e} value={e} className="bg-ink-900 text-fg">{e.replace('_', ' ')}</option>
                           ))}
                         </select>
-                        <button onClick={() => removeRequest(r.id)} className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/15 text-fg-muted hover:border-danger/30 hover:text-danger transition-all">
+                        <button onClick={() => removeRequest(r.id)} className="w-8 h-8 flex items-center justify-center rounded-sm border border-white/15 text-fg-muted hover:border-danger/30 hover:text-danger transition-all">
                           <Trash2 size={13} />
                         </button>
                       </div>
@@ -327,17 +328,17 @@ export default function AdminPage() {
               <p className="text-sm text-fg-subtle">{services.length} servicios · edita precios y detalles, se reflejan en la web</p>
               <button
                 onClick={addService}
-                className="flex items-center gap-2 px-4 py-2.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover transition-colors text-sm min-h-[40px]"
+                className="btn btn-primario"
               >
                 <Plus size={16} strokeWidth={2.5} /> Nuevo servicio
               </button>
             </div>
             <div className="space-y-3">
               {services.map((s, i) => (
-                <div key={s.id || `new-${i}`} className="glass-card rounded-2xl border border-white/10 p-5">
+                <div key={s.id || `new-${i}`} className="panel rounded-sm border border-white/10 p-5">
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-start">
                     <div className="sm:col-span-4">
-                      <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Nombre</label>
+                      <label className="text-[10px] font-semibold text-fg-subtle block mb-1">Nombre</label>
                       {PRECIO_CODIGO.has(s.id) ? (
                         <p className="px-3 py-2 text-sm text-fg" title="Se edita en lib/constants.ts">{PRECIO_CODIGO.get(s.id)!.nombre}</p>
                       ) : (
@@ -345,7 +346,7 @@ export default function AdminPage() {
                       )}
                     </div>
                     <div className="sm:col-span-3">
-                      <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Precio</label>
+                      <label className="text-[10px] font-semibold text-fg-subtle block mb-1">Precio</label>
                       {PRECIO_CODIGO.has(s.id) ? (
                         <p className="px-3 py-2 text-sm text-fg" title="Se edita en lib/constants.ts">{PRECIO_CODIGO.get(s.id)!.precio} <span className="block text-[10px] text-fg-subtle">Fijo en el código</span></p>
                       ) : (
@@ -353,7 +354,7 @@ export default function AdminPage() {
                       )}
                     </div>
                     <div className="sm:col-span-2">
-                      <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Tiempo</label>
+                      <label className="text-[10px] font-semibold text-fg-subtle block mb-1">Tiempo</label>
                       {PRECIO_CODIGO.has(s.id) ? (
                         <p className="px-3 py-2 text-sm text-fg" title="Se edita en lib/constants.ts">{PRECIO_CODIGO.get(s.id)!.tiempo}</p>
                       ) : (
@@ -361,13 +362,13 @@ export default function AdminPage() {
                       )}
                     </div>
                     <div className="sm:col-span-3">
-                      <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Ícono</label>
+                      <label className="text-[10px] font-semibold text-fg-subtle block mb-1">Ícono</label>
                       <select value={s.icono} onChange={(e) => updateService(i, { icono: e.target.value })} className={INPUT}>
                         {ICONOS_SERVICIO.map((ic) => <option key={ic} value={ic}>{ic}</option>)}
                       </select>
                     </div>
                     <div className="sm:col-span-12">
-                      <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1">Descripción</label>
+                      <label className="text-[10px] font-semibold text-fg-subtle block mb-1">Descripción</label>
                       {PRECIO_CODIGO.has(s.id) ? (
                         <p className="px-3 py-2 text-sm text-fg-muted" title="Se edita en lib/constants.ts">{PRECIO_CODIGO.get(s.id)!.descripcion}</p>
                       ) : (
@@ -391,11 +392,11 @@ export default function AdminPage() {
                       <button
                         onClick={() => saveService(i)}
                         disabled={isPending || !s.nombre.trim()}
-                        className="flex items-center gap-2 px-4 py-2 bg-brand text-white text-sm font-bold rounded-lg hover:bg-brand-hover transition-colors disabled:opacity-40 min-h-[38px]"
+                        className="btn btn-primario"
                       >
                         <Save size={14} /> Guardar
                       </button>
-                      <button onClick={() => removeService(i)} className="w-9 h-9 flex items-center justify-center rounded-lg border border-white/15 text-fg-muted hover:border-danger/30 hover:text-danger transition-all">
+                      <button onClick={() => removeService(i)} className="w-9 h-9 flex items-center justify-center rounded-sm border border-white/15 text-fg-muted hover:border-danger/30 hover:text-danger transition-all">
                         <Trash2 size={14} />
                       </button>
                     </div>
@@ -415,16 +416,16 @@ export default function AdminPage() {
             <div className="flex justify-end mb-4">
               <button
                 onClick={() => setEditing({ ...EMPTY_BUILD })}
-                className="flex items-center gap-2 px-4 py-2.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover transition-colors text-sm min-h-[40px]"
+                className="btn btn-primario"
               >
                 <Plus size={16} strokeWidth={2.5} /> Nuevo build
               </button>
             </div>
             <div className="grid grid-cols-1 gap-4">
               {builds.map((build) => (
-                <div key={build.id} className="glass-card rounded-2xl border border-white/10 p-5 flex items-center gap-5">
-                  <div className="w-10 h-10 rounded-xl bg-gamer/10 border border-gamer/20 flex items-center justify-center shrink-0">
-                    <span className="text-xs font-black text-gamer-bright">{build.nombre.slice(0, 2)}</span>
+                <div key={build.id} className="panel rounded-sm border border-white/10 p-5 flex items-center gap-5">
+                  <div className="w-10 h-10 rounded-sm bg-brand-bright/10 border border-brand-bright/20 flex items-center justify-center shrink-0">
+                    <span className="text-xs font-black text-brand-bright">{build.nombre.slice(0, 2)}</span>
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-0.5">
@@ -433,7 +434,7 @@ export default function AdminPage() {
                         {build.disponible ? 'Disponible' : 'Bajo pedido'}
                       </span>
                       {build.youtubeId && (
-                        <span className="flex items-center gap-1 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded-full border bg-danger/10 text-danger border-danger/20">
+                        <span className="flex items-center gap-1 px-2 py-0.5 text-[9px] font-bold rounded-full border bg-danger/10 text-danger border-danger/20">
                           <Video size={8} /> Video
                         </span>
                       )}
@@ -445,10 +446,10 @@ export default function AdminPage() {
                     <div className="text-[10px] text-fg-subtle">{build.tag}</div>
                   </div>
                   <div className="flex gap-2 shrink-0">
-                    <button onClick={() => setEditing({ ...build })} className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/15 text-fg-muted hover:border-brand-bright/30 hover:text-brand-bright transition-all">
+                    <button onClick={() => setEditing({ ...build })} className="w-8 h-8 flex items-center justify-center rounded-sm border border-white/15 text-fg-muted hover:border-brand-bright/30 hover:text-brand-bright transition-all">
                       <Pencil size={13} />
                     </button>
-                    <button onClick={() => handleDelete(build.id)} className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/15 text-fg-muted hover:border-danger/30 hover:text-danger transition-all">
+                    <button onClick={() => handleDelete(build.id)} className="w-8 h-8 flex items-center justify-center rounded-sm border border-white/15 text-fg-muted hover:border-danger/30 hover:text-danger transition-all">
                       <Trash2 size={13} />
                     </button>
                   </div>
@@ -464,11 +465,11 @@ export default function AdminPage() {
 
       {/* Edit modal (builds) */}
       {editing && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-start justify-center p-4 overflow-y-auto">
-          <div className="bg-ink-900 border border-white/15 rounded-2xl w-full max-w-2xl my-8">
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-start justify-center p-4 overflow-y-auto">
+          <div className="bg-ink-900 border border-white/15 rounded-sm w-full max-w-2xl my-8">
             <div className="flex items-center justify-between p-6 border-b border-white/10">
               <h2 className="text-lg font-bold text-fg">{editing.id ? 'Editar build' : 'Nuevo build'}</h2>
-              <button onClick={() => setEditing(null)} className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/15 text-fg-muted hover:border-white/30 transition-all">
+              <button onClick={() => setEditing(null)} className="w-8 h-8 flex items-center justify-center rounded-sm border border-white/15 text-fg-muted hover:border-white/30 transition-all">
                 <X size={15} />
               </button>
             </div>
@@ -506,7 +507,7 @@ export default function AdminPage() {
                 </label>
               </div>
               <div>
-                <div className="text-xs font-bold text-fg-subtle uppercase tracking-wider mb-3">Especificaciones</div>
+                <div className="text-xs font-bold text-fg-subtle mb-3">Especificaciones</div>
                 <div className="grid grid-cols-2 gap-3">
                   {(['cpu', 'gpu', 'ram', 'storage', 'motherboard', 'psu', 'cooling', 'case'] as const).map((key) => (
                     <Field key={key} label={key.charAt(0).toUpperCase() + key.slice(1)}>
@@ -516,7 +517,7 @@ export default function AdminPage() {
                 </div>
               </div>
               <div>
-                <div className="text-xs font-bold text-fg-subtle uppercase tracking-wider mb-3">FPS Estimados (opcional)</div>
+                <div className="text-xs font-bold text-fg-subtle mb-3">FPS Estimados (opcional)</div>
                 <div className="grid grid-cols-2 gap-3">
                   {(['fortnite', 'warzone', 'valorant', 'cyberpunk', 'gta5'] as const).map((key) => (
                     <Field key={key} label={key.charAt(0).toUpperCase() + key.slice(1)}>
@@ -538,11 +539,11 @@ export default function AdminPage() {
               </Field>
             </div>
             <div className="flex gap-3 p-6 border-t border-white/10">
-              <button onClick={handleSave} disabled={isPending || !editing.nombre || !editing.precio} className="flex-1 flex items-center justify-center gap-2 py-3 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover transition-colors disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]">
+              <button onClick={handleSave} disabled={isPending || !editing.nombre || !editing.precio} className="btn btn-primario flex-1">
                 <Save size={15} />
                 {isPending ? 'Guardando...' : 'Guardar build'}
               </button>
-              <button onClick={() => setEditing(null)} className="px-6 py-3 border border-white/15 text-fg-muted font-medium rounded-xl hover:border-white/30 transition-all min-h-[44px]">
+              <button onClick={() => setEditing(null)} className="px-6 py-3 border border-white/15 text-fg-muted font-medium rounded-sm hover:border-white/30 transition-all min-h-[44px]">
                 Cancelar
               </button>
             </div>
@@ -558,7 +559,7 @@ const INPUT = 'w-full bg-white/5 border border-white/15 rounded-xl px-3 py-2.5 t
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <label className="text-[10px] font-semibold text-fg-subtle uppercase tracking-wider block mb-1.5">{label}</label>
+      <label className="text-[10px] font-semibold text-fg-subtle block mb-1.5">{label}</label>
       {children}
     </div>
   )

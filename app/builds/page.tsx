@@ -1,21 +1,20 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
-import { BLUR_DARK } from '@/lib/imageBlur'
-import { ArrowRight, Cpu, MonitorPlay, MemoryStick, HardDrive, CircuitBoard, Zap, Wind, Box, CheckCircle2, XCircle, Gamepad2 } from 'lucide-react'
+import { ArrowRight, Cpu, MonitorPlay, MemoryStick, HardDrive, CircuitBoard, Zap, Wind, Box, CheckCircle2, XCircle } from 'lucide-react'
 import { getBuilds } from '@/lib/builds'
 import { YoutubeEmbed } from '@/components/builds/YoutubeEmbed'
 import { WA } from '@/lib/whatsapp'
-import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
+import { ogPagina } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'PC Gamer a Pedido',
   description: 'Builds de PC Gamer armados por TECKWARE en La Serena. Ryzen, Intel, RTX, RX — specs completas, rendimiento estimado y precios en pesos chilenos.',
   alternates: { canonical: '/builds' },
+  openGraph: ogPagina('/builds'),
 }
 
 const TAG_STYLES: Record<string, string> = {
   cyan:   'bg-brand/15 text-brand-bright border-brand-bright/30',
-  purple: 'bg-gamer/15 text-gamer-bright border-gamer/30',
+  purple: 'bg-brand/15 text-brand-bright border-brand-bright/30',
   green:  'bg-success/15 text-success border-success/30',
   orange: 'bg-warning/15 text-warning border-warning/30',
 }
@@ -63,33 +62,11 @@ export default async function BuildsPage() {
     <div className="min-h-screen bg-ink-900">
 
       {/* Header */}
-      <section className="relative bg-ink-950 pt-44 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Background image — RGB Corsair build interior */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/revendo-TN0dhAnylPI-unsplash.jpg"
-            alt="PC Gamer GIGABYTE Z790 con RTX y RAM XPG RGB — TECKWARE Builds"
-            fill
-            className="object-cover object-center opacity-22"
-            priority
-            quality={60}
-            sizes="100vw"
-            placeholder="blur"
-            blurDataURL={BLUR_DARK}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink-950/60 via-ink-950/50 to-ink-950" />
-        </div>
-        <CircuitBackground variant="hex-mesh" palette="gamer" density={1} opacity={0.7} />
-        <div className="glow-gamer w-96 h-96 -top-32 right-0 opacity-25" />
-        <div className="glow-brand w-64 h-64 bottom-0 left-0 opacity-15" />
-        <div className="relative max-w-7xl mx-auto">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full border border-gamer/25 bg-gamer/8 text-gamer-bright text-xs font-semibold tracking-widest uppercase">
-            <Gamepad2 size={12} />
-            PC Gamer a Pedido
-          </span>
-          <h1 className="text-fg mb-4 max-w-2xl">
+      <section className="relative bg-ink-950 pt-32 pb-14 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="max-w-[76rem] mx-auto">
+          <h1 className="mb-4 max-w-2xl">
             Builds armados con{' '}
-            <span className="gradient-text">criterio y precisión.</span>
+            criterio y precisión.
           </h1>
           <p className="text-fg-muted text-lg max-w-2xl leading-relaxed mb-8">
             Cada PC Gamer pasa por pruebas de estrés, cable management profesional
@@ -98,7 +75,7 @@ export default async function BuildsPage() {
           <div className="flex flex-wrap gap-3">
             {['Cable management incluido', 'Pruebas de estrés','Pasta térmica premium', 'Garantía 30 días'].map((item) => (
               <span key={item} className="flex items-center gap-1.5 text-xs text-fg-muted border border-white/10 px-3 py-1.5 rounded-full bg-white/3">
-                <CheckCircle2 size={12} className="text-gamer-bright" />
+                <CheckCircle2 size={12} className="text-brand-bright" />
                 {item}
               </span>
             ))}
@@ -113,7 +90,7 @@ export default async function BuildsPage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {builds.map((build) => (
-              <article key={build.id} className="glass-card rounded-2xl border border-white/10 overflow-hidden flex flex-col">
+              <article key={build.id} className="panel rounded-sm border border-white/10 overflow-hidden flex flex-col">
 
                 {/* YouTube / Benchmark */}
                 <YoutubeEmbed videoId={build.youtubeId} title={build.nombre} />
@@ -123,12 +100,12 @@ export default async function BuildsPage() {
                   <div className="mb-5">
                     <div>
                       <div className="flex items-center gap-2 mb-2 flex-wrap">
-                        <span className={`px-2.5 py-0.5 text-xs font-bold tracking-widest uppercase rounded-full border ${TAG_STYLES[build.tagColor] ?? TAG_STYLES.cyan}`}>
+                        <span className={`px-2.5 py-0.5 text-xs font-bold rounded-full border ${TAG_STYLES[build.tagColor] ?? TAG_STYLES.cyan}`}>
                           {build.tag}
                         </span>
                         {build.disponible ? (
                           <span className="flex items-center gap-1 text-xs font-semibold text-success">
-                            <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-success" />
                             Disponible
                           </span>
                         ) : (
@@ -149,7 +126,7 @@ export default async function BuildsPage() {
 
                   {/* Specs */}
                   <div className="mb-5">
-                    <div className="text-xs font-bold text-fg-subtle tracking-widest uppercase mb-3">Especificaciones completas</div>
+                    <div className="text-xs font-bold text-fg-subtle mb-3">Especificaciones completas</div>
                     <div className="grid grid-cols-1 gap-0">
                       {(Object.keys(SPEC_ICONS) as Array<keyof typeof SPEC_ICONS>).map((key) => {
                         const Icon = SPEC_ICONS[key]
@@ -157,7 +134,7 @@ export default async function BuildsPage() {
                         if (!value) return null
                         return (
                           <div key={key} className="flex items-center gap-3 py-2.5 border-b border-white/5 last:border-0">
-                            <div className="w-7 h-7 shrink-0 flex items-center justify-center rounded-lg bg-white/5">
+                            <div className="w-7 h-7 shrink-0 flex items-center justify-center rounded-sm bg-white/5">
                               <Icon size={13} className="text-brand-bright" />
                             </div>
                             <span className="text-xs text-fg-subtle w-24 shrink-0">{SPEC_LABELS[key]}</span>
@@ -171,7 +148,7 @@ export default async function BuildsPage() {
                   {/* FPS */}
                   {Object.values(build.fps).some(Boolean) && (
                     <div className="mb-6">
-                      <div className="text-xs font-bold text-fg-subtle tracking-widest uppercase mb-3">
+                      <div className="text-xs font-bold text-fg-subtle mb-3">
                         Rendimiento estimado — 1080p High/Ultra
                       </div>
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -179,7 +156,7 @@ export default async function BuildsPage() {
                           const fps = build.fps[key as keyof typeof build.fps]
                           if (!fps) return null
                           return (
-                            <div key={key} className="bg-white/[0.03] border border-white/8 rounded-xl px-3 py-2.5">
+                            <div key={key} className="bg-white/[0.03] border border-white/8 rounded-sm px-3 py-2.5">
                               <div className="text-xs text-fg-subtle mb-0.5">{label}</div>
                               <div className="text-sm font-black text-brand-bright tabular-nums">{fps}</div>
                             </div>
@@ -196,7 +173,7 @@ export default async function BuildsPage() {
                       href={WA.build(build.nombre)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 py-3 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover transition-colors min-h-[48px]"
+                      className="btn btn-primario flex-1"
                     >
                       {build.disponible ? 'Consultar' : 'Hacer pedido'}
                       <ArrowRight size={15} strokeWidth={2.5} />
@@ -205,7 +182,7 @@ export default async function BuildsPage() {
                       href={WA.general()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-3 border border-white/15 text-fg-muted font-medium rounded-xl hover:border-white/30 hover:text-fg transition-all min-h-[48px] flex items-center text-sm"
+                      className="btn btn-secundario"
                     >
                       Personalizar
                     </a>
@@ -228,7 +205,7 @@ export default async function BuildsPage() {
             href={WA.servicio('Build PC Gamer personalizado')}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover transition-colors text-lg min-h-[56px]"
+            className="btn btn-primario"
           >
             Cotizar build personalizado
             <ArrowRight size={18} strokeWidth={2.5} />

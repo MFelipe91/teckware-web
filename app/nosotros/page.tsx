@@ -1,168 +1,104 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Shield, MapPin, Calendar, Building2 } from 'lucide-react'
 import { EMPRESA } from '@/lib/constants'
-import { BLUR_DARK } from '@/lib/imageBlur'
-import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
-import { CtaPair } from '@/components/shared/CtaPair'
+import { FOTOS } from '@/lib/fotos'
+import { BandaCta } from '@/components/shared/BandaCta'
+import { PageHeader } from '@/components/shared/PageHeader'
+import { ogPagina } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Nosotros',
   description:
-    'Conoce a TECKWARE SpA — empresa de servicio técnico informático fundada en La Serena por Mario Felipe Busques Araya, Ingeniero Informático con certificaciones en ciberseguridad.',
+    'TECKWARE SpA es un servicio técnico informático de La Serena, fundado por Mario Felipe Busques Araya, Ingeniero Informático con certificaciones en ciberseguridad.',
   alternates: { canonical: '/nosotros' },
+  openGraph: ogPagina('/nosotros'),
 }
+
+const DATOS = [
+  { label: 'Razón social', value: EMPRESA.nombre },
+  { label: 'RUT', value: EMPRESA.rut },
+  { label: 'Fundación', value: EMPRESA.fundacion },
+  { label: 'Zona de atención', value: EMPRESA.direccion },
+]
+
+const VALORES = [
+  {
+    titulo: 'Honestidad',
+    descripcion: 'Si tu equipo no tiene solución o el costo no vale la pena, te lo decimos. Preferimos perder un cobro que perder tu confianza.',
+  },
+  {
+    titulo: 'Seguridad primero',
+    descripcion: 'Formación en ciberseguridad aplicada a cada trabajo: tus datos están protegidos y nunca accedemos a tu información sin autorización.',
+  },
+  {
+    titulo: 'Trabajo documentado',
+    descripcion: 'Herramientas profesionales y documentación por escrito. El mismo estándar siempre, sin importar el equipo.',
+  },
+]
 
 export default function NosotrosPage() {
   return (
     <div className="min-h-screen bg-ink-900">
-      {/* Header con imagen */}
-      <section className="relative bg-ink-950 pt-48 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Foto de fondo — water cooling azul (ambiente técnico) */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/casper-johansson-KDIHqGWlvOc-unsplash.jpg"
-            alt=""
-            fill
-            className="object-cover object-center opacity-12"
-            priority
-            quality={55}
-            sizes="100vw"
-            placeholder="blur"
-            blurDataURL={BLUR_DARK}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink-950/70 via-ink-950/50 to-ink-950" />
+      <PageHeader
+        titulo="Quiénes somos"
+        bajada="Un servicio técnico de La Serena donde te atiende la misma persona que trabaja en tu equipo."
+      />
+
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+        <div>
+          <h2 className="text-fg mb-6">La historia</h2>
+          <div className="space-y-4 max-w-2xl">
+            <p className="text-fg-muted leading-relaxed">
+              TECKWARE SpA nació en abril de 2026 en La Serena, Región de Coquimbo,
+              fundada por {EMPRESA.responsable}, {EMPRESA.tituloProfesional}.
+            </p>
+            <p className="text-fg-muted leading-relaxed">
+              La idea surgió de una realidad concreta: en La Serena existía una brecha entre
+              los talleres informales sin garantía y las tiendas de retail que cobran caro
+              por trabajos básicos. TECKWARE llena ese espacio con precios claros y atención directa.
+            </p>
+            <p className="text-fg-muted leading-relaxed">
+              Cada reparación la hace el mismo técnico que toma el teléfono. Sin intermediarios ni subcontratos.
+            </p>
+          </div>
         </div>
-        <CircuitBackground variant="constellation" palette="brand" density={1} opacity={0.6} />
-        <div className="glow-brand w-80 h-80 -top-20 -right-10 opacity-25" />
-        <div className="glow-silver w-64 h-64 bottom-0 left-10 opacity-20" />
-        {/* Top accent line */}
-        <div className="absolute top-0 left-0 right-0 h-[2px]"
-          style={{ background: 'var(--gradient-signature)' }}
-        />
-        <div className="relative max-w-7xl mx-auto text-center">
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-[0.2em] uppercase text-brand-bright border border-brand-bright/20 rounded-full bg-brand/6">
-            Nosotros
-          </span>
-          <h1 className="text-fg mb-4">
-            Tecnología con{' '}
-            <span className="gradient-text">propósito</span>
-          </h1>
-          <p className="text-fg-muted max-w-xl mx-auto">
-            Una empresa fundada con la convicción de que el servicio técnico puede ser honesto, rápido y accesible.
-          </p>
+
+        <div>
+          {FOTOS.duenio && (
+            <div className="panel-corte relative h-80 mb-8 overflow-hidden">
+              <Image src={FOTOS.duenio.src} alt={FOTOS.duenio.alt} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+            </div>
+          )}
+          <h2 className="text-fg text-3xl mb-5">Información legal</h2>
+          <dl className="border-t border-white/10">
+            {DATOS.map(({ label, value }) => (
+              <div key={label} className="py-3 border-b border-white/10 grid gap-1 sm:grid-cols-[150px_minmax(0,1fr)]">
+                <dt className="text-sm text-fg-subtle">{label}</dt>
+                <dd className="text-fg">{value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-16">
-        {/* Historia + foto lateral */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <h2 className="text-fg mb-6">La historia</h2>
-            <div className="space-y-4">
-              <p className="text-fg-muted leading-relaxed">
-                TECKWARE SpA nació en abril de 2026 en La Serena, Región de Coquimbo,
-                fundada por {EMPRESA.responsable}, {EMPRESA.tituloProfesional}.
-              </p>
-              <p className="text-fg-muted leading-relaxed">
-                La idea surgió de una realidad concreta: en La Serena existía una brecha entre
-                los talleres informales sin garantía y las tiendas de retail que cobran caro
-                por trabajos básicos. TECKWARE llena ese espacio con profesionalismo real,
-                precios justos y atención directa.
-              </p>
-              <p className="text-fg-muted leading-relaxed">
-                Cada reparación la hace el mismo técnico que toma el teléfono. Sin intermediarios,
-                sin subcontratos, sin excusas.
-              </p>
-            </div>
-          </div>
-          {/* Foto — técnico ensamblando PC */}
-          <div className="relative h-72 lg:h-96 rounded-xl overflow-hidden border border-white/8">
-            <Image
-              src="/images/patty-zavala-e1MjwVoOdH8-unsplash.jpg"
-              alt="PC gamer en ensamblaje con refrigeración líquida"
-              fill
-              className="object-cover object-center"
-              quality={78}
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              placeholder="blur"
-              blurDataURL={BLUR_DARK}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink-950/60 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-4">
-              <span className="text-xs font-bold tracking-widest uppercase text-brand-bright">
-                Ensamblaje profesional
-              </span>
-            </div>
-          </div>
-        </section>
-
-        {/* Datos de la empresa */}
-        <section>
-          <h2 className="text-fg mb-8">Información legal</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              { icon: Building2, label: 'Razón social', value: EMPRESA.nombre },
-              { icon: Shield, label: 'RUT', value: EMPRESA.rut },
-              { icon: Calendar, label: 'Fundación', value: EMPRESA.fundacion },
-              { icon: MapPin, label: 'Zona de atención', value: EMPRESA.direccion },
-            ].map(({ icon: Icon, label, value }) => (
-              <div
-                key={label}
-                className="flex items-start gap-4 p-5 rounded-xl bg-white/[0.03] border border-white/8 hover:border-brand-bright/20 transition-colors"
-              >
-                <div className="w-9 h-9 shrink-0 flex items-center justify-center rounded-xl bg-brand/8 border border-brand-bright/18">
-                  <Icon size={16} className="text-brand-bright" />
-                </div>
-                <div>
-                  <div className="text-xs text-fg-subtle mb-0.5">{label}</div>
-                  <div className="text-sm font-medium text-fg">{value}</div>
-                </div>
-              </div>
+      <section className="bg-ink-800 px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <div className="max-w-[76rem] mx-auto grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
+          <h2 className="text-fg">Cómo trabajamos</h2>
+          <ul className="border-t border-white/10">
+            {VALORES.map((v) => (
+              <li key={v.titulo} className="py-5 border-b border-white/10">
+                <h3 className="text-fg">{v.titulo}</h3>
+                <p className="mt-1.5 text-fg-muted leading-relaxed max-w-2xl">{v.descripcion}</p>
+              </li>
             ))}
-          </div>
-        </section>
+          </ul>
+        </div>
+      </section>
 
-        {/* Valores */}
-        <section>
-          <h2 className="text-fg mb-8">Nuestros valores</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
-              {
-                titulo: 'Honestidad radical',
-                descripcion:
-                  'Si tu equipo no tiene solución o el costo no vale la pena, te lo decimos. Preferimos perder un cobro que perder tu confianza.',
-              },
-              {
-                titulo: 'Seguridad primero',
-                descripcion:
-                  'Formación en ciberseguridad aplicada a cada trabajo: tus datos están protegidos y nunca accedemos a tu información sin autorización.',
-              },
-              {
-                titulo: 'Excelencia técnica',
-                descripcion:
-                  'Herramientas profesionales, repuestos de calidad, documentación por escrito. El mismo estándar siempre, sin importar el equipo.',
-              },
-            ].map((v) => (
-              <div
-                key={v.titulo}
-                className="p-6 rounded-xl border border-white/8 bg-white/[0.02] hover:border-brand-bright/20 transition-colors"
-              >
-                <div className="w-1 h-5 rounded-full bg-brand mb-4" />
-                <h3 className="text-base font-bold text-fg mb-2">{v.titulo}</h3>
-                <p className="text-sm text-fg-muted leading-relaxed">{v.descripcion}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="text-center pt-4">
-          <h2 className="text-fg mb-4">¿Tienes un equipo con problemas?</h2>
-          <p className="text-fg-muted mb-8">Escríbenos por WhatsApp. Te respondemos en horario hábil, Lun–Vie 10:00–18:30.</p>
-          <CtaPair />
-        </section>
-      </div>
+      <BandaCta
+        titulo="¿Tienes un equipo con problemas?"
+        texto={`Escríbenos por WhatsApp. Te respondemos en horario hábil: ${EMPRESA.horario}.`}
+      />
     </div>
   )
 }

@@ -113,7 +113,7 @@ async function recorrer(browser: Browser, base: string, rutas: string[], vista: 
           return i.decode().catch(() => {})
         }),
       )
-      window.scrollTo(0, 0)
+      window.scrollTo({ top: 0, behavior: 'instant' })
     })
     await page.waitForLoadState('networkidle', { timeout: 8_000 }).catch(() => {})
     await Promise.all(lecturas)

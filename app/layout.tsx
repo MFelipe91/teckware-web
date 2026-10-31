@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Sora } from 'next/font/google'
+import { IBM_Plex_Sans, Saira } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
@@ -13,18 +13,18 @@ import { SITE_URL } from '@/lib/site'
 // Con verificación por DNS (propiedad de Dominio, vía Cloudflare) no hace falta.
 const GOOGLE_VERIFICATION = process.env.GOOGLE_SITE_VERIFICATION
 
-const inter = Inter({
+const plex = IBM_Plex_Sans({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-plex',
 })
 
-// Titulares: geométrica y técnica, combina con el wordmark del logo.
-const sora = Sora({
+// Titulares, botones y precios: técnica y levemente condensada, combina con el logo.
+const saira = Saira({
   subsets: ['latin'],
-  weight: ['600', '700'],
+  axes: ['wdth'],
   display: 'swap',
-  variable: '--font-sora',
+  variable: '--font-saira',
 })
 
 export const metadata: Metadata = {
@@ -113,7 +113,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es-CL" className={`${inter.variable} ${sora.variable}`}>
+    <html lang="es-CL" className={`${plex.variable} ${saira.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -121,11 +121,14 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen antialiased">
+        <a href="#contenido" className="saltar">Saltar al contenido</a>
         <Navbar />
-        <main>{children}</main>
+        <main id="contenido" tabIndex={-1}>{children}</main>
         <Footer />
-        <WhatsAppFloat />
-        <ChatWidget />
+        <aside aria-label="Contacto rápido">
+          <WhatsAppFloat />
+          <ChatWidget />
+        </aside>
         <Analytics />
       </body>
     </html>

@@ -1,81 +1,64 @@
+import Link from 'next/link'
 import Image from 'next/image'
-import { ShieldCheck, Receipt, MapPin, Timer, Clock } from 'lucide-react'
-import { EMPRESA, PLAZO } from '@/lib/constants'
+import { EMPRESA, PLAZO, precioServicio } from '@/lib/constants'
+import { FOTOS } from '@/lib/fotos'
 import { CtaPair } from '@/components/shared/CtaPair'
 
-// Server Component: el texto llega visible en el HTML (sin opacity: 0 inicial) para que
-// el H1 sea el LCP. Solo las decoraciones tienen animación, y respetan reduced-motion.
+// Server Component: el texto llega visible en el HTML, así el H1 es el LCP.
 
-const SELLOS = [
-  { icon: ShieldCheck, label: 'Garantía 30 días' },
-  { icon: Receipt, label: 'Boleta · TECKWARE SpA' },
-  { icon: MapPin, label: 'Taller en La Serena' },
-  { icon: Timer, label: `Entrega en ${PLAZO}` },
-  { icon: Clock, label: EMPRESA.horario },
+const PRECIOS = [
+  { nombre: 'Mantención Full', detalle: 'Test, limpieza, pasta Thermal Grizzly, BIOS, Windows limpio y test final', precio: precioServicio('mantencion-full') },
+  { nombre: 'Mantención Lógica', detalle: 'Formateo, instalación limpia y optimización', precio: precioServicio('mantencion-logica') },
+  { nombre: 'Diagnóstico', detalle: 'Se descuenta del total si decides reparar', precio: precioServicio('diagnostico') },
 ]
+
+const SELLOS = [`Entrega en ${PLAZO}`, 'Informe técnico', 'Garantía de 30 días', 'Con boleta', 'Pagas al retirar', EMPRESA.horario]
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-ink-950" aria-label="Inicio">
-      {/* Fondo: grilla técnica sutil y halos azul/plata */}
-      <div className="absolute inset-0 bg-grid opacity-40" aria-hidden="true" />
-      <div className="glow-brand w-[720px] h-[520px] -top-56 right-[-10%] opacity-70" aria-hidden="true" />
-      <div className="glow-silver w-[520px] h-[520px] -bottom-64 -left-40 opacity-60" aria-hidden="true" />
-      <div className="absolute top-0 inset-x-0 signature-line opacity-70" aria-hidden="true" />
+    <section className="bg-ink-950 px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-14 lg:pb-20" aria-label="Inicio">
+      <div className="max-w-[76rem] mx-auto">
+        <h1 className="max-w-[20ch]">Mantención y servicio técnico de computadores en La Serena y Coquimbo</h1>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 sm:pt-32 lg:pt-36 lg:pb-24">
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_380px] xl:grid-cols-[minmax(0,1fr)_440px]">
-          <div className="max-w-2xl">
-            <p className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-brand-bright/25 bg-brand/10 text-xs font-semibold tracking-wide text-brand-bright">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-bright" aria-hidden="true" />
-              Mantención preventiva · PC gamer, notebooks, consolas y empresas
-            </p>
-
-            <h1 className="text-fg text-balance text-[clamp(32px,4.6vw,58px)]">
-              Mantención y servicio técnico de computadores en{' '}
-              <span className="gradient-text sm:whitespace-nowrap">La Serena y Coquimbo</span>
-            </h1>
-
-            <p className="mt-5 font-display text-lg sm:text-xl font-semibold text-silver">
+        <div className="mt-10 lg:mt-12 pt-8 border-t border-white/10 grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
+          <div>
+            <p className="font-display text-xl sm:text-[1.375rem] leading-snug font-semibold text-fg">
               Reparamos tu hardware. Construimos tu software. Somos TECKWARE.
             </p>
-
-            <p className="mt-5 text-base sm:text-lg leading-relaxed text-fg-muted max-w-xl">
-              Cuidamos tu equipo como si fuera nuestro: te explicamos qué tiene, cuánto cuesta y
-              cómo evitar que vuelva a fallar. Para personas, gamers y pymes de La Serena y
-              Coquimbo, con hora coordinada por WhatsApp.
+            <p className="mt-3 mb-7 max-w-xl leading-relaxed text-fg-muted">
+              Te explicamos qué tiene tu equipo, cuánto cuesta y cómo evitar que vuelva a fallar.
+              Taller en La Serena, con hora coordinada por WhatsApp.
             </p>
+            <CtaPair>
+              <Link href="/servicios" className="btn btn-terciario self-start sm:self-auto">Ver precios</Link>
+            </CtaPair>
+          </div>
 
-            <div className="mt-8">
-              <CtaPair align="start" />
-            </div>
-
-            <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-fg-muted">
-              {SELLOS.map(({ icon: Icon, label }) => (
-                <li key={label} className="flex items-center gap-2">
-                  <Icon size={15} className="text-brand-bright shrink-0" aria-hidden="true" />
-                  {label}
+          <div>
+            <ul>
+              {PRECIOS.map((p) => (
+                <li key={p.nombre} className="grid grid-cols-[14px_minmax(0,1fr)_auto] gap-x-3 items-baseline py-3.5 border-b border-white/10">
+                  <span className="hex" aria-hidden="true" />
+                  <span>
+                    <span className="block font-display text-[1.0625rem] font-semibold text-fg">{p.nombre}</span>
+                    <span className="block text-sm text-fg-muted">{p.detalle}</span>
+                  </span>
+                  <span className="price text-xl text-fg">{p.precio}</span>
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Emblema de la marca (decorativo; se reemplaza por una foto real cuando exista) */}
-          <div className="relative hidden lg:flex items-center justify-center" aria-hidden="true">
-            <div className="absolute inset-[12%] rounded-full bg-brand/25 blur-[80px]" />
-            <Image
-              src="/brand/emblem.webp"
-              alt=""
-              width={560}
-              height={467}
-              sizes="(min-width: 1280px) 440px, 380px"
-              className="relative w-full h-auto motion-safe:animate-[hero-float_8s_ease-in-out_infinite]"
-            />
+            <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-fg-muted">
+              {SELLOS.map((s) => <li key={s}>{s}</li>)}
+            </ul>
           </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-ink-900 to-transparent pointer-events-none" aria-hidden="true" />
+        {FOTOS.mesaTrabajo && (
+          <div className="panel-corte relative mt-12 h-56 sm:h-80 overflow-hidden">
+            <Image src={FOTOS.mesaTrabajo.src} alt={FOTOS.mesaTrabajo.alt} fill sizes="(min-width: 1280px) 1216px, 100vw" className="object-cover" />
+          </div>
+        )}
+      </div>
     </section>
   )
 }

@@ -2,11 +2,10 @@
 
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { ArrowRight, ChevronDown, Send } from 'lucide-react'
+import { ChevronDown, MessageCircle } from 'lucide-react'
 import { contactSchema, type ContactForm, sanitize } from '@/lib/security'
 import { precioServicio } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
-import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 const EQUIPOS: { value: ContactForm['tipoEquipo']; label: string }[] = [
   { value: 'notebook', label: 'Notebook' },
@@ -59,28 +58,22 @@ export default function SolicitarPage() {
   return (
     <div className="min-h-screen bg-ink-900">
       {/* Header */}
-      <section className="relative bg-ink-950 pt-44 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <CircuitBackground variant="circuit" palette="brand" density={0.8} opacity={0.45} />
-        <div className="glow-brand w-72 h-72 -top-16 right-0 opacity-30" />
-        <div className="relative max-w-7xl mx-auto text-center">
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-widest uppercase text-brand-bright border border-brand-bright/25 rounded-full bg-brand/8">
-            Solicitar servicio
-          </span>
-          <h1 className="text-fg mb-4">
-            Cuéntanos{' '}
-            <span className="gradient-text">qué necesitas</span>
+      <section className="relative bg-ink-950 pt-32 pb-14 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="max-w-[76rem] mx-auto">
+          <h1 className="mb-4">
+            Cuéntanos qué necesitas
           </h1>
-          <p className="text-fg-muted max-w-lg mx-auto">
+          <p className="text-fg-muted max-w-lg">
             Completa el formulario y te generamos un mensaje de WhatsApp listo para enviarnos.
           </p>
         </div>
       </section>
 
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <form
           onSubmit={handleSubmit(onSubmit)}
           noValidate
-          className="space-y-5"
+          className="space-y-5 max-w-2xl"
         >
           {/* Nombre */}
           <div>
@@ -92,11 +85,13 @@ export default function SolicitarPage() {
               type="text"
               autoComplete="name"
               {...register('nombre')}
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-fg placeholder-fg-subtle text-[16px] focus:outline-none focus:border-brand-bright/50 focus:ring-1 focus:ring-brand-bright/30 transition-colors"
+              aria-invalid={!!errors.nombre}
+              aria-describedby={errors.nombre ? 'nombre-error' : undefined}
+              className="w-full px-4 py-3 rounded-sm bg-white/5 border border-white/10 text-fg placeholder-fg-subtle text-[16px] focus:outline-none focus:border-brand-bright/50 focus:ring-1 focus:ring-brand-bright/30 transition-colors"
               placeholder="Mario González"
             />
             {errors.nombre && (
-              <p className="mt-1.5 text-xs text-danger">{errors.nombre.message}</p>
+              <p id="nombre-error" role="alert" className="mt-1.5 text-sm text-danger">{errors.nombre.message}</p>
             )}
           </div>
 
@@ -110,11 +105,13 @@ export default function SolicitarPage() {
               type="tel"
               autoComplete="tel"
               {...register('telefono')}
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-fg placeholder-fg-subtle text-[16px] focus:outline-none focus:border-brand-bright/50 focus:ring-1 focus:ring-brand-bright/30 transition-colors"
+              aria-invalid={!!errors.telefono}
+              aria-describedby={errors.telefono ? 'telefono-error' : undefined}
+              className="w-full px-4 py-3 rounded-sm bg-white/5 border border-white/10 text-fg placeholder-fg-subtle text-[16px] focus:outline-none focus:border-brand-bright/50 focus:ring-1 focus:ring-brand-bright/30 transition-colors"
               placeholder="+56 9 1234 5678"
             />
             {errors.telefono && (
-              <p className="mt-1.5 text-xs text-danger">{errors.telefono.message}</p>
+              <p id="telefono-error" role="alert" className="mt-1.5 text-sm text-danger">{errors.telefono.message}</p>
             )}
           </div>
 
@@ -128,11 +125,13 @@ export default function SolicitarPage() {
               type="email"
               autoComplete="email"
               {...register('email')}
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-fg placeholder-fg-subtle text-[16px] focus:outline-none focus:border-brand-bright/50 focus:ring-1 focus:ring-brand-bright/30 transition-colors"
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? 'email-error' : undefined}
+              className="w-full px-4 py-3 rounded-sm bg-white/5 border border-white/10 text-fg placeholder-fg-subtle text-[16px] focus:outline-none focus:border-brand-bright/50 focus:ring-1 focus:ring-brand-bright/30 transition-colors"
               placeholder="mario@email.com"
             />
             {errors.email && (
-              <p className="mt-1.5 text-xs text-danger">{errors.email.message}</p>
+              <p id="email-error" role="alert" className="mt-1.5 text-sm text-danger">{errors.email.message}</p>
             )}
           </div>
 
@@ -146,7 +145,9 @@ export default function SolicitarPage() {
                 id="tipoEquipo"
                 defaultValue=""
                 {...register('tipoEquipo')}
-                className="w-full pl-4 pr-10 py-3 rounded-xl bg-white/5 border border-white/10 text-fg text-[16px] focus:outline-none focus:border-brand-bright/50 focus:ring-1 focus:ring-brand-bright/30 transition-colors appearance-none"
+              aria-invalid={!!errors.tipoEquipo}
+              aria-describedby={errors.tipoEquipo ? 'tipoEquipo-error' : undefined}
+                className="w-full pl-4 pr-10 py-3 rounded-sm bg-white/5 border border-white/10 text-fg text-[16px] focus:outline-none focus:border-brand-bright/50 focus:ring-1 focus:ring-brand-bright/30 transition-colors appearance-none"
               >
                 <option value="" disabled className="bg-ink-800">Selecciona un equipo</option>
                 {EQUIPOS.map((e) => (
@@ -156,7 +157,7 @@ export default function SolicitarPage() {
               <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-fg-subtle pointer-events-none" aria-hidden="true" />
             </div>
             {errors.tipoEquipo && (
-              <p className="mt-1.5 text-xs text-danger">{errors.tipoEquipo.message}</p>
+              <p id="tipoEquipo-error" role="alert" className="mt-1.5 text-sm text-danger">{errors.tipoEquipo.message}</p>
             )}
           </div>
 
@@ -170,7 +171,9 @@ export default function SolicitarPage() {
                 id="servicio"
                 defaultValue=""
                 {...register('servicio')}
-                className="w-full pl-4 pr-10 py-3 rounded-xl bg-white/5 border border-white/10 text-fg text-[16px] focus:outline-none focus:border-brand-bright/50 focus:ring-1 focus:ring-brand-bright/30 transition-colors appearance-none"
+              aria-invalid={!!errors.servicio}
+              aria-describedby={errors.servicio ? 'servicio-error' : undefined}
+                className="w-full pl-4 pr-10 py-3 rounded-sm bg-white/5 border border-white/10 text-fg text-[16px] focus:outline-none focus:border-brand-bright/50 focus:ring-1 focus:ring-brand-bright/30 transition-colors appearance-none"
               >
                 <option value="" disabled className="bg-ink-800">Selecciona un servicio</option>
                 {SERVICIOS.map((s) => (
@@ -180,7 +183,7 @@ export default function SolicitarPage() {
               <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-fg-subtle pointer-events-none" aria-hidden="true" />
             </div>
             {errors.servicio && (
-              <p className="mt-1.5 text-xs text-danger">{errors.servicio.message}</p>
+              <p id="servicio-error" role="alert" className="mt-1.5 text-sm text-danger">{errors.servicio.message}</p>
             )}
           </div>
 
@@ -193,11 +196,13 @@ export default function SolicitarPage() {
               id="descripcion"
               rows={4}
               {...register('descripcion')}
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-fg placeholder-fg-subtle text-[16px] focus:outline-none focus:border-brand-bright/50 focus:ring-1 focus:ring-brand-bright/30 transition-colors resize-none"
+              aria-invalid={!!errors.descripcion}
+              aria-describedby={errors.descripcion ? 'descripcion-error' : undefined}
+              className="w-full px-4 py-3 rounded-sm bg-white/5 border border-white/10 text-fg placeholder-fg-subtle text-[16px] focus:outline-none focus:border-brand-bright/50 focus:ring-1 focus:ring-brand-bright/30 transition-colors resize-none"
               placeholder="Ej: El notebook no enciende, hace un ruido extraño al iniciar..."
             />
             {errors.descripcion && (
-              <p className="mt-1.5 text-xs text-danger">{errors.descripcion.message}</p>
+              <p id="descripcion-error" role="alert" className="mt-1.5 text-sm text-danger">{errors.descripcion.message}</p>
             )}
           </div>
 
@@ -205,14 +210,13 @@ export default function SolicitarPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full flex items-center justify-center gap-2 py-4 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover disabled:opacity-50 disabled:cursor-not-allowed transition-colors min-h-[52px] text-base"
+            className="btn btn-primario w-full sm:w-auto"
           >
-            <Send size={18} strokeWidth={2.5} />
+            <MessageCircle size={18} aria-hidden="true" />
             Enviar por WhatsApp
-            <ArrowRight size={18} strokeWidth={2.5} />
           </button>
 
-          <p className="text-xs text-center text-fg-subtle">
+          <p className="text-sm text-fg-subtle">
             Al enviar, se abrirá WhatsApp con tu solicitud lista para enviarnos.
           </p>
         </form>

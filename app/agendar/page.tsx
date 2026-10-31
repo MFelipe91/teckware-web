@@ -1,10 +1,9 @@
 'use client'
 
-import { useId, useState, useRef } from 'react'
+import { useEffect, useId, useState, useRef } from 'react'
 import Image from 'next/image'
 import { ArrowRight, ArrowLeft, CheckCircle2, Search, RefreshCw, Wrench, Cpu, Briefcase, Package, Monitor, Laptop, Apple, Gamepad2, Tablet, Camera, X, Loader2, ImageIcon, Check, Info, ShieldCheck } from 'lucide-react'
 import { EMPRESA, PLAZO, SERVICIO_CONDICIONES, CONDICIONES_GENERALES, precioServicio } from '@/lib/constants'
-import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 import { nombreSchema, telefonoSchema } from '@/lib/security'
 
 // Mapea el id del servicio del wizard → la clave de condiciones en constants.ts
@@ -67,12 +66,13 @@ const EMPTY: FormData = {
 function buildWAMessage(f: FormData): string {
   const BASE = `${EMPRESA.whatsapp}?text=`
   const enc = (t: string) => encodeURIComponent(t)
+  const precio = SERVICIOS.find((s) => s.id === f.servicio)?.precio
   const fotos = f.fotoUrls.length
     ? `\n📸 *Fotos adjuntas:*\n${f.fotoUrls.map((u, i) => `  ${i + 1}. ${u}`).join('\n')}\n`
     : ''
   const msg =
     `*Nueva solicitud de servicio — teckware.cl* 📋\n\n` +
-    `🛠️ *Servicio:* ${f.servicioLabel}\n` +
+    `🛠️ *Servicio:* ${f.servicioLabel}${precio && precio !== 'A cotizar' ? ` (${precio})` : ''}\n` +
     `💻 *Equipo:* ${f.equipoTipo}${f.marca ? ` — ${f.marca}` : ''}\n` +
     `📝 *Problema:* ${f.problema}\n` +
     fotos +
@@ -109,6 +109,14 @@ export default function AgendarPage() {
   const [guardadoFallo, setGuardadoFallo] = useState(false)
   const fileRef = useRef<HTMLInputElement>(null)
   const registrada = useRef(false)
+  const tituloPaso = useRef<HTMLHeadingElement>(null)
+  const primerRender = useRef(true)
+
+  // Al cambiar de paso, el foco va al título: si no, el teclado y el lector de pantalla se pierden.
+  useEffect(() => {
+    if (primerRender.current) { primerRender.current = false; return }
+    tituloPaso.current?.focus({ preventScroll: true })
+  }, [step])
   const uid = useId()
 
   const set = (key: keyof FormData, val: string) =>
@@ -220,19 +228,14 @@ export default function AgendarPage() {
 
   return (
     <div className="relative min-h-screen bg-ink-950 pt-24 pb-20 overflow-hidden">
-      <CircuitBackground variant="circuit" palette="brand" density={0.55} opacity={0.3} />
       <div className="relative max-w-2xl mx-auto px-4 sm:px-6">
 
         {/* Header */}
-        <div className="text-center mb-10">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 mb-4 rounded-full border border-brand-bright/25 bg-brand/8 text-brand-bright text-xs font-semibold tracking-widest uppercase">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse" />
-            Agendar servicio
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-black text-fg tracking-tight mb-3">
+        <div className="mb-10">
+          <h1 className="text-[clamp(2.25rem,5vw,3.5rem)] mb-4">
             ¿Qué necesita tu equipo?
           </h1>
-          <p className="text-fg-muted text-sm">
+          <p className="text-fg-muted">
             Completa el formulario · Te confirmamos por WhatsApp en horario hábil (Lun–Vie 10:00–18:30)
           </p>
         </div>
@@ -260,21 +263,21 @@ export default function AgendarPage() {
               </button>
             ))}
           </div>
-          <div className="h-1 bg-white/8 rounded-full overflow-hidden">
+          <div className="h-1 bg-white/8 overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-brand to-brand-bright rounded-full transition-all duration-500"
+              className="h-full bg-brand-bright transition-all duration-300"
               style={{ width: `${progressPct}%` }}
             />
           </div>
         </div>
 
         {/* Card */}
-        <div className="glass-card rounded-2xl border border-white/10 p-6 sm:p-8">
+        <div className="panel-corte p-6 sm:p-8">
 
           {/* STEP 1 — Servicio */}
           {step === 1 && (
             <div>
-              <h2 className="text-lg font-bold text-fg mb-6">Selecciona el servicio</h2>
+              <h2 ref={tituloPaso} tabIndex={-1} className="outline-none text-xl text-fg mb-6">Selecciona el servicio</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {SERVICIOS.map(({ id, label, icon: Icon, precio, desc }) => (
                   <button
@@ -282,14 +285,14 @@ export default function AgendarPage() {
                     type="button"
                     aria-pressed={form.servicio === id}
                     onClick={() => { set('servicio', id); set('servicioLabel', label) }}
-                    className={`text-left p-4 rounded-xl border transition-all ${
+                    className={`text-left p-4 rounded-sm border transition-all ${
                       form.servicio === id
                         ? 'border-brand-bright bg-brand/8'
                         : 'border-white/10 bg-white/3 hover:border-white/25 hover:bg-white/5'
                     }`}
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${form.servicio === id ? 'bg-brand/15' : 'bg-white/5'}`}>
+                      <div className={`w-8 h-8 rounded-sm flex items-center justify-center ${form.servicio === id ? 'bg-brand/15' : 'bg-white/5'}`}>
                         <Icon size={15} className={form.servicio === id ? 'text-brand-bright' : 'text-fg-subtle'} />
                       </div>
                       <span className={`text-sm font-bold ${form.servicio === id ? 'text-fg' : 'text-fg-muted'}`}>{label}</span>
@@ -302,10 +305,10 @@ export default function AgendarPage() {
 
               {/* Condiciones del servicio seleccionado */}
               {condSel && (
-                <div className="mt-5 rounded-xl border border-brand-bright/20 bg-brand/[0.04] p-5">
+                <div className="mt-5 rounded-sm border border-brand-bright/20 bg-brand/[0.04] p-5">
                   <div className="flex items-center gap-2 mb-3">
                     <ShieldCheck size={15} className="text-brand-bright" />
-                    <span className="text-xs font-bold text-fg uppercase tracking-wider">Qué incluye</span>
+                    <span className="text-xs font-bold text-fg">Qué incluye</span>
                   </div>
                   <ul className="space-y-1.5 mb-3">
                     {condSel.incluye.map((linea) => (
@@ -329,10 +332,10 @@ export default function AgendarPage() {
           {/* STEP 2 — Equipo y problema */}
           {step === 2 && (
             <div>
-              <h2 className="text-lg font-bold text-fg mb-6">Cuéntanos sobre tu equipo</h2>
+              <h2 ref={tituloPaso} tabIndex={-1} className="outline-none text-xl text-fg mb-6">Cuéntanos sobre tu equipo</h2>
 
               <div className="mb-5">
-                <p className="text-xs font-semibold text-fg-muted uppercase tracking-wider mb-3">Tipo de equipo</p>
+                <p className="text-xs font-semibold text-fg-muted mb-3">Tipo de equipo</p>
                 <div className="grid grid-cols-3 gap-2">
                   {EQUIPOS.map(({ id, label, icon: Icon }) => (
                     <button
@@ -340,7 +343,7 @@ export default function AgendarPage() {
                       type="button"
                       aria-pressed={form.equipoTipo === label}
                       onClick={() => set('equipoTipo', label)}
-                      className={`flex flex-col items-center gap-2 p-3 rounded-xl border transition-all ${
+                      className={`flex flex-col items-center gap-2 p-3 rounded-sm border transition-all ${
                         form.equipoTipo === label
                           ? 'border-brand-bright bg-brand/8'
                           : 'border-white/10 bg-white/3 hover:border-white/25'
@@ -354,7 +357,7 @@ export default function AgendarPage() {
               </div>
 
               <div className="mb-5">
-                <label htmlFor={`${uid}-marca`} className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">
+                <label htmlFor={`${uid}-marca`} className="text-xs font-semibold text-fg-muted block mb-2">
                   Marca y modelo <span className="text-fg-subtle normal-case font-normal">(opcional)</span>
                 </label>
                 <input
@@ -364,12 +367,12 @@ export default function AgendarPage() {
                   value={form.marca}
                   maxLength={120}
                   onChange={(e) => set('marca', e.target.value)}
-                  className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-base sm:text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors"
+                  className="w-full bg-white/5 border border-white/15 rounded-sm px-4 py-3 text-base sm:text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors"
                 />
               </div>
 
               <div>
-                <label htmlFor={`${uid}-problema`} className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">
+                <label htmlFor={`${uid}-problema`} className="text-xs font-semibold text-fg-muted block mb-2">
                   Describe el problema o requerimiento <span className="text-danger">*</span>
                 </label>
                 <textarea
@@ -379,13 +382,13 @@ export default function AgendarPage() {
                   maxLength={1000}
                   onChange={(e) => set('problema', e.target.value)}
                   rows={4}
-                  className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-base sm:text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors resize-none"
+                  className="w-full bg-white/5 border border-white/15 rounded-sm px-4 py-3 text-base sm:text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors resize-none"
                 />
               </div>
 
               {/* Fotos opcionales */}
               <div className="mt-5">
-                <p className="text-xs font-semibold text-fg-muted uppercase tracking-wider mb-1">
+                <p className="text-xs font-semibold text-fg-muted mb-1">
                   Fotos del equipo o error{' '}
                   <span className="text-fg-subtle normal-case font-normal">(opcional · máx. 3)</span>
                 </p>
@@ -397,13 +400,13 @@ export default function AgendarPage() {
                 {previews.length > 0 && (
                   <div className="flex gap-3 mb-3 flex-wrap">
                     {previews.map((src, i) => (
-                      <div key={i} className="relative w-20 h-20 rounded-xl overflow-hidden border border-white/15 group">
+                      <div key={i} className="relative w-20 h-20 rounded-sm overflow-hidden border border-white/15 group">
                         <Image src={src} alt={`Foto ${i + 1}`} fill className="object-cover" />
                         <button
                           type="button"
                           aria-label={`Quitar foto ${i + 1}`}
                           onClick={() => removePhoto(i)}
-                          className="absolute top-1 right-1 w-6 h-6 rounded-full bg-black/70 text-white flex items-center justify-center lg:opacity-0 lg:group-hover:opacity-100 focus-visible:opacity-100 transition-opacity"
+                          className="absolute top-1 right-1 w-6 h-6 rounded-sm bg-black/70 text-white flex items-center justify-center lg:opacity-0 lg:group-hover:opacity-100 focus-visible:opacity-100 transition-opacity"
                         >
                           <X size={12} aria-hidden="true" />
                         </button>
@@ -418,7 +421,7 @@ export default function AgendarPage() {
                     type="button"
                     onClick={() => fileRef.current?.click()}
                     disabled={uploading}
-                    className="flex items-center gap-3 w-full px-4 py-3.5 border border-dashed border-white/20 rounded-xl hover:border-brand-bright/40 hover:bg-brand/4 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex items-center gap-3 w-full px-4 py-3.5 border border-dashed border-white/20 rounded-sm hover:border-brand-bright/40 hover:bg-brand/4 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {uploading
                       ? <Loader2 size={18} className="text-brand-bright animate-spin shrink-0" />
@@ -458,11 +461,11 @@ export default function AgendarPage() {
           {/* STEP 3 — Fecha y contacto */}
           {step === 3 && (
             <div>
-              <h2 className="text-lg font-bold text-fg mb-6">¿Cuándo y cómo te contactamos?</h2>
+              <h2 ref={tituloPaso} tabIndex={-1} className="outline-none text-xl text-fg mb-6">¿Cuándo y cómo te contactamos?</h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>
-                  <label htmlFor={`${uid}-nombre`} className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">Tu nombre <span className="text-danger">*</span></label>
+                  <label htmlFor={`${uid}-nombre`} className="text-xs font-semibold text-fg-muted block mb-2">Tu nombre <span className="text-danger">*</span></label>
                   <input
                     id={`${uid}-nombre`}
                     autoComplete="name"
@@ -474,12 +477,12 @@ export default function AgendarPage() {
                     onBlur={() => setTocado((t) => ({ ...t, nombre: true }))}
                     aria-invalid={!!errorNombre}
                     aria-describedby={errorNombre ? `${uid}-nombre-error` : undefined}
-                    className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-base sm:text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors"
+                    className="w-full bg-white/5 border border-white/15 rounded-sm px-4 py-3 text-base sm:text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors"
                   />
                   {errorNombre && <p id={`${uid}-nombre-error`} role="alert" className="mt-2 text-xs text-danger">{errorNombre}</p>}
                 </div>
                 <div>
-                  <label htmlFor={`${uid}-telefono`} className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">Teléfono <span className="text-danger">*</span></label>
+                  <label htmlFor={`${uid}-telefono`} className="text-xs font-semibold text-fg-muted block mb-2">Teléfono <span className="text-danger">*</span></label>
                   <input
                     id={`${uid}-telefono`}
                     autoComplete="tel"
@@ -490,14 +493,14 @@ export default function AgendarPage() {
                     onBlur={() => setTocado((t) => ({ ...t, telefono: true }))}
                     aria-invalid={!!errorTelefono}
                     aria-describedby={errorTelefono ? `${uid}-telefono-error` : undefined}
-                    className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-base sm:text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors"
+                    className="w-full bg-white/5 border border-white/15 rounded-sm px-4 py-3 text-base sm:text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors"
                   />
                   {errorTelefono && <p id={`${uid}-telefono-error`} role="alert" className="mt-2 text-xs text-danger">{errorTelefono}</p>}
                 </div>
               </div>
 
               <div className="mb-4">
-                <label htmlFor={`${uid}-fecha`} className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">
+                <label htmlFor={`${uid}-fecha`} className="text-xs font-semibold text-fg-muted block mb-2">
                   Fecha preferida <span className="text-fg-subtle normal-case font-normal">(opcional · lunes a viernes)</span>
                 </label>
                 <input
@@ -508,13 +511,13 @@ export default function AgendarPage() {
                   onChange={(e) => cambiarFecha(e.target.value)}
                   onBlur={revisarFechaPasada}
                   aria-invalid={!!fechaError}
-                  className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-base sm:text-sm text-fg [color-scheme:dark] focus:outline-none focus:border-brand-bright/50 transition-colors"
+                  className="w-full bg-white/5 border border-white/15 rounded-sm px-4 py-3 text-base sm:text-sm text-fg [color-scheme:dark] focus:outline-none focus:border-brand-bright/50 transition-colors"
                 />
                 {fechaError && <p role="alert" className="mt-2 text-xs text-danger">{fechaError}</p>}
               </div>
 
               <div>
-                <p className="text-xs font-semibold text-fg-muted uppercase tracking-wider mb-3">Horario preferido</p>
+                <p className="text-xs font-semibold text-fg-muted mb-3">Horario preferido</p>
                 <div className="grid grid-cols-2 gap-2">
                   {HORARIOS.map((h) => (
                     <button
@@ -522,7 +525,7 @@ export default function AgendarPage() {
                       type="button"
                       aria-pressed={form.horario === h}
                       onClick={() => set('horario', h)}
-                      className={`py-2.5 px-3 rounded-xl border text-xs font-medium transition-all ${
+                      className={`py-2.5 px-3 rounded-sm border text-xs font-medium transition-all ${
                         form.horario === h
                           ? 'border-brand-bright bg-brand/8 text-brand-bright'
                           : 'border-white/10 text-fg-subtle hover:border-white/25 hover:text-fg-muted'
@@ -540,11 +543,11 @@ export default function AgendarPage() {
           {step === 4 && (
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-full bg-brand/15 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-sm bg-brand/15 flex items-center justify-center">
                   <CheckCircle2 size={20} className="text-brand-bright" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-fg">Todo listo</h2>
+                  <h2 ref={tituloPaso} tabIndex={-1} className="outline-none text-xl text-fg">Todo listo</h2>
                   <p className="text-xs text-fg-muted">Revisa los datos antes de enviar</p>
                 </div>
               </div>
@@ -569,7 +572,7 @@ export default function AgendarPage() {
                     <span className="text-xs text-fg-subtle w-20 shrink-0 pt-1">Fotos</span>
                     <div className="flex gap-2 flex-wrap">
                       {previews.map((src, i) => (
-                        <div key={i} className="relative w-14 h-14 rounded-lg overflow-hidden border border-white/15">
+                        <div key={i} className="relative w-14 h-14 rounded-sm overflow-hidden border border-white/15">
                           <Image src={src} alt={`Foto ${i + 1}`} fill className="object-cover" />
                         </div>
                       ))}
@@ -579,10 +582,10 @@ export default function AgendarPage() {
               </div>
 
               {/* Condiciones generales */}
-              <div className="rounded-xl border border-white/8 bg-white/[0.02] p-4 mb-4">
+              <div className="rounded-sm border border-white/8 bg-white/[0.02] p-4 mb-4">
                 <div className="flex items-center gap-2 mb-3">
                   <ShieldCheck size={14} className="text-brand-bright" />
-                  <span className="text-xs font-bold text-fg-muted uppercase tracking-wider">Condiciones</span>
+                  <span className="text-xs font-bold text-fg-muted">Condiciones</span>
                 </div>
                 <ul className="space-y-1.5">
                   {CONDICIONES_GENERALES.map((c) => (
@@ -594,7 +597,7 @@ export default function AgendarPage() {
                 </ul>
               </div>
 
-              <div className="bg-brand/5 border border-brand-bright/20 rounded-xl p-4 mb-6">
+              <div className="bg-brand/5 border border-brand-bright/20 rounded-sm p-4 mb-6">
                 <p className="text-xs text-fg-muted leading-relaxed">
                   Al enviar, abriremos WhatsApp con todos tus datos pre-escritos.
                   Confirmamos disponibilidad en horario hábil. El trabajo se entrega en <strong className="text-fg">{PLAZO}</strong>.
@@ -606,17 +609,17 @@ export default function AgendarPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={registrarSolicitud}
-                className="flex items-center justify-center gap-2 w-full py-4 bg-brand text-white font-semibold rounded-xl hover:bg-brand-hover transition-colors text-base min-h-[56px]"
+                className="btn btn-primario w-full"
               >
                 Enviar solicitud por WhatsApp
                 <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
               </a>
               {guardadoFallo && (
-                <p role="alert" className="mt-3 text-center text-xs text-danger">
+                <p role="alert" className="mt-3 text-sm text-danger">
                   No pudimos registrar tu solicitud en nuestro sistema. Envía el mensaje de WhatsApp: lleva todos tus datos.
                 </p>
               )}
-              <p className="mt-3 text-center text-xs text-fg-subtle">
+              <p className="mt-3 text-sm text-fg-subtle">
                 ¿No se abrió WhatsApp? Escríbenos al{' '}
                 <a href={EMPRESA.telefonoHref} className="underline hover:text-fg">{EMPRESA.telefono}</a>.
               </p>
@@ -629,7 +632,7 @@ export default function AgendarPage() {
               <button
                 type="button"
                 onClick={() => goTo(Math.max(1, step - 1) as Step)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/15 text-fg-muted text-sm font-medium hover:border-white/30 hover:text-fg transition-all ${step === 1 ? 'invisible' : ''}`}
+                className={`btn btn-secundario ${step === 1 ? 'invisible' : ''}`}
               >
                 <ArrowLeft size={15} />
                 Anterior
@@ -642,7 +645,7 @@ export default function AgendarPage() {
                   (step === 2 && !canNext2) ||
                   (step === 3 && !canNext3)
                 }
-                className="flex items-center gap-2 px-6 py-2.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover transition-colors text-sm disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]"
+                className="btn btn-primario"
               >
                 {step === 3 ? 'Ver resumen' : 'Siguiente'}
                 <ArrowRight size={15} strokeWidth={2.5} />
@@ -651,8 +654,8 @@ export default function AgendarPage() {
           )}
         </div>
 
-        <p className="text-center text-xs text-fg-subtle mt-6">
-          Atención {EMPRESA.horario} · La Serena, Chile
+        <p className="text-sm text-fg-subtle mt-6">
+          Atención {EMPRESA.horario}, La Serena
         </p>
       </div>
     </div>

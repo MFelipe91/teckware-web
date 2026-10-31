@@ -7,18 +7,10 @@ import { usePathname } from 'next/navigation'
 import { Menu, X, MessageCircle } from 'lucide-react'
 import { NAV_LINKS } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
-import { cn } from '@/lib/utils'
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   useEffect(() => {
     if (!open) return
@@ -28,27 +20,8 @@ export function Navbar() {
   }, [open])
 
   return (
-    <header
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled || open
-          ?'bg-ink-950/92 backdrop-blur-2xl border-b border-white/8 shadow-[0_4px_30px_rgba(0,0,0,0.4)]'
-          : 'bg-transparent'
-      )}
-    >
-      {/* Línea firma plata → azul, visible al hacer scroll */}
-      <div
-        className={cn(
-          'absolute bottom-0 left-0 right-0 h-[1px] transition-opacity duration-500',
-          scrolled ? 'opacity-100' : 'opacity-0'
-        )}
-        style={{
-          background: 'var(--gradient-signature)',
-        }}
-      />
-
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Logo */}
+    <header className="fixed top-0 left-0 right-0 z-50 bg-ink-950 border-b border-white/8">
+      <nav aria-label="Principal" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6">
         <Link href="/" className="shrink-0 flex items-center" aria-label="TECKWARE inicio">
           <Image
             src="/brand/logo-horizontal.webp"
@@ -61,81 +34,57 @@ export function Navbar() {
           />
         </Link>
 
-        {/* Desktop nav */}
-        <ul className="hidden lg:flex items-center gap-0.5">
+        <ul className="hidden lg:flex items-center gap-7 ml-auto">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
                 aria-current={pathname === link.href ? 'page' : undefined}
-                className={cn(
-                  'relative px-3 xl:px-4 py-2 text-sm font-medium hover:text-fg rounded-xl transition-all duration-150 group',
-                  pathname === link.href ? 'text-fg' : 'text-fg-muted'
-                )}
+                className={`py-2 text-[15px] transition-colors hover:text-fg ${
+                  pathname === link.href ? 'text-fg shadow-[inset_0_-1.5px_0_var(--color-brand-bright)]' : 'text-fg-muted'
+                }`}
               >
                 {link.label}
-                {/* Subrayado al pasar el mouse */}
-                <span className={cn(
-                  'absolute bottom-0 left-1/2 -translate-x-1/2 h-[1px] bg-brand-bright transition-all duration-200 group-hover:w-4/5 rounded-full',
-                  pathname === link.href ? 'w-4/5' : 'w-0'
-                )} />
               </Link>
             </li>
           ))}
         </ul>
 
-        {/* Desktop CTA */}
-        <div className="hidden lg:flex items-center gap-3">
-          <a
-            href={WA.general()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 bg-brand text-white text-sm font-semibold rounded-xl hover:bg-brand-hover transition-all duration-150 min-h-[40px] tracking-wide"
-          >
-            <MessageCircle size={15} strokeWidth={2.5} />
-            WhatsApp
-          </a>
-        </div>
+        <a href={WA.general()} target="_blank" rel="noopener noreferrer" className="btn btn-primario hidden lg:inline-flex">
+          <MessageCircle size={17} aria-hidden="true" />
+          WhatsApp
+        </a>
 
-        {/* Mobile menu button */}
         <button
           onClick={() => setOpen(!open)}
-          className="lg:hidden p-2 text-fg-muted hover:text-fg rounded-xl hover:bg-white/5 transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
+          className="lg:hidden text-fg-muted hover:text-fg min-h-[44px] min-w-[44px] flex items-center justify-center"
           aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={open}
         >
-          {open ? <X size={20} /> : <Menu size={20} />}
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </nav>
 
-      {/* Mobile drawer */}
       {open && (
-        <div className="lg:hidden bg-ink-950/97 backdrop-blur-2xl border-b border-white/8">
-          <ul className="px-4 py-3 space-y-0.5">
+        <div className="lg:hidden bg-ink-950 border-t border-white/8 px-4 pb-5">
+          <ul>
             {NAV_LINKS.map((link) => (
-              <li key={link.href}>
+              <li key={link.href} className="border-b border-white/8">
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
                   aria-current={pathname === link.href ? 'page' : undefined}
-                  className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-fg-muted hover:text-fg hover:bg-white/4 rounded-xl transition-all border-l-2 border-transparent hover:border-brand-bright/50"
+                  className={`block py-3.5 font-display text-lg font-medium ${pathname === link.href ? 'text-fg' : 'text-fg-muted'}`}
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
           </ul>
-          <div className="px-4 pb-4 pt-1">
-            <a
-              href={WA.general()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-3 bg-brand text-white text-sm font-semibold rounded-xl hover:bg-brand-hover transition-colors min-h-[44px]"
-            >
-              <MessageCircle size={16} strokeWidth={2.5} />
-              Escribir por WhatsApp
-            </a>
-          </div>
+          <a href={WA.general()} target="_blank" rel="noopener noreferrer" className="btn btn-primario w-full mt-5">
+            <MessageCircle size={17} aria-hidden="true" />
+            Escríbenos por WhatsApp
+          </a>
         </div>
       )}
     </header>

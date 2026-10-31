@@ -2,12 +2,14 @@ import type { Metadata } from 'next'
 import { MapPin, House, Search, Laptop, Building2, ShieldCheck } from 'lucide-react'
 import { ServiceLanding } from '@/components/landing/ServiceLanding'
 import { WA } from '@/lib/whatsapp'
+import { ogPagina } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: { absolute: 'Servicio Técnico de Computadores en Coquimbo | TECKWARE' },
   description:
     'Servicio técnico de computadores, notebooks, PC Gamer y consolas para Coquimbo. Recepción en taller en La Serena con hora coordinada, entrega en 48 horas hábiles con informe técnico, pago al retirar y 30 días de garantía.',
   alternates: { canonical: '/servicio-tecnico-coquimbo' },
+  openGraph: ogPagina('/servicio-tecnico-coquimbo'),
 }
 
 export default function ServicioTecnicoCoquimboPage() {

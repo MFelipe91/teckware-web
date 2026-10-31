@@ -2,12 +2,14 @@ import type { Metadata } from 'next'
 import { RefreshCw, HardDriveDownload, Settings, AppWindow, Bug, ShieldCheck } from 'lucide-react'
 import { ServiceLanding } from '@/components/landing/ServiceLanding'
 import { WA } from '@/lib/whatsapp'
+import { ogPagina } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: { absolute: 'Formateo de PC y Notebook en La Serena | TECKWARE' },
   description:
     'Formateo de computador y notebook en La Serena y Coquimbo: instalación limpia de Windows o macOS, drivers, programas esenciales y respaldo básico de archivos. $45.000 con IVA, listo en 48 horas hábiles.',
   alternates: { canonical: '/formateo-pc-la-serena' },
+  openGraph: ogPagina('/formateo-pc-la-serena'),
 }
 
 export default function FormateoPCLaSerenaPage() {

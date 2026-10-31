@@ -8,8 +8,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-sora);
+  --font-sans: var(--font-plex);
+  --font-display: var(--font-saira);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -74,10 +74,6 @@
   --color-fg-muted: #A3AEC2;
   --color-fg-subtle: #8390A8;
 
-  /* Acento exclusivo de PC Gamer (nunca color de marca) */
-  --color-gamer: #A855F7;
-  --color-gamer-bright: #C08BFA;
-
   /* WhatsApp (afordancia reconocible) y estados */
   --color-whatsapp: #22C55E;
   --color-whatsapp-solid: #15803D;  /* botón relleno con texto blanco */
@@ -112,7 +108,7 @@
   --chart-3: var(--color-success);
   --chart-4: var(--color-warning);
   --chart-5: var(--color-brand-deep);
-  --radius: 0.625rem;
+  --radius: 0.25rem;
   --sidebar: var(--color-ink-800);
   --sidebar-foreground: var(--color-fg);
   --sidebar-primary: var(--color-brand);
@@ -121,6 +117,10 @@
   --sidebar-accent-foreground: var(--color-fg);
   --sidebar-border: rgba(255,255,255,0.08);
   --sidebar-ring: color-mix(in oklab, var(--color-brand-bright) 45%, transparent);
+
+  /* Corte a 45° del hexágono del logo: la forma propia de botones y paneles */
+  --corte: 10px;
+  --corte-panel: 24px;
 }
 
 /* ── Base ───────────────────────────────────────────────────── */
@@ -132,42 +132,40 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+    font-family: var(--font-plex), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3 {
-    font-family: var(--font-sora), var(--font-inter), system-ui, sans-serif;
+    font-family: var(--font-saira), var(--font-plex), system-ui, sans-serif;
+    font-stretch: 92%;
+    text-wrap: balance;
   }
   h1 {
-    font-size: clamp(34px, 5.5vw, 64px);
-    font-weight: 700;
+    color: var(--color-silver);
+    font-size: clamp(2.5rem, 6.4vw, 6rem);
+    font-weight: 600;
     letter-spacing: -0.02em;
-    line-height: 1.08;
+    line-height: 1;
   }
   h2 {
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 700;
+    font-size: clamp(1.875rem, 3.8vw, 3.25rem);
+    font-weight: 600;
     letter-spacing: -0.015em;
-    line-height: 1.12;
+    line-height: 1.06;
   }
   h3 {
-    font-size: clamp(20px, 3vw, 26px);
+    font-size: 1.25rem;
     font-weight: 600;
-    letter-spacing: -0.01em;
     line-height: 1.25;
   }
-
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: var(--color-ink-950); }
-  ::-webkit-scrollbar-thumb { background: color-mix(in oklab, var(--color-brand) 45%, transparent); border-radius: 3px; }
-  ::-webkit-scrollbar-thumb:hover { background: color-mix(in oklab, var(--color-brand) 70%, transparent); }
 
   ::selection {
     background: color-mix(in oklab, var(--color-brand) 35%, transparent);
@@ -175,178 +173,155 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-brand-bright);
-    outline-offset: 2px;
+    outline: 2px solid var(--color-fg);
+    outline-offset: 3px;
+  }
+  main:focus { outline: none; }
+}
+
+/* ── Componentes de la marca ────────────────────────────────── */
+@layer components {
+  /* Botones: un solo sistema. Primario (WhatsApp), secundario (Agendar), terciario (enlace).
+     El corte va en pseudo-elementos: así el contorno de foco no se recorta. */
+  .btn {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    min-height: 48px;
+    padding: 0.5rem 1.5rem;
+    font-family: var(--font-saira), system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    color: var(--color-fg);
+    background: none;
+    border: 0;
+    cursor: pointer;
+    transition: transform 0.08s;
+  }
+  .btn:active:not([disabled]) { transform: translateY(1px); }
+  .btn[disabled], .btn[aria-disabled="true"] { cursor: not-allowed; color: var(--color-fg-subtle); }
+
+  .btn-primario::before,
+  .btn-secundario::before,
+  .btn-secundario::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transition: background-color 0.12s;
+    clip-path: polygon(var(--corte) 0, 100% 0, 100% calc(100% - var(--corte)), calc(100% - var(--corte)) 100%, 0 100%, 0 var(--corte));
+  }
+
+  .btn-primario { color: #FFFFFF; }
+  .btn-primario::before { background: var(--color-brand); }
+  .btn-primario:hover::before { background: var(--color-brand-hover); }
+  .btn-primario:active::before { background: var(--color-brand-deep); }
+  .btn-primario[disabled]::before, .btn-primario[aria-disabled="true"]::before { background: var(--color-ink-700); }
+
+  .btn-secundario { color: var(--btn-sec-texto, var(--color-fg)); }
+  /* Anillo: polígono exterior e interior, con el centro transparente para cualquier fondo. */
+  .btn-secundario::before {
+    background: var(--btn-sec-borde, var(--color-silver));
+    clip-path: polygon(evenodd,
+      var(--corte) 0, 100% 0, 100% calc(100% - var(--corte)), calc(100% - var(--corte)) 100%, 0 100%, 0 var(--corte), var(--corte) 0,
+      calc(var(--corte) + 0.6px) 1.5px, 1.5px calc(var(--corte) + 0.6px), 1.5px calc(100% - 1.5px), calc(100% - var(--corte) - 0.6px) calc(100% - 1.5px), calc(100% - 1.5px) calc(100% - var(--corte) - 0.6px), calc(100% - 1.5px) 1.5px, calc(var(--corte) + 0.6px) 1.5px);
+  }
+  .btn-secundario::after { background: transparent; }
+  .btn-secundario:hover::after { background: var(--btn-sec-hover, var(--color-ink-700)); }
+  .btn-secundario:active::after { background: var(--btn-sec-activo, var(--color-ink-800)); }
+  .btn-secundario[disabled]::before { background: var(--color-ink-700); }
+  .btn-secundario[disabled]::after { background: transparent; }
+
+  .btn-terciario {
+    min-height: 0;
+    padding: 0.25rem 0;
+    color: var(--color-brand-bright);
+    box-shadow: inset 0 -1.5px 0 currentColor;
+  }
+  .btn-terciario:hover { color: var(--color-fg); }
+  .btn-terciario:active { color: var(--color-silver); }
+  .btn-terciario[disabled] { box-shadow: none; }
+
+  /* Superficies */
+  .panel { background: var(--color-ink-800); }
+  .panel-corte {
+    background: var(--color-ink-800);
+    clip-path: polygon(var(--corte-panel) 0, 100% 0, 100% calc(100% - var(--corte-panel)), calc(100% - var(--corte-panel)) 100%, 0 100%, 0 var(--corte-panel));
+  }
+
+  /* Etiqueta tipo especificación */
+  .etiqueta {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-saira), system-ui, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-brand-bright);
+  }
+
+  /* Marcador hexagonal de listas */
+  .hex {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    flex: none;
+    background: var(--color-brand-bright);
+    clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  }
+
+  /* Banda plateada: el único cambio fuerte de superficie, cierra cada página */
+  .banda-plata {
+    --btn-sec-borde: var(--color-ink-900);
+    --btn-sec-texto: var(--color-ink-900);
+    --btn-sec-hover: color-mix(in oklab, var(--color-ink-900) 12%, transparent);
+    --btn-sec-activo: color-mix(in oklab, var(--color-ink-900) 20%, transparent);
+    background: var(--color-silver);
+    color: var(--color-ink-900);
+  }
+  .banda-plata :focus-visible { outline-color: var(--color-ink-900); }
+
+  .saltar {
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 100;
+    padding: 0.75rem 1rem;
+    background: var(--color-fg);
+    color: var(--color-ink-900);
+    font-weight: 600;
+    transform: translateY(-200%);
+  }
+  .saltar:focus { transform: none; }
+
+  /* Botón flotante de WhatsApp */
+  .fab {
+    clip-path: polygon(var(--corte) 0, 100% 0, 100% calc(100% - var(--corte)), calc(100% - var(--corte)) 100%, 0 100%, 0 var(--corte));
   }
 }
 
 /* ── Utilities ──────────────────────────────────────────────── */
 @layer utilities {
-  /* Grilla técnica sutil */
-  .bg-grid {
-    background-image:
-      linear-gradient(color-mix(in oklab, var(--color-brand-bright) 5%, transparent) 1px, transparent 1px),
-      linear-gradient(90deg, color-mix(in oklab, var(--color-brand-bright) 5%, transparent) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-
-  .bg-dot-grid {
-    background-image: radial-gradient(color-mix(in oklab, var(--color-silver) 14%, transparent) 1px, transparent 1px);
-    background-size: 24px 24px;
-  }
-
-  /* Texto con degradado plata → azul (como el logo) */
-  .gradient-text {
-    background: linear-gradient(120deg, var(--color-silver) 0%, var(--color-brand-bright) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .gradient-text-blue {
-    background: linear-gradient(135deg, var(--color-brand-bright), var(--color-brand));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Solo para la sección PC Gamer */
-  .gradient-text-gamer {
-    background: linear-gradient(120deg, var(--color-brand-bright) 0%, var(--color-gamer-bright) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .glass-card {
-    background: color-mix(in oklab, var(--color-ink-800) 88%, transparent);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.07);
-  }
-
-  /* Borde con degradado plata → azul */
-  .gradient-border {
-    position: relative;
-  }
-  .gradient-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, color-mix(in oklab, var(--color-silver) 45%, transparent), color-mix(in oklab, var(--color-brand) 55%, transparent));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-  }
-
-  /* Halos de luz difusos */
-  .glow-brand {
-    position: absolute;
-    border-radius: 50%;
-    background: color-mix(in oklab, var(--color-brand) 18%, transparent);
-    filter: blur(90px);
-    pointer-events: none;
-  }
-
-  .glow-silver {
-    position: absolute;
-    border-radius: 50%;
-    background: color-mix(in oklab, var(--color-silver) 7%, transparent);
-    filter: blur(90px);
-    pointer-events: none;
-  }
-
-  .glow-gamer {
-    position: absolute;
-    border-radius: 50%;
-    background: color-mix(in oklab, var(--color-gamer) 12%, transparent);
-    filter: blur(90px);
-    pointer-events: none;
-  }
-
-  .clip-angle-br {
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
-  }
-
-  /* Línea superior fina plata → azul */
-  .accent-bar-top {
-    position: relative;
-  }
-  .accent-bar-top::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--gradient-signature);
-  }
-
-  .card-hover {
-    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  .card-hover:hover {
-    border-color: color-mix(in oklab, var(--color-brand-bright) 35%, transparent);
-    transform: translateY(-3px);
-    box-shadow: 0 20px 50px color-mix(in oklab, var(--color-brand) 14%, transparent);
-  }
-
   /* Precios: cifras alineadas */
   .price {
+    font-family: var(--font-saira), system-ui, sans-serif;
     font-variant-numeric: tabular-nums;
-    letter-spacing: -0.01em;
+    font-weight: 600;
   }
 
-  .wa-pulse {
-    animation: wa-pulse 2s ease infinite;
-  }
-
-  /* Línea separadora con la firma de la marca */
+  /* Línea separadora */
   .tech-line {
     height: 1px;
-    background: var(--gradient-signature);
-    opacity: 0.6;
-  }
-
-  .signature-line {
-    height: 2px;
-    background: var(--gradient-signature);
+    background: rgba(255,255,255,0.08);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .wa-pulse, .animate-marquee, .animate-pulse, .animate-bounce { animation: none; }
-    .card-hover:hover { transform: none; }
+    .animate-bounce, .animate-spin { animation: none; }
+    .btn:active:not([disabled]) { transform: none; }
     html { scroll-behavior: auto; }
   }
-}
-
-/* Firma visual: plata → azul, como el logo */
-:root {
-  --gradient-signature: linear-gradient(90deg, transparent, var(--color-silver) 30%, var(--color-brand-bright) 70%, transparent);
-}
-
-/* ── Keyframes ──────────────────────────────────────────────── */
-@keyframes wa-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
-  70%       { box-shadow: 0 0 0 10px rgba(34,197,94,0); }
-}
-
-@keyframes hero-float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-10px); }
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-@keyframes scan-move {
-  0%   { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
-}
-
-.animate-marquee {
-  animation: marquee 25s linear infinite;
 }

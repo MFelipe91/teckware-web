@@ -1,166 +1,72 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import {
-  Search, RefreshCw, Wrench, Cpu, Package, ArrowRight, Briefcase,
-  HardDrive, Zap, Gamepad2, MapPin, Receipt,
-} from 'lucide-react'
 import { IVA_NOTA } from '@/lib/constants'
 import type { Servicio } from '@/lib/services'
 import { WA } from '@/lib/whatsapp'
 import { BLUR_DARK } from '@/lib/imageBlur'
 
-const ICONS: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-  'search': Search,
-  'refresh-cw': RefreshCw,
-  'tool': Wrench,
-  'briefcase': Briefcase,
-  'cpu': Cpu,
-  'package': Package,
-  'hard-drive': HardDrive,
-  'zap': Zap,
-  'gamepad': Gamepad2,
-  'map-pin': MapPin,
+function enlaceWa(s: Servicio): string {
+  const fn = WA[s.whatsappKey as keyof typeof WA]
+  return typeof fn === 'function' ? (fn as () => string)() : WA.servicio(s.nombre)
 }
 
-const SERVICE_IMAGES: Record<string, { src: string; alt: string }> = {
-  diagnostico: {
-    src: '/images/diagnostico_tester.jpg',
-    alt: 'Técnico realizando diagnóstico electrónico — TECKWARE La Serena',
-  },
-  'mantencion-logica': {
-    src: '/images/Formateo_windows11.jpg',
-    alt: 'Formateo e instalación de Windows y macOS — Mantención lógica TECKWARE La Serena',
-  },
-  'mantencion-full': {
-    src: '/images/mantencionpc2.jpg',
-    alt: 'Mantención física completa de PC con limpieza y pasta térmica — TECKWARE',
-  },
-  'recuperacion-datos': {
-    src: '/images/recuperacion-datos.jpg',
-    alt: 'Recuperación de datos en disco dañado — TECKWARE La Serena',
-  },
-  'mantencion-gpu': {
-    src: '/images/GPU001.jpg',
-    alt: 'Mantención GPU — cambio de pasta térmica y thermal pads — TECKWARE',
-  },
-  'armado-estandar': {
-    src: '/images/pcgamer01.jpg',
-    alt: 'Armado PC Gamer con cable management profesional — TECKWARE La Serena',
-  },
-}
-
+// La mantención es lo principal del negocio: va como pieza grande y el resto en lista de precios.
 export function ServiciosDestacados({ servicios }: { servicios: Servicio[] }) {
-  const FEATURED = servicios.filter((s) => s.featured)
+  const destacados = servicios.filter((s) => s.featured)
+  const principal = destacados.find((s) => s.id === 'mantencion-full') ?? destacados[0]
+  if (!principal) return null
+  const resto = destacados.filter((s) => s.id !== principal.id)
 
   return (
-    <section className="bg-ink-900 py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-14">
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-widest uppercase text-brand-bright border border-brand-bright/25 rounded-full bg-brand/8">
-            Servicios
-          </span>
-          <h2 className="text-fg mb-4">
-            Lo que hacemos{' '}
-            <span className="gradient-text">mejor</span>
-          </h2>
-          <p className="text-fg-muted max-w-xl mx-auto">
-            Precios fijos, sin sorpresas. Sabes el costo antes de que empecemos.
-          </p>
+    <section className="bg-ink-900 px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+      <div className="max-w-[76rem] mx-auto">
+        <div className="grid gap-4 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end mb-10 sm:mb-14">
+          <h2 className="text-fg">Precios fijos, sin sorpresas</h2>
+          <p className="text-fg-muted max-w-md">Sabes el costo antes de que empecemos. {IVA_NOTA}</p>
         </div>
 
-        {/* Grid */}
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
-        >
-          {FEATURED.map((servicio) => {
-            const Icon = ICONS[servicio.icono] ?? Package
-            const image = SERVICE_IMAGES[servicio.id]
-            const waLink = typeof WA[servicio.whatsappKey as keyof typeof WA] === 'function'
-              ? (WA[servicio.whatsappKey as keyof typeof WA] as () => string)()
-              : WA.servicio(servicio.nombre)
-
-            return (
-              <div
-                key={servicio.id}
-                className="group relative glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:border-brand-bright/40"
-              >
-                {/* Línea de acento superior — aparece al hover */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: 'linear-gradient(90deg, transparent, var(--color-brand-bright) 50%, transparent)' }}
-                />
-                {/* Card image */}
-                {image && (
-                  <div className="relative h-44 overflow-hidden shrink-0">
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      quality={72}
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={BLUR_DARK}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink-800 via-ink-800/30 to-transparent" />
-                    <div className="absolute bottom-3 left-4 w-9 h-9 flex items-center justify-center rounded-xl bg-ink-950/80 border border-brand-bright/30 backdrop-blur-sm">
-                      <Icon size={17} className="text-brand-bright" />
-                    </div>
-                  </div>
-                )}
-
-                {/* Content */}
-                <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-base font-bold text-fg mb-2 leading-snug">
-                    {servicio.nombre}
-                  </h3>
-                  <p className="text-sm text-fg-muted mb-5 leading-relaxed flex-1">
-                    {servicio.descripcion}
-                  </p>
-
-                  {/* Footer */}
-                  <div className="flex items-center justify-between">
-                    <div>
-                      {servicio.precio === 'A cotizar' ? (
-                        <span className="text-sm font-semibold text-silver">A cotizar</span>
-                      ) : (
-                        <span className="price text-xl font-black text-brand-bright tracking-tight">
-                          {servicio.precio}
-                        </span>
-                      )}
-                      <span className="ml-2 text-xs text-fg-subtle">{servicio.tiempo}</span>
-                    </div>
-                    <a
-                      href={waLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-brand-bright border border-brand-bright/30 rounded-lg hover:bg-brand/10 transition-all min-h-[36px]"
-                    >
-                      Cotizar
-                      <ArrowRight size={12} />
-                    </a>
-                  </div>
-                </div>
+        <div className="grid gap-10 lg:gap-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+          <article className="panel-corte flex flex-col self-start w-full">
+            <div className="relative h-52 sm:h-64">
+              <Image
+                src="/images/mantencionpc2.jpg"
+                alt="Mantención física de un PC con limpieza y pasta térmica"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                quality={72}
+                placeholder="blur"
+                blurDataURL={BLUR_DARK}
+              />
+            </div>
+            <div className="p-6 sm:p-8">
+              <div className="flex items-baseline justify-between gap-4">
+                <h3 className="text-2xl text-fg">{principal.nombre}</h3>
+                <span className="price text-2xl text-fg">{principal.precio}</span>
               </div>
-            )
-          })}
-        </div>
+              <p className="mt-3 text-fg-muted leading-relaxed">{principal.descripcion}</p>
+              <p className="mt-3 text-sm text-fg-subtle">Entrega en {principal.tiempo}</p>
+              <a href={enlaceWa(principal)} target="_blank" rel="noopener noreferrer" className="btn btn-primario w-full sm:w-auto mt-6">
+                Cotizar {principal.nombre}
+              </a>
+            </div>
+          </article>
 
-        {/* IVA nota */}
-        <div className="flex items-center justify-center gap-2 mt-8 text-xs text-fg-subtle">
-          <Receipt size={13} className="text-fg-subtle" />
-          <span>{IVA_NOTA}</span>
-        </div>
-
-        <div className="text-center mt-6">
-          <Link
-            href="/servicios"
-            className="inline-flex items-center gap-2 text-sm font-medium text-fg-muted hover:text-brand-bright transition-colors"
-          >
-            Ver todos los servicios
-            <ArrowRight size={14} />
-          </Link>
+          <div>
+            <ul className="border-t border-white/10">
+              {resto.map((s) => (
+                <li key={s.id} className="py-5 border-b border-white/10 grid gap-x-6 gap-y-2 grid-cols-[minmax(0,1fr)_auto]">
+                  <h3 className="text-fg">{s.nombre}</h3>
+                  <span className="price text-xl text-fg text-right">{s.precio}</span>
+                  <p className="text-sm text-fg-muted leading-relaxed">{s.descripcion}</p>
+                  <a href={enlaceWa(s)} target="_blank" rel="noopener noreferrer" className="btn btn-terciario justify-self-end self-start" aria-label={`Cotizar ${s.nombre}`}>
+                    Cotizar
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <Link href="/servicios" className="btn btn-terciario mt-6">Ver todos los servicios</Link>
+          </div>
         </div>
       </div>
     </section>
