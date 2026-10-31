@@ -4,7 +4,6 @@ import { Mail, MapPin, Clock, Phone } from 'lucide-react'
 import { InstagramIcon } from '@/components/shared/InstagramIcon'
 import { EMPRESA, NAV_LINKS } from '@/lib/constants'
 import { LANDINGS } from '@/lib/landings'
-import { WA } from '@/lib/whatsapp'
 
 export function Footer() {
   const year = new Date().getFullYear()
