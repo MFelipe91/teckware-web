@@ -1,0 +1,51 @@
+<!doctype html><html lang="es-CL"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Direcciones visuales Teckware</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&display=swap">
+<style>
+/* Hoja de revisión sobria: las capturas mandan y el texto solo ayuda a decidir. */
+:root{--bg:#EEF0F4;--fg:#0B1426;--muted:#47536A;--line:#C3C9D3;--accent:#0A4A9C;--font:Archivo,system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#060B19;--fg:#F1F5F9;--muted:#A3AEC2;--line:#22304A;--accent:#3D9BFF;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#060B19;--fg:#F1F5F9;--muted:#A3AEC2;--line:#22304A;--accent:#3D9BFF;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:400 17px/1.55 var(--font);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 64px}
+main{max-width:1180px;margin:auto;display:grid;gap:64px}
+h1{font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.05;font-weight:700;font-stretch:115%;letter-spacing:-.02em;margin:0 0 12px;text-wrap:balance}
+header p{margin:0;color:var(--muted);max-width:62ch}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.1;font-weight:700;margin:0 0 8px}
+.opcion{display:grid;gap:20px;padding-top:28px;border-top:2px solid var(--fg)}
+.texto{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px}
+.texto p{margin:0;color:var(--muted);max-width:60ch}
+dl{margin:0;display:grid;gap:10px;font-size:15px}dt{font-weight:700}dd{margin:0;color:var(--muted)}
+.rec{color:var(--accent);font-weight:700;font-size:15px;margin:0 0 6px}
+.capturas{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:16px;align-items:start}
+figure{margin:0;min-width:0}figcaption{font-size:14px;color:var(--muted);margin-top:6px}
+img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+.botones{grid-column:1/-1}
+@media(max-width:760px){main{gap:48px}.texto{grid-template-columns:minmax(0,1fr);gap:20px}.capturas{grid-template-columns:minmax(0,1fr)}.movil{max-width:260px}}
+</style>
+<main>
+<header><h1>Tres caminos para el nuevo TECKWARE</h1>
+<p>Maquetas de la portada y los botones, con tus textos, precios y protocolo reales. Elige una y la aplico a todo el sitio. El logo y el azul y plata se conservan en las tres.</p></header>
+
+<section class="opcion"><div class="texto"><div><p class="rec">Mi recomendación</p><h2>A. Ficha técnica</h2>
+<p>La plata del logo pasa a ser el fondo y el navy queda en la barra superior. El titular grande y la ficha de la Mantención Full hacen que parezca una orden de trabajo de taller, con precio y pasos a la vista.</p></div>
+<dl><div><dt>A favor</dt><dd>Es la más distinta de las páginas tecnológicas oscuras. Se lee mejor al sol en el celular y transmite seriedad a empresas.</dd></div><div><dt>En contra</dt><dd>Es el cambio más grande: hay que reconvertir todo el sitio a fondo claro, y el logo solo funciona sobre navy.</dd></div></dl></div>
+<div class="capturas"><figure><img src="capturas/a-ficha-escritorio.jpg" alt="Maqueta A en escritorio: fondo plateado, titular grande a la izquierda y ficha de Mantención Full a la derecha" loading="lazy"><figcaption>Escritorio, 1440 px</figcaption></figure>
+<figure class="movil"><img src="capturas/a-ficha-movil.jpg" alt="Maqueta A en celular" loading="lazy"><figcaption>Celular, 375 px</figcaption></figure>
+<figure class="botones"><img src="capturas/a-ficha-botones.jpg" alt="Botones de la maqueta A en todos sus estados" loading="lazy"><figcaption>Botones rectos, de esquina casi viva</figcaption></figure></div></section>
+
+<section class="opcion"><div class="texto"><div><h2>B. Corte hexagonal</h2>
+<p>Mantiene el navy actual. El titular ocupa todo el ancho en plata, los precios quedan como lista directa y el corte a 45° del hexágono del logo se vuelve la forma propia de botones y paneles.</p></div>
+<dl><div><dt>A favor</dt><dd>Es la evolución más natural del sitio y la más rápida de aplicar. Los botones no se parecen a los de otras páginas.</dd></div><div><dt>En contra</dt><dd>Sigue siendo una web tecnológica oscura, y esa tipografía puede acercarse al mundo gamer si se abusa.</dd></div></dl></div>
+<div class="capturas"><figure><img src="capturas/b-hexagono-escritorio.jpg" alt="Maqueta B en escritorio: fondo navy, titular plateado a todo el ancho y lista de precios" loading="lazy"><figcaption>Escritorio, 1440 px</figcaption></figure>
+<figure class="movil"><img src="capturas/b-hexagono-movil.jpg" alt="Maqueta B en celular" loading="lazy"><figcaption>Celular, 375 px</figcaption></figure>
+<figure class="botones"><img src="capturas/b-hexagono-botones.jpg" alt="Botones de la maqueta B en todos sus estados" loading="lazy"><figcaption>Botones con corte a 45°</figcaption></figure></div></section>
+
+<section class="opcion"><div class="texto"><div><h2>C. Banco de pruebas</h2>
+<p>Pantalla partida: el mensaje a la izquierda y, a la derecha, un equipo abierto con los cuatro pasos de tu mantención señalados sobre las piezas. Cuando tengas la foto real, reemplaza al dibujo y las señales se quedan.</p></div>
+<dl><div><dt>A favor</dt><dd>Explica qué haces apenas se abre la página, y con una foto real puede ser la más memorable.</dd></div><div><dt>En contra</dt><dd>Depende de esa foto: con el dibujo se ve provisoria. En celular el dibujo pierde fuerza y baja a una lista.</dd></div></dl></div>
+<div class="capturas"><figure><img src="capturas/c-banco-escritorio.jpg" alt="Maqueta C en escritorio: texto a la izquierda y dibujo de un PC abierto con cuatro pasos señalados" loading="lazy"><figcaption>Escritorio, 1440 px</figcaption></figure>
+<figure class="movil"><img src="capturas/c-banco-movil.jpg" alt="Maqueta C en celular" loading="lazy"><figcaption>Celular, 375 px</figcaption></figure>
+<figure class="botones"><img src="capturas/c-banco-botones.jpg" alt="Botones de la maqueta C en todos sus estados" loading="lazy"><figcaption>Botones con bloque para el ícono</figcaption></figure></div></section>
+</main>
