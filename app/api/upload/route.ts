@@ -1,11 +1,24 @@
 import { NextResponse } from 'next/server'
 import { createServerClient } from '@/lib/supabase-server'
+import { clientIp, rateLimit } from '@/lib/security'
 
 const BUCKET = 'booking-photos'
 const MAX_SIZE = 5 * 1024 * 1024 // 5 MB
-const ALLOWED = ['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'image/heif']
+// La extensión sale del tipo validado, nunca del nombre que manda el cliente.
+const EXT: Record<string, string> = {
+  'image/jpeg': 'jpg',
+  'image/png': 'png',
+  'image/webp': 'webp',
+  'image/heic': 'heic',
+  'image/heif': 'heif',
+}
+const ALLOWED = Object.keys(EXT)
 
 export async function POST(req: Request) {
+  if (!rateLimit(`upload:${clientIp(req)}`, 10, 60_000).ok) {
+    return NextResponse.json({ error: 'Demasiados intentos. Espera un minuto.' }, { status: 429 })
+  }
+
   const supabase = createServerClient()
 
   // Crear bucket si no existe (idempotente)
@@ -35,7 +48,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Foto demasiado grande (máx 5 MB)' }, { status: 400 })
     }
 
-    const ext = file.name.split('.').pop() ?? 'jpg'
+    const ext = EXT[file.type]
     const uid = `${Date.now()}-${Math.random().toString(36).slice(2)}`
     const path = `bookings/${uid}.${ext}`
 

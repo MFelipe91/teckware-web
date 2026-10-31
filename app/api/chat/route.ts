@@ -1,7 +1,19 @@
 import { NextResponse } from 'next/server'
+import { z } from 'zod'
 import { SERVICIOS, PLAZO_DETALLE } from '@/lib/constants'
+import { clientIp, rateLimit } from '@/lib/security'
+
+// Solo mensajes de usuario/asistente: el cliente no puede inyectar instrucciones de sistema.
+const bodySchema = z.object({
+  messages: z.array(z.object({
+    role: z.enum(['user', 'assistant']),
+    content: z.string().min(1).max(2000),
+  })).min(1).max(200),
+})
 
 const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions'
+// Groq retira modelos: GROQ_MODEL permite cambiarlo desde Vercel sin tocar el código.
+const GROQ_MODEL = process.env.GROQ_MODEL || 'openai/gpt-oss-20b'
 
 // Precios y plazos salen de lib/constants.ts: así el chatbot nunca queda desfasado del sitio.
 const LISTA_SERVICIOS = SERVICIOS.map(
@@ -32,6 +44,7 @@ REGLAS:
 - Para cotizaciones de PC Gamer a medida, invita a ver teckware.cl/builds o contactar por WhatsApp.
 - Si el cliente quiere agendar, indícale teckware.cl/agendar.
 - No inventes precios ni tiempos que no estén en la lista.
+- No sabes qué horas hay libres: nunca digas que hay o que no hay disponibilidad, ni confirmes citas. Si piden atención para hoy o una hora puntual, responde que las horas se coordinan por WhatsApp con el técnico y que el trabajo se entrega en 48 horas hábiles.
 - Si no sabes algo específico, deriva al WhatsApp: +56 9 3020 9427.
 - Nunca menciones competidores.
 - Si detectas urgencia (equipo quemado, datos perdidos, empresa paralizada), prioriza el WhatsApp inmediatamente.
@@ -44,29 +57,45 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'unavailable' }, { status: 503 })
   }
 
-  const { messages } = await req.json() as { messages: { role: string; content: string }[] }
+  const limit = rateLimit(`chat:${clientIp(req)}`, 15, 60_000)
+  if (!limit.ok) {
+    return NextResponse.json(
+      { error: 'Demasiadas consultas' },
+      { status: 429, headers: { 'Retry-After': String(limit.retryAfter) } },
+    )
+  }
+
+  const parsed = bodySchema.safeParse(await req.json().catch(() => null))
+  if (!parsed.success) {
+    return NextResponse.json({ error: 'Solicitud inválida' }, { status: 400 })
+  }
+  const { messages } = parsed.data
 
   const res = await fetch(GROQ_URL, {
     method: 'POST',
+    signal: AbortSignal.timeout(20_000),
     headers: {
       Authorization: `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: 'llama-3.1-8b-instant',
+      model: GROQ_MODEL,
+      reasoning_effort: 'low',
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
         ...messages.slice(-10),
       ],
-      max_tokens: 200,
+      max_tokens: 500,
       temperature: 0.6,
     }),
+  }).catch((e: unknown) => {
+    console.error('Groq sin respuesta:', e)
+    return null
   })
 
-  if (!res.ok) {
-    const err = await res.text()
-    console.error('Groq error:', err)
-    return NextResponse.json({ error: 'IA no disponible' }, { status: 500 })
+  if (!res || !res.ok) {
+    if (res) console.error('Groq error:', await res.text())
+    return NextResponse.json({ error: 'IA no disponible' }, { status: 502 })
   }
 
   const data = await res.json()

@@ -8,7 +8,7 @@ type Message = { role: 'user' | 'assistant'; content: string }
 
 const WELCOME: Message = {
   role: 'assistant',
-  content: '¡Hola! Soy **Teck** 👋 el asistente de TECKWARE. ¿En qué te puedo ayudar hoy? Puedo cotizar servicios, informarte de tiempos de entrega o ayudarte a agendar tu visita.',
+  content: '¡Hola! Soy **Teck** 👋 el asistente de TECKWARE. ¿En qué te puedo ayudar hoy? Puedo contarte precios y plazos, o ayudarte a agendar tu hora en el taller.',
 }
 
 const QUICK = [
@@ -17,8 +17,13 @@ const QUICK = [
   'Quiero armar un PC Gamer',
 ]
 
+// Las respuestas vienen de un modelo de IA: se escapa todo el HTML antes de aplicar el formato.
 function renderMd(text: string) {
   return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\n/g, '<br />')
 }
@@ -40,8 +45,16 @@ export function ChatWidget() {
   }, [open])
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [msgs])
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
+
+  useEffect(() => {
+    // Solo dentro del panel: con el chat cerrado no debe mover la página.
+    if (open) bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+  }, [msgs, open])
 
   const sendText = useCallback(async (text: string, history: Message[]) => {
     if (!text.trim() || loading) return
@@ -64,12 +77,13 @@ export function ChatWidget() {
         return
       }
 
-      const data = await res.json()
-      setMsgs(prev => [...prev, { role: 'assistant', content: data.text }])
+      const data = await res.json().catch(() => null) as { text?: string } | null
+      if (!res.ok || !data?.text) throw new Error('Sin respuesta del asistente')
+      setMsgs(prev => [...prev, { role: 'assistant', content: data.text as string }])
     } catch {
       setMsgs(prev => [...prev, {
         role: 'assistant',
-        content: 'Tuve un problema de conexión. Escríbenos directo por WhatsApp 😊',
+        content: 'Ahora no pude responderte. Escríbenos directo por WhatsApp 😊',
       }])
     } finally {
       setLoading(false)
@@ -80,12 +94,14 @@ export function ChatWidget() {
     <>
       {/* Panel */}
       <div
-        className={`fixed bottom-[10.5rem] right-4 sm:right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)] transition-all duration-300 ${
+        role="dialog"
+        aria-label="Chat con Teck, asistente de TECKWARE"
+        inert={!open}
+        className={`fixed bottom-[8.25rem] sm:bottom-[10.5rem] right-4 sm:right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)] transition-all duration-300 ${
           open
             ? 'opacity-100 translate-y-0 pointer-events-auto'
-            : 'opacity-0 translate-y-3 pointer-events-none'
+            : 'opacity-0 translate-y-3 pointer-events-none invisible'
         }`}
-        aria-live="polite"
       >
         <div
           className="flex flex-col rounded-2xl overflow-hidden border border-white/10 bg-ink-800 shadow-2xl shadow-black/60"
@@ -100,12 +116,13 @@ export function ChatWidget() {
               <p className="text-sm font-bold text-fg leading-none mb-1">Teck · Asistente TECKWARE</p>
               <div className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
-                <span className="text-[10px] text-fg-subtle">Asistente virtual · te ayuda a cotizar</span>
+                <span className="text-xs text-fg-subtle">Asistente virtual · te ayuda a cotizar</span>
               </div>
             </div>
             <button
               onClick={() => { setOpen(false); setSeenCount(msgs.length) }}
-              className="text-fg-subtle hover:text-fg-muted transition-colors p-1 rounded-lg hover:bg-white/5"
+              type="button"
+              className="text-fg-subtle hover:text-fg-muted transition-colors p-2 rounded-lg hover:bg-white/5"
               aria-label="Cerrar chat"
             >
               <X size={15} />
@@ -113,7 +130,7 @@ export function ChatWidget() {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
+          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3" aria-live="polite">
             {unavailable ? (
               <div className="flex flex-col items-center justify-center h-full gap-4 text-center px-4">
                 <Bot size={32} className="text-fg-subtle" />
@@ -178,8 +195,9 @@ export function ChatWidget() {
               {QUICK.map(q => (
                 <button
                   key={q}
+                  type="button"
                   onClick={() => sendText(q, msgs)}
-                  className="text-[10px] px-2.5 py-1.5 rounded-full border border-brand-bright/25 text-brand-bright hover:bg-brand/8 transition-colors"
+                  className="text-xs px-3 py-1.5 rounded-full border border-brand-bright/25 text-brand-bright hover:bg-brand/8 transition-colors"
                 >
                   {q}
                 </button>
@@ -198,7 +216,9 @@ export function ChatWidget() {
                   onChange={e => setInput(e.target.value)}
                   onKeyDown={e => e.key === 'Enter' && !loading && sendText(input, msgs)}
                   placeholder="Escribe tu consulta..."
-                  className="flex-1 bg-transparent text-sm text-fg placeholder-fg-subtle outline-none min-w-0 py-1"
+                  aria-label="Escribe tu consulta"
+                  maxLength={1000}
+                  className="flex-1 bg-transparent text-base sm:text-sm text-fg placeholder-fg-subtle outline-none min-w-0 py-1"
                   disabled={loading}
                 />
                 <button
@@ -214,14 +234,14 @@ export function ChatWidget() {
                 </button>
               </div>
               <div className="flex justify-between items-center mt-1.5 px-0.5">
-                <span className="text-[9px] text-fg-subtle">La IA puede cometer errores</span>
+                <span className="text-xs text-fg-subtle">La IA puede cometer errores</span>
                 <a
                   href={WA.general()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[9px] text-fg-subtle hover:text-brand-bright transition-colors flex items-center gap-0.5"
+                  className="text-xs text-fg-subtle hover:text-brand-bright transition-colors flex items-center gap-1"
                 >
-                  Preferir WhatsApp <ArrowRight size={8} />
+                  Preferir WhatsApp <ArrowRight size={11} aria-hidden="true" />
                 </a>
               </div>
             </div>
@@ -232,7 +252,8 @@ export function ChatWidget() {
       {/* FAB */}
       <button
         onClick={() => { setOpen(o => !o); setSeenCount(msgs.length) }}
-        className="fixed bottom-24 right-4 sm:right-6 z-50 w-14 h-14 rounded-full bg-brand hover:bg-brand-hover shadow-lg shadow-brand-bright/30 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95"
+        type="button"
+        className="fixed bottom-[4.5rem] sm:bottom-24 right-4 sm:right-6 z-50 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-brand hover:bg-brand-hover shadow-lg shadow-brand-bright/30 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95"
         aria-label={open ? 'Cerrar chat' : 'Abrir chat con Teck IA'}
       >
         {open

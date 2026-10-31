@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createServerClient } from '@/lib/supabase-server'
+import { clientIp, rateLimit } from '@/lib/security'
 
 /**
  * POST /api/solicitudes
@@ -7,6 +8,10 @@ import { createServerClient } from '@/lib/supabase-server'
  * Corre server-side con SERVICE_ROLE_KEY, por lo que bypassa RLS.
  */
 export async function POST(req: Request) {
+  if (!rateLimit(`solicitudes:${clientIp(req)}`, 10, 60_000).ok) {
+    return NextResponse.json({ error: 'Demasiadas solicitudes' }, { status: 429 })
+  }
+
   let body: Record<string, unknown>
   try {
     body = (await req.json()) as Record<string, unknown>
@@ -32,7 +37,9 @@ export async function POST(req: Request) {
       equipo_tipo: str(body.equipoTipo) || null,
       marca: str(body.marca) || null,
       problema: str(body.problema) || null,
-      foto_urls: Array.isArray(body.fotoUrls) ? body.fotoUrls : [],
+      foto_urls: Array.isArray(body.fotoUrls)
+        ? body.fotoUrls.filter((u): u is string => typeof u === 'string').slice(0, 3)
+        : [],
       nombre,
       telefono,
       fecha_preferida: str(body.fechaPreferida) || null,
