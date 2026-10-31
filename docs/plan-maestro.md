@@ -338,10 +338,14 @@ el chat estaba caído. Si vuelve a pasar, se cambia la variable en Vercel sin to
 
 ### 6.10 Cierre de la fase
 - [x] `npx tsc --noEmit`, `npm run lint` y `npm run build` sin errores.
-- [ ] Revisión en la Preview de Vercel de la rama (escritorio y móvil).
-- [ ] PR `feat/diseno` → `main` con capturas antes y después.
-- [ ] Después de publicar: comprobar en www.teckware.cl, pedir reindexación de la home en
-      Search Console y medir el LCP en Speed Insights al cabo de unos días.
+- [x] Publicado en producción el 2026-10-31, directo a `main` a pedido del dueño: sin PR ni
+      revisión previa de la Preview por parte del dueño.
+- [x] Comprobado en www.teckware.cl: rutas, flujos, chat y Lighthouse.
+- [ ] El dueño prueba una solicitud real con foto en `/agendar` y la revisa en `/admin`.
+- [ ] El dueño confirma que `ADMIN_PASSWORD` está en Vercel (sin ella, el panel queda cerrado).
+- [ ] Decidir si las fotos de clientes dejan de estar en un bucket público de Supabase.
+- [ ] Pedir reindexación de la home en Search Console y medir el LCP en Speed Insights al cabo
+      de unos días.
 
 ---
 
