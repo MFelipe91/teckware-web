@@ -59,7 +59,7 @@ export const INITIAL_BUILDS: Build[] = [
   {
     id: 'mid-beast-pro',
     nombre: 'Mid Beast Pro',
-    tag: 'Más Pedido',
+    tag: 'Equilibrado',
     tagColor: 'cyan',
     descripcion: 'El punto dulce entre precio y rendimiento. Domina 1080p y alcanza 1440p con soltura. Ideal para gaming + streaming simultáneo.',
     precio: 1890000,

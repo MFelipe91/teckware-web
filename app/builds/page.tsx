@@ -9,7 +9,7 @@ import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 export const metadata: Metadata = {
   title: 'PC Gamer a Pedido',
-  description: 'Builds de PC Gamer armados por TECKWARE en La Serena. Ryzen, Intel, RTX, RX — specs completas, benchmarks reales y precios en pesos chilenos.',
+  description: 'Builds de PC Gamer armados por TECKWARE en La Serena. Ryzen, Intel, RTX, RX — specs completas, rendimiento estimado y precios en pesos chilenos.',
   alternates: { canonical: '/builds' },
 }
 
@@ -60,10 +60,10 @@ export default async function BuildsPage() {
   const builds = await getBuilds()
 
   return (
-    <div className="min-h-screen bg-ink-900 pt-24">
+    <div className="min-h-screen bg-ink-900">
 
       {/* Header */}
-      <section className="relative bg-ink-950 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative bg-ink-950 pt-44 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background image — RGB Corsair build interior */}
         <div className="absolute inset-0">
           <Image
@@ -96,7 +96,7 @@ export default async function BuildsPage() {
             y verificación de temperaturas. Garantía de 30 días en el armado.
           </p>
           <div className="flex flex-wrap gap-3">
-            {['Cable management incluido', 'Pruebas de estrés 24h', 'Pasta térmica premium', 'Garantía 30 días'].map((item) => (
+            {['Cable management incluido', 'Pruebas de estrés','Pasta térmica premium', 'Garantía 30 días'].map((item) => (
               <span key={item} className="flex items-center gap-1.5 text-xs text-fg-muted border border-white/10 px-3 py-1.5 rounded-full bg-white/3">
                 <CheckCircle2 size={12} className="text-gamer-bright" />
                 {item}
@@ -111,7 +111,7 @@ export default async function BuildsPage() {
         {builds.length === 0 ? (
           <div className="text-center py-20 text-fg-subtle">Próximamente builds disponibles. Consulta por WhatsApp.</div>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {builds.map((build) => (
               <article key={build.id} className="glass-card rounded-2xl border border-white/10 overflow-hidden flex flex-col">
 
@@ -120,19 +120,19 @@ export default async function BuildsPage() {
 
                 <div className="p-7 flex flex-col flex-1">
                   {/* Header */}
-                  <div className="flex items-start justify-between gap-4 mb-5">
-                    <div className="flex-1 min-w-0">
+                  <div className="mb-5">
+                    <div>
                       <div className="flex items-center gap-2 mb-2 flex-wrap">
-                        <span className={`px-2.5 py-0.5 text-[10px] font-bold tracking-widest uppercase rounded-full border ${TAG_STYLES[build.tagColor] ?? TAG_STYLES.cyan}`}>
+                        <span className={`px-2.5 py-0.5 text-xs font-bold tracking-widest uppercase rounded-full border ${TAG_STYLES[build.tagColor] ?? TAG_STYLES.cyan}`}>
                           {build.tag}
                         </span>
                         {build.disponible ? (
-                          <span className="flex items-center gap-1 text-[10px] font-semibold text-success">
+                          <span className="flex items-center gap-1 text-xs font-semibold text-success">
                             <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
                             Disponible
                           </span>
                         ) : (
-                          <span className="flex items-center gap-1 text-[10px] font-semibold text-fg-subtle">
+                          <span className="flex items-center gap-1 text-xs font-semibold text-fg-subtle">
                             <XCircle size={10} />
                             Bajo pedido
                           </span>
@@ -141,9 +141,9 @@ export default async function BuildsPage() {
                       <h2 className="text-2xl font-black text-fg tracking-tight">{build.nombre}</h2>
                       <p className="text-sm text-fg-muted mt-1 leading-relaxed">{build.descripcion}</p>
                     </div>
-                    <div className="text-right shrink-0">
-                      <div className="text-2xl font-black text-fg price">{formatCLP(build.precio)}</div>
-                      <div className="text-xs text-fg-subtle mt-0.5">Armado incluido</div>
+                    <div className="mt-4 flex items-baseline gap-2">
+                      <div className="text-3xl font-black text-fg price">{formatCLP(build.precio)}</div>
+                      <div className="text-xs text-fg-subtle">Armado incluido</div>
                     </div>
                   </div>
 
@@ -160,8 +160,8 @@ export default async function BuildsPage() {
                             <div className="w-7 h-7 shrink-0 flex items-center justify-center rounded-lg bg-white/5">
                               <Icon size={13} className="text-brand-bright" />
                             </div>
-                            <span className="text-[11px] text-fg-subtle w-24 shrink-0">{SPEC_LABELS[key]}</span>
-                            <span className="text-[11px] font-semibold text-fg flex-1">{value}</span>
+                            <span className="text-xs text-fg-subtle w-24 shrink-0">{SPEC_LABELS[key]}</span>
+                            <span className="text-xs font-semibold text-fg flex-1">{value}</span>
                           </div>
                         )
                       })}
@@ -180,13 +180,13 @@ export default async function BuildsPage() {
                           if (!fps) return null
                           return (
                             <div key={key} className="bg-white/[0.03] border border-white/8 rounded-xl px-3 py-2.5">
-                              <div className="text-[10px] text-fg-subtle mb-0.5">{label}</div>
+                              <div className="text-xs text-fg-subtle mb-0.5">{label}</div>
                               <div className="text-sm font-black text-brand-bright tabular-nums">{fps}</div>
                             </div>
                           )
                         })}
                       </div>
-                      <p className="text-[10px] text-fg-subtle mt-2">* FPS estimados según benchmarks públicos. Pueden variar.</p>
+                      <p className="text-xs text-fg-subtle mt-2">* FPS estimados según benchmarks públicos. Pueden variar.</p>
                     </div>
                   )}
 
@@ -198,7 +198,7 @@ export default async function BuildsPage() {
                       rel="noopener noreferrer"
                       className="flex-1 flex items-center justify-center gap-2 py-3 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover transition-colors min-h-[48px]"
                     >
-                      {build.disponible ? 'Comprar / Consultar' : 'Hacer pedido'}
+                      {build.disponible ? 'Consultar' : 'Hacer pedido'}
                       <ArrowRight size={15} strokeWidth={2.5} />
                     </a>
                     <a

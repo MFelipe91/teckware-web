@@ -62,10 +62,10 @@ const PARA_QUIEN = [
 
 export default function CiberseguridadPage() {
   return (
-    <div className="min-h-screen bg-ink-900 pt-24">
+    <div className="min-h-screen bg-ink-900">
 
       {/* Hero */}
-      <section className="relative bg-ink-950 py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative bg-ink-950 pt-48 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/images/devia.jpg"
@@ -171,7 +171,7 @@ export default function CiberseguridadPage() {
                 className="relative glass-card rounded-2xl p-7 border border-white/10 card-hover"
               >
                 {s.badge && (
-                  <span className={`absolute top-5 right-5 px-2.5 py-0.5 text-[10px] font-bold tracking-wider uppercase rounded-full border ${BADGE_COLORS[s.badge] ?? 'bg-white/10 text-fg-muted border-white/20'}`}>
+                  <span className={`absolute top-5 right-5 px-2.5 py-0.5 text-xs font-bold tracking-wider uppercase rounded-full border ${BADGE_COLORS[s.badge] ?? 'bg-white/10 text-fg-muted border-white/20'}`}>
                     {s.badge}
                   </span>
                 )}

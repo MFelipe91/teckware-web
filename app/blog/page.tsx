@@ -17,7 +17,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-ink-900 pt-24">
       <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-        <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-[0.2em] uppercase text-brand-bright border border-brand-bright/20 rounded-sm bg-brand/6">
+        <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-[0.2em] uppercase text-brand-bright border border-brand-bright/20 rounded-xl bg-brand/6">
           Blog
         </span>
         <h1 className="text-fg mb-4">Guías de mantención</h1>
@@ -32,7 +32,7 @@ export default function BlogPage() {
             <li key={p.slug}>
               <Link
                 href={`/blog/${p.slug}`}
-                className="group flex flex-col h-full glass-card rounded-sm p-7 border border-white/8 card-hover"
+                className="group flex flex-col h-full glass-card rounded-xl p-7 border border-white/8 card-hover"
               >
                 <div className="flex items-center gap-3 mb-3 text-xs text-fg-subtle">
                   <time dateTime={p.date}>{fecha(p.date)}</time>

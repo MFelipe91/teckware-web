@@ -30,11 +30,11 @@ const sora = Sora({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'TECKWARE | Servicio Técnico, PC Gamer y Hardware — La Serena, Chile',
+    default: 'Mantención y Servicio Técnico de PC en La Serena y Coquimbo | TECKWARE',
     template: '%s | TECKWARE La Serena',
   },
   description:
-    'Servicio técnico de computadores y PC Gamer en La Serena. Reparación de notebooks, armado de PC Gaming, upgrade RTX y Ryzen, mantenimiento y diagnóstico profesional. Expertos en hardware AMD, Intel y NVIDIA.',
+    'Mantención preventiva y servicio técnico de PC gamer, notebooks y consolas en La Serena y Coquimbo. Taller con hora coordinada, informe técnico, boleta y garantía de 30 días.',
   keywords: [
     // Servicio técnico local
     'servicio técnico La Serena',
@@ -92,8 +92,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'TECKWARE SpA | Servicio Técnico La Serena',
-    description: 'Reparación de notebooks, PC Gamer, MacBook y consolas en La Serena.',
+    title: 'TECKWARE | Mantención y servicio técnico en La Serena y Coquimbo',
+    description: 'Mantención preventiva de PC gamer, notebooks y consolas. Informe técnico, boleta y garantía de 30 días.',
     images: ['/og-image.png'],
   },
   robots: { index: true, follow: true },

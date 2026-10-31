@@ -62,10 +62,10 @@ const PROCESO_WEB = [
 
 export default function WebQAPage() {
   return (
-    <div className="min-h-screen bg-ink-900 pt-24">
+    <div className="min-h-screen bg-ink-900">
 
       {/* Hero */}
-      <section className="relative bg-ink-950 py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative bg-ink-950 pt-48 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/images/developer01.jpg"
@@ -134,7 +134,7 @@ export default function WebQAPage() {
                 className="relative glass-card rounded-2xl p-7 border border-white/10 card-hover"
               >
                 {s.badge && (
-                  <span className={`absolute top-5 right-5 px-2.5 py-0.5 text-[10px] font-bold tracking-wider uppercase rounded-full border ${BADGE_COLORS[s.badge] ?? 'bg-white/10 text-fg-muted border-white/20'}`}>
+                  <span className={`absolute top-5 right-5 px-2.5 py-0.5 text-xs font-bold tracking-wider uppercase rounded-full border ${BADGE_COLORS[s.badge] ?? 'bg-white/10 text-fg-muted border-white/20'}`}>
                     {s.badge}
                   </span>
                 )}
@@ -200,7 +200,7 @@ export default function WebQAPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {PROCESO_WEB.map(({ paso, titulo, desc }) => (
             <div key={paso} className="relative glass-card rounded-2xl p-6 border border-white/10">
-              <div className="text-4xl font-black text-brand-bright/15 mb-3 tabular-nums">{paso}</div>
+              <div className="text-4xl font-black text-brand-bright mb-3 tabular-nums">{paso}</div>
               <h3 className="text-base font-bold text-fg mb-2">{titulo}</h3>
               <p className="text-sm text-fg-muted leading-relaxed">{desc}</p>
             </div>

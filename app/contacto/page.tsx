@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 
 export default function ContactoPage() {
   return (
-    <div className="min-h-screen bg-ink-900 pt-24">
+    <div className="min-h-screen bg-ink-900">
       {/* Header */}
-      <section className="relative bg-ink-950 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative bg-ink-950 pt-44 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <CircuitBackground variant="constellation" palette="mixed" density={1.1} opacity={0.65} />
         <div className="glow-brand w-72 h-72 -top-16 right-0 opacity-30" />
         <div className="relative max-w-7xl mx-auto text-center">
@@ -122,7 +122,7 @@ export default function ContactoPage() {
         <div className="mt-12 text-center p-10 rounded-3xl border border-brand-bright/15 bg-brand/5">
           <h2 className="text-fg mb-3">¿Prefieres un formulario?</h2>
           <p className="text-fg-muted mb-6">
-            Completa tus datos y te contactamos nosotros.
+            Completa tus datos y te dejamos el mensaje de WhatsApp listo para enviar.
           </p>
           <Link
             href="/solicitar"

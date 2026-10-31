@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Shield, MapPin, Calendar, Building2, ArrowRight } from 'lucide-react'
+import { Shield, MapPin, Calendar, Building2 } from 'lucide-react'
 import { EMPRESA } from '@/lib/constants'
-import { WA } from '@/lib/whatsapp'
 import { BLUR_DARK } from '@/lib/imageBlur'
 import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
+import { CtaPair } from '@/components/shared/CtaPair'
 
 export const metadata: Metadata = {
   title: 'Nosotros',
@@ -15,14 +15,14 @@ export const metadata: Metadata = {
 
 export default function NosotrosPage() {
   return (
-    <div className="min-h-screen bg-ink-900 pt-24">
+    <div className="min-h-screen bg-ink-900">
       {/* Header con imagen */}
-      <section className="relative bg-ink-950 py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative bg-ink-950 pt-48 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Foto de fondo — water cooling azul (ambiente técnico) */}
         <div className="absolute inset-0">
           <Image
             src="/images/casper-johansson-KDIHqGWlvOc-unsplash.jpg"
-            alt="Water cooling build — TECKWARE SpA"
+            alt=""
             fill
             className="object-cover object-center opacity-12"
             priority
@@ -41,7 +41,7 @@ export default function NosotrosPage() {
           style={{ background: 'var(--gradient-signature)' }}
         />
         <div className="relative max-w-7xl mx-auto text-center">
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-[0.2em] uppercase text-brand-bright border border-brand-bright/20 rounded-sm bg-brand/6">
+          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-[0.2em] uppercase text-brand-bright border border-brand-bright/20 rounded-full bg-brand/6">
             Nosotros
           </span>
           <h1 className="text-fg mb-4">
@@ -77,10 +77,10 @@ export default function NosotrosPage() {
             </div>
           </div>
           {/* Foto — técnico ensamblando PC */}
-          <div className="relative h-72 lg:h-96 rounded-sm overflow-hidden border border-white/8">
+          <div className="relative h-72 lg:h-96 rounded-xl overflow-hidden border border-white/8">
             <Image
               src="/images/patty-zavala-e1MjwVoOdH8-unsplash.jpg"
-              alt="Técnico ensamblando PC Gamer con water cooling — TECKWARE"
+              alt="PC gamer en ensamblaje con refrigeración líquida"
               fill
               className="object-cover object-center"
               quality={78}
@@ -109,9 +109,9 @@ export default function NosotrosPage() {
             ].map(({ icon: Icon, label, value }) => (
               <div
                 key={label}
-                className="flex items-start gap-4 p-5 rounded-sm bg-white/[0.03] border border-white/8 hover:border-brand-bright/20 transition-colors"
+                className="flex items-start gap-4 p-5 rounded-xl bg-white/[0.03] border border-white/8 hover:border-brand-bright/20 transition-colors"
               >
-                <div className="w-9 h-9 shrink-0 flex items-center justify-center rounded-sm bg-brand/8 border border-brand-bright/18">
+                <div className="w-9 h-9 shrink-0 flex items-center justify-center rounded-xl bg-brand/8 border border-brand-bright/18">
                   <Icon size={16} className="text-brand-bright" />
                 </div>
                 <div>
@@ -146,7 +146,7 @@ export default function NosotrosPage() {
             ].map((v) => (
               <div
                 key={v.titulo}
-                className="p-6 rounded-sm border border-white/8 bg-white/[0.02] hover:border-brand-bright/20 transition-colors"
+                className="p-6 rounded-xl border border-white/8 bg-white/[0.02] hover:border-brand-bright/20 transition-colors"
               >
                 <div className="w-1 h-5 rounded-full bg-brand mb-4" />
                 <h3 className="text-base font-bold text-fg mb-2">{v.titulo}</h3>
@@ -160,15 +160,7 @@ export default function NosotrosPage() {
         <section className="text-center pt-4">
           <h2 className="text-fg mb-4">¿Tienes un equipo con problemas?</h2>
           <p className="text-fg-muted mb-8">Escríbenos por WhatsApp. Te respondemos en horario hábil, Lun–Vie 10:00–18:30.</p>
-          <a
-            href={WA.general()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-brand text-white font-extrabold rounded-sm hover:bg-brand-hover transition-colors min-h-[52px]"
-          >
-            Contactar ahora
-            <ArrowRight size={16} strokeWidth={2.5} />
-          </a>
+          <CtaPair />
         </section>
       </div>
     </div>

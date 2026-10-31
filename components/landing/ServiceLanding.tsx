@@ -42,7 +42,7 @@ export function ServiceLanding(props: ServiceLandingProps) {
   const otros = LANDINGS.filter((l) => l.href !== path)
 
   return (
-    <div className="min-h-screen bg-ink-900 pt-24">
+    <div className="min-h-screen bg-ink-900">
       {/* JSON-LD FAQ → rich snippet en Google */}
       <script
         type="application/ld+json"
@@ -57,7 +57,7 @@ export function ServiceLanding(props: ServiceLandingProps) {
       />
 
       {/* HERO */}
-      <section className="relative bg-ink-950 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative bg-ink-950 pt-44 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src={heroImage}
@@ -80,7 +80,7 @@ export function ServiceLanding(props: ServiceLandingProps) {
           style={{ background: 'var(--gradient-signature)' }}
         />
         <div className="relative max-w-3xl mx-auto text-center">
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-[0.2em] uppercase text-brand-bright border border-brand-bright/20 rounded-xl bg-brand/6">
+          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-[0.2em] uppercase text-brand-bright border border-brand-bright/20 rounded-full bg-brand/6">
             {eyebrow}
           </span>
           <h1 className="text-fg mb-4">
@@ -161,7 +161,7 @@ export function ServiceLanding(props: ServiceLandingProps) {
                   href={p.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto flex items-center justify-center gap-2 px-4 py-2.5 bg-brand text-white text-sm font-extrabold rounded-xl hover:bg-brand-hover transition-colors min-h-[40px]"
+                  className="mt-auto flex items-center justify-center gap-2 px-4 py-2.5 bg-brand text-white text-sm font-semibold rounded-xl hover:bg-brand-hover transition-colors min-h-[40px]"
                 >
                   Solicitar
                   <ArrowRight size={14} strokeWidth={2.5} />

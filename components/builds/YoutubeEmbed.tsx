@@ -12,16 +12,8 @@ interface Props {
 export function YoutubeEmbed({ videoId, title }: Props) {
   const [playing, setPlaying] = useState(false)
 
-  if (!videoId) {
-    return (
-      <div className="aspect-video w-full bg-ink-800 flex flex-col items-center justify-center gap-3 rounded-t-2xl border-b border-white/8">
-        <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-          <Play size={20} className="text-fg-subtle ml-0.5" />
-        </div>
-        <span className="text-xs text-fg-subtle">Video benchmark próximamente</span>
-      </div>
-    )
-  }
+  // Sin video no se muestra nada: una caja vacía de "próximamente" se ve a medio terminar.
+  if (!videoId) return null
 
   if (playing) {
     return (
@@ -56,7 +48,7 @@ export function YoutubeEmbed({ videoId, title }: Props) {
           <Play size={22} fill="white" stroke="none" className="ml-1" />
         </div>
       </div>
-      <div className="absolute bottom-3 left-3 text-white text-[11px] font-semibold bg-black/70 px-2.5 py-1 rounded-md backdrop-blur-sm">
+      <div className="absolute bottom-3 left-3 text-white text-xs font-semibold bg-black/70 px-2.5 py-1 rounded-md backdrop-blur-sm">
         Ver benchmark completo
       </div>
     </button>

@@ -95,7 +95,7 @@ export default async function BlogPostPage({ params }: Props) {
         ))}
 
         {/* CTA al servicio relacionado */}
-        <aside className="mt-14 p-8 rounded-sm border border-brand-bright/15 bg-brand/5">
+        <aside className="mt-14 p-8 rounded-xl border border-brand-bright/15 bg-brand/5">
           <p className="text-fg font-bold mb-2">¿Prefieres que lo revisemos nosotros?</p>
           <p className="text-sm text-fg-muted mb-6">
             Diagnóstico claro antes de cualquier trabajo, pago al retirar y 30 días de garantía. Atendemos en La Serena y Coquimbo.
@@ -103,7 +103,7 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="flex flex-wrap gap-3">
             <Link
               href={post.related.href}
-              className="flex items-center gap-2 px-5 py-3 bg-brand text-white text-sm font-extrabold rounded-sm hover:bg-brand-hover transition-colors min-h-[44px]"
+              className="flex items-center gap-2 px-5 py-3 bg-brand text-white text-sm font-semibold rounded-xl hover:bg-brand-hover transition-colors min-h-[44px]"
             >
               {post.related.label}
               <ArrowRight size={14} strokeWidth={2.5} />
@@ -112,7 +112,7 @@ export default async function BlogPostPage({ params }: Props) {
               href={WA.servicio(post.related.label)}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-3 border border-whatsapp/40 text-whatsapp text-sm font-bold rounded-sm hover:bg-whatsapp/10 transition-colors min-h-[44px]"
+              className="flex items-center gap-2 px-5 py-3 border border-whatsapp/40 text-whatsapp text-sm font-bold rounded-xl hover:bg-whatsapp/10 transition-colors min-h-[44px]"
             >
               <MessageCircle size={14} />
               Consultar por WhatsApp
@@ -129,7 +129,7 @@ export default async function BlogPostPage({ params }: Props) {
             <li key={p.slug}>
               <Link
                 href={`/blog/${p.slug}`}
-                className="flex items-center justify-between gap-3 px-4 py-3 rounded-sm bg-white/[0.03] border border-white/8 text-sm text-fg-muted hover:text-fg hover:border-brand-bright/30 transition-colors"
+                className="flex items-center justify-between gap-3 px-4 py-3 rounded-xl bg-white/[0.03] border border-white/8 text-sm text-fg-muted hover:text-fg hover:border-brand-bright/30 transition-colors"
               >
                 {p.title}
                 <ArrowRight size={14} className="text-brand-bright shrink-0" />

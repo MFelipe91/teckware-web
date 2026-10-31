@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { Menu, X, MessageCircle } from 'lucide-react'
 import { NAV_LINKS } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
@@ -11,6 +12,7 @@ import { cn } from '@/lib/utils'
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -18,12 +20,19 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
+
   return (
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled
-          ? 'bg-ink-950/92 backdrop-blur-2xl border-b border-white/8 shadow-[0_4px_30px_rgba(0,0,0,0.4)]'
+        scrolled || open
+          ?'bg-ink-950/92 backdrop-blur-2xl border-b border-white/8 shadow-[0_4px_30px_rgba(0,0,0,0.4)]'
           : 'bg-transparent'
       )}
     >
@@ -58,11 +67,18 @@ export function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="relative px-3 xl:px-4 py-2 text-sm font-medium text-fg-muted hover:text-fg rounded-sm transition-all duration-150 group"
+                aria-current={pathname === link.href ? 'page' : undefined}
+                className={cn(
+                  'relative px-3 xl:px-4 py-2 text-sm font-medium hover:text-fg rounded-xl transition-all duration-150 group',
+                  pathname === link.href ? 'text-fg' : 'text-fg-muted'
+                )}
               >
                 {link.label}
                 {/* Subrayado al pasar el mouse */}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-brand transition-all duration-200 group-hover:w-4/5 rounded-full" />
+                <span className={cn(
+                  'absolute bottom-0 left-1/2 -translate-x-1/2 h-[1px] bg-brand-bright transition-all duration-200 group-hover:w-4/5 rounded-full',
+                  pathname === link.href ? 'w-4/5' : 'w-0'
+                )} />
               </Link>
             </li>
           ))}
@@ -74,7 +90,7 @@ export function Navbar() {
             href={WA.general()}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 bg-brand text-white text-sm font-extrabold rounded-sm hover:bg-brand-hover transition-all duration-150 min-h-[40px] tracking-wide"
+            className="flex items-center gap-2 px-4 py-2 bg-brand text-white text-sm font-semibold rounded-xl hover:bg-brand-hover transition-all duration-150 min-h-[40px] tracking-wide"
           >
             <MessageCircle size={15} strokeWidth={2.5} />
             WhatsApp
@@ -84,7 +100,7 @@ export function Navbar() {
         {/* Mobile menu button */}
         <button
           onClick={() => setOpen(!open)}
-          className="lg:hidden p-2 text-fg-muted hover:text-fg rounded-sm hover:bg-white/5 transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
+          className="lg:hidden p-2 text-fg-muted hover:text-fg rounded-xl hover:bg-white/5 transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
           aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={open}
         >
@@ -101,7 +117,8 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-fg-muted hover:text-fg hover:bg-white/4 rounded-sm transition-all border-l-2 border-transparent hover:border-brand-bright/50"
+                  aria-current={pathname === link.href ? 'page' : undefined}
+                  className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-fg-muted hover:text-fg hover:bg-white/4 rounded-xl transition-all border-l-2 border-transparent hover:border-brand-bright/50"
                 >
                   {link.label}
                 </Link>
@@ -113,7 +130,7 @@ export function Navbar() {
               href={WA.general()}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-3 bg-brand text-white text-sm font-extrabold rounded-sm hover:bg-brand-hover transition-colors min-h-[44px]"
+              className="flex items-center justify-center gap-2 w-full py-3 bg-brand text-white text-sm font-semibold rounded-xl hover:bg-brand-hover transition-colors min-h-[44px]"
             >
               <MessageCircle size={16} strokeWidth={2.5} />
               Escribir por WhatsApp

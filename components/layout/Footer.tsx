@@ -16,7 +16,7 @@ export function Footer() {
 
           {/* Columna 1 — Marca */}
           <div className="space-y-4">
-            <Link href="/" aria-label="TECKWARE inicio">
+            <Link href="/" aria-label="TECKWARE inicio" className="block w-fit">
               <Image
                 src="/brand/logo-stack.webp"
                 alt="TECKWARE — Soluciones Tecnológicas"
@@ -45,12 +45,12 @@ export function Footer() {
           {/* Columna 2 — Navegación */}
           <div>
             <h3 className="text-sm font-semibold text-fg mb-4">Navegación</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-fg-muted hover:text-brand-bright transition-colors"
+                    className="inline-block py-1 text-sm text-fg-muted hover:text-brand-bright transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -62,13 +62,13 @@ export function Footer() {
                 { href: '/nosotros', label: 'Nosotros' },
               ].map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-fg-muted hover:text-brand-bright transition-colors">
+                  <Link href={link.href} className="inline-block py-1 text-sm text-fg-muted hover:text-brand-bright transition-colors">
                     {link.label}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="/solicitar" className="text-sm text-brand-bright hover:text-brand-bright font-medium transition-colors">
+                <Link href="/solicitar" className="inline-block py-1 text-sm text-brand-bright hover:underline font-medium">
                   Solicitar servicio →
                 </Link>
               </li>
@@ -78,12 +78,12 @@ export function Footer() {
           {/* Columna 3 — Servicios */}
           <div>
             <h3 className="text-sm font-semibold text-fg mb-4">Servicios</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               {LANDINGS.map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-sm text-fg-muted hover:text-brand-bright transition-colors"
+                    className="inline-block py-1 text-sm text-fg-muted hover:text-brand-bright transition-colors"
                   >
                     {l.label}
                   </Link>
@@ -134,10 +134,10 @@ export function Footer() {
             © {year} TECKWARE SpA. Todos los derechos reservados.
           </p>
           <div className="flex gap-6">
-            <Link href="/privacidad" className="text-xs text-fg-subtle hover:text-fg-muted transition-colors">
+            <Link href="/privacidad" className="inline-block py-1 text-xs text-fg-subtle hover:text-fg-muted transition-colors">
               Privacidad
             </Link>
-            <Link href="/terminos" className="text-xs text-fg-subtle hover:text-fg-muted transition-colors">
+            <Link href="/terminos" className="inline-block py-1 text-xs text-fg-subtle hover:text-fg-muted transition-colors">
               Términos
             </Link>
           </div>

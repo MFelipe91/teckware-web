@@ -18,7 +18,7 @@ import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 export const revalidate = 30
 
 export const metadata: Metadata = {
-  title: 'Servicios',
+  title: 'Servicios y Precios',
   description:
     'Diagnóstico, formateo, mantención física, GPU, consolas y armado PC Gamer en La Serena. Precios con IVA incluido. Se emite boleta.',
   alternates: { canonical: '/servicios' },
@@ -66,9 +66,9 @@ const FALLBACK_IMG = '/images/hardware-amd.jpg'
 export default async function ServiciosPage() {
   const SERVICIOS = await getServices()
   return (
-    <div className="min-h-screen bg-ink-900 pt-24">
+    <div className="min-h-screen bg-ink-900">
       {/* Header */}
-      <section className="relative bg-ink-950 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative bg-ink-950 pt-44 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Foto de fondo — limpieza de fans PC */}
         <div className="absolute inset-0">
           <Image
@@ -92,12 +92,12 @@ export default async function ServiciosPage() {
           style={{ background: 'var(--gradient-signature)' }}
         />
         <div className="relative max-w-7xl mx-auto text-center">
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-[0.2em] uppercase text-brand-bright border border-brand-bright/20 rounded-sm bg-brand/6">
+          <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-[0.2em] uppercase text-brand-bright border border-brand-bright/20 rounded-full bg-brand/6">
             Servicios
           </span>
           <h1 className="text-fg mb-4">
-            Todo lo que{' '}
-            <span className="gradient-text">reparamos</span>
+            Servicios y precios en{' '}
+            <span className="gradient-text">La Serena y Coquimbo</span>
           </h1>
           <p className="text-fg-muted max-w-xl mx-auto">
             Precios fijos y transparentes. Sin sorpresas al final.
@@ -118,7 +118,7 @@ export default async function ServiciosPage() {
             return (
               <div
                 key={servicio.id}
-                className="group glass-card rounded-sm overflow-hidden border border-white/8 card-hover flex flex-col"
+                className="group glass-card rounded-xl overflow-hidden border border-white/8 card-hover flex flex-col"
               >
                 {/* Foto */}
                 <div className="relative h-44 overflow-hidden shrink-0">
@@ -134,7 +134,7 @@ export default async function ServiciosPage() {
                     blurDataURL={BLUR_DARK}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
-                  <div className="absolute bottom-3 left-4 w-10 h-10 flex items-center justify-center rounded-sm bg-ink-950/80 border border-brand-bright/30 backdrop-blur-sm">
+                  <div className="absolute bottom-3 left-4 w-10 h-10 flex items-center justify-center rounded-xl bg-ink-950/80 border border-brand-bright/30 backdrop-blur-sm">
                     <Icon size={18} className="text-brand-bright" />
                   </div>
                 </div>
@@ -177,7 +177,7 @@ export default async function ServiciosPage() {
                       href={waLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-brand text-white text-sm font-extrabold rounded-sm hover:bg-brand-hover transition-colors min-h-[40px]"
+                      className="flex items-center gap-2 px-4 py-2 bg-brand text-white text-sm font-semibold rounded-xl hover:bg-brand-hover transition-colors min-h-[40px]"
                     >
                       Solicitar
                       <ArrowRight size={14} strokeWidth={2.5} />
@@ -225,7 +225,7 @@ export default async function ServiciosPage() {
             {SERVICIOS_ADICIONALES.map((s) => (
               <div
                 key={s}
-                className="flex items-center gap-3 px-4 py-3 rounded-sm bg-white/[0.03] border border-white/8 hover:border-brand-bright/20 transition-colors"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/[0.03] border border-white/8 hover:border-brand-bright/20 transition-colors"
               >
                 <span className="w-1 h-4 rounded-full bg-brand/70 shrink-0" />
                 <span className="text-sm text-fg-muted">{s}</span>
@@ -237,7 +237,7 @@ export default async function ServiciosPage() {
               href={WA.general()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white font-extrabold rounded-sm hover:bg-brand-hover transition-colors min-h-[48px]"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white font-semibold rounded-xl hover:bg-brand-hover transition-colors min-h-[48px]"
             >
               Consultar precio
               <ArrowRight size={16} strokeWidth={2.5} />
@@ -258,7 +258,7 @@ export default async function ServiciosPage() {
               return (
                 <div
                   key={equipo.nombre}
-                  className="flex flex-col items-center gap-3 p-5 rounded-sm bg-white/[0.03] border border-white/8 hover:border-brand-bright/25 hover:bg-brand/4 transition-all"
+                  className="flex flex-col items-center gap-3 p-5 rounded-xl bg-white/[0.03] border border-white/8 hover:border-brand-bright/25 hover:bg-brand/4 transition-all"
                 >
                   <Icon size={28} className="text-brand-bright" />
                   <span className="text-xs font-medium text-fg-muted text-center">{equipo.nombre}</span>

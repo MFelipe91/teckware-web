@@ -315,8 +315,9 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .wa-pulse, .animate-marquee { animation: none; }
+    .wa-pulse, .animate-marquee, .animate-pulse, .animate-bounce { animation: none; }
     .card-hover:hover { transform: none; }
+    html { scroll-behavior: auto; }
   }
 }
 
