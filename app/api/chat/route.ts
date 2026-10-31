@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
-import { SERVICIOS, PLAZO_DETALLE } from '@/lib/constants'
+import { NIVELES_PC, SERVICIOS, PLAZO_DETALLE, precioNivelPC } from '@/lib/constants'
 import { clientIp, rateLimit } from '@/lib/security'
 
 // Solo mensajes de usuario/asistente: el cliente no puede inyectar instrucciones de sistema.
@@ -19,6 +19,8 @@ const GROQ_MODEL = process.env.GROQ_MODEL || 'openai/gpt-oss-20b'
 const LISTA_SERVICIOS = SERVICIOS.map(
   (s) => `- ${s.nombre}: ${s.precio}${s.tiempo ? ` · ${s.tiempo}` : ''}. ${s.descripcion}`
 ).join('\n')
+
+const NIVELES = NIVELES_PC.map((n) => `${n.nombre} (${n.para}): ${precioNivelPC(n.desde)}`).join('; ')
 
 const SYSTEM_PROMPT = `Eres Teck, el asistente virtual de TECKWARE SpA, empresa de servicio técnico informático en La Serena, Chile. Tu objetivo es ayudar al cliente, resolver sus dudas y guiarlo a agendar o contactar por WhatsApp.
 
@@ -41,7 +43,7 @@ EQUIPOS QUE ATENDEMOS: Notebooks, MacBook, PC Desktop, PC Gamer, PS3, PS4, PS5, 
 REGLAS:
 - Responde SIEMPRE en español chileno, amable y directo.
 - Máximo 3 oraciones por respuesta. Sé conciso.
-- Para cotizaciones de PC Gamer a medida, invita a ver teckware.cl/builds o contactar por WhatsApp.
+- Los PC Gamer se arman solo a pedido: no hay equipos en stock, nunca digas que hay disponibles. Niveles de referencia: ${NIVELES}. Para cotizar, invita a completar el formulario en teckware.cl/builds.
 - Si el cliente quiere agendar, indícale teckware.cl/agendar.
 - No inventes precios ni tiempos que no estén en la lista.
 - No sabes qué horas hay libres: nunca digas que hay o que no hay disponibilidad, ni confirmes citas. Si piden atención para hoy o una hora puntual, responde que las horas se coordinan por WhatsApp con el técnico y que el trabajo se entrega en 48 horas hábiles.

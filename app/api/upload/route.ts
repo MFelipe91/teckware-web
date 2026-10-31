@@ -32,12 +32,15 @@ export async function POST(req: Request) {
 
   const supabase = createServerClient()
 
-  // Crear bucket si no existe (idempotente)
-  await supabase.storage.createBucket(BUCKET, {
-    public: true,
-    fileSizeLimit: MAX_SIZE,
-    allowedMimeTypes: ALLOWED,
-  }).catch(() => {})
+  // Las fotos de clientes son privadas: solo se ven desde /admin, con enlaces firmados.
+  // Crea el bucket si falta y deja privado uno que ya existía como público.
+  const opciones = { public: false, fileSizeLimit: MAX_SIZE, allowedMimeTypes: ALLOWED }
+  await supabase.storage.createBucket(BUCKET, opciones)
+  const { error: errorBucket } = await supabase.storage.updateBucket(BUCKET, opciones)
+  if (errorBucket) {
+    console.error('No se pudo dejar privado el bucket de fotos:', errorBucket)
+    return NextResponse.json({ error: 'No se pudieron subir las fotos' }, { status: 500 })
+  }
 
   const formData = await req.formData()
   const files = formData.getAll('files') as File[]
@@ -49,7 +52,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Máximo 3 fotos' }, { status: 400 })
   }
 
-  const urls: string[] = []
+  const paths: string[] = []
 
   for (const file of files) {
     if (!ALLOWED.includes(file.type)) {
@@ -76,9 +79,8 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
-    const { data } = supabase.storage.from(BUCKET).getPublicUrl(path)
-    urls.push(data.publicUrl)
+    paths.push(path)
   }
 
-  return NextResponse.json({ urls })
+  return NextResponse.json({ paths })
 }

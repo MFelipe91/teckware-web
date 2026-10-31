@@ -19,13 +19,6 @@ export async function POST(req: Request) {
   }
   const body = parsed.data
 
-  // Solo se aceptan fotos subidas por /api/upload a nuestro propio bucket.
-  const prefijoFotos = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/booking-photos/`
-  const fotoUrls = body.fotoUrls ?? []
-  if (fotoUrls.some((u) => !u.startsWith(prefijoFotos))) {
-    return NextResponse.json({ error: 'Datos inválidos' }, { status: 400 })
-  }
-
   const supabase = createServerClient()
   const { data, error } = await supabase
     .from('service_requests')
@@ -35,7 +28,7 @@ export async function POST(req: Request) {
       equipo_tipo: body.equipoTipo || null,
       marca: body.marca || null,
       problema: body.problema || null,
-      foto_urls: fotoUrls,
+      foto_urls: body.fotoUrls ?? [],
       nombre: body.nombre,
       telefono: body.telefono,
       fecha_preferida: body.fechaPreferida || null,

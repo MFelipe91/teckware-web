@@ -1,4 +1,5 @@
 import { precioServicio } from '@/lib/constants'
+import { filasCotizacion, type Cotizacion } from '@/lib/cotizacion'
 
 const BASE = 'https://wa.me/56930209427?text='
 const enc = (text: string) => encodeURIComponent(text)
@@ -30,8 +31,12 @@ export const WA = {
       `_Enviado desde teckware.cl_`
     ),
 
-  build: (nombre: string) =>
-    BASE + enc(`Hola TECKWARE! 👋\n\nMe interesa el build *${nombre}*.\n\n¿Está disponible y cuál es el precio actual?`),
+  cotizacionPC: (c: Cotizacion) =>
+    BASE + enc(
+      `*Cotización PC Gamer a pedido, teckware.cl* 🖥️\n\n` +
+      filasCotizacion(c).map((f) => `*${f.etiqueta}:* ${f.valor}`).join('\n') +
+      `\n\n👤 *Nombre:* ${c.nombre}\n📱 *WhatsApp:* ${c.telefono}\n\n_Enviado desde teckware.cl/builds_`
+    ),
 
   diagnostico:     () => svc('Diagnóstico Electrónico', conIva('diagnostico')),
   mantencionLogica:() => svc('Mantención Lógica (Formateo Windows/macOS + Optimización)', conIva('mantencion-logica')),

@@ -1,8 +1,5 @@
 'use server'
 
-import type { Build } from '@/lib/builds-data'
-import { INITIAL_BUILDS } from '@/lib/builds-data'
-import { getBuilds, buildToRow } from '@/lib/builds'
 import { createServerClient } from '@/lib/supabase-server'
 import { login, logout, isAuthed, requireAdmin } from '@/lib/admin-auth'
 import { INITIAL_SERVICIOS } from '@/lib/services'
@@ -40,7 +37,27 @@ export async function getServiceRequestsAction(): Promise<ServiceRequest[]> {
     console.error('getServiceRequests error:', error)
     return []
   }
-  return (data ?? []) as ServiceRequest[]
+  return firmarFotos(supabase, (data ?? []) as ServiceRequest[])
+}
+
+const BUCKET_FOTOS = 'booking-photos'
+
+// Las filas antiguas guardan la URL pública completa; las nuevas, la ruta dentro del bucket.
+const rutaFoto = (u: string) => u.split(`/${BUCKET_FOTOS}/`).pop() ?? u
+
+async function firmarFotos(supabase: ReturnType<typeof createServerClient>, filas: ServiceRequest[]) {
+  const rutas = [...new Set(filas.flatMap((f) => (f.foto_urls ?? []).map(rutaFoto)))]
+  if (rutas.length === 0) return filas
+  const { data, error } = await supabase.storage.from(BUCKET_FOTOS).createSignedUrls(rutas, 3600)
+  if (error || !data) {
+    console.error('No se pudieron firmar las fotos:', error)
+    return filas.map((f) => ({ ...f, foto_urls: [] }))
+  }
+  const firmadas = new Map(data.map((d) => [d.path, d.signedUrl]))
+  return filas.map((f) => ({
+    ...f,
+    foto_urls: (f.foto_urls ?? []).map((u) => firmadas.get(rutaFoto(u))).filter((u): u is string => !!u),
+  }))
 }
 
 export async function updateRequestStatusAction(id: string, estado: string): Promise<{ ok: boolean }> {
@@ -130,47 +147,6 @@ export async function deleteServiceAction(id: string): Promise<{ ok: boolean }> 
   const { error } = await supabase.from('services').delete().eq('id', id)
   if (error) {
     console.error('deleteService error:', error)
-    return { ok: false }
-  }
-  return { ok: true }
-}
-
-/* ============================================================
-   BUILDS (catálogo PC Gamer)  — Supabase
-   ============================================================ */
-
-async function ensureBuildsSeeded(supabase: SupabaseClient): Promise<void> {
-  const { count } = await supabase.from('builds').select('id', { count: 'exact', head: true })
-  if ((count ?? 0) > 0) return
-  const rows = INITIAL_BUILDS.map((b, i) => buildToRow(b, i))
-  await supabase.from('builds').insert(rows)
-}
-
-export async function getBuildsAction(): Promise<Build[]> {
-  await requireAdmin()
-  const supabase = createServerClient()
-  await ensureBuildsSeeded(supabase)
-  return getBuilds()
-}
-
-export async function upsertBuildAction(build: Build): Promise<{ ok: boolean }> {
-  await requireAdmin()
-  const supabase = createServerClient()
-  const id = build.id || build.nombre.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
-  const { error } = await supabase.from('builds').upsert(buildToRow({ ...build, id }))
-  if (error) {
-    console.error('upsertBuild error:', error)
-    return { ok: false }
-  }
-  return { ok: true }
-}
-
-export async function deleteBuildAction(id: string): Promise<{ ok: boolean }> {
-  await requireAdmin()
-  const supabase = createServerClient()
-  const { error } = await supabase.from('builds').delete().eq('id', id)
-  if (error) {
-    console.error('deleteBuild error:', error)
     return { ok: false }
   }
   return { ok: true }

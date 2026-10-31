@@ -127,7 +127,7 @@ test('/agendar', async ({ page, context, request }) => {
   const url = new URL(href)
   const mensaje = url.searchParams.get('text') ?? ''
   anotar('Número de WhatsApp', NUMERO, url.pathname, url.pathname === `/${NUMERO}`)
-  for (const dato of ['Mantención Full', 'Notebook', 'Se apaga solo al jugar', miercoles, 'Tarde 15:00', 'Prueba Auditoria', '+56 9 1111 2222', 'booking-photos']) {
+  for (const dato of ['Mantención Full', 'Notebook', 'Se apaga solo al jugar', miercoles, 'Tarde 15:00', 'Prueba Auditoria', '+56 9 1111 2222', 'Fotos adjuntas:* 1']) {
     anotar(`Mensaje incluye "${dato}"`, 'presente', mensaje.includes(dato), mensaje.includes(dato))
   }
   const conPrecio = mensaje.includes(precioServicio('mantencion-full'))
@@ -279,8 +279,8 @@ test('API de solicitudes y fotos', async ({ request, baseURL }) => {
   anotar('Archivo que no es imagen, declarado como PNG', 'Rechazado (revisando el contenido)', r.status(), r.status() === 400)
 
   const log = await registroFalso(request)
-  const bucket = log.peticiones.find((p) => p.ruta === '/storage/v1/bucket')
-  anotar('Bucket de fotos', 'Privado', bucket?.cuerpo ?? 'sin petición', !/"public":true/.test(bucket?.cuerpo ?? ''))
+  const buckets = log.peticiones.filter((p) => p.ruta.startsWith('/storage/v1/bucket'))
+  anotar('Bucket de fotos', 'Privado en todas las peticiones', buckets.map((b) => b.metodo).join(',') || 'sin petición', buckets.length > 0 && buckets.every((b) => /"public":false/.test(b.cuerpo)))
 
   guardar('api-solicitudes', { casos })
 })
@@ -321,6 +321,8 @@ test('/admin', async ({ browser, baseURL, request }) => {
   const hayFilas = (await registroFalso(request)).solicitudes.length > 0
   const visible = await a.page.getByText('Prueba Auditoria').first().isVisible({ timeout: 15_000 }).catch(() => false)
   anotar('La solicitud de /agendar llega al panel', 'Visible', `filas=${hayFilas}, visible=${visible}`, visible)
+  const firmada = await a.page.locator('a[href*="token="]').count()
+  anotar('Foto en el panel', 'Enlace firmado', firmada, firmada > 0)
   await a.context.close()
 
   const b = await abrir('10.8.0.2')

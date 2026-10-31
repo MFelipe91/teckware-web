@@ -68,7 +68,7 @@ function buildWAMessage(f: FormData): string {
   const enc = (t: string) => encodeURIComponent(t)
   const precio = SERVICIOS.find((s) => s.id === f.servicio)?.precio
   const fotos = f.fotoUrls.length
-    ? `\n📸 *Fotos adjuntas:*\n${f.fotoUrls.map((u, i) => `  ${i + 1}. ${u}`).join('\n')}\n`
+    ? `\n📸 *Fotos adjuntas:* ${f.fotoUrls.length} (enviadas por el sitio web)\n`
     : ''
   const msg =
     `*Nueva solicitud de servicio — teckware.cl* 📋\n\n` +
@@ -184,7 +184,7 @@ export default function AgendarPage() {
       const res = await fetch('/api/upload', { method: 'POST', body: fd })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error ?? 'Error al subir')
-      setForm(f => ({ ...f, fotoUrls: [...f.fotoUrls, ...data.urls] }))
+      setForm(f => ({ ...f, fotoUrls: [...f.fotoUrls, ...data.paths] }))
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : 'Error al subir las fotos'
       setUploadError(msg)

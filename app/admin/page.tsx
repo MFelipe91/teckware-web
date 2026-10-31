@@ -1,29 +1,18 @@
 'use client'
 
 import { useState, useEffect, useTransition } from 'react'
-import { Plus, Pencil, Trash2, Eye, EyeOff, LogOut, Save, X, Video, Lock, Inbox, Cpu, Phone, RefreshCw, Wrench, Star } from 'lucide-react'
+import { Plus, Trash2, Eye, EyeOff, LogOut, Save, Lock, Inbox, Phone, RefreshCw, Wrench, Star } from 'lucide-react'
 import {
   loginAction, logoutAction, isAuthedAction,
-  getBuildsAction, upsertBuildAction, deleteBuildAction,
   getServiceRequestsAction, updateRequestStatusAction, deleteRequestAction,
   getServicesAction, upsertServiceAction, deleteServiceAction,
 } from './actions'
 import { ESTADOS, ICONOS_SERVICIO, type ServiceRequest, type ServiceRow } from '@/lib/admin-types'
-import type { Build } from '@/lib/builds-data'
-import { INITIAL_BUILDS } from '@/lib/builds-data'
 import { SERVICIOS } from '@/lib/constants'
 
 // Servicios cuyos textos, precio y plazo viven en el código (lib/constants.ts): en el panel se
 // muestran pero no se editan, para que la web y el chatbot digan siempre lo mismo.
 const PRECIO_CODIGO = new Map(SERVICIOS.map((s) => [s.id, s]))
-
-const EMPTY_BUILD: Build = {
-  id: '', nombre: '', tag: 'Nuevo', tagColor: 'cyan', descripcion: '',
-  precio: 0, disponible: true, featured: false,
-  specs: { cpu: '', gpu: '', ram: '', storage: '', motherboard: '', psu: '', cooling: '', case: '' },
-  fps: { fortnite: '', warzone: '', valorant: '', cyberpunk: '', gta5: '' },
-  youtubeId: '',
-}
 
 const ESTADO_STYLE: Record<string, string> = {
   nuevo:       'bg-brand/15 text-brand-bright border-brand-bright/30',
@@ -34,7 +23,7 @@ const ESTADO_STYLE: Record<string, string> = {
   cancelado:   'bg-white/5 text-fg-subtle border-white/10',
 }
 
-type Tab = 'solicitudes' | 'servicios' | 'builds'
+type Tab = 'solicitudes' | 'servicios'
 
 const EMPTY_SERVICE: ServiceRow = {
   id: '', nombre: '', descripcion: '', precio: '', tiempo: '',
@@ -48,11 +37,9 @@ export default function AdminPage() {
   const [pwError, setPwError]   = useState(false)
   const [showPw, setShowPw]     = useState(false)
   const [tab, setTab]           = useState<Tab>('solicitudes')
-  const [builds, setBuilds]     = useState<Build[]>([])
   const [requests, setRequests] = useState<ServiceRequest[]>([])
   const [services, setServices] = useState<ServiceRow[]>([])
   const [savedId, setSavedId]   = useState<string | null>(null)
-  const [editing, setEditing]   = useState<Build | null>(null)
   const [isPending, startTransition] = useTransition()
 
   // Restaurar sesión al cargar (cookie httpOnly)
@@ -67,8 +54,7 @@ export default function AdminPage() {
   useEffect(() => {
     if (!authed) return
     startTransition(async () => {
-      const [b, r, s] = await Promise.all([getBuildsAction(), getServiceRequestsAction(), getServicesAction()])
-      setBuilds(b.length ? b : INITIAL_BUILDS)
+      const [r, s] = await Promise.all([getServiceRequestsAction(), getServicesAction()])
       setRequests(r)
       setServices(s)
     })
@@ -130,31 +116,6 @@ export default function AdminPage() {
     if (!confirm('¿Eliminar esta solicitud?')) return
     setRequests((rs) => rs.filter((r) => r.id !== id))
     startTransition(async () => { await deleteRequestAction(id) })
-  }
-
-  function handleSave() {
-    if (!editing) return
-    const build = { ...editing, id: editing.id || editing.nombre.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') }
-    startTransition(async () => {
-      await upsertBuildAction(build)
-      setBuilds(await getBuildsAction())
-      setEditing(null)
-    })
-  }
-
-  function handleDelete(id: string) {
-    if (!confirm('¿Eliminar este build?')) return
-    startTransition(async () => {
-      await deleteBuildAction(id)
-      setBuilds(await getBuildsAction())
-    })
-  }
-
-  function setSpec(key: keyof Build['specs'], val: string) {
-    setEditing((e) => e ? { ...e, specs: { ...e.specs, [key]: val } } : e)
-  }
-  function setFps(key: keyof NonNullable<Build['fps']>, val: string) {
-    setEditing((e) => e ? { ...e, fps: { ...e.fps, [key]: val } } : e)
   }
 
   const fmtFecha = (iso: string) =>
@@ -219,7 +180,7 @@ export default function AdminPage() {
           <div>
             <h1 className="text-2xl font-black text-fg">Panel Admin</h1>
             <p className="text-sm text-fg-subtle">
-              {requests.filter((r) => r.estado === 'nuevo').length} solicitudes nuevas · {builds.length} builds
+              {requests.filter((r) => r.estado === 'nuevo').length} solicitudes nuevas
             </p>
           </div>
           <button onClick={handleLogout} className="flex items-center gap-2 px-4 py-2.5 border border-white/15 text-fg-muted font-medium rounded-sm hover:border-white/30 transition-all text-sm min-h-[40px]">
@@ -229,7 +190,7 @@ export default function AdminPage() {
 
         {/* Tabs */}
         <div className="flex gap-2 mb-8 border-b border-white/8">
-          {([['solicitudes', 'Solicitudes', Inbox], ['servicios', 'Servicios', Wrench], ['builds', 'Builds', Cpu]] as const).map(([id, label, Icon]) => (
+          {([['solicitudes', 'Solicitudes', Inbox], ['servicios', 'Servicios', Wrench]] as const).map(([id, label, Icon]) => (
             <button
               key={id}
               onClick={() => setTab(id)}
@@ -409,158 +370,9 @@ export default function AdminPage() {
             </p>
           </div>
         )}
-
-        {/* ===== BUILDS ===== */}
-        {tab === 'builds' && (
-          <div>
-            <div className="flex justify-end mb-4">
-              <button
-                onClick={() => setEditing({ ...EMPTY_BUILD })}
-                className="btn btn-primario"
-              >
-                <Plus size={16} strokeWidth={2.5} /> Nuevo build
-              </button>
-            </div>
-            <div className="grid grid-cols-1 gap-4">
-              {builds.map((build) => (
-                <div key={build.id} className="panel rounded-sm border border-white/10 p-5 flex items-center gap-5">
-                  <div className="w-10 h-10 rounded-sm bg-brand-bright/10 border border-brand-bright/20 flex items-center justify-center shrink-0">
-                    <span className="text-xs font-black text-brand-bright">{build.nombre.slice(0, 2)}</span>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-0.5">
-                      <span className="text-sm font-bold text-fg">{build.nombre}</span>
-                      <span className={`px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded-full border ${build.disponible ? 'bg-success/15 text-success border-success/30' : 'bg-white/5 text-fg-subtle border-white/10'}`}>
-                        {build.disponible ? 'Disponible' : 'Bajo pedido'}
-                      </span>
-                      {build.youtubeId && (
-                        <span className="flex items-center gap-1 px-2 py-0.5 text-[9px] font-bold rounded-full border bg-danger/10 text-danger border-danger/20">
-                          <Video size={8} /> Video
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-xs text-fg-subtle truncate">{build.specs.cpu} · {build.specs.gpu}</p>
-                  </div>
-                  <div className="text-right shrink-0">
-                    <div className="text-sm font-black text-fg">${build.precio.toLocaleString('es-CL')}</div>
-                    <div className="text-[10px] text-fg-subtle">{build.tag}</div>
-                  </div>
-                  <div className="flex gap-2 shrink-0">
-                    <button onClick={() => setEditing({ ...build })} className="w-8 h-8 flex items-center justify-center rounded-sm border border-white/15 text-fg-muted hover:border-brand-bright/30 hover:text-brand-bright transition-all">
-                      <Pencil size={13} />
-                    </button>
-                    <button onClick={() => handleDelete(build.id)} className="w-8 h-8 flex items-center justify-center rounded-sm border border-white/15 text-fg-muted hover:border-danger/30 hover:text-danger transition-all">
-                      <Trash2 size={13} />
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <p className="text-xs text-fg-subtle text-center mt-8">
-              Nota: los builds aún se guardan en archivo. Próximo paso: migrarlos a Supabase para producción en Vercel.
-            </p>
-          </div>
-        )}
       </div>
-
-      {/* Edit modal (builds) */}
-      {editing && (
-        <div className="fixed inset-0 bg-black/80 z-50 flex items-start justify-center p-4 overflow-y-auto">
-          <div className="bg-ink-900 border border-white/15 rounded-sm w-full max-w-2xl my-8">
-            <div className="flex items-center justify-between p-6 border-b border-white/10">
-              <h2 className="text-lg font-bold text-fg">{editing.id ? 'Editar build' : 'Nuevo build'}</h2>
-              <button onClick={() => setEditing(null)} className="w-8 h-8 flex items-center justify-center rounded-sm border border-white/15 text-fg-muted hover:border-white/30 transition-all">
-                <X size={15} />
-              </button>
-            </div>
-            <div className="p-6 space-y-5">
-              <div className="grid grid-cols-2 gap-4">
-                <Field label="Nombre del build *">
-                  <input value={editing.nombre} onChange={(e) => setEditing({ ...editing, nombre: e.target.value })} placeholder="Ej: Mid Beast Pro" className={INPUT} />
-                </Field>
-                <Field label="Tag">
-                  <input value={editing.tag} onChange={(e) => setEditing({ ...editing, tag: e.target.value })} placeholder="Más Pedido" className={INPUT} />
-                </Field>
-                <Field label="Precio (CLP) *">
-                  <input type="number" value={editing.precio || ''} onChange={(e) => setEditing({ ...editing, precio: Number(e.target.value) })} placeholder="1890000" className={INPUT} />
-                </Field>
-                <Field label="Color del tag">
-                  <select value={editing.tagColor} onChange={(e) => setEditing({ ...editing, tagColor: e.target.value as Build['tagColor'] })} className={INPUT}>
-                    <option value="cyan">Cyan</option>
-                    <option value="purple">Purple</option>
-                    <option value="green">Green</option>
-                    <option value="orange">Orange</option>
-                  </select>
-                </Field>
-              </div>
-              <Field label="Descripción">
-                <textarea value={editing.descripcion} onChange={(e) => setEditing({ ...editing, descripcion: e.target.value })} rows={2} placeholder="Descripción corta del build..." className={INPUT + ' resize-none'} />
-              </Field>
-              <div className="flex gap-6">
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" checked={editing.disponible} onChange={(e) => setEditing({ ...editing, disponible: e.target.checked })} className="w-4 h-4 accent-brand-bright" />
-                  <span className="text-sm text-fg-muted">Disponible ahora</span>
-                </label>
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" checked={editing.featured} onChange={(e) => setEditing({ ...editing, featured: e.target.checked })} className="w-4 h-4 accent-gamer" />
-                  <span className="text-sm text-fg-muted">Destacado en home</span>
-                </label>
-              </div>
-              <div>
-                <div className="text-xs font-bold text-fg-subtle mb-3">Especificaciones</div>
-                <div className="grid grid-cols-2 gap-3">
-                  {(['cpu', 'gpu', 'ram', 'storage', 'motherboard', 'psu', 'cooling', 'case'] as const).map((key) => (
-                    <Field key={key} label={key.charAt(0).toUpperCase() + key.slice(1)}>
-                      <input value={editing.specs[key] ?? ''} onChange={(e) => setSpec(key, e.target.value)} placeholder={`Ej: AMD Ryzen 7 9700X`} className={INPUT} />
-                    </Field>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <div className="text-xs font-bold text-fg-subtle mb-3">FPS Estimados (opcional)</div>
-                <div className="grid grid-cols-2 gap-3">
-                  {(['fortnite', 'warzone', 'valorant', 'cyberpunk', 'gta5'] as const).map((key) => (
-                    <Field key={key} label={key.charAt(0).toUpperCase() + key.slice(1)}>
-                      <input value={editing.fps?.[key] ?? ''} onChange={(e) => setFps(key, e.target.value)} placeholder="280–350 FPS" className={INPUT} />
-                    </Field>
-                  ))}
-                </div>
-              </div>
-              <Field label="ID de video YouTube (benchmark)">
-                <div className="relative">
-                  <Video size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-fg-subtle" />
-                  <input
-                    value={editing.youtubeId}
-                    onChange={(e) => setEditing({ ...editing, youtubeId: e.target.value.replace('https://www.youtube.com/watch?v=', '').replace('https://youtu.be/', '') })}
-                    placeholder="ID del video o URL completa de YouTube"
-                    className={INPUT + ' pl-8'}
-                  />
-                </div>
-              </Field>
-            </div>
-            <div className="flex gap-3 p-6 border-t border-white/10">
-              <button onClick={handleSave} disabled={isPending || !editing.nombre || !editing.precio} className="btn btn-primario flex-1">
-                <Save size={15} />
-                {isPending ? 'Guardando...' : 'Guardar build'}
-              </button>
-              <button onClick={() => setEditing(null)} className="px-6 py-3 border border-white/15 text-fg-muted font-medium rounded-sm hover:border-white/30 transition-all min-h-[44px]">
-                Cancelar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }
 
-const INPUT = 'w-full bg-white/5 border border-white/15 rounded-xl px-3 py-2.5 text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors'
-
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <div>
-      <label className="text-[10px] font-semibold text-fg-subtle block mb-1.5">{label}</label>
-      {children}
-    </div>
-  )
-}
+const INPUT = 'w-full bg-white/5 border border-white/15 rounded-sm px-3 py-2.5 text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors'

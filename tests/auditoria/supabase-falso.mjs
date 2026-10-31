@@ -50,7 +50,11 @@ http
       return responder(res, 200, [...solicitudes].reverse())
     }
     if (url.pathname.startsWith('/rest/v1/')) return responder(res, 200, [])
-    if (url.pathname === '/storage/v1/bucket') return responder(res, 200, { name: 'booking-photos' })
+    if (url.pathname.startsWith('/storage/v1/bucket')) return responder(res, 200, { name: 'booking-photos' })
+    if (url.pathname.startsWith('/storage/v1/object/sign/')) {
+      const { paths = [] } = JSON.parse(texto || '{}')
+      return responder(res, 200, paths.map((p) => ({ path: p, signedURL: `/object/sign/booking-photos/${p}?token=falso`, error: null })))
+    }
     if (url.pathname.startsWith('/storage/v1/object/')) {
       return responder(res, 200, { Id: 'falso', Key: url.pathname.replace('/storage/v1/object/', '') })
     }

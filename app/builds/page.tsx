@@ -1,218 +1,90 @@
 import type { Metadata } from 'next'
-import { ArrowRight, Cpu, MonitorPlay, MemoryStick, HardDrive, CircuitBoard, Zap, Wind, Box, CheckCircle2, XCircle } from 'lucide-react'
-import { getBuilds } from '@/lib/builds'
-import { YoutubeEmbed } from '@/components/builds/YoutubeEmbed'
-import { WA } from '@/lib/whatsapp'
+import { CotizacionForm } from '@/components/builds/CotizacionForm'
+import { BandaCta } from '@/components/shared/BandaCta'
+import { PageHeader } from '@/components/shared/PageHeader'
+import { NIVELES_PC, NOTA_PC, PLAZO, precioNivelPC } from '@/lib/constants'
 import { ogPagina } from '@/lib/seo'
+import { WA } from '@/lib/whatsapp'
 
 export const metadata: Metadata = {
   title: 'PC Gamer a Pedido',
-  description: 'Builds de PC Gamer armados por TECKWARE en La Serena. Ryzen, Intel, RTX, RX — specs completas, rendimiento estimado y precios en pesos chilenos.',
+  description:
+    'PC Gamer armado a pedido en La Serena: niveles Starter, Mid y Ultra como guía, con cable management y pruebas de estrés. Cotiza según tu presupuesto y uso.',
   alternates: { canonical: '/builds' },
   openGraph: ogPagina('/builds'),
 }
 
-const TAG_STYLES: Record<string, string> = {
-  cyan:   'bg-brand/15 text-brand-bright border-brand-bright/30',
-  purple: 'bg-brand/15 text-brand-bright border-brand-bright/30',
-  green:  'bg-success/15 text-success border-success/30',
-  orange: 'bg-warning/15 text-warning border-warning/30',
-}
-
-const SPEC_ICONS = {
-  cpu:         Cpu,
-  gpu:         MonitorPlay,
-  ram:         MemoryStick,
-  storage:     HardDrive,
-  motherboard: CircuitBoard,
-  psu:         Zap,
-  cooling:     Wind,
-  case:        Box,
-}
-
-const SPEC_LABELS: Record<string, string> = {
-  cpu:         'Procesador',
-  gpu:         'Tarjeta de video',
-  ram:         'Memoria RAM',
-  storage:     'Almacenamiento',
-  motherboard: 'Placa madre',
-  psu:         'Fuente de poder',
-  cooling:     'Refrigeración',
-  case:        'Gabinete',
-}
-
-const GAMES = [
-  { key: 'fortnite',  label: 'Fortnite'       },
-  { key: 'warzone',   label: 'Warzone'         },
-  { key: 'valorant',  label: 'Valorant'        },
-  { key: 'cyberpunk', label: 'Cyberpunk 2077'  },
-  { key: 'gta5',      label: 'GTA V'           },
+const PASOS = [
+  { titulo: 'Nos cuentas qué necesitas', texto: 'Completas el formulario con tu presupuesto, tus juegos o programas y lo que ya tienes.' },
+  { titulo: 'Te proponemos una configuración', texto: 'Revisamos compatibilidad, stock y precios del momento, y te enviamos la propuesta por WhatsApp.' },
+  { titulo: 'Compramos y armamos', texto: `Con tu aprobación armamos el equipo. Una vez con los componentes, el armado estándar toma ${PLAZO}.` },
+  { titulo: 'Lo probamos y lo retiras', texto: 'Hacemos pruebas de estrés y control de temperaturas. Incluye boleta y garantía de 30 días en el armado.' },
 ]
 
-function formatCLP(precio: number): string {
-  return `$${precio.toLocaleString('es-CL')}`
-}
-
-export const revalidate = 30
-
-export default async function BuildsPage() {
-  const builds = await getBuilds()
-
+export default function BuildsPage() {
   return (
     <div className="min-h-screen bg-ink-900">
+      <PageHeader
+        titulo="PC Gamer a pedido"
+        bajada="No vendemos equipos en stock: armamos cada PC según tu presupuesto y lo que vas a usar. Estos niveles son una guía para partir."
+      >
+        <a href="#cotizar" className="btn btn-primario w-full sm:w-auto">Cotizar mi PC</a>
+      </PageHeader>
 
-      {/* Header */}
-      <section className="relative bg-ink-950 pt-32 pb-14 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="max-w-[76rem] mx-auto">
-          <h1 className="mb-4 max-w-2xl">
-            Builds armados con{' '}
-            criterio y precisión.
-          </h1>
-          <p className="text-fg-muted text-lg max-w-2xl leading-relaxed mb-8">
-            Cada PC Gamer pasa por pruebas de estrés, cable management profesional
-            y verificación de temperaturas. Garantía de 30 días en el armado.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {['Cable management incluido', 'Pruebas de estrés','Pasta térmica premium', 'Garantía 30 días'].map((item) => (
-              <span key={item} className="flex items-center gap-1.5 text-xs text-fg-muted border border-white/10 px-3 py-1.5 rounded-full bg-white/3">
-                <CheckCircle2 size={12} className="text-brand-bright" />
-                {item}
-              </span>
-            ))}
+      <section aria-labelledby="niveles" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <h2 id="niveles" className="text-fg mb-8">Niveles de referencia</h2>
+        <ul className="border-t border-white/10">
+          {NIVELES_PC.map((n) => (
+            <li key={n.id} className="py-6 border-b border-white/10 grid gap-x-10 gap-y-3 lg:grid-cols-[minmax(0,3fr)_minmax(0,6fr)_auto] lg:items-baseline">
+              <div>
+                <h3 className="text-3xl text-fg">{n.nombre}</h3>
+                <p className="mt-1 text-fg-muted">{n.para}</p>
+              </div>
+              <ul className="flex flex-wrap gap-x-5 gap-y-1 text-fg-muted">
+                {n.referencia.map((r) => (
+                  <li key={r} className="flex items-baseline gap-2">
+                    <span className="hex" aria-hidden="true" />
+                    {r}
+                  </li>
+                ))}
+              </ul>
+              <span className="price text-2xl text-fg lg:text-right whitespace-nowrap">{precioNivelPC(n.desde)}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-5 max-w-3xl text-fg-muted leading-relaxed">{NOTA_PC}</p>
+      </section>
+
+      <section id="cotizar" aria-labelledby="titulo-cotizar" className="bg-ink-950 px-4 sm:px-6 lg:px-8 py-16 sm:py-20 scroll-mt-16">
+        <div className="max-w-[76rem] mx-auto grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
+          <div>
+            <h2 id="titulo-cotizar" className="text-fg">Cotiza tu PC</h2>
+            <p className="mt-4 text-fg-muted leading-relaxed">
+              Con estos datos te proponemos una configuración real, con precios del momento.
+            </p>
           </div>
+          <CotizacionForm />
         </div>
       </section>
 
-      {/* Builds grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        {builds.length === 0 ? (
-          <div className="text-center py-20 text-fg-subtle">Próximamente builds disponibles. Consulta por WhatsApp.</div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {builds.map((build) => (
-              <article key={build.id} className="panel rounded-sm border border-white/10 overflow-hidden flex flex-col">
-
-                {/* YouTube / Benchmark */}
-                <YoutubeEmbed videoId={build.youtubeId} title={build.nombre} />
-
-                <div className="p-7 flex flex-col flex-1">
-                  {/* Header */}
-                  <div className="mb-5">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2 flex-wrap">
-                        <span className={`px-2.5 py-0.5 text-xs font-bold rounded-full border ${TAG_STYLES[build.tagColor] ?? TAG_STYLES.cyan}`}>
-                          {build.tag}
-                        </span>
-                        {build.disponible ? (
-                          <span className="flex items-center gap-1 text-xs font-semibold text-success">
-                            <span className="w-1.5 h-1.5 rounded-full bg-success" />
-                            Disponible
-                          </span>
-                        ) : (
-                          <span className="flex items-center gap-1 text-xs font-semibold text-fg-subtle">
-                            <XCircle size={10} />
-                            Bajo pedido
-                          </span>
-                        )}
-                      </div>
-                      <h2 className="text-2xl font-black text-fg tracking-tight">{build.nombre}</h2>
-                      <p className="text-sm text-fg-muted mt-1 leading-relaxed">{build.descripcion}</p>
-                    </div>
-                    <div className="mt-4 flex items-baseline gap-2">
-                      <div className="text-3xl font-black text-fg price">{formatCLP(build.precio)}</div>
-                      <div className="text-xs text-fg-subtle">Armado incluido</div>
-                    </div>
-                  </div>
-
-                  {/* Specs */}
-                  <div className="mb-5">
-                    <div className="text-xs font-bold text-fg-subtle mb-3">Especificaciones completas</div>
-                    <div className="grid grid-cols-1 gap-0">
-                      {(Object.keys(SPEC_ICONS) as Array<keyof typeof SPEC_ICONS>).map((key) => {
-                        const Icon = SPEC_ICONS[key]
-                        const value = build.specs[key as keyof typeof build.specs]
-                        if (!value) return null
-                        return (
-                          <div key={key} className="flex items-center gap-3 py-2.5 border-b border-white/5 last:border-0">
-                            <div className="w-7 h-7 shrink-0 flex items-center justify-center rounded-sm bg-white/5">
-                              <Icon size={13} className="text-brand-bright" />
-                            </div>
-                            <span className="text-xs text-fg-subtle w-24 shrink-0">{SPEC_LABELS[key]}</span>
-                            <span className="text-xs font-semibold text-fg flex-1">{value}</span>
-                          </div>
-                        )
-                      })}
-                    </div>
-                  </div>
-
-                  {/* FPS */}
-                  {Object.values(build.fps).some(Boolean) && (
-                    <div className="mb-6">
-                      <div className="text-xs font-bold text-fg-subtle mb-3">
-                        Rendimiento estimado — 1080p High/Ultra
-                      </div>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                        {GAMES.map(({ key, label }) => {
-                          const fps = build.fps[key as keyof typeof build.fps]
-                          if (!fps) return null
-                          return (
-                            <div key={key} className="bg-white/[0.03] border border-white/8 rounded-sm px-3 py-2.5">
-                              <div className="text-xs text-fg-subtle mb-0.5">{label}</div>
-                              <div className="text-sm font-black text-brand-bright tabular-nums">{fps}</div>
-                            </div>
-                          )
-                        })}
-                      </div>
-                      <p className="text-xs text-fg-subtle mt-2">* FPS estimados según benchmarks públicos. Pueden variar.</p>
-                    </div>
-                  )}
-
-                  {/* CTAs */}
-                  <div className="flex gap-3 mt-auto pt-2">
-                    <a
-                      href={WA.build(build.nombre)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-primario flex-1"
-                    >
-                      {build.disponible ? 'Consultar' : 'Hacer pedido'}
-                      <ArrowRight size={15} strokeWidth={2.5} />
-                    </a>
-                    <a
-                      href={WA.general()}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-secundario"
-                    >
-                      Personalizar
-                    </a>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        )}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <h2 className="text-fg mb-10">Cómo se arma</h2>
+        <ol className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          {PASOS.map((p, i) => (
+            <li key={p.titulo} className="pt-4 border-t-2 border-brand-bright">
+              <span className="price text-sm text-brand-bright">Paso {i + 1}</span>
+              <h3 className="mt-2 text-fg">{p.titulo}</h3>
+              <p className="mt-2 text-sm text-fg-muted leading-relaxed">{p.texto}</p>
+            </li>
+          ))}
+        </ol>
       </section>
 
-      {/* CTA personalizado */}
-      <section className="bg-ink-800 py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-fg mb-4">¿No encuentras lo que buscas?</h2>
-          <p className="text-fg-muted mb-8 text-lg">
-            Diseñamos tu build según tu presupuesto y uso. Cotizamos gratis.
-          </p>
-          <a
-            href={WA.servicio('Build PC Gamer personalizado')}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primario"
-          >
-            Cotizar build personalizado
-            <ArrowRight size={18} strokeWidth={2.5} />
-          </a>
-        </div>
-      </section>
-
+      <BandaCta
+        titulo="¿Prefieres conversarlo?"
+        texto="Escríbenos por WhatsApp con tu presupuesto y lo que quieres jugar o hacer."
+        waHref={WA.servicio('PC Gamer a pedido')}
+      />
     </div>
   )
 }

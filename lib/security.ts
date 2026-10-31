@@ -30,7 +30,8 @@ export const solicitudSchema = z.object({
   telefono: telefonoSchema,
   fechaPreferida: z.union([z.literal(''), z.string().regex(/^\d{4}-\d{2}-\d{2}$/)]).optional(),
   horario: z.string().trim().max(60).optional(),
-  fotoUrls: z.array(z.string().max(500)).max(3).optional(),
+  // Rutas dentro del bucket privado, tal como las devuelve /api/upload.
+  fotoUrls: z.array(z.string().regex(/^bookings\/[\w-]+\.(jpg|png|webp|heic|heif)$/)).max(3).optional(),
 })
 
 export const contactSchema = z.object({

@@ -292,47 +292,42 @@ export const EQUIPOS = [
   { nombre: 'Tablets / iPad', icono: 'tablet-smartphone' },
 ] as const
 
-export const BUILDS = [
+// PC Gamer: solo a pedido, sin stock. Los niveles son una guía; `desde` lo define el dueño según
+// el precio de los componentes. Con null, la web muestra "A cotizar".
+export const NIVELES_PC: {
+  id: string
+  nombre: string
+  para: string
+  referencia: string[]
+  desde: number | null
+}[] = [
   {
-    id: 'starter-beast',
-    nombre: 'Starter Beast',
-    specs: {
-      cpu: 'Ryzen 5 7600X',
-      gpu: 'RX 7600',
-      ram: '16GB DDR5',
-      storage: '512GB NVMe',
-    },
-    tag: 'Entry Level',
-    color: 'tech-blue',
-    disponible: true,
+    id: 'starter',
+    nombre: 'Starter',
+    para: 'Juegos en 1080p y uso diario',
+    referencia: ['Ryzen 5 7600', 'RTX 5060 8 GB', '16 GB DDR5', 'SSD 1 TB'],
+    desde: null,
   },
   {
-    id: 'mid-beast-pro',
-    nombre: 'Mid Beast Pro',
-    specs: {
-      cpu: 'Ryzen 7 9700X',
-      gpu: 'RTX 4070 Ti',
-      ram: '32GB DDR5',
-      storage: '1TB NVMe',
-    },
-    tag: 'Más Pedido',
-    color: 'cyan',
-    disponible: true,
+    id: 'mid',
+    nombre: 'Mid',
+    para: 'Juegos en 1440p, streaming y edición',
+    referencia: ['Ryzen 7 7800X3D', 'RTX 5070 12 GB', '32 GB DDR5', 'SSD 1 TB'],
+    desde: null,
   },
   {
-    id: 'ultra-titan',
-    nombre: 'Ultra Titan',
-    specs: {
-      cpu: 'i9-14900K',
-      gpu: 'RTX 4090',
-      ram: '64GB DDR5',
-      storage: '2TB NVMe',
-    },
-    tag: 'Flagship',
-    color: 'purple',
-    disponible: false,
+    id: 'ultra',
+    nombre: 'Ultra',
+    para: 'Juegos en 4K y trabajo exigente',
+    referencia: ['Ryzen 7 9800X3D', 'RTX 5080 16 GB', '32 GB DDR5', 'SSD 2 TB'],
+    desde: null,
   },
-] as const
+]
+
+export const NOTA_PC = 'Precio referencial. Varía según stock y precio de componentes. Incluye armado profesional, cable management y pruebas de estrés.'
+
+export const precioNivelPC = (desde: number | null) =>
+  desde === null ? 'A cotizar' : `Desde ${desde.toLocaleString('es-CL')}`
 
 // Proceso real: el dueño confirma la hora, el equipo se trabaja en el taller y se entrega
 // terminado en PLAZO con informe técnico.
