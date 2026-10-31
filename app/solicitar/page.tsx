@@ -2,10 +2,35 @@
 
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { ArrowRight, Send } from 'lucide-react'
+import { ArrowRight, ChevronDown, Send } from 'lucide-react'
 import { contactSchema, type ContactForm, sanitize } from '@/lib/security'
+import { precioServicio } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
 import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
+
+const EQUIPOS: { value: ContactForm['tipoEquipo']; label: string }[] = [
+  { value: 'notebook', label: 'Notebook' },
+  { value: 'pc-gamer', label: 'PC Gamer' },
+  { value: 'macbook', label: 'MacBook' },
+  { value: 'aio', label: 'PC All-in-One' },
+  { value: 'consola', label: 'Consola' },
+  { value: 'tablet', label: 'Tablet / iPad' },
+  { value: 'otro', label: 'Otro' },
+]
+
+// Precios desde lib/constants.ts: el formulario nunca queda desfasado del sitio.
+const SERVICIOS: { value: ContactForm['servicio']; label: string }[] = [
+  { value: 'mantenimiento-fisico', label: `Mantención Full (${precioServicio('mantencion-full')})` },
+  { value: 'formateo', label: `Mantención Lógica · Formateo (${precioServicio('mantencion-logica')})` },
+  { value: 'diagnostico', label: `Diagnóstico / Revisión (${precioServicio('diagnostico')})` },
+  { value: 'armado-pc', label: `Armado PC Gamer (${precioServicio('armado-estandar')})` },
+  { value: 'cotizacion-build', label: 'Cotización de build a medida' },
+  { value: 'otro', label: 'Otro servicio' },
+]
+
+declare global {
+  interface Window { gtag?: (...args: unknown[]) => void }
+}
 
 export default function SolicitarPage() {
   const {
@@ -20,18 +45,21 @@ export default function SolicitarPage() {
     const clean = {
       nombre: sanitize(data.nombre),
       telefono: sanitize(data.telefono),
-      equipo: data.tipoEquipo,
-      servicio: data.servicio,
+      email: data.email ? sanitize(data.email) : undefined,
+      equipo: EQUIPOS.find((e) => e.value === data.tipoEquipo)?.label ?? data.tipoEquipo,
+      servicio: SERVICIOS.find((s) => s.value === data.servicio)?.label ?? data.servicio,
       descripcion: sanitize(data.descripcion),
     }
     const url = WA.formulario(clean)
+    // window.open no pasa por el contador de clics de Analytics.tsx: se registra aquí.
+    window.gtag?.('event', 'click_whatsapp', { link_url: url.split('?')[0], page_path: location.pathname })
     window.open(url, '_blank', 'noopener,noreferrer')
   }
 
   return (
-    <div className="min-h-screen bg-ink-900 pt-24">
+    <div className="min-h-screen bg-ink-900">
       {/* Header */}
-      <section className="relative bg-ink-950 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative bg-ink-950 pt-44 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <CircuitBackground variant="circuit" palette="brand" density={0.8} opacity={0.45} />
         <div className="glow-brand w-72 h-72 -top-16 right-0 opacity-30" />
         <div className="relative max-w-7xl mx-auto text-center">
@@ -113,21 +141,20 @@ export default function SolicitarPage() {
             <label htmlFor="tipoEquipo" className="block text-sm font-medium text-fg mb-1.5">
               Tipo de equipo <span className="text-danger">*</span>
             </label>
-            <select
-              id="tipoEquipo"
-              {...register('tipoEquipo')}
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-fg text-[16px] focus:outline-none focus:border-brand-bright/50 focus:ring-1 focus:ring-brand-bright/30 transition-colors appearance-none"
-              style={{ background: 'rgba(255,255,255,0.05)' }}
-            >
-              <option value="" disabled className="bg-ink-800">Selecciona un equipo</option>
-              <option value="notebook" className="bg-ink-800">Notebook</option>
-              <option value="pc-gamer" className="bg-ink-800">PC Gamer</option>
-              <option value="macbook" className="bg-ink-800">MacBook</option>
-              <option value="aio" className="bg-ink-800">PC All-in-One</option>
-              <option value="consola" className="bg-ink-800">Consola</option>
-              <option value="tablet" className="bg-ink-800">Tablet / iPad</option>
-              <option value="otro" className="bg-ink-800">Otro</option>
-            </select>
+            <div className="relative">
+              <select
+                id="tipoEquipo"
+                defaultValue=""
+                {...register('tipoEquipo')}
+                className="w-full pl-4 pr-10 py-3 rounded-xl bg-white/5 border border-white/10 text-fg text-[16px] focus:outline-none focus:border-brand-bright/50 focus:ring-1 focus:ring-brand-bright/30 transition-colors appearance-none"
+              >
+                <option value="" disabled className="bg-ink-800">Selecciona un equipo</option>
+                {EQUIPOS.map((e) => (
+                  <option key={e.value} value={e.value} className="bg-ink-800">{e.label}</option>
+                ))}
+              </select>
+              <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-fg-subtle pointer-events-none" aria-hidden="true" />
+            </div>
             {errors.tipoEquipo && (
               <p className="mt-1.5 text-xs text-danger">{errors.tipoEquipo.message}</p>
             )}
@@ -138,20 +165,20 @@ export default function SolicitarPage() {
             <label htmlFor="servicio" className="block text-sm font-medium text-fg mb-1.5">
               Servicio requerido <span className="text-danger">*</span>
             </label>
-            <select
-              id="servicio"
-              {...register('servicio')}
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-fg text-[16px] focus:outline-none focus:border-brand-bright/50 focus:ring-1 focus:ring-brand-bright/30 transition-colors appearance-none"
-              style={{ background: 'rgba(255,255,255,0.05)' }}
-            >
-              <option value="" disabled className="bg-ink-800">Selecciona un servicio</option>
-              <option value="diagnostico" className="bg-ink-800">Diagnóstico / Revisión ($25.000)</option>
-              <option value="formateo" className="bg-ink-800">Formateo + Instalación ($35.000)</option>
-              <option value="mantenimiento-fisico" className="bg-ink-800">Mantenimiento físico ($60.000)</option>
-              <option value="armado-pc" className="bg-ink-800">Armado PC Gamer ($60.000)</option>
-              <option value="cotizacion-build" className="bg-ink-800">Cotización Build a medida ($70.000)</option>
-              <option value="otro" className="bg-ink-800">Otro servicio</option>
-            </select>
+            <div className="relative">
+              <select
+                id="servicio"
+                defaultValue=""
+                {...register('servicio')}
+                className="w-full pl-4 pr-10 py-3 rounded-xl bg-white/5 border border-white/10 text-fg text-[16px] focus:outline-none focus:border-brand-bright/50 focus:ring-1 focus:ring-brand-bright/30 transition-colors appearance-none"
+              >
+                <option value="" disabled className="bg-ink-800">Selecciona un servicio</option>
+                {SERVICIOS.map((s) => (
+                  <option key={s.value} value={s.value} className="bg-ink-800">{s.label}</option>
+                ))}
+              </select>
+              <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-fg-subtle pointer-events-none" aria-hidden="true" />
+            </div>
             {errors.servicio && (
               <p className="mt-1.5 text-xs text-danger">{errors.servicio.message}</p>
             )}

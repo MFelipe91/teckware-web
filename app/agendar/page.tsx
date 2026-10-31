@@ -1,10 +1,9 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useId, useState, useRef } from 'react'
 import Image from 'next/image'
 import { ArrowRight, ArrowLeft, CheckCircle2, Search, RefreshCw, Wrench, Cpu, Briefcase, Package, Monitor, Laptop, Apple, Gamepad2, Tablet, Camera, X, Loader2, ImageIcon, Check, Info, ShieldCheck } from 'lucide-react'
-import { WA } from '@/lib/whatsapp'
-import { EMPRESA, SERVICIO_CONDICIONES, CONDICIONES_GENERALES, precioServicio } from '@/lib/constants'
+import { EMPRESA, PLAZO, SERVICIO_CONDICIONES, CONDICIONES_GENERALES, precioServicio } from '@/lib/constants'
 import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
 
 // Mapea el id del servicio del wizard → la clave de condiciones en constants.ts
@@ -65,7 +64,7 @@ const EMPTY: FormData = {
 }
 
 function buildWAMessage(f: FormData): string {
-  const BASE = 'https://wa.me/56930209427?text='
+  const BASE = `${EMPRESA.whatsapp}?text=`
   const enc = (t: string) => encodeURIComponent(t)
   const fotos = f.fotoUrls.length
     ? `\n📸 *Fotos adjuntas:*\n${f.fotoUrls.map((u, i) => `  ${i + 1}. ${u}`).join('\n')}\n`
@@ -85,9 +84,17 @@ function buildWAMessage(f: FormData): string {
 }
 
 function getTomorrow(): string {
+  // Fecha local, no UTC: en Chile, de noche, toISOString ya daría pasado mañana.
   const d = new Date()
   d.setDate(d.getDate() + 1)
-  return d.toISOString().split('T')[0]
+  const mes = String(d.getMonth() + 1).padStart(2, '0')
+  const dia = String(d.getDate()).padStart(2, '0')
+  return `${d.getFullYear()}-${mes}-${dia}`
+}
+
+function esFinDeSemana(iso: string): boolean {
+  const dia = new Date(`${iso}T12:00:00`).getDay()
+  return dia === 0 || dia === 6
 }
 
 export default function AgendarPage() {
@@ -96,10 +103,28 @@ export default function AgendarPage() {
   const [previews, setPreviews] = useState<string[]>([])
   const [uploading, setUploading] = useState(false)
   const [uploadError, setUploadError] = useState('')
+  const [fechaError, setFechaError] = useState('')
   const fileRef = useRef<HTMLInputElement>(null)
+  const registrada = useRef(false)
+  const uid = useId()
 
   const set = (key: keyof FormData, val: string) =>
     setForm((f) => ({ ...f, [key]: val }))
+
+  const goTo = (s: Step) => {
+    setStep(s)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  function cambiarFecha(valor: string) {
+    if (valor && esFinDeSemana(valor)) {
+      setFechaError('Atendemos de lunes a viernes. Elige un día hábil.')
+      set('fechaPreferida', '')
+      return
+    }
+    setFechaError('')
+    set('fechaPreferida', valor)
+  }
 
   const canNext1 = !!form.servicio
   const canNext2 = !!form.equipoTipo && !!form.problema.trim()
@@ -152,16 +177,17 @@ export default function AgendarPage() {
     setForm(f => ({ ...f, fotoUrls: f.fotoUrls.filter((_, i) => i !== index) }))
   }
 
-  // Guarda la solicitud en Supabase (fire-and-forget, no bloquea) y abre WhatsApp.
-  function handleFinalSubmit() {
+  // Guarda la solicitud en Supabase (sin bloquear y una sola vez). El botón es un enlace real a
+  // WhatsApp: no lo frena el bloqueador de ventanas y Analytics.tsx lo cuenta como conversión.
+  function registrarSolicitud() {
+    if (registrada.current) return
+    registrada.current = true
     fetch('/api/solicitudes', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form),
       keepalive: true,
     }).catch((e) => console.error('No se pudo registrar la solicitud:', e))
-
-    window.open(buildWAMessage(form), '_blank', 'noopener,noreferrer')
   }
 
   const progressPct = ((step - 1) / 3) * 100
@@ -191,8 +217,11 @@ export default function AgendarPage() {
             {STEP_LABELS.map((label, i) => (
               <button
                 key={label}
-                onClick={() => i + 1 < step && setStep((i + 1) as Step)}
-                className={`text-xs font-semibold transition-colors ${
+                type="button"
+                disabled={i + 1 >= step}
+                aria-current={i + 1 === step ? 'step' : undefined}
+                onClick={() => goTo((i + 1) as Step)}
+                className={`py-1 text-xs font-semibold transition-colors ${
                   i + 1 === step
                     ? 'text-brand-bright'
                     : i + 1 < step
@@ -224,6 +253,8 @@ export default function AgendarPage() {
                 {SERVICIOS.map(({ id, label, icon: Icon, precio, desc }) => (
                   <button
                     key={id}
+                    type="button"
+                    aria-pressed={form.servicio === id}
                     onClick={() => { set('servicio', id); set('servicioLabel', label) }}
                     className={`text-left p-4 rounded-xl border transition-all ${
                       form.servicio === id
@@ -275,11 +306,13 @@ export default function AgendarPage() {
               <h2 className="text-lg font-bold text-fg mb-6">Cuéntanos sobre tu equipo</h2>
 
               <div className="mb-5">
-                <label className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-3">Tipo de equipo</label>
+                <p className="text-xs font-semibold text-fg-muted uppercase tracking-wider mb-3">Tipo de equipo</p>
                 <div className="grid grid-cols-3 gap-2">
                   {EQUIPOS.map(({ id, label, icon: Icon }) => (
                     <button
                       key={id}
+                      type="button"
+                      aria-pressed={form.equipoTipo === label}
                       onClick={() => set('equipoTipo', label)}
                       className={`flex flex-col items-center gap-2 p-3 rounded-xl border transition-all ${
                         form.equipoTipo === label
@@ -288,44 +321,46 @@ export default function AgendarPage() {
                       }`}
                     >
                       <Icon size={20} className={form.equipoTipo === label ? 'text-brand-bright' : 'text-fg-subtle'} />
-                      <span className={`text-[10px] font-semibold ${form.equipoTipo === label ? 'text-fg' : 'text-fg-subtle'}`}>{label}</span>
+                      <span className={`text-xs text-center font-semibold ${form.equipoTipo === label ? 'text-fg' : 'text-fg-subtle'}`}>{label}</span>
                     </button>
                   ))}
                 </div>
               </div>
 
               <div className="mb-5">
-                <label className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">
+                <label htmlFor={`${uid}-marca`} className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">
                   Marca y modelo <span className="text-fg-subtle normal-case font-normal">(opcional)</span>
                 </label>
                 <input
+                  id={`${uid}-marca`}
                   type="text"
                   placeholder="Ej: HP Pavilion 15, MacBook Air M2, ASUS ROG..."
                   value={form.marca}
                   onChange={(e) => set('marca', e.target.value)}
-                  className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors"
+                  className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-base sm:text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">
+                <label htmlFor={`${uid}-problema`} className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">
                   Describe el problema o requerimiento <span className="text-danger">*</span>
                 </label>
                 <textarea
+                  id={`${uid}-problema`}
                   placeholder="Ej: No enciende, hace ruido raro, pantalla parpadeante, quiero formatear y que quede como nuevo..."
                   value={form.problema}
                   onChange={(e) => set('problema', e.target.value)}
                   rows={4}
-                  className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors resize-none"
+                  className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-base sm:text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors resize-none"
                 />
               </div>
 
               {/* Fotos opcionales */}
               <div className="mt-5">
-                <label className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-1">
+                <p className="text-xs font-semibold text-fg-muted uppercase tracking-wider mb-1">
                   Fotos del equipo o error{' '}
                   <span className="text-fg-subtle normal-case font-normal">(opcional · máx. 3)</span>
-                </label>
+                </p>
                 <p className="text-xs text-fg-subtle mb-3">
                   Sube fotos del daño, pantalla de error o interior del equipo para que Mario evalúe antes de la cita.
                 </p>
@@ -337,10 +372,12 @@ export default function AgendarPage() {
                       <div key={i} className="relative w-20 h-20 rounded-xl overflow-hidden border border-white/15 group">
                         <Image src={src} alt={`Foto ${i + 1}`} fill className="object-cover" />
                         <button
+                          type="button"
+                          aria-label={`Quitar foto ${i + 1}`}
                           onClick={() => removePhoto(i)}
-                          className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/70 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                          className="absolute top-1 right-1 w-6 h-6 rounded-full bg-black/70 text-white flex items-center justify-center lg:opacity-0 lg:group-hover:opacity-100 focus-visible:opacity-100 transition-opacity"
                         >
-                          <X size={10} />
+                          <X size={12} aria-hidden="true" />
                         </button>
                       </div>
                     ))}
@@ -397,46 +434,55 @@ export default function AgendarPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>
-                  <label className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">Tu nombre <span className="text-danger">*</span></label>
+                  <label htmlFor={`${uid}-nombre`} className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">Tu nombre <span className="text-danger">*</span></label>
                   <input
+                    id={`${uid}-nombre`}
+                    autoComplete="name"
                     type="text"
                     placeholder="Nombre completo"
                     value={form.nombre}
                     onChange={(e) => set('nombre', e.target.value)}
-                    className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors"
+                    className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-base sm:text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">Teléfono <span className="text-danger">*</span></label>
+                  <label htmlFor={`${uid}-telefono`} className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">Teléfono <span className="text-danger">*</span></label>
                   <input
+                    id={`${uid}-telefono`}
+                    autoComplete="tel"
                     type="tel"
                     placeholder="+56 9 XXXX XXXX"
                     value={form.telefono}
                     onChange={(e) => set('telefono', e.target.value)}
-                    className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors"
+                    className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-base sm:text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors"
                   />
                 </div>
               </div>
 
               <div className="mb-4">
-                <label className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">
-                  Fecha preferida <span className="text-fg-subtle normal-case font-normal">(opcional)</span>
+                <label htmlFor={`${uid}-fecha`} className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">
+                  Fecha preferida <span className="text-fg-subtle normal-case font-normal">(opcional · lunes a viernes)</span>
                 </label>
                 <input
+                  id={`${uid}-fecha`}
                   type="date"
                   min={getTomorrow()}
                   value={form.fechaPreferida}
-                  onChange={(e) => set('fechaPreferida', e.target.value)}
-                  className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-sm text-fg focus:outline-none focus:border-brand-bright/50 transition-colors"
+                  onChange={(e) => cambiarFecha(e.target.value)}
+                  aria-invalid={!!fechaError}
+                  className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-base sm:text-sm text-fg [color-scheme:dark] focus:outline-none focus:border-brand-bright/50 transition-colors"
                 />
+                {fechaError && <p role="alert" className="mt-2 text-xs text-danger">{fechaError}</p>}
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-3">Horario preferido</label>
+                <p className="text-xs font-semibold text-fg-muted uppercase tracking-wider mb-3">Horario preferido</p>
                 <div className="grid grid-cols-2 gap-2">
                   {HORARIOS.map((h) => (
                     <button
                       key={h}
+                      type="button"
+                      aria-pressed={form.horario === h}
                       onClick={() => set('horario', h)}
                       className={`py-2.5 px-3 rounded-xl border text-xs font-medium transition-all ${
                         form.horario === h
@@ -498,7 +544,7 @@ export default function AgendarPage() {
               <div className="rounded-xl border border-white/8 bg-white/[0.02] p-4 mb-4">
                 <div className="flex items-center gap-2 mb-3">
                   <ShieldCheck size={14} className="text-brand-bright" />
-                  <span className="text-[11px] font-bold text-fg-muted uppercase tracking-wider">Condiciones</span>
+                  <span className="text-xs font-bold text-fg-muted uppercase tracking-wider">Condiciones</span>
                 </div>
                 <ul className="space-y-1.5">
                   {CONDICIONES_GENERALES.map((c) => (
@@ -513,18 +559,23 @@ export default function AgendarPage() {
               <div className="bg-brand/5 border border-brand-bright/20 rounded-xl p-4 mb-6">
                 <p className="text-xs text-fg-muted leading-relaxed">
                   Al enviar, abriremos WhatsApp con todos tus datos pre-escritos.
-                  Confirmamos disponibilidad en horario hábil. El trabajo se entrega en <strong className="text-fg">48 h hábiles</strong>.
+                  Confirmamos disponibilidad en horario hábil. El trabajo se entrega en <strong className="text-fg">{PLAZO}</strong>.
                 </p>
               </div>
 
-              <button
-                type="button"
-                onClick={handleFinalSubmit}
-                className="flex items-center justify-center gap-2 w-full py-4 bg-brand text-white font-bold rounded-xl hover:bg-brand-hover transition-colors text-base min-h-[56px]"
+              <a
+                href={buildWAMessage(form)}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={registrarSolicitud}
+                className="flex items-center justify-center gap-2 w-full py-4 bg-brand text-white font-semibold rounded-xl hover:bg-brand-hover transition-colors text-base min-h-[56px]"
               >
                 Enviar solicitud por WhatsApp
-                <ArrowRight size={18} strokeWidth={2.5} />
-              </button>
+                <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
+              </a>
+              <p className="mt-3 text-center text-xs text-fg-subtle">
+                ¿No se abrió WhatsApp? Escríbenos al {EMPRESA.telefono}.
+              </p>
             </div>
           )}
 
@@ -532,14 +583,16 @@ export default function AgendarPage() {
           {step < 4 && (
             <div className="flex justify-between mt-8 pt-6 border-t border-white/8">
               <button
-                onClick={() => setStep((s) => Math.max(1, s - 1) as Step)}
+                type="button"
+                onClick={() => goTo(Math.max(1, step - 1) as Step)}
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/15 text-fg-muted text-sm font-medium hover:border-white/30 hover:text-fg transition-all ${step === 1 ? 'invisible' : ''}`}
               >
                 <ArrowLeft size={15} />
                 Anterior
               </button>
               <button
-                onClick={() => setStep((s) => Math.min(4, s + 1) as Step)}
+                type="button"
+                onClick={() => goTo(Math.min(4, step + 1) as Step)}
                 disabled={
                   (step === 1 && !canNext1) ||
                   (step === 2 && !canNext2) ||

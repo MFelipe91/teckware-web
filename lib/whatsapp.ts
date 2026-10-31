@@ -17,12 +17,13 @@ export const WA = {
     BASE + enc(`Hola TECKWARE! 👋\n\nMe interesa: *${nombre}*\n\nQuedo atento/a a su respuesta.`),
 
   formulario: (d: {
-    nombre: string; telefono: string; equipo: string; servicio: string; descripcion: string
+    nombre: string; telefono: string; email?: string; equipo: string; servicio: string; descripcion: string
   }) =>
     BASE + enc(
       `*Nueva solicitud desde teckware.cl* 🔧\n\n` +
       `👤 *Nombre:* ${d.nombre}\n` +
       `📱 *Teléfono:* ${d.telefono}\n` +
+      (d.email ? `✉️ *Email:* ${d.email}\n` : '') +
       `💻 *Equipo:* ${d.equipo}\n` +
       `🛠️ *Servicio:* ${d.servicio}\n` +
       `📝 *Detalle:* ${d.descripcion}\n\n` +
