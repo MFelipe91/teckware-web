@@ -312,22 +312,32 @@ Ruta sugerida: `public/images/real/`. Usar con `next/image` y nombres descriptiv
 (`mantencion-pc-gamer-la-serena.webp`). Las mismas fotos se suben a la Ficha de Google.
 
 ### 6.8 Landings, blog y páginas internas
-- [ ] Aplicar los nuevos tokens a `ServiceLanding.tsx`, que hereda en las 10 landings.
+- [x] Aplicar los nuevos tokens a `ServiceLanding.tsx`, que hereda en las 10 landings.
 - [ ] Agregar una foto real por landing cuando existan.
-- [ ] `/nosotros`: historia real, foto del dueño, RUT y zona; es la señal de E-E-A-T.
-- [ ] Blog: diseño de lectura cómodo (ancho de unos 70 caracteres por línea, tipografía
+- [x] `/nosotros`: historia, RUT y zona. Pendiente solo la foto real del dueño (6.7).
+- [x] Blog: diseño de lectura cómodo (ancho de unos 70 caracteres por línea, tipografía
       de lectura).
-- [ ] `/agendar` y `/solicitar`: formularios con los nuevos estilos; probar que se envían.
+- [x] `/agendar` y `/solicitar`: formularios con los nuevos estilos, probados de punta a punta
+      (2026-10-31), con precios desde `lib/constants.ts` y conversión medida en GA4.
+- [x] Página 404 y página de error propias (`app/not-found.tsx`, `app/error.tsx`).
 
 ### 6.9 Rendimiento y accesibilidad (presupuesto)
-- [ ] JS inicial de la home < 150 KB gzip (revisar la salida de `next build`).
-- [ ] Imágenes en WebP/AVIF vía `next/image`, con `sizes` correcto.
-- [ ] `prefers-reduced-motion` desactiva las animaciones decorativas.
-- [ ] Foco visible y navegación con teclado en el menú móvil y el chatbot.
-- [ ] Probar a 375 px de ancho sin scroll horizontal.
+- [ ] JS inicial de la home < 150 KB gzip. → Medido 213 KB (2026-10-31). No afecta los puntajes
+      actuales, pero queda por bajar.
+- [x] Imágenes en WebP/AVIF vía `next/image`, con `sizes` correcto.
+- [x] `prefers-reduced-motion` desactiva las animaciones decorativas.
+- [x] Foco visible y navegación con teclado en el menú móvil y el chatbot.
+- [x] Probar a 375 px de ancho sin scroll horizontal. → 25 rutas, móvil y escritorio.
+
+Medición local con Lighthouse 13 (2026-10-31), en `/`, `/mantencion` y `/agendar`: rendimiento
+98–100; accesibilidad, buenas prácticas y SEO 100; LCP móvil ≤ 1,0 s; CLS 0. Falta confirmar con
+datos reales en Speed Insights.
+
+El chatbot usa `GROQ_MODEL` (por defecto `openai/gpt-oss-20b`): Groq retiró el modelo anterior y
+el chat estaba caído. Si vuelve a pasar, se cambia la variable en Vercel sin tocar el código.
 
 ### 6.10 Cierre de la fase
-- [ ] `npx tsc --noEmit`, `npm run lint` y `npm run build` sin errores.
+- [x] `npx tsc --noEmit`, `npm run lint` y `npm run build` sin errores.
 - [ ] Revisión en la Preview de Vercel de la rama (escritorio y móvil).
 - [ ] PR `feat/diseno` → `main` con capturas antes y después.
 - [ ] Después de publicar: comprobar en www.teckware.cl, pedir reindexación de la home en
