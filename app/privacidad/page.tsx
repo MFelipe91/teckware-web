@@ -4,6 +4,7 @@ import { EMPRESA } from '@/lib/constants'
 export const metadata: Metadata = {
   title: 'Política de Privacidad',
   description: 'Política de privacidad y manejo de datos personales de TECKWARE SpA.',
+  alternates: { canonical: '/privacidad' },
   robots: { index: false, follow: false },
 }
 
@@ -12,7 +13,7 @@ export default function PrivacidadPage() {
     <div className="min-h-screen bg-ink-900 pt-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h1 className="text-fg mb-2">Política de Privacidad</h1>
-        <p className="text-fg-subtle text-sm mb-10">Última actualización: Mayo 2026</p>
+        <p className="text-fg-subtle text-sm mb-10">Última actualización: Octubre 2026</p>
 
         <div className="space-y-8 text-fg-muted text-sm leading-relaxed">
           <section>
@@ -31,10 +32,12 @@ export default function PrivacidadPage() {
               <li>Nombre completo</li>
               <li>Número de teléfono</li>
               <li>Correo electrónico (opcional)</li>
-              <li>Descripción del problema técnico</li>
+              <li>Descripción del problema técnico y fotos que decidas adjuntar</li>
+              <li>Mensajes que escribas en el chat del sitio</li>
             </ul>
             <p className="mt-3">
-              No utilizamos cookies de seguimiento ni sistemas de analítica invasivos.
+              Para medir visitas y clics de contacto usamos Google Analytics y Vercel Analytics.
+              Google Analytics utiliza cookies, que puedes bloquear desde tu navegador.
             </p>
           </section>
 
@@ -51,16 +54,20 @@ export default function PrivacidadPage() {
           <section>
             <h2 className="text-base font-bold text-fg mb-3">4. No vendemos sus datos</h2>
             <p>
-              TECKWARE SpA no vende, arrienda ni transfiere datos personales a terceros.
-              La información proporcionada es confidencial y se usa únicamente para prestar
-              el servicio solicitado.
+              TECKWARE SpA no vende ni arrienda datos personales. La información se usa únicamente
+              para prestar el servicio solicitado.
+            </p>
+            <p className="mt-3">
+              Para operar el sitio trabajamos con estos proveedores, que tratan datos por nuestra
+              cuenta: Supabase (solicitudes y fotos), Vercel (alojamiento y analítica), Google
+              (analítica), Groq (respuestas del chat con IA) y WhatsApp (mensajería).
             </p>
           </section>
 
           <section>
             <h2 className="text-base font-bold text-fg mb-3">5. Seguridad</h2>
             <p>
-              Aplicamos medidas de seguridad acordes a nuestra especialización en Ciberseguridad:
+              Aplicamos medidas de seguridad acordes a nuestra formación en ciberseguridad:
               comunicaciones cifradas (HTTPS/TLS), cabeceras HTTP de seguridad y controles
               de acceso estrictos sobre cualquier dato almacenado.
             </p>
@@ -76,7 +83,7 @@ export default function PrivacidadPage() {
             </ul>
             <p className="mt-3">
               Para ejercer estos derechos escríbanos a{' '}
-              <a href={`mailto:${EMPRESA.email}`} className="text-brand-bright hover:underline">
+              <a href={`mailto:${EMPRESA.email}`} className="text-brand-bright underline">
                 {EMPRESA.email}
               </a>
             </p>
@@ -86,7 +93,7 @@ export default function PrivacidadPage() {
             <h2 className="text-base font-bold text-fg mb-3">7. Contacto</h2>
             <p>
               Consultas sobre privacidad:{' '}
-              <a href={`mailto:${EMPRESA.email}`} className="text-brand-bright hover:underline">
+              <a href={`mailto:${EMPRESA.email}`} className="text-brand-bright underline">
                 {EMPRESA.email}
               </a>
             </p>

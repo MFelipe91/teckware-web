@@ -4,6 +4,7 @@ import { EMPRESA } from '@/lib/constants'
 export const metadata: Metadata = {
   title: 'Términos de Servicio',
   description: 'Términos y condiciones del servicio técnico de TECKWARE SpA.',
+  alternates: { canonical: '/terminos' },
   robots: { index: false, follow: false },
 }
 
@@ -90,7 +91,7 @@ export default function TerminosPage() {
             <h2 className="text-base font-bold text-fg mb-3">9. Contacto</h2>
             <p>
               Consultas:{' '}
-              <a href={`mailto:${EMPRESA.email}`} className="text-brand-bright hover:underline">
+              <a href={`mailto:${EMPRESA.email}`} className="text-brand-bright underline">
                 {EMPRESA.email}
               </a>
             </p>
