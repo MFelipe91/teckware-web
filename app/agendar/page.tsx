@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { ArrowRight, ArrowLeft, CheckCircle2, Search, RefreshCw, Wrench, Cpu, Briefcase, Package, Monitor, Laptop, Apple, Gamepad2, Tablet, Camera, X, Loader2, ImageIcon, Check, Info, ShieldCheck } from 'lucide-react'
 import { EMPRESA, PLAZO, SERVICIO_CONDICIONES, CONDICIONES_GENERALES, precioServicio } from '@/lib/constants'
 import { CircuitBackground } from '@/components/backgrounds/CircuitBackground'
+import { nombreSchema, telefonoSchema } from '@/lib/security'
 
 // Mapea el id del servicio del wizard → la clave de condiciones en constants.ts
 const COND_MAP: Record<string, string> = {
@@ -104,6 +105,8 @@ export default function AgendarPage() {
   const [uploading, setUploading] = useState(false)
   const [uploadError, setUploadError] = useState('')
   const [fechaError, setFechaError] = useState('')
+  const [tocado, setTocado] = useState({ nombre: false, telefono: false })
+  const [guardadoFallo, setGuardadoFallo] = useState(false)
   const fileRef = useRef<HTMLInputElement>(null)
   const registrada = useRef(false)
   const uid = useId()
@@ -126,9 +129,22 @@ export default function AgendarPage() {
     set('fechaPreferida', valor)
   }
 
+  // Al salir del campo, no al cambiar: mientras se escribe el año, la fecha pasa por valores antiguos.
+  function revisarFechaPasada() {
+    if (form.fechaPreferida && form.fechaPreferida < getTomorrow()) {
+      setFechaError('Elige una fecha a partir de mañana.')
+      set('fechaPreferida', '')
+    }
+  }
+
+  const nombreValido = nombreSchema.safeParse(form.nombre)
+  const telefonoValido = telefonoSchema.safeParse(form.telefono)
+  const errorNombre = tocado.nombre && !nombreValido.success ? nombreValido.error.issues[0].message : ''
+  const errorTelefono = tocado.telefono && !telefonoValido.success ? telefonoValido.error.issues[0].message : ''
+
   const canNext1 = !!form.servicio
   const canNext2 = !!form.equipoTipo && !!form.problema.trim()
-  const canNext3 = !!form.nombre.trim() && !!form.telefono.trim()
+  const canNext3 = nombreValido.success && telefonoValido.success
 
   // Condiciones del servicio seleccionado (mapeado a constants.ts)
   const condSel = form.servicio && COND_MAP[form.servicio]
@@ -179,15 +195,25 @@ export default function AgendarPage() {
 
   // Guarda la solicitud en Supabase (sin bloquear y una sola vez). El botón es un enlace real a
   // WhatsApp: no lo frena el bloqueador de ventanas y Analytics.tsx lo cuenta como conversión.
+  // Si falla, avisa y permite reintentar con el siguiente clic: el WhatsApp lleva todos los datos.
   function registrarSolicitud() {
     if (registrada.current) return
     registrada.current = true
+    setGuardadoFallo(false)
     fetch('/api/solicitudes', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form),
       keepalive: true,
-    }).catch((e) => console.error('No se pudo registrar la solicitud:', e))
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      })
+      .catch((e) => {
+        console.error('No se pudo registrar la solicitud:', e)
+        registrada.current = false
+        setGuardadoFallo(true)
+      })
   }
 
   const progressPct = ((step - 1) / 3) * 100
@@ -336,6 +362,7 @@ export default function AgendarPage() {
                   type="text"
                   placeholder="Ej: HP Pavilion 15, MacBook Air M2, ASUS ROG..."
                   value={form.marca}
+                  maxLength={120}
                   onChange={(e) => set('marca', e.target.value)}
                   className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-base sm:text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors"
                 />
@@ -349,6 +376,7 @@ export default function AgendarPage() {
                   id={`${uid}-problema`}
                   placeholder="Ej: No enciende, hace ruido raro, pantalla parpadeante, quiero formatear y que quede como nuevo..."
                   value={form.problema}
+                  maxLength={1000}
                   onChange={(e) => set('problema', e.target.value)}
                   rows={4}
                   className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-base sm:text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors resize-none"
@@ -441,9 +469,14 @@ export default function AgendarPage() {
                     type="text"
                     placeholder="Nombre completo"
                     value={form.nombre}
+                    maxLength={80}
                     onChange={(e) => set('nombre', e.target.value)}
+                    onBlur={() => setTocado((t) => ({ ...t, nombre: true }))}
+                    aria-invalid={!!errorNombre}
+                    aria-describedby={errorNombre ? `${uid}-nombre-error` : undefined}
                     className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-base sm:text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors"
                   />
+                  {errorNombre && <p id={`${uid}-nombre-error`} role="alert" className="mt-2 text-xs text-danger">{errorNombre}</p>}
                 </div>
                 <div>
                   <label htmlFor={`${uid}-telefono`} className="text-xs font-semibold text-fg-muted uppercase tracking-wider block mb-2">Teléfono <span className="text-danger">*</span></label>
@@ -454,8 +487,12 @@ export default function AgendarPage() {
                     placeholder="+56 9 XXXX XXXX"
                     value={form.telefono}
                     onChange={(e) => set('telefono', e.target.value)}
+                    onBlur={() => setTocado((t) => ({ ...t, telefono: true }))}
+                    aria-invalid={!!errorTelefono}
+                    aria-describedby={errorTelefono ? `${uid}-telefono-error` : undefined}
                     className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-base sm:text-sm text-fg placeholder-fg-subtle focus:outline-none focus:border-brand-bright/50 transition-colors"
                   />
+                  {errorTelefono && <p id={`${uid}-telefono-error`} role="alert" className="mt-2 text-xs text-danger">{errorTelefono}</p>}
                 </div>
               </div>
 
@@ -469,6 +506,7 @@ export default function AgendarPage() {
                   min={getTomorrow()}
                   value={form.fechaPreferida}
                   onChange={(e) => cambiarFecha(e.target.value)}
+                  onBlur={revisarFechaPasada}
                   aria-invalid={!!fechaError}
                   className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-base sm:text-sm text-fg [color-scheme:dark] focus:outline-none focus:border-brand-bright/50 transition-colors"
                 />
@@ -573,8 +611,14 @@ export default function AgendarPage() {
                 Enviar solicitud por WhatsApp
                 <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
               </a>
+              {guardadoFallo && (
+                <p role="alert" className="mt-3 text-center text-xs text-danger">
+                  No pudimos registrar tu solicitud en nuestro sistema. Envía el mensaje de WhatsApp: lleva todos tus datos.
+                </p>
+              )}
               <p className="mt-3 text-center text-xs text-fg-subtle">
-                ¿No se abrió WhatsApp? Escríbenos al {EMPRESA.telefono}.
+                ¿No se abrió WhatsApp? Escríbenos al{' '}
+                <a href={EMPRESA.telefonoHref} className="underline hover:text-fg">{EMPRESA.telefono}</a>.
               </p>
             </div>
           )}

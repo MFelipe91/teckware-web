@@ -109,6 +109,7 @@ test('/agendar', async ({ page, context, request }) => {
   anotar('Sábado como fecha', 'Rechazado con mensaje', await alerta.innerText(), (await fecha.inputValue()) === '')
 
   await fecha.fill('2020-01-06')
+  await fecha.blur()
   const pasada = await fecha.inputValue()
   const valida = await fecha.evaluate((el: HTMLInputElement) => el.validity.valid)
   anotar('Fecha pasada escrita a mano (2020-01-06)', 'Rechazada', pasada ? `aceptada (validity.valid=${valida})` : 'rechazada', pasada === '')

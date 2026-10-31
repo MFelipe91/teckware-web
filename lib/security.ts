@@ -9,13 +9,33 @@ export function sanitize(input: string): string {
     .slice(0, 1000)
 }
 
+export const nombreSchema = z.string()
+  .trim()
+  .min(2, 'Nombre muy corto')
+  .max(80, 'Nombre muy largo')
+  .regex(/^[a-zA-ZáéíóúüÁÉÍÓÚÜñÑ'\s-]+$/, 'Solo letras y espacios')
+
+export const telefonoSchema = z.string()
+  .trim()
+  .regex(/^(\+?56)?[\s-]?9[\s-]?\d{4}[\s-]?\d{4}$/, 'Teléfono chileno inválido')
+
+// Solicitud del wizard /agendar. La API la valida siempre: el navegador se puede saltar.
+export const solicitudSchema = z.object({
+  servicio: z.string().trim().min(1).max(60),
+  servicioLabel: z.string().trim().max(120).optional(),
+  equipoTipo: z.string().trim().max(60).optional(),
+  marca: z.string().trim().max(120).optional(),
+  problema: z.string().trim().max(1000).optional(),
+  nombre: nombreSchema,
+  telefono: telefonoSchema,
+  fechaPreferida: z.union([z.literal(''), z.string().regex(/^\d{4}-\d{2}-\d{2}$/)]).optional(),
+  horario: z.string().trim().max(60).optional(),
+  fotoUrls: z.array(z.string().max(500)).max(3).optional(),
+})
+
 export const contactSchema = z.object({
-  nombre: z.string()
-    .min(2, 'Nombre muy corto')
-    .max(80, 'Nombre muy largo')
-    .regex(/^[a-zA-ZáéíóúüÁÉÍÓÚÜñÑ'\s-]+$/, 'Solo letras y espacios'),
-  telefono: z.string()
-    .regex(/^(\+?56)?[\s-]?9[\s-]?\d{4}[\s-]?\d{4}$/, 'Teléfono chileno inválido'),
+  nombre: nombreSchema,
+  telefono: telefonoSchema,
   email: z.string().email('Email inválido').optional().or(z.literal('')),
   tipoEquipo: z.enum(['notebook', 'pc-gamer', 'macbook', 'aio', 'consola', 'tablet', 'otro'], { error: 'Selecciona un equipo' }),
   servicio: z.enum(['formateo', 'mantenimiento-fisico', 'diagnostico', 'armado-pc', 'cotizacion-build', 'otro'], { error: 'Selecciona un servicio' }),

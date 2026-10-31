@@ -13,6 +13,17 @@ const EXT: Record<string, string> = {
   'image/heif': 'heif',
 }
 const ALLOWED = Object.keys(EXT)
+const MARCAS_HEIC = new Set(['heic', 'heix', 'hevc', 'hevx', 'mif1', 'msf1'])
+
+// El tipo que declara el navegador se puede falsificar: se revisa el contenido real del archivo.
+function tipoReal(b: Buffer): string | null {
+  if (b.length < 12) return null
+  if (b[0] === 0xff && b[1] === 0xd8 && b[2] === 0xff) return 'image/jpeg'
+  if (b.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))) return 'image/png'
+  if (b.toString('latin1', 0, 4) === 'RIFF' && b.toString('latin1', 8, 12) === 'WEBP') return 'image/webp'
+  if (b.toString('latin1', 4, 8) === 'ftyp' && MARCAS_HEIC.has(b.toString('latin1', 8, 12))) return 'image/heic'
+  return null
+}
 
 export async function POST(req: Request) {
   if (!rateLimit(`upload:${clientIp(req)}`, 10, 60_000).ok) {
@@ -48,15 +59,18 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Foto demasiado grande (máx 5 MB)' }, { status: 400 })
     }
 
-    const ext = EXT[file.type]
-    const uid = `${Date.now()}-${Math.random().toString(36).slice(2)}`
-    const path = `bookings/${uid}.${ext}`
-
     const buffer = Buffer.from(await file.arrayBuffer())
+    const tipo = tipoReal(buffer)
+    if (!tipo) {
+      return NextResponse.json({ error: 'El archivo no es una imagen válida' }, { status: 400 })
+    }
+
+    const uid = `${Date.now()}-${Math.random().toString(36).slice(2)}`
+    const path = `bookings/${uid}.${EXT[tipo]}`
 
     const { error } = await supabase.storage
       .from(BUCKET)
-      .upload(path, buffer, { contentType: file.type, upsert: false })
+      .upload(path, buffer, { contentType: tipo, upsert: false })
 
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500 })

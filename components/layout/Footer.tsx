@@ -115,9 +115,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href={WA.general()}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={EMPRESA.telefonoHref}
                   className="flex items-center gap-2 text-sm text-fg-muted hover:text-brand-bright transition-colors"
                 >
                   <Phone size={15} className="text-brand-bright shrink-0" />

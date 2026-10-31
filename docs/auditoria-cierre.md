@@ -11,7 +11,7 @@ sin imágenes rotas y con el chatbot correcto en precios y horario. Los problema
 1. **`/agendar` y su API aceptan datos inválidos**, y si el guardado falla nadie se entera.
 2. **`/builds` y la landing medida superan el objetivo de LCP en móvil:** 3,0 y 3,3 s contra 2,5 s.
 3. **Las fotos de clientes quedan en un bucket público**, y la subida acepta archivos que no son imágenes.
-4. **El teléfono no se puede tocar en ninguna página:** no hay enlaces `tel:` y el evento `click_telefono` nunca se dispara.
+4. **No se puede llamar desde el sitio:** el número abre WhatsApp, no hay enlaces `tel:` y el evento `click_telefono` nunca se dispara.
 
 | Punto | Resultado | Estado |
 |---|---|---|
@@ -40,7 +40,7 @@ sin imágenes rotas y con el chatbot correcto en precios y horario. Los problema
 | 9 | Falla | Errores de `/solicitar` no anunciados | Sin `aria-invalid` ni `role="alert"` | `app/solicitar/page.tsx:98` |
 | 10 | Falla | Login de `/admin` con problemas de accesibilidad | Botón de ver contraseña sin nombre (axe crítico) y de 16 px; etiqueta sin vincular | `app/admin/page.tsx:185`, `:194` |
 | 11 | Falla | `/builds` tiene textos no verificables | "Disponible", "Más pedido", "Bajo pedido", "Cotizamos gratis" y precios fijos. Se corrige en el Bloque C | `app/builds/page.tsx:132`, `:225` |
-| 12 | Mejora | Teléfono sin enlace | 0 enlaces `tel:` en el sitio, y el evento medido en `Analytics.tsx:18` no puede dispararse | `components/layout/Footer.tsx` |
+| 12 | Mejora | No se puede llamar | El número del pie y de `/contacto` abre WhatsApp. Hay 0 enlaces `tel:`, y el evento medido en `Analytics.tsx:18` no puede dispararse | `components/layout/Footer.tsx` |
 | 13 | Mejora | `/solicitar` no guarda nada | Solo abre WhatsApp: si el cliente no lo envía, no queda registro ni aparece en `/admin` | `app/solicitar/page.tsx:44` |
 | 14 | Mejora | `og:url` ausente | Falta en las 29 rutas | Metadata |
 | 15 | Mejora | Misma imagen OG en todo el sitio | Las 29 rutas comparten `/og-image.png` (54 KB, carga bien). Título y descripción OG sí son únicos, salvo la 404 | Metadata |

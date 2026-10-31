@@ -12,6 +12,7 @@ export const EMPRESA = {
   domicilioLegal: 'Colón 352, La Serena',
   email: 'mariofelipe@teckware.cl',
   telefono: '+56 9 3020 9427',
+  telefonoHref: 'tel:+56930209427',
   whatsapp: 'https://wa.me/56930209427',
   instagram: 'https://instagram.com/teckware.cl',
   instagramHandle: '@teckware.cl',
