@@ -1,0 +1,48 @@
+{
+  "og": [
+    {
+      "url": "https://www.teckware.cl/og-image.png",
+      "estado": 200,
+      "kb": 54,
+      "tipo": "image/png"
+    }
+  ],
+  "robots": "User-Agent: *\nAllow: /\nDisallow: /admin\nDisallow: /api\n\nSitemap: https://www.teckware.cl/sitemap.xml\n",
+  "apex": {
+    "estado": 308,
+    "destino": "https://www.teckware.cl/"
+  },
+  "rutasEnSitemap": [
+    "/",
+    "/mantencion",
+    "/servicios",
+    "/empresas",
+    "/servicio-tecnico-computadores-la-serena",
+    "/servicio-tecnico-coquimbo",
+    "/reparacion-notebook-la-serena",
+    "/formateo-pc-la-serena",
+    "/mantencion-pc-gamer",
+    "/armado-pc-gamer-la-serena",
+    "/reparacion-notebook-gamer",
+    "/servicio-tecnico-apple",
+    "/mantencion-ps5-la-serena",
+    "/recuperacion-de-datos-la-serena",
+    "/blog",
+    "/blog/cada-cuanto-hacer-mantencion-pc-gamer",
+    "/blog/senales-notebook-necesita-mantencion",
+    "/blog/mantencion-ps5-metal-liquido",
+    "/blog/mantencion-preventiva-computadores-empresa",
+    "/builds",
+    "/agendar",
+    "/web-qa",
+    "/ciberseguridad",
+    "/nosotros",
+    "/contacto"
+  ],
+  "enDiscoSinSitemap": [
+    "/privacidad",
+    "/solicitar",
+    "/terminos"
+  ],
+  "sitemapSinDisco": []
+}

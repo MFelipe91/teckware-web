@@ -1,0 +1,124 @@
+{
+  "casos": [
+    {
+      "caso": "Enviar vacío",
+      "esperado": "5 errores y no abre WhatsApp",
+      "obtenido": "5 errores, abiertos: 0",
+      "ok": true
+    },
+    {
+      "caso": "Error anunciado a lectores de pantalla",
+      "esperado": "aria-invalid y aria-describedby o role=alert",
+      "obtenido": "aria-invalid=null, alertas=0",
+      "ok": false
+    },
+    {
+      "caso": "Nombre con números",
+      "esperado": "Solo letras",
+      "obtenido": "Solo letras y espacios",
+      "ok": true
+    },
+    {
+      "caso": "Teléfono inválido",
+      "esperado": "Teléfono chileno",
+      "obtenido": "Teléfono chileno inválido",
+      "ok": true
+    },
+    {
+      "caso": "Email inválido",
+      "esperado": "Email inválido",
+      "obtenido": "Email inválido",
+      "ok": true
+    },
+    {
+      "caso": "Descripción corta",
+      "esperado": "Describe un poco más",
+      "obtenido": "Describe un poco más el problema",
+      "ok": true
+    },
+    {
+      "caso": "Descripción de 501 caracteres",
+      "esperado": "Máximo 500",
+      "obtenido": "Máximo 500 caracteres",
+      "ok": true
+    },
+    {
+      "caso": "Teléfono válido 1: +56 9 1234 5678",
+      "esperado": "aceptado",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Teléfono válido 2: 912345678",
+      "esperado": "aceptado",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Teléfono válido 3: 56912345678",
+      "esperado": "aceptado",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Número de WhatsApp",
+      "esperado": "56930209427",
+      "obtenido": "/56930209427",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"María José Ñuñez\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"+56 9 1111 2222\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"prueba@ejemplo.cl\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"Notebook\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"Mantención Full\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"$75.000\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Limpia HTML del mensaje",
+      "esperado": "sin < ni >",
+      "obtenido": "limpio",
+      "ok": true
+    },
+    {
+      "caso": "Conversión click_whatsapp",
+      "esperado": "1 evento",
+      "obtenido": "1",
+      "ok": true
+    },
+    {
+      "caso": "Guardado en Supabase",
+      "esperado": "Se guarda como /agendar",
+      "obtenido": "no se guarda: solo abre WhatsApp",
+      "ok": false
+    }
+  ]
+}

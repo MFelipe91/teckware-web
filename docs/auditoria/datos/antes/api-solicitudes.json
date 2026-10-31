@@ -1,0 +1,58 @@
+{
+  "casos": [
+    {
+      "caso": "Faltan datos",
+      "esperado": "400",
+      "obtenido": "400",
+      "ok": true
+    },
+    {
+      "caso": "JSON roto",
+      "esperado": "400",
+      "obtenido": "400",
+      "ok": true
+    },
+    {
+      "caso": "Nombre de 100.000 caracteres",
+      "esperado": "Rechazado",
+      "obtenido": "200",
+      "ok": false
+    },
+    {
+      "caso": "Teléfono inválido directo a la API",
+      "esperado": "Rechazado",
+      "obtenido": "200",
+      "ok": false
+    },
+    {
+      "caso": "URL de foto ajena",
+      "esperado": "Rechazada",
+      "obtenido": "200",
+      "ok": false
+    },
+    {
+      "caso": "Petición 11 en un minuto",
+      "esperado": "429",
+      "obtenido": "429",
+      "ok": true
+    },
+    {
+      "caso": "Subir SVG",
+      "esperado": "400",
+      "obtenido": "400",
+      "ok": true
+    },
+    {
+      "caso": "Archivo que no es imagen, declarado como PNG",
+      "esperado": "Rechazado (revisando el contenido)",
+      "obtenido": "200",
+      "ok": false
+    },
+    {
+      "caso": "Bucket de fotos",
+      "esperado": "Privado",
+      "obtenido": "{\"id\":\"booking-photos\",\"name\":\"booking-photos\",\"public\":true,\"file_size_limit\":5242880,\"allowed_mime_types\":[\"image/jpeg\",\"image/png\",\"image/webp\",\"image/heic\",\"image/heif\"]}",
+      "ok": false
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "casos": [
+    {
+      "caso": "Elegir servicio con teclado",
+      "esperado": "aria-pressed=true",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Foco al pasar de paso",
+      "esperado": "Va al nuevo contenido, no se pierde",
+      "obtenido": "body",
+      "ok": false
+    },
+    {
+      "caso": "Cambio de paso anunciado a lector de pantalla",
+      "esperado": "Región aria-live o foco en el título",
+      "obtenido": "sin anuncio",
+      "ok": false
+    },
+    {
+      "caso": "Foco al primer campo con error",
+      "esperado": "input#nombre",
+      "obtenido": "input \"\"",
+      "ok": true
+    },
+    {
+      "caso": "Indicador de foco (45 Tab en la home)",
+      "esperado": "Visible en todos",
+      "obtenido": "45/45 con indicador. Sin él: ninguno",
+      "ok": true
+    },
+    {
+      "caso": "Enlace \"saltar al contenido\"",
+      "esperado": "Primer Tab",
+      "obtenido": "a \"TECKWARE inicio\"",
+      "ok": false
+    },
+    {
+      "caso": "Abrir menú móvil con Enter",
+      "esperado": "aria-expanded=true",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Cerrar menú con Esc",
+      "esperado": "Cierra y el foco vuelve al botón",
+      "obtenido": "button \"Abrir menú\"",
+      "ok": true
+    },
+    {
+      "caso": "Abrir chat con Enter",
+      "esperado": "Foco en el campo de texto",
+      "obtenido": "Escribe tu consulta",
+      "ok": true
+    },
+    {
+      "caso": "Cerrar chat con Esc",
+      "esperado": "Cierra y el foco vuelve al botón",
+      "obtenido": "cerrado=true, foco: body",
+      "ok": false
+    },
+    {
+      "caso": "Campo de contraseña con etiqueta asociada",
+      "esperado": "label vinculado",
+      "obtenido": "label sin htmlFor",
+      "ok": false
+    }
+  ],
+  "axe": {
+    "agendar paso 1": [
+      {
+        "regla": "region",
+        "impacto": "moderate",
+        "ayuda": "All page content should be contained by landmarks",
+        "nodos": 1,
+        "ejemplos": [
+          {
+            "selector": ".bottom-4",
+            "detalle": "Some page content is not contained by landmarks"
+          }
+        ]
+      }
+    ],
+    "agendar paso 2": [
+      {
+        "regla": "region",
+        "impacto": "moderate",
+        "ayuda": "All page content should be contained by landmarks",
+        "nodos": 1,
+        "ejemplos": [
+          {
+            "selector": ".bottom-4",
+            "detalle": "Some page content is not contained by landmarks"
+          }
+        ]
+      }
+    ],
+    "agendar paso 3": [
+      {
+        "regla": "region",
+        "impacto": "moderate",
+        "ayuda": "All page content should be contained by landmarks",
+        "nodos": 1,
+        "ejemplos": [
+          {
+            "selector": ".bottom-4",
+            "detalle": "Some page content is not contained by landmarks"
+          }
+        ]
+      }
+    ],
+    "agendar paso 4": [
+      {
+        "regla": "region",
+        "impacto": "moderate",
+        "ayuda": "All page content should be contained by landmarks",
+        "nodos": 1,
+        "ejemplos": [
+          {
+            "selector": ".bottom-4",
+            "detalle": "Some page content is not contained by landmarks"
+          }
+        ]
+      }
+    ],
+    "solicitar con errores": [
+      {
+        "regla": "heading-order",
+        "impacto": "moderate",
+        "ayuda": "Heading levels should only increase by one",
+        "nodos": 1,
+        "ejemplos": [
+          {
+            "selector": "div:nth-child(2) > h3",
+            "detalle": "Heading order invalid"
+          }
+        ]
+      },
+      {
+        "regla": "region",
+        "impacto": "moderate",
+        "ayuda": "All page content should be contained by landmarks",
+        "nodos": 1,
+        "ejemplos": [
+          {
+            "selector": ".bottom-4",
+            "detalle": "Some page content is not contained by landmarks"
+          }
+        ]
+      }
+    ],
+    "menú móvil abierto": [
+      {
+        "regla": "region",
+        "impacto": "moderate",
+        "ayuda": "All page content should be contained by landmarks",
+        "nodos": 1,
+        "ejemplos": [
+          {
+            "selector": ".bottom-4",
+            "detalle": "Some page content is not contained by landmarks"
+          }
+        ]
+      }
+    ],
+    "chat abierto": [
+      {
+        "regla": "region",
+        "impacto": "moderate",
+        "ayuda": "All page content should be contained by landmarks",
+        "nodos": 1,
+        "ejemplos": [
+          {
+            "selector": ".bottom-4",
+            "detalle": "Some page content is not contained by landmarks"
+          }
+        ]
+      }
+    ],
+    "admin login": [
+      {
+        "regla": "button-name",
+        "impacto": "critical",
+        "ayuda": "Buttons must have discernible text",
+        "nodos": 1,
+        "ejemplos": [
+          {
+            "selector": ".right-3",
+            "detalle": "Element does not have inner text that is visible to screen readers"
+          }
+        ]
+      },
+      {
+        "regla": "heading-order",
+        "impacto": "moderate",
+        "ayuda": "Heading levels should only increase by one",
+        "nodos": 1,
+        "ejemplos": [
+          {
+            "selector": "div:nth-child(2) > h3",
+            "detalle": "Heading order invalid"
+          }
+        ]
+      },
+      {
+        "regla": "region",
+        "impacto": "moderate",
+        "ayuda": "All page content should be contained by landmarks",
+        "nodos": 1,
+        "ejemplos": [
+          {
+            "selector": ".bottom-4",
+            "detalle": "Some page content is not contained by landmarks"
+          }
+        ]
+      },
+      {
+        "regla": "target-size",
+        "impacto": "serious",
+        "ayuda": "All touch targets must be 24px large, or leave sufficient space",
+        "nodos": 1,
+        "ejemplos": [
+          {
+            "selector": ".right-3",
+            "detalle": "Target has insufficient size (16px by 16px, should be at least 24px by 24px)"
+          }
+        ]
+      }
+    ]
+  }
+}

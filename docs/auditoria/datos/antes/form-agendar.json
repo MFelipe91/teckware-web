@@ -1,0 +1,175 @@
+{
+  "casos": [
+    {
+      "caso": "Paso 1 sin servicio",
+      "esperado": "Siguiente deshabilitado",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Precio de Diagnóstico / Revisión",
+      "esperado": "$30.000",
+      "obtenido": "$30.000",
+      "ok": true
+    },
+    {
+      "caso": "Precio de Mantención Lógica",
+      "esperado": "$45.000",
+      "obtenido": "$45.000",
+      "ok": true
+    },
+    {
+      "caso": "Precio de Mantención Full",
+      "esperado": "$75.000",
+      "obtenido": "$75.000",
+      "ok": true
+    },
+    {
+      "caso": "Precio de Armado PC Gamer",
+      "esperado": "$75.000",
+      "obtenido": "$75.000",
+      "ok": true
+    },
+    {
+      "caso": "Problema solo con espacios",
+      "esperado": "Siguiente deshabilitado",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Foto GIF",
+      "esperado": "Rechazada con mensaje",
+      "obtenido": "Formato no válido: image/gif",
+      "ok": true
+    },
+    {
+      "caso": "Foto de 6 MB",
+      "esperado": "Rechazada con mensaje",
+      "obtenido": "Foto demasiado grande (máx 5 MB)",
+      "ok": true
+    },
+    {
+      "caso": "4 fotos a la vez",
+      "esperado": "Rechazadas con mensaje",
+      "obtenido": "Máximo 3 fotos en total",
+      "ok": true
+    },
+    {
+      "caso": "Foto PNG válida",
+      "esperado": "Se ve la miniatura",
+      "obtenido": "miniatura visible",
+      "ok": true
+    },
+    {
+      "caso": "Paso 3 vacío",
+      "esperado": "Ver resumen deshabilitado",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Nombre \"x\" y teléfono \"abc\"",
+      "esperado": "Rechazados (como en /solicitar)",
+      "obtenido": "aceptados: se puede continuar",
+      "ok": false
+    },
+    {
+      "caso": "Sábado como fecha",
+      "esperado": "Rechazado con mensaje",
+      "obtenido": "Atendemos de lunes a viernes. Elige un día hábil.",
+      "ok": true
+    },
+    {
+      "caso": "Fecha pasada escrita a mano (2020-01-06)",
+      "esperado": "Rechazada",
+      "obtenido": "aceptada (validity.valid=false)",
+      "ok": false
+    },
+    {
+      "caso": "Número de WhatsApp",
+      "esperado": "56930209427",
+      "obtenido": "/56930209427",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"Mantención Full\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"Notebook\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"Se apaga solo al jugar\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"2026-11-04\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"Tarde 15:00\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"Prueba Auditoria\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"+56 9 1111 2222\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"booking-photos\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye el precio",
+      "esperado": "$75.000 (la pantalla lo mostró)",
+      "obtenido": "false",
+      "ok": false
+    },
+    {
+      "caso": "POST /api/solicitudes",
+      "esperado": "200",
+      "obtenido": "200",
+      "ok": true
+    },
+    {
+      "caso": "Doble clic",
+      "esperado": "1 fila",
+      "obtenido": "1 fila(s)",
+      "ok": true
+    },
+    {
+      "caso": "Fila guardada",
+      "esperado": "datos completos y origen \"agendar\"",
+      "obtenido": "{\"id\":\"falso-1\",\"created_at\":\"2026-10-31T19:44:06.373Z\",\"estado\":\"nuevo\",\"servicio\":\"mantenimiento\",\"servicio_label\":\"Mantención Full · Físico + Sistema\",\"equipo_tipo\":\"Notebook\",\"marca\":null,\"problema\":\"Se apaga solo al jugar\",\"foto_urls\":[\"http://127.0.0.1:54399/storage/v1/object/public/booking-photos/bookings/1793475844962-d5xc3z0oi2m.png\"],\"nombre\":\"Prueba Auditoria\",\"telefono\":\"+56 9 1111 222",
+      "ok": true
+    },
+    {
+      "caso": "El guardado falla (500 simulado)",
+      "esperado": "Queda registro o aviso",
+      "obtenido": "sin aviso ni reintento: el dueño solo se entera si el cliente envía el WhatsApp",
+      "ok": false
+    }
+  ],
+  "salidasBloqueadas": [
+    "https://wa.me/56930209427"
+  ]
+}

@@ -1,0 +1,292 @@
+{
+  "base": "https://www.teckware.cl",
+  "fecha": "2026-10-31T19:42:11.303Z",
+  "paginas": [
+    {
+      "ruta": "/",
+      "mediana": {
+        "rendimiento": 96,
+        "accesibilidad": 100,
+        "buenasPracticas": 100,
+        "seo": 100,
+        "lcpMs": 1777,
+        "cls": 0,
+        "tbtMs": 149,
+        "fcpMs": 1777,
+        "jsKbGzip": 192,
+        "pesoTotalKb": 528,
+        "fugasAnalitica": 0
+      },
+      "corridas": [
+        {
+          "rendimiento": 93,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1853,
+          "cls": 0,
+          "tbtMs": 272,
+          "fcpMs": 1853,
+          "jsKbGzip": 193,
+          "pesoTotalKb": 528,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 96,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1750,
+          "cls": 0.001,
+          "tbtMs": 149,
+          "fcpMs": 1750,
+          "jsKbGzip": 192,
+          "pesoTotalKb": 528,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 97,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1777,
+          "cls": 0,
+          "tbtMs": 132,
+          "fcpMs": 1777,
+          "jsKbGzip": 192,
+          "pesoTotalKb": 528,
+          "fugasAnalitica": 0
+        }
+      ]
+    },
+    {
+      "ruta": "/mantencion",
+      "mediana": {
+        "rendimiento": 95,
+        "accesibilidad": 100,
+        "buenasPracticas": 100,
+        "seo": 100,
+        "lcpMs": 1757,
+        "cls": 0,
+        "tbtMs": 100,
+        "fcpMs": 1757,
+        "jsKbGzip": 193,
+        "pesoTotalKb": 342,
+        "fugasAnalitica": 0
+      },
+      "corridas": [
+        {
+          "rendimiento": 95,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1919,
+          "cls": 0,
+          "tbtMs": 49,
+          "fcpMs": 1919,
+          "jsKbGzip": 193,
+          "pesoTotalKb": 342,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 95,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1756,
+          "cls": 0.001,
+          "tbtMs": 223,
+          "fcpMs": 1756,
+          "jsKbGzip": 193,
+          "pesoTotalKb": 342,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 98,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1757,
+          "cls": 0,
+          "tbtMs": 100,
+          "fcpMs": 1757,
+          "jsKbGzip": 192,
+          "pesoTotalKb": 341,
+          "fugasAnalitica": 0
+        }
+      ]
+    },
+    {
+      "ruta": "/agendar",
+      "mediana": {
+        "rendimiento": 95,
+        "accesibilidad": 100,
+        "buenasPracticas": 100,
+        "seo": 100,
+        "lcpMs": 1827,
+        "cls": 0,
+        "tbtMs": 127,
+        "fcpMs": 1827,
+        "jsKbGzip": 193,
+        "pesoTotalKb": 354,
+        "fugasAnalitica": 0
+      },
+      "corridas": [
+        {
+          "rendimiento": 95,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1812,
+          "cls": 0,
+          "tbtMs": 127,
+          "fcpMs": 1812,
+          "jsKbGzip": 192,
+          "pesoTotalKb": 354,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 96,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1827,
+          "cls": 0,
+          "tbtMs": 111,
+          "fcpMs": 1827,
+          "jsKbGzip": 193,
+          "pesoTotalKb": 354,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 95,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 92,
+          "lcpMs": 1828,
+          "cls": 0,
+          "tbtMs": 191,
+          "fcpMs": 1828,
+          "jsKbGzip": 193,
+          "pesoTotalKb": 354,
+          "fugasAnalitica": 0
+        }
+      ]
+    },
+    {
+      "ruta": "/builds",
+      "mediana": {
+        "rendimiento": 83,
+        "accesibilidad": 100,
+        "buenasPracticas": 100,
+        "seo": 100,
+        "lcpMs": 3042,
+        "cls": 0,
+        "tbtMs": 394,
+        "fcpMs": 1842,
+        "jsKbGzip": 186,
+        "pesoTotalKb": 339,
+        "fugasAnalitica": 0
+      },
+      "corridas": [
+        {
+          "rendimiento": 74,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 3128,
+          "cls": 0,
+          "tbtMs": 427,
+          "fcpMs": 1928,
+          "jsKbGzip": 186,
+          "pesoTotalKb": 339,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 83,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 3042,
+          "cls": 0,
+          "tbtMs": 394,
+          "fcpMs": 1842,
+          "jsKbGzip": 186,
+          "pesoTotalKb": 339,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 84,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 3009,
+          "cls": 0,
+          "tbtMs": 360,
+          "fcpMs": 1809,
+          "jsKbGzip": 186,
+          "pesoTotalKb": 339,
+          "fugasAnalitica": 0
+        }
+      ]
+    },
+    {
+      "ruta": "/mantencion-pc-gamer",
+      "mediana": {
+        "rendimiento": 87,
+        "accesibilidad": 100,
+        "buenasPracticas": 100,
+        "seo": 100,
+        "lcpMs": 3261,
+        "cls": 0,
+        "tbtMs": 221,
+        "fcpMs": 1845,
+        "jsKbGzip": 193,
+        "pesoTotalKb": 367,
+        "fugasAnalitica": 0
+      },
+      "corridas": [
+        {
+          "rendimiento": 87,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 3338,
+          "cls": 0,
+          "tbtMs": 86,
+          "fcpMs": 1793,
+          "jsKbGzip": 193,
+          "pesoTotalKb": 367,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 88,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 3124,
+          "cls": 0,
+          "tbtMs": 235,
+          "fcpMs": 1845,
+          "jsKbGzip": 192,
+          "pesoTotalKb": 366,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 87,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 3261,
+          "cls": 0,
+          "tbtMs": 221,
+          "fcpMs": 1876,
+          "jsKbGzip": 193,
+          "pesoTotalKb": 367,
+          "fugasAnalitica": 0
+        }
+      ]
+    }
+  ],
+  "gtagKbGzipAprox": 176
+}

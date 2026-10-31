@@ -1,0 +1,467 @@
+[
+  {
+    "destino": "https://www.teckware.cl/",
+    "texto": "TECKWARE inicio",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/mantencion",
+    "texto": "Mantención",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/servicios",
+    "texto": "Servicio técnico",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/builds",
+    "texto": "PC Gamer",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/empresas",
+    "texto": "Empresas",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/blog",
+    "texto": "Blog",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/contacto",
+    "texto": "Contacto",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://wa.me/56930209427",
+    "texto": "WhatsApp",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "externo",
+    "estado": 302,
+    "redirige": "https://api.whatsapp.com/send/?phone=56930209427&text&type=phone_number&app_absent=0",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/agendar",
+    "texto": "Agendar servicio",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/empresas",
+      "/servicio-tecnico-computadores-la-serena"
+    ],
+    "totalPaginas": 15,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/blog/cada-cuanto-hacer-mantencion-pc-gamer",
+    "texto": "¿Cada cuánto hacer mantención a tu PC gamer?Frecuencia recom",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/blog",
+      "/blog/senales-notebook-necesita-mantencion"
+    ],
+    "totalPaginas": 6,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/blog/senales-notebook-necesita-mantencion",
+    "texto": "7 señales de que tu notebook necesita mantenciónCómo saber s",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/blog",
+      "/blog/cada-cuanto-hacer-mantencion-pc-gamer"
+    ],
+    "totalPaginas": 6,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/blog/mantencion-ps5-metal-liquido",
+    "texto": "Mantención de PS5: ¿cuándo cambiar el metal líquido?Qué es e",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/blog",
+      "/blog/cada-cuanto-hacer-mantencion-pc-gamer"
+    ],
+    "totalPaginas": 6,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://instagram.com/teckware.cl",
+    "texto": "Instagram TECKWARE",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "externo",
+    "estado": 301,
+    "redirige": "https://www.instagram.com/teckware.cl",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/web-qa",
+    "texto": "Web & QA",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/ciberseguridad",
+    "texto": "Ciberseguridad",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/nosotros",
+    "texto": "Nosotros",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/solicitar",
+    "texto": "Solicitar servicio →",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/servicio-tecnico-computadores-la-serena",
+    "texto": "Servicio técnico de computadores en La Serena",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/servicio-tecnico-coquimbo",
+    "texto": "Servicio técnico en Coquimbo",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/reparacion-notebook-la-serena",
+    "texto": "Reparación de notebooks",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/formateo-pc-la-serena",
+    "texto": "Formateo de PC y notebook",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/mantencion-pc-gamer",
+    "texto": "Mantención de PC Gamer",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/armado-pc-gamer-la-serena",
+    "texto": "Armado de PC Gamer",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/reparacion-notebook-gamer",
+    "texto": "Reparación de notebook gamer",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/servicio-tecnico-apple",
+    "texto": "Servicio técnico MacBook / Apple",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/mantencion-ps5-la-serena",
+    "texto": "Mantención PS5 y PS4",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/recuperacion-de-datos-la-serena",
+    "texto": "Recuperación de datos",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "mailto:mariofelipe@teckware.cl",
+    "texto": "mariofelipe@teckware.cl",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "mailto",
+    "estado": 0,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/privacidad",
+    "texto": "Privacidad",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/terminos",
+    "texto": "Términos",
+    "desde": [
+      "/",
+      "/mantencion",
+      "/servicios",
+      "/empresas"
+    ],
+    "totalPaginas": 29,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  },
+  {
+    "destino": "https://www.teckware.cl/blog/mantencion-preventiva-computadores-empresa",
+    "texto": "Mantención preventiva de computadores para pymes",
+    "desde": [
+      "/mantencion",
+      "/blog",
+      "/blog/cada-cuanto-hacer-mantencion-pc-gamer",
+      "/blog/senales-notebook-necesita-mantencion"
+    ],
+    "totalPaginas": 5,
+    "tipo": "interno",
+    "estado": 200,
+    "redirige": "",
+    "error": ""
+  }
+]
