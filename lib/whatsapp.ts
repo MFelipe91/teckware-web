@@ -1,5 +1,6 @@
 import { precioServicio } from '@/lib/constants'
-import { filasCotizacion, type Cotizacion } from '@/lib/cotizacion'
+import { filasCotizacion } from '@/lib/cotizacion-filas'
+import type { Cotizacion } from '@/lib/cotizacion'
 
 const BASE = 'https://wa.me/56930209427?text='
 const enc = (text: string) => encodeURIComponent(text)
