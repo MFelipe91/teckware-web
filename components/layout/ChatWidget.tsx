@@ -98,10 +98,10 @@ export function ChatWidget() {
         role="dialog"
         aria-label="Chat con Teck, asistente de TECKWARE"
         inert={!open}
-        className={`fixed bottom-[8.25rem] sm:bottom-[10.5rem] right-4 sm:right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)] transition-all duration-300 ${
+        className={`fixed bottom-[4.5rem] sm:bottom-[10.5rem] right-4 sm:right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)] origin-bottom-right transition-[opacity,scale,visibility] duration-200 ease-salida ${
           open
-            ? 'opacity-100 translate-y-0 pointer-events-auto'
-            : 'opacity-0 translate-y-3 pointer-events-none invisible'
+            ? 'opacity-100 scale-100 pointer-events-auto'
+            : 'opacity-0 scale-95 motion-reduce:scale-100 pointer-events-none invisible'
         }`}
       >
         <div
@@ -114,9 +114,9 @@ export function ChatWidget() {
               <Bot size={14} className="text-brand-bright" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-bold text-fg leading-none mb-1">Teck · Asistente TECKWARE</p>
+              <p className="text-sm font-bold text-fg leading-none mb-1">Teck, asistente de TECKWARE</p>
               <div className="flex items-center gap-1.5">
-                <span className="text-xs text-fg-subtle">Asistente virtual · te ayuda a cotizar</span>
+                <span className="text-xs text-fg-subtle">Asistente virtual. Te ayuda a cotizar</span>
               </div>
             </div>
             <button
@@ -254,7 +254,7 @@ export function ChatWidget() {
         ref={fabRef}
         onClick={() => { setOpen(o => !o); setSeenCount(msgs.length) }}
         type="button"
-        className="fab fixed bottom-[4.5rem] sm:bottom-24 right-4 sm:right-6 z-50 w-12 h-12 sm:w-14 sm:h-14 bg-brand hover:bg-brand-hover flex items-center justify-center transition-colors"
+        className="fab fixed bottom-0 right-0 sm:bottom-24 sm:right-6 z-50 w-14 h-14 bg-brand hover:bg-brand-hover flex items-center justify-center"
         aria-label={open ? 'Cerrar chat' : 'Abrir chat con Teck IA'}
       >
         {open

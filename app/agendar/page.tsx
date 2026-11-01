@@ -265,8 +265,8 @@ export default function AgendarPage() {
           </div>
           <div className="h-1 bg-white/8 overflow-hidden">
             <div
-              className="h-full bg-brand-bright transition-all duration-300"
-              style={{ width: `${progressPct}%` }}
+              className="h-full bg-brand-bright origin-left transition-transform duration-300 ease-salida"
+              style={{ transform: `scaleX(${progressPct / 100})` }}
             />
           </div>
         </div>
@@ -285,7 +285,7 @@ export default function AgendarPage() {
                     type="button"
                     aria-pressed={form.servicio === id}
                     onClick={() => { set('servicio', id); set('servicioLabel', label) }}
-                    className={`text-left p-4 rounded-sm border transition-all ${
+                    className={`text-left p-4 rounded-sm border transition-colors ${
                       form.servicio === id
                         ? 'border-brand-bright bg-brand/8'
                         : 'border-white/10 bg-white/3 hover:border-white/25 hover:bg-white/5'
@@ -343,7 +343,7 @@ export default function AgendarPage() {
                       type="button"
                       aria-pressed={form.equipoTipo === label}
                       onClick={() => set('equipoTipo', label)}
-                      className={`flex flex-col items-center gap-2 p-3 rounded-sm border transition-all ${
+                      className={`flex flex-col items-center gap-2 p-3 rounded-sm border transition-colors ${
                         form.equipoTipo === label
                           ? 'border-brand-bright bg-brand/8'
                           : 'border-white/10 bg-white/3 hover:border-white/25'
@@ -421,7 +421,7 @@ export default function AgendarPage() {
                     type="button"
                     onClick={() => fileRef.current?.click()}
                     disabled={uploading}
-                    className="flex items-center gap-3 w-full px-4 py-3.5 border border-dashed border-white/20 rounded-sm hover:border-brand-bright/40 hover:bg-brand/4 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex items-center gap-3 w-full px-4 py-3.5 border border-dashed border-white/20 rounded-sm hover:border-brand-bright/40 hover:bg-brand/4 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {uploading
                       ? <Loader2 size={18} className="text-brand-bright animate-spin shrink-0" />
@@ -525,7 +525,7 @@ export default function AgendarPage() {
                       type="button"
                       aria-pressed={form.horario === h}
                       onClick={() => set('horario', h)}
-                      className={`py-2.5 px-3 rounded-sm border text-xs font-medium transition-all ${
+                      className={`py-2.5 px-3 rounded-sm border text-xs font-medium transition-colors ${
                         form.horario === h
                           ? 'border-brand-bright bg-brand/8 text-brand-bright'
                           : 'border-white/10 text-fg-subtle hover:border-white/25 hover:text-fg-muted'

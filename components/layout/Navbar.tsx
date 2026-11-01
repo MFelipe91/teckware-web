@@ -66,7 +66,7 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="lg:hidden bg-ink-950 border-t border-white/8 px-4 pb-5">
+        <div className="menu-movil lg:hidden bg-ink-950 border-t border-white/8 px-4 pb-5">
           <ul>
             {NAV_LINKS.map((link) => (
               <li key={link.href} className="border-b border-white/8">

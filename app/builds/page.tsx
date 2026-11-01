@@ -56,8 +56,8 @@ export default function BuildsPage() {
       </section>
 
       <section id="cotizar" aria-labelledby="titulo-cotizar" className="bg-ink-950 px-4 sm:px-6 lg:px-8 py-16 sm:py-20 scroll-mt-16">
-        <div className="max-w-[76rem] mx-auto grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
-          <div>
+        <div className="max-w-[76rem] mx-auto grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+          <div className="lg:sticky lg:top-24 lg:self-start">
             <h2 id="titulo-cotizar" className="text-fg">Cotiza tu PC</h2>
             <p className="mt-4 text-fg-muted leading-relaxed">
               Con estos datos te proponemos una configuración real, con precios del momento.

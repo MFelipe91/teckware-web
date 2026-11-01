@@ -10,7 +10,7 @@ export function ListaFaq({ faqs }: { faqs: { q: string; a: string }[] }) {
           <details key={q} className="group border-b border-white/10">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-display text-lg font-medium text-fg">
               {q}
-              <ChevronDown size={18} className="shrink-0 text-brand-bright transition-transform group-open:rotate-180" aria-hidden="true" />
+              <ChevronDown size={18} className="shrink-0 text-brand-bright transition-transform duration-200 ease-salida group-open:rotate-180" aria-hidden="true" />
             </summary>
             <p className="pb-5 max-w-3xl text-fg-muted leading-relaxed">{a}</p>
           </details>

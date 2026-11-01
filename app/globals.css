@@ -81,10 +81,14 @@
   --color-success: #22C55E;
   --color-warning: #F59E0B;
   --color-danger: #F87171;
+
+  /* Movimiento: salida rápida, sin rebote. Todo responde en menos de 300 ms. */
+  --ease-salida: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* ── Tema oscuro (siempre activo), mapeado a los tokens ───── */
 :root {
+  color-scheme: dark; /* casillas, selects y calendarios nativos también en oscuro */
   --background: var(--color-ink-900);
   --foreground: var(--color-fg);
   --card: var(--color-ink-800);
@@ -134,6 +138,7 @@
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
     -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
@@ -166,6 +171,8 @@
     font-weight: 600;
     line-height: 1.25;
   }
+
+  p { text-wrap: pretty; }
 
   ::selection {
     background: color-mix(in oklab, var(--color-brand) 35%, transparent);
@@ -201,9 +208,9 @@
     background: none;
     border: 0;
     cursor: pointer;
-    transition: transform 0.08s;
+    transition: transform 160ms var(--ease-salida), color 120ms ease;
   }
-  .btn:active:not([disabled]) { transform: translateY(1px); }
+  .btn:active:not([disabled]) { transform: scale(0.97); }
   .btn[disabled], .btn[aria-disabled="true"] { cursor: not-allowed; color: var(--color-fg-subtle); }
 
   .btn-primario::before,
@@ -219,7 +226,11 @@
 
   .btn-primario { color: #FFFFFF; }
   .btn-primario::before { background: var(--color-brand); }
-  .btn-primario:hover::before { background: var(--color-brand-hover); }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-primario:hover::before { background: var(--color-brand-hover); }
+    .btn-secundario:hover::after { background: var(--btn-sec-hover, var(--color-ink-700)); }
+    .btn-terciario:hover { color: var(--color-fg); }
+  }
   .btn-primario:active::before { background: var(--color-brand-deep); }
   .btn-primario[disabled]::before, .btn-primario[aria-disabled="true"]::before { background: var(--color-ink-700); }
 
@@ -232,7 +243,6 @@
       calc(var(--corte) + 0.6px) 1.5px, 1.5px calc(var(--corte) + 0.6px), 1.5px calc(100% - 1.5px), calc(100% - var(--corte) - 0.6px) calc(100% - 1.5px), calc(100% - 1.5px) calc(100% - var(--corte) - 0.6px), calc(100% - 1.5px) 1.5px, calc(var(--corte) + 0.6px) 1.5px);
   }
   .btn-secundario::after { background: transparent; }
-  .btn-secundario:hover::after { background: var(--btn-sec-hover, var(--color-ink-700)); }
   .btn-secundario:active::after { background: var(--btn-sec-activo, var(--color-ink-800)); }
   .btn-secundario[disabled]::before { background: var(--color-ink-700); }
   .btn-secundario[disabled]::after { background: transparent; }
@@ -243,7 +253,6 @@
     color: var(--color-brand-bright);
     box-shadow: inset 0 -1.5px 0 currentColor;
   }
-  .btn-terciario:hover { color: var(--color-fg); }
   .btn-terciario:active { color: var(--color-silver); }
   .btn-terciario[disabled] { box-shadow: none; }
 
@@ -298,10 +307,38 @@
   }
   .saltar:focus { transform: none; }
 
-  /* Botón flotante de WhatsApp */
-  .fab {
-    clip-path: polygon(var(--corte) 0, 100% 0, 100% calc(100% - var(--corte)), calc(100% - var(--corte)) 100%, 0 100%, 0 var(--corte));
+  /* Contacto fijo: barra inferior en celular (no tapa precios) y botones con corte desde sm. */
+  @media (min-width: 40rem) {
+    .fab {
+      clip-path: polygon(var(--corte) 0, 100% 0, 100% calc(100% - var(--corte)), calc(100% - var(--corte)) 100%, 0 100%, 0 var(--corte));
+    }
   }
+  .fab { transition: transform 160ms var(--ease-salida), background-color 120ms ease; }
+  .fab:active { transform: scale(0.97); }
+
+  /* El único movimiento sin acción del usuario: la lista de precios de la portada, una vez. */
+  @media (prefers-reduced-motion: no-preference) {
+    .entrada {
+      animation: entrada 280ms var(--ease-salida) both;
+      animation-delay: calc(var(--i, 0) * 50ms);
+    }
+    .menu-movil {
+      transition: opacity 180ms var(--ease-salida), transform 180ms var(--ease-salida);
+      @starting-style { opacity: 0; transform: translateY(-6px); }
+    }
+  }
+
+  /* Preguntas frecuentes: la respuesta aparece con un fundido, donde el navegador lo permite. */
+  details::details-content {
+    opacity: 0;
+    transition: opacity 180ms ease, content-visibility 180ms allow-discrete;
+  }
+  details[open]::details-content { opacity: 1; }
+}
+
+@keyframes entrada {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
 }
 
 /* ── Utilities ──────────────────────────────────────────────── */
@@ -321,7 +358,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     .animate-bounce, .animate-spin { animation: none; }
-    .btn:active:not([disabled]) { transform: none; }
+    .btn:active:not([disabled]), .fab:active { transform: none; }
     html { scroll-behavior: auto; }
   }
 }

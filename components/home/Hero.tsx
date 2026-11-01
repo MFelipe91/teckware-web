@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { EMPRESA, PLAZO, precioServicio } from '@/lib/constants'
@@ -34,12 +35,13 @@ export function Hero() {
             </CtaPair>
           </div>
 
-          <div>
+          {/* En celular los precios van primero: la barra fija ya ofrece WhatsApp. */}
+          <div className="order-first lg:order-none">
             <ul>
-              {PRECIOS.map((p) => (
-                <li key={p.nombre} className="border-b border-white/10">
+              {PRECIOS.map((p, i) => (
+                <li key={p.nombre} className="entrada border-b border-white/10" style={{ '--i': i } as CSSProperties}>
                   <Link href={p.href} className="group grid grid-cols-[14px_minmax(0,1fr)_auto] gap-x-3 items-baseline py-3.5">
-                  <span className="hex" aria-hidden="true" />
+                  <span className="hex transition-transform duration-150 ease-salida group-hover:scale-150" aria-hidden="true" />
                   <span>
                     <span className="block font-display text-[1.0625rem] font-semibold text-fg group-hover:text-brand-bright transition-colors">{p.nombre}</span>
                     <span className="block text-sm text-fg-muted">{p.detalle}</span>

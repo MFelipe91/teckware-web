@@ -7,10 +7,11 @@ export function WhatsAppFloat() {
       href={WA.general()}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Contactar por WhatsApp"
-      className="fab fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-whatsapp-solid hover:bg-whatsapp-hover transition-colors"
+      aria-label="Escríbenos por WhatsApp"
+      className="fab fixed z-50 flex items-center justify-center gap-2.5 bottom-0 left-0 right-14 h-14 font-display font-semibold text-white bg-whatsapp-solid hover:bg-whatsapp-hover sm:left-auto sm:bottom-6 sm:right-6 sm:w-14"
     >
-      <MessageCircle size={24} className="text-white" aria-hidden="true" />
+      <MessageCircle size={22} aria-hidden="true" />
+      <span className="sm:hidden">Escríbenos por WhatsApp</span>
     </a>
   )
 }

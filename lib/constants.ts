@@ -159,7 +159,7 @@ export function precioServicio(id: (typeof SERVICIOS)[number]['id']): string {
   return s.precio
 }
 
-export const IVA_NOTA = 'Todos los precios incluyen IVA · Se emite boleta de servicio · TECKWARE SpA'
+export const IVA_NOTA = 'Todos los precios incluyen IVA. Emitimos boleta de servicio de TECKWARE SpA.'
 
 // Condiciones que aplican a TODOS los servicios (se muestran una vez).
 export const CONDICIONES_GENERALES = [

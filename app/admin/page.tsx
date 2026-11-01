@@ -183,7 +183,7 @@ export default function AdminPage() {
               {requests.filter((r) => r.estado === 'nuevo').length} solicitudes nuevas
             </p>
           </div>
-          <button onClick={handleLogout} className="flex items-center gap-2 px-4 py-2.5 border border-white/15 text-fg-muted font-medium rounded-sm hover:border-white/30 transition-all text-sm min-h-[40px]">
+          <button onClick={handleLogout} className="flex items-center gap-2 px-4 py-2.5 border border-white/15 text-fg-muted font-medium rounded-sm hover:border-white/30 transition-colors text-sm min-h-[40px]">
             <LogOut size={15} /> Salir
           </button>
         </div>
@@ -214,7 +214,7 @@ export default function AdminPage() {
           <div>
             <div className="flex items-center justify-between mb-4">
               <p className="text-sm text-fg-subtle">{requests.length} solicitudes en total</p>
-              <button onClick={refreshRequests} disabled={isPending} className="flex items-center gap-2 px-3 py-2 text-xs text-fg-muted border border-white/15 rounded-sm hover:border-white/30 transition-all disabled:opacity-40">
+              <button onClick={refreshRequests} disabled={isPending} className="flex items-center gap-2 px-3 py-2 text-xs text-fg-muted border border-white/15 rounded-sm hover:border-white/30 transition-colors disabled:opacity-40">
                 <RefreshCw size={13} className={isPending ? 'animate-spin' : ''} /> Actualizar
               </button>
             </div>
@@ -270,7 +270,7 @@ export default function AdminPage() {
                             <option key={e} value={e} className="bg-ink-900 text-fg">{e.replace('_', ' ')}</option>
                           ))}
                         </select>
-                        <button onClick={() => removeRequest(r.id)} className="w-8 h-8 flex items-center justify-center rounded-sm border border-white/15 text-fg-muted hover:border-danger/30 hover:text-danger transition-all">
+                        <button onClick={() => removeRequest(r.id)} className="w-8 h-8 flex items-center justify-center rounded-sm border border-white/15 text-fg-muted hover:border-danger/30 hover:text-danger transition-colors">
                           <Trash2 size={13} />
                         </button>
                       </div>
@@ -357,7 +357,7 @@ export default function AdminPage() {
                       >
                         <Save size={14} /> Guardar
                       </button>
-                      <button onClick={() => removeService(i)} className="w-9 h-9 flex items-center justify-center rounded-sm border border-white/15 text-fg-muted hover:border-danger/30 hover:text-danger transition-all">
+                      <button onClick={() => removeService(i)} className="w-9 h-9 flex items-center justify-center rounded-sm border border-white/15 text-fg-muted hover:border-danger/30 hover:text-danger transition-colors">
                         <Trash2 size={14} />
                       </button>
                     </div>
