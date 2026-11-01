@@ -8,7 +8,7 @@
 ## 0. Cómo usar este documento
 
 1. Lee las secciones 1–4 (negocio, stack, reglas, estado). No se re-audita lo que ya está hecho.
-2. Trabaja la **primera fase sin terminar** (hoy: Fase 3, rediseño — sección 6).
+2. Trabaja la **primera fase sin terminar** (hoy: cierre de la Fase 3 — sección 6.11).
 3. Para cada bloque de la Fase 3 usa el flujo de superpowers:
    `brainstorming` (spec en `docs/superpowers/specs/`) → `writing-plans` → ejecución →
    `verification-before-completion`. Para lo visual, la skill `frontend-design`.
@@ -343,9 +343,28 @@ el chat estaba caído. Si vuelve a pasar, se cambia la variable en Vercel sin to
 - [x] Comprobado en www.teckware.cl: rutas, flujos, chat y Lighthouse.
 - [ ] El dueño prueba una solicitud real con foto en `/agendar` y la revisa en `/admin`.
 - [ ] El dueño confirma que `ADMIN_PASSWORD` está en Vercel (sin ella, el panel queda cerrado).
-- [ ] Decidir si las fotos de clientes dejan de estar en un bucket público de Supabase.
+- [x] Decidir si las fotos de clientes dejan de estar en un bucket público de Supabase.
+      → Autorizado por el dueño: el bucket se vuelve privado con la primera subida tras publicar;
+      `/admin` las muestra con enlaces firmados (commit `30ed7df`).
 - [ ] Pedir reindexación de la home en Search Console y medir el LCP en Speed Insights al cabo
       de unos días.
+
+---
+
+### 6.11 Cierre profesional (rama `feat/cierre-pro`)
+Informe en `docs/auditoria-cierre.md`; las pruebas se repiten con `tests/auditoria/`.
+
+- [x] Bloque A: auditoría automática. → `d7f7ccf`, `93c4644`; correcciones en `13fd6eb`.
+- [x] Bloque B: dirección "Corte hexagonal", elegida por el dueño. → `4c02dee`, `61d185d`.
+- [x] Bloque C: PC Gamer a pedido, cotización y fotos privadas. → `30ed7df`, `7b40bef`.
+- [x] Precios "desde" de `NIVELES_PC`: estudio del 2026-10-31, aprobado por el dueño como referencia.
+      Revisarlos seguido: los componentes cambian de precio.
+- [ ] Publicar en `main` y repetir en producción las pruebas de solo lectura.
+- [ ] El dueño prueba una solicitud y una cotización reales, con foto, y las revisa en `/admin`.
+- [ ] `/solicitar` todavía no guarda en la base.
+
+**Ojo:** `.env.local` usa el Supabase de producción. Probar envíos solo con
+`AUDIT_TARGET=local npx playwright test`, que usa un Supabase falso.
 
 ---
 

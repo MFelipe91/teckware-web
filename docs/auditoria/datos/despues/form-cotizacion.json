@@ -1,0 +1,186 @@
+{
+  "casos": [
+    {
+      "caso": "Sin el texto Disponible",
+      "esperado": "ausente",
+      "obtenido": "ausente",
+      "ok": true
+    },
+    {
+      "caso": "Sin el texto M[aá]s pedido",
+      "esperado": "ausente",
+      "obtenido": "ausente",
+      "ok": true
+    },
+    {
+      "caso": "Sin el texto Cotizamos gratis",
+      "esperado": "ausente",
+      "obtenido": "ausente",
+      "ok": true
+    },
+    {
+      "caso": "Sin el texto Bajo pedido",
+      "esperado": "ausente",
+      "obtenido": "ausente",
+      "ok": true
+    },
+    {
+      "caso": "Sin el texto Starter Beast",
+      "esperado": "ausente",
+      "obtenido": "ausente",
+      "ok": true
+    },
+    {
+      "caso": "Nivel Starter",
+      "esperado": "visible",
+      "obtenido": "1",
+      "ok": true
+    },
+    {
+      "caso": "Nivel Mid",
+      "esperado": "visible",
+      "obtenido": "1",
+      "ok": true
+    },
+    {
+      "caso": "Nivel Ultra",
+      "esperado": "visible",
+      "obtenido": "1",
+      "ok": true
+    },
+    {
+      "caso": "Nota de precio referencial",
+      "esperado": "exacta",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Enviar vacío",
+      "esperado": "9 errores (campos obligatorios)",
+      "obtenido": "9",
+      "ok": true
+    },
+    {
+      "caso": "Error anunciado",
+      "esperado": "aria-invalid=true",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Foco al primer error",
+      "esperado": "presupuesto",
+      "obtenido": "presupuesto",
+      "ok": true
+    },
+    {
+      "caso": "Teléfono inválido",
+      "esperado": "rechazado",
+      "obtenido": "rechazado",
+      "ok": true
+    },
+    {
+      "caso": "Foco al resumen",
+      "esperado": "H3",
+      "obtenido": "H3",
+      "ok": true
+    },
+    {
+      "caso": "Número",
+      "esperado": "56930209427",
+      "obtenido": "/56930209427",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"Juegos, Streaming\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"1440p, 144 FPS\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"Fortnite y DaVinci Resolve\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"AMD\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"Gabinete y fuente 750 W\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"Solo monitor\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"Este mes\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"Prueba Cotizacion\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "Mensaje incluye \"+56 9 1111 3333\"",
+      "esperado": "presente",
+      "obtenido": "true",
+      "ok": true
+    },
+    {
+      "caso": "POST /api/cotizaciones",
+      "esperado": "200",
+      "obtenido": "200",
+      "ok": true
+    },
+    {
+      "caso": "Doble clic",
+      "esperado": "1 fila",
+      "obtenido": "1",
+      "ok": true
+    },
+    {
+      "caso": "Fila guardada",
+      "esperado": "origen builds y detalle",
+      "obtenido": "{\"id\":\"falso-1\",\"created_at\":\"2026-11-01T00:21:29.900Z\",\"estado\":\"nuevo\",\"servicio\":\"pc-gamer-a-pedido\",\"servicio_label\":\"PC Gamer a pedido\",\"equipo_tipo\":\"PC Gamer\",\"marca\":\"AMD\",\"problema\":\"Presupuesto: $1.500.000 a $2.500.000\\nUso: Juegos, Streaming\\nResolución y FPS: 1440p, 144 FPS\\nJuegos o pro",
+      "ok": true
+    },
+    {
+      "caso": "Guardado con error 500",
+      "esperado": "Aviso visible",
+      "obtenido": "No pudimos registrar tu cotización en nuestro sistema. Envía el mensaje de WhatsApp: lleva todos tus datos.",
+      "ok": true
+    },
+    {
+      "caso": "API sin datos",
+      "esperado": "400",
+      "obtenido": "400",
+      "ok": true
+    },
+    {
+      "caso": "API con JSON roto",
+      "esperado": "400",
+      "obtenido": "400",
+      "ok": true
+    }
+  ],
+  "axe": [],
+  "axeResumen": []
+}

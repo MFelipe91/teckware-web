@@ -1,0 +1,292 @@
+{
+  "base": "http://localhost:3101",
+  "fecha": "2026-10-31T23:03:46.423Z",
+  "paginas": [
+    {
+      "ruta": "/",
+      "mediana": {
+        "rendimiento": 99,
+        "accesibilidad": 100,
+        "buenasPracticas": 100,
+        "seo": 100,
+        "lcpMs": 927,
+        "cls": 0,
+        "tbtMs": 109,
+        "fcpMs": 927,
+        "jsKbGzip": 246,
+        "pesoTotalKb": 509,
+        "fugasAnalitica": 0
+      },
+      "corridas": [
+        {
+          "rendimiento": 99,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 927,
+          "cls": 0,
+          "tbtMs": 124,
+          "fcpMs": 927,
+          "jsKbGzip": 246,
+          "pesoTotalKb": 509,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 99,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 913,
+          "cls": 0,
+          "tbtMs": 109,
+          "fcpMs": 913,
+          "jsKbGzip": 246,
+          "pesoTotalKb": 509,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 99,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 941,
+          "cls": 0,
+          "tbtMs": 105,
+          "fcpMs": 941,
+          "jsKbGzip": 246,
+          "pesoTotalKb": 509,
+          "fugasAnalitica": 0
+        }
+      ]
+    },
+    {
+      "ruta": "/mantencion",
+      "mediana": {
+        "rendimiento": 99,
+        "accesibilidad": 100,
+        "buenasPracticas": 100,
+        "seo": 100,
+        "lcpMs": 911,
+        "cls": 0,
+        "tbtMs": 122,
+        "fcpMs": 911,
+        "jsKbGzip": 246,
+        "pesoTotalKb": 466,
+        "fugasAnalitica": 0
+      },
+      "corridas": [
+        {
+          "rendimiento": 98,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 912,
+          "cls": 0,
+          "tbtMs": 156,
+          "fcpMs": 912,
+          "jsKbGzip": 246,
+          "pesoTotalKb": 466,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 99,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 910,
+          "cls": 0,
+          "tbtMs": 122,
+          "fcpMs": 910,
+          "jsKbGzip": 246,
+          "pesoTotalKb": 466,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 100,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 911,
+          "cls": 0,
+          "tbtMs": 91,
+          "fcpMs": 911,
+          "jsKbGzip": 246,
+          "pesoTotalKb": 466,
+          "fugasAnalitica": 0
+        }
+      ]
+    },
+    {
+      "ruta": "/agendar",
+      "mediana": {
+        "rendimiento": 100,
+        "accesibilidad": 100,
+        "buenasPracticas": 100,
+        "seo": 100,
+        "lcpMs": 910,
+        "cls": 0,
+        "tbtMs": 82,
+        "fcpMs": 910,
+        "jsKbGzip": 246,
+        "pesoTotalKb": 493,
+        "fugasAnalitica": 0
+      },
+      "corridas": [
+        {
+          "rendimiento": 100,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 910,
+          "cls": 0,
+          "tbtMs": 82,
+          "fcpMs": 910,
+          "jsKbGzip": 246,
+          "pesoTotalKb": 493,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 100,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 910,
+          "cls": 0,
+          "tbtMs": 91,
+          "fcpMs": 910,
+          "jsKbGzip": 246,
+          "pesoTotalKb": 493,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 100,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 907,
+          "cls": 0,
+          "tbtMs": 70,
+          "fcpMs": 907,
+          "jsKbGzip": 246,
+          "pesoTotalKb": 493,
+          "fugasAnalitica": 0
+        }
+      ]
+    },
+    {
+      "ruta": "/builds",
+      "mediana": {
+        "rendimiento": 100,
+        "accesibilidad": 100,
+        "buenasPracticas": 100,
+        "seo": 100,
+        "lcpMs": 916,
+        "cls": 0,
+        "tbtMs": 60,
+        "fcpMs": 916,
+        "jsKbGzip": 174,
+        "pesoTotalKb": 388,
+        "fugasAnalitica": 0
+      },
+      "corridas": [
+        {
+          "rendimiento": 100,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 912,
+          "cls": 0,
+          "tbtMs": 67,
+          "fcpMs": 912,
+          "jsKbGzip": 174,
+          "pesoTotalKb": 388,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 100,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 930,
+          "cls": 0,
+          "tbtMs": 45,
+          "fcpMs": 930,
+          "jsKbGzip": 174,
+          "pesoTotalKb": 388,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 100,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 916,
+          "cls": 0,
+          "tbtMs": 60,
+          "fcpMs": 916,
+          "jsKbGzip": 174,
+          "pesoTotalKb": 388,
+          "fugasAnalitica": 0
+        }
+      ]
+    },
+    {
+      "ruta": "/mantencion-pc-gamer",
+      "mediana": {
+        "rendimiento": 99,
+        "accesibilidad": 100,
+        "buenasPracticas": 100,
+        "seo": 100,
+        "lcpMs": 920,
+        "cls": 0,
+        "tbtMs": 138,
+        "fcpMs": 920,
+        "jsKbGzip": 246,
+        "pesoTotalKb": 467,
+        "fugasAnalitica": 0
+      },
+      "corridas": [
+        {
+          "rendimiento": 99,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 920,
+          "cls": 0,
+          "tbtMs": 148,
+          "fcpMs": 920,
+          "jsKbGzip": 246,
+          "pesoTotalKb": 467,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 99,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 971,
+          "cls": 0,
+          "tbtMs": 117,
+          "fcpMs": 971,
+          "jsKbGzip": 246,
+          "pesoTotalKb": 467,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 99,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 920,
+          "cls": 0,
+          "tbtMs": 138,
+          "fcpMs": 920,
+          "jsKbGzip": 246,
+          "pesoTotalKb": 467,
+          "fugasAnalitica": 0
+        }
+      ]
+    }
+  ],
+  "gtagKbGzipAprox": 176
+}

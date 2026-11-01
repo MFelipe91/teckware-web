@@ -1,0 +1,53 @@
+{
+  "casos": [
+    {
+      "caso": "Sin sesión",
+      "esperado": "Solo el login",
+      "obtenido": "solo login",
+      "ok": true
+    },
+    {
+      "caso": "Contraseña incorrecta",
+      "esperado": "Sigue en login, con aviso",
+      "obtenido": "login=1, aviso=1",
+      "ok": true
+    },
+    {
+      "caso": "Contraseña correcta",
+      "esperado": "Abre el panel",
+      "obtenido": "panel abierto",
+      "ok": true
+    },
+    {
+      "caso": "Cookie de sesión",
+      "esperado": "httpOnly y sameSite lax",
+      "obtenido": "httpOnly=true, sameSite=Lax",
+      "ok": true
+    },
+    {
+      "caso": "Cookie sin la contraseña",
+      "esperado": "No la contiene",
+      "obtenido": "hash",
+      "ok": true
+    },
+    {
+      "caso": "La solicitud de /agendar llega al panel",
+      "esperado": "Visible",
+      "obtenido": "filas=true, visible=true",
+      "ok": true
+    },
+    {
+      "caso": "Foto en el panel",
+      "esperado": "Enlace firmado",
+      "obtenido": "1",
+      "ok": true
+    },
+    {
+      "caso": "Clave correcta tras 5 intentos fallidos",
+      "esperado": "Bloqueada durante un minuto",
+      "obtenido": "bloqueada",
+      "ok": true
+    }
+  ],
+  "serviciosConstantes": 12
+}

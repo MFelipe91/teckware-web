@@ -93,6 +93,34 @@ En las 28 páginas reales, `title` y `canonical` son únicos y correctos, y hay 
 también son únicas; la 404 repite la de la home, pero es `noindex`, así que no afecta. `/privacidad` y
 `/terminos` son `noindex`, y el domicilio legal aparece solo en `/privacidad`, como exige la sección 3.
 
+## Después del cierre (rama `feat/cierre-pro`)
+
+Medición local del 2026-10-31, antes de publicar. La comparación en producción (puntos 1, 4, 5, 6, 7 y 8)
+queda pendiente hasta publicar: se repite con `AUDIT_ETAPA=despues`.
+
+| Prueba (local, Supabase falso) | Antes | Después |
+|---|---:|---:|
+| `/agendar` | 24/28 | 28/28 |
+| `/solicitar` | 18/20 | 19/20 |
+| API de solicitudes y fotos | 4/9 | 9/9 |
+| `/admin` | 7/7 | 8/8 |
+| Chat con Groq real | 16/16 | 17/17 |
+| Teclado y foco | 6/11 | 11/11 |
+| Cotización PC Gamer | No existía | 30/30 |
+
+Hallazgos resueltos: 1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 14, 17, 18, 19, 20 y 21. El 16 quedó resuelto en las
+páginas de servicios; algunos artículos del blog pueden seguir levemente sobre el largo.
+
+Siguen abiertos:
+- **13:** `/solicitar` solo abre WhatsApp y no guarda en la base.
+- **6 y 7:** LCP y JS deben confirmarse en producción. En local, todas las páginas medidas dieron LCP cercano a
+  0,9 s, sin la diferencia de 3 s que tenían `/builds` y la landing, pero eso no es comparable con producción.
+  El presupuesto de 150 KB de JS sigue sin demostrarse.
+- **22:** contraste sobre fondos complejos, a revisar con la herramienta de nuevo en producción.
+- **23:** 19 imágenes pesadas sin uso en `public/images`.
+
+Capturas del rediseño en `docs/auditoria/bloque-b/index.html`.
+
 ## Lo que esta auditoría no comprueba
 
 - **Guardado en la base real:** `.env.local` usa el proyecto Supabase que `next.config.ts` deja fijo, así que se

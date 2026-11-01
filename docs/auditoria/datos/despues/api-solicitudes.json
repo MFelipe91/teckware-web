@@ -1,0 +1,58 @@
+{
+  "casos": [
+    {
+      "caso": "Faltan datos",
+      "esperado": "400",
+      "obtenido": "400",
+      "ok": true
+    },
+    {
+      "caso": "JSON roto",
+      "esperado": "400",
+      "obtenido": "400",
+      "ok": true
+    },
+    {
+      "caso": "Nombre de 100.000 caracteres",
+      "esperado": "Rechazado",
+      "obtenido": "400",
+      "ok": true
+    },
+    {
+      "caso": "Teléfono inválido directo a la API",
+      "esperado": "Rechazado",
+      "obtenido": "400",
+      "ok": true
+    },
+    {
+      "caso": "URL de foto ajena",
+      "esperado": "Rechazada",
+      "obtenido": "400",
+      "ok": true
+    },
+    {
+      "caso": "Petición 11 en un minuto",
+      "esperado": "429",
+      "obtenido": "429",
+      "ok": true
+    },
+    {
+      "caso": "Subir SVG",
+      "esperado": "400",
+      "obtenido": "400",
+      "ok": true
+    },
+    {
+      "caso": "Archivo que no es imagen, declarado como PNG",
+      "esperado": "Rechazado (revisando el contenido)",
+      "obtenido": "400",
+      "ok": true
+    },
+    {
+      "caso": "Bucket de fotos",
+      "esperado": "Privado en todas las peticiones",
+      "obtenido": "POST,PUT,POST,PUT,POST,PUT,POST,PUT,POST,PUT",
+      "ok": true
+    }
+  ]
+}
