@@ -100,7 +100,7 @@ export default function CiberseguridadPage() {
           <div className="panel-corte p-7 sm:p-8 self-start">
             <h3 className="text-2xl text-fg">¿Qué tan expuesta está tu empresa?</h3>
             <p className="mt-3 mb-5 text-fg-muted leading-relaxed">
-              Te hacemos una evaluación gratuita de 15 minutos para identificar los riesgos más críticos. Sin compromiso.
+              Revisamos contigo los riesgos más críticos y te proponemos por dónde partir.
             </p>
             <ul className="space-y-2 mb-7">
               {EVALUACION.map((item) => (
@@ -110,8 +110,8 @@ export default function CiberseguridadPage() {
                 </li>
               ))}
             </ul>
-            <a href={WA.ciberseguridad('Evaluación gratuita')} target="_blank" rel="noopener noreferrer" className="btn btn-primario w-full">
-              Pedir evaluación gratuita
+            <a href={WA.ciberseguridad('Revisión de riesgos')} target="_blank" rel="noopener noreferrer" className="btn btn-primario w-full">
+              Pedir revisión
             </a>
           </div>
         </div>

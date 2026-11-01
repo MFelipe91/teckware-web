@@ -12,10 +12,15 @@ function enlaceWa(s: Servicio): string {
 
 // La mantención es lo principal del negocio: va como pieza grande y el resto en lista de precios.
 export function ServiciosDestacados({ servicios }: { servicios: Servicio[] }) {
-  const destacados = servicios.filter((s) => s.featured)
-  const principal = destacados.find((s) => s.id === 'mantencion-full') ?? destacados[0]
+  // Primero lo que más conviene mostrar; el resto, según lo destacado en el panel.
+  const primero = ['consola-ps5', 'armado-estandar', 'mantencion-logica', 'diagnostico', 'mantencion-gpu']
+  const principal = servicios.find((s) => s.id === 'mantencion-full') ?? servicios[0]
   if (!principal) return null
-  const resto = destacados.filter((s) => s.id !== principal.id)
+  const prioritarios = primero
+    .map((id) => servicios.find((s) => s.id === id))
+    .filter((s): s is Servicio => !!s && s.id !== principal.id)
+  const extras = servicios.filter((s) => s.featured && s.id !== principal.id && !prioritarios.includes(s))
+  const resto = [...prioritarios, ...extras].slice(0, 5)
 
   return (
     <section className="bg-ink-900 px-4 sm:px-6 lg:px-8 py-16 sm:py-24">

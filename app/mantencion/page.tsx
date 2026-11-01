@@ -7,9 +7,9 @@ import { WA } from '@/lib/whatsapp'
 import { ogPagina } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Mantención de computadores en La Serena y Coquimbo',
+  title: 'Mantención de PC, notebooks y PS5 en La Serena',
   description:
-    'Mantención preventiva de PC gamer, notebooks, consolas y equipos de empresa en La Serena y Coquimbo: limpieza, pasta térmica, formateo y revisión de temperaturas. Garantía 30 días y boleta.',
+    'Mantención de PC gamer, notebooks y PS5 en La Serena y Coquimbo: limpieza, pasta térmica y control de temperaturas. Boleta y garantía de 30 días.',
   alternates: { canonical: '/mantencion' },
   openGraph: ogPagina('/mantencion'),
 }

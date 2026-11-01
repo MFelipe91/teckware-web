@@ -30,11 +30,11 @@ const saira = Saira({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Mantención y Servicio Técnico de PC en La Serena y Coquimbo | TECKWARE',
-    template: '%s | TECKWARE La Serena',
+    default: 'Mantención PC Gamer, Notebooks y PS5 en La Serena | TECKWARE',
+    template: '%s | TECKWARE',
   },
   description:
-    'Mantención preventiva y servicio técnico de PC gamer, notebooks y consolas en La Serena y Coquimbo. Taller con hora coordinada, informe técnico, boleta y garantía de 30 días.',
+    'Mantención de PC gamer, notebooks y PS5 y armado de PC en La Serena y Coquimbo. Informe técnico, boleta y garantía de 30 días.',
   keywords: [
     // Servicio técnico local
     'servicio técnico La Serena',

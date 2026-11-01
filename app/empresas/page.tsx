@@ -6,9 +6,9 @@ import { WA } from '@/lib/whatsapp'
 import { ogPagina } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Soporte informático para empresas en La Serena y Coquimbo',
+  title: 'Soporte informático para empresas en La Serena',
   description:
-    'Soporte informático para pymes en La Serena y Coquimbo: mantención preventiva de equipos, asesoría tecnológica, automatización con IA, desarrollo web y ciberseguridad. Empresa formal con boleta.',
+    'Mantención de equipos, asesoría, automatización con IA y desarrollo para empresas de La Serena y Coquimbo. Plan por escrito y boleta.',
   alternates: { canonical: '/empresas' },
   openGraph: ogPagina('/empresas'),
 }

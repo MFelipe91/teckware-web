@@ -7,7 +7,7 @@ import { ogPagina } from '@/lib/seo'
 export const metadata: Metadata = {
   title: { absolute: 'Servicio Técnico de Computadores en La Serena | TECKWARE' },
   description:
-    'Servicio técnico de computadores y notebooks en La Serena y Coquimbo. Entrega en 48 horas hábiles con informe técnico: diagnóstico, formateo, mantención, upgrade y reparación. Precio claro antes de reparar, pago al retirar y garantía de 30 días.',
+    'Servicio técnico de computadores en La Serena: diagnóstico, reparación y mantención con informe técnico, boleta y garantía de 30 días.',
   alternates: { canonical: '/servicio-tecnico-computadores-la-serena' },
   openGraph: ogPagina('/servicio-tecnico-computadores-la-serena'),
 }

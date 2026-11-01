@@ -293,7 +293,7 @@ export const EQUIPOS = [
 ] as const
 
 // PC Gamer: solo a pedido, sin stock. Los niveles son una guía; `desde` lo define el dueño según
-// el precio de los componentes. Con null, la web muestra "A cotizar".
+// el precio de los componentes. Con null, la web muestra "A cotizar". Última revisión: 2026-10-31.
 export const NIVELES_PC: {
   id: string
   nombre: string
@@ -306,21 +306,21 @@ export const NIVELES_PC: {
     nombre: 'Starter',
     para: 'Juegos en 1080p y uso diario',
     referencia: ['Ryzen 5 7600', 'RTX 5060 8 GB', '16 GB DDR5', 'SSD 1 TB'],
-    desde: null,
+    desde: 1650000,
   },
   {
     id: 'mid',
     nombre: 'Mid',
     para: 'Juegos en 1440p, streaming y edición',
     referencia: ['Ryzen 7 7800X3D', 'RTX 5070 12 GB', '32 GB DDR5', 'SSD 1 TB'],
-    desde: null,
+    desde: 2750000,
   },
   {
     id: 'ultra',
     nombre: 'Ultra',
     para: 'Juegos en 4K y trabajo exigente',
     referencia: ['Ryzen 7 9800X3D', 'RTX 5080 16 GB', '32 GB DDR5', 'SSD 2 TB'],
-    desde: null,
+    desde: 3990000,
   },
 ]
 

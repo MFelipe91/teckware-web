@@ -5,9 +5,9 @@ import { WA } from '@/lib/whatsapp'
 import { ogPagina } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Recuperación de Datos en La Serena | Discos y Notebooks | TECKWARE' },
+  title: 'Recuperación de Datos en La Serena',
   description:
-    'Recuperación de archivos en La Serena y Coquimbo: discos dañados, notebooks que no encienden, pendrives y archivos borrados. Desde $35.000 con IVA. Tus datos se tratan con confidencialidad.',
+    'Recuperación de datos en La Serena: discos y equipos que no arrancan. Diagnóstico claro antes de empezar, con boleta y garantía de 30 días.',
   alternates: { canonical: '/recuperacion-de-datos-la-serena' },
   openGraph: ogPagina('/recuperacion-de-datos-la-serena'),
 }

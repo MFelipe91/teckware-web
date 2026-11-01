@@ -7,7 +7,7 @@ import { ogPagina } from '@/lib/seo'
 export const metadata: Metadata = {
   title: 'Mantención de PC Gamer en La Serena',
   description:
-    'Mantención profesional de PC Gamer en La Serena y Coquimbo: limpieza interna, cambio de pasta térmica premium, revisión de temperaturas y optimización. Recupera el rendimiento y baja las temperaturas de tu equipo.',
+    'Mantención de PC gamer en La Serena y Coquimbo: limpieza profunda, pasta Thermal Grizzly y pruebas de temperatura. Boleta y garantía de 30 días.',
   alternates: { canonical: '/mantencion-pc-gamer' },
   openGraph: ogPagina('/mantencion-pc-gamer'),
 }

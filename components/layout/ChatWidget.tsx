@@ -12,8 +12,8 @@ const WELCOME: Message = {
 }
 
 const QUICK = [
-  '¿Cuánto vale el diagnóstico?',
-  '¿Cuánto tarda un formateo?',
+  '¿Cuánto vale la mantención de mi PC gamer?',
+  '¿Cuánto cuesta la mantención de una PS5?',
   'Quiero armar un PC Gamer',
 ]
 

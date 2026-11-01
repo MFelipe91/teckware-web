@@ -7,9 +7,10 @@ import { CtaPair } from '@/components/shared/CtaPair'
 // Server Component: el texto llega visible en el HTML, así el H1 es el LCP.
 
 const PRECIOS = [
-  { nombre: 'Mantención Full', detalle: 'Test, limpieza, pasta Thermal Grizzly, BIOS, Windows limpio y test final', precio: precioServicio('mantencion-full') },
-  { nombre: 'Mantención Lógica', detalle: 'Formateo, instalación limpia y optimización', precio: precioServicio('mantencion-logica') },
-  { nombre: 'Diagnóstico', detalle: 'Se descuenta del total si decides reparar', precio: precioServicio('diagnostico') },
+  { nombre: 'Mantención de PC gamer', detalle: 'Test, limpieza, pasta Thermal Grizzly, BIOS, Windows limpio y test final', precio: precioServicio('mantencion-full'), href: '/mantencion-pc-gamer' },
+  { nombre: 'Mantención de notebook', detalle: 'Desarmado, limpieza de ventilador y disipador, y pasta térmica', precio: precioServicio('mantencion-full'), href: '/reparacion-notebook-la-serena' },
+  { nombre: 'Mantención de PS5', detalle: 'Limpieza física y cambio de metal líquido', precio: precioServicio('consola-ps5'), href: '/mantencion-ps5-la-serena' },
+  { nombre: 'Armado de PC gamer', detalle: 'Cable management y pruebas de estabilidad. Componentes aparte', precio: precioServicio('armado-estandar'), href: '/armado-pc-gamer-la-serena' },
 ]
 
 const SELLOS = [`Entrega en ${PLAZO}`, 'Informe técnico', 'Garantía de 30 días', 'Con boleta', 'Pagas al retirar', EMPRESA.horario]
@@ -26,8 +27,7 @@ export function Hero() {
               Reparamos tu hardware. Construimos tu software. Somos TECKWARE.
             </p>
             <p className="mt-3 mb-7 max-w-xl leading-relaxed text-fg-muted">
-              Te explicamos qué tiene tu equipo, cuánto cuesta y cómo evitar que vuelva a fallar.
-              Taller en La Serena, con hora coordinada por WhatsApp.
+              Mantención de PC gamer, notebooks y PS5, y armado a pedido. Te explicamos qué tiene tu equipo, cuánto cuesta y cómo evitar que vuelva a fallar. Taller en La Serena, con hora coordinada por WhatsApp.
             </p>
             <CtaPair>
               <Link href="/servicios" className="btn btn-terciario self-start sm:self-auto">Ver precios</Link>
@@ -37,13 +37,15 @@ export function Hero() {
           <div>
             <ul>
               {PRECIOS.map((p) => (
-                <li key={p.nombre} className="grid grid-cols-[14px_minmax(0,1fr)_auto] gap-x-3 items-baseline py-3.5 border-b border-white/10">
+                <li key={p.nombre} className="border-b border-white/10">
+                  <Link href={p.href} className="group grid grid-cols-[14px_minmax(0,1fr)_auto] gap-x-3 items-baseline py-3.5">
                   <span className="hex" aria-hidden="true" />
                   <span>
-                    <span className="block font-display text-[1.0625rem] font-semibold text-fg">{p.nombre}</span>
+                    <span className="block font-display text-[1.0625rem] font-semibold text-fg group-hover:text-brand-bright transition-colors">{p.nombre}</span>
                     <span className="block text-sm text-fg-muted">{p.detalle}</span>
                   </span>
                   <span className="price text-xl text-fg">{p.precio}</span>
+                  </Link>
                 </li>
               ))}
             </ul>

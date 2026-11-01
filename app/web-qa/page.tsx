@@ -21,10 +21,10 @@ const DIFERENCIADORES = [
 ]
 
 const PROCESO_WEB = [
-  { paso: 1, titulo: 'Briefing', desc: 'Reunión de 30 min por WhatsApp para entender tu proyecto, objetivos y plazos.' },
-  { paso: 2, titulo: 'Propuesta', desc: 'Presupuesto detallado con alcance, entregables y cronograma en 48 horas hábiles.' },
-  { paso: 3, titulo: 'Ejecución', desc: 'Desarrollo o auditoría con actualizaciones de avance cada 2 días.' },
-  { paso: 4, titulo: 'Entrega', desc: 'Deploy en producción o informe final con soporte post-entrega de 15 días.' },
+  { paso: 1, titulo: 'Briefing', desc: 'Conversación por WhatsApp para entender tu proyecto, objetivos y plazos.' },
+  { paso: 2, titulo: 'Propuesta', desc: 'Presupuesto detallado con alcance, entregables y cronograma.' },
+  { paso: 3, titulo: 'Ejecución', desc: 'Desarrollo o auditoría, con avances durante el proyecto.' },
+  { paso: 4, titulo: 'Entrega', desc: 'Publicación en producción o informe final.' },
 ]
 
 const INCLUYE = [
@@ -34,8 +34,6 @@ const INCLUYE = [
   'Código limpio y comentado',
   'Optimización SEO técnico base',
   'Responsive mobile-first',
-  'Soporte post-entrega 15 días',
-  'Sin costos ocultos',
 ]
 
 export default function WebQAPage() {
@@ -114,7 +112,7 @@ export default function WebQAPage() {
 
       <BandaCta
         titulo="¿Tienes un proyecto en mente?"
-        texto="Cuéntanos qué necesitas. Respondemos con una propuesta en 48 horas hábiles."
+        texto="Cuéntanos qué necesitas y te respondemos con una propuesta."
         waHref={WA.webQA()}
       />
     </div>

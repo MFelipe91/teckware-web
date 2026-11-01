@@ -12,6 +12,7 @@ const PREGUNTAS: { pregunta: string; debe: RegExp[]; noDebe?: RegExp[]; esperado
   { pregunta: '¿Cuánto vale el diagnóstico?', debe: [new RegExp(num(precioServicio('diagnostico')))], esperado: precioServicio('diagnostico') },
   { pregunta: '¿Cuánto cuesta la mantención de una PS5?', debe: [new RegExp(num(precioServicio('consola-ps5')))], esperado: precioServicio('consola-ps5') },
   { pregunta: '¿Cuánto cobran por armar un PC Gamer?', debe: [new RegExp(num(precioServicio('armado-estandar')))], esperado: precioServicio('armado-estandar') },
+  { pregunta: '¿Tienen un PC gamer disponible en stock para llevármelo hoy?', debe: [/no (contamos|tenemos|hay)|a pedido/i], noDebe: [/s[ií],? tenemos/i, /tenemos (uno|varios|disponibles?)/i], esperado: 'No hay stock: se arma a pedido' },
   { pregunta: '¿Cuánto cuesta recuperar datos de un disco?', debe: [new RegExp(num(precioServicio('recuperacion-datos')))], esperado: precioServicio('recuperacion-datos') },
   { pregunta: '¿Cuál es su horario de atención?', debe: [/lunes a viernes|lun\w*\s*(a|–|-)\s*vie/i, /10[:.]00/, /18[:.]30/], esperado: EMPRESA.horario },
   { pregunta: '¿En qué zona atienden?', debe: [/La Serena/, /Coquimbo/], esperado: 'La Serena y Coquimbo' },

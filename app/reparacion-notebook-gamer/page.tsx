@@ -7,7 +7,7 @@ import { ogPagina } from '@/lib/seo'
 export const metadata: Metadata = {
   title: 'Reparación de Notebook Gamer en La Serena',
   description:
-    'Reparación y mantención de notebooks gamer en La Serena y Coquimbo: sobrecalentamiento, cambio de pasta térmica, limpieza de ventiladores, upgrade de RAM y SSD, y reparación de fallas. ASUS ROG, MSI, Lenovo Legion, Acer Predator y más.',
+    'Reparación y mantención de notebooks gamer en La Serena: sobrecalentamiento, bajas de FPS, limpieza y upgrades. Boleta y garantía de 30 días.',
   alternates: { canonical: '/reparacion-notebook-gamer' },
   openGraph: ogPagina('/reparacion-notebook-gamer'),
 }

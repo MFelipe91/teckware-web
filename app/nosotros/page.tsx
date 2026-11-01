@@ -9,7 +9,7 @@ import { ogPagina } from '@/lib/seo'
 export const metadata: Metadata = {
   title: 'Nosotros',
   description:
-    'TECKWARE SpA es un servicio técnico informático de La Serena, fundado por Mario Felipe Busques Araya, Ingeniero Informático con certificaciones en ciberseguridad.',
+    'TECKWARE SpA es un servicio técnico de La Serena, fundado por Mario Felipe Busques Araya, Ingeniero Informático con certificaciones en ciberseguridad.',
   alternates: { canonical: '/nosotros' },
   openGraph: ogPagina('/nosotros'),
 }

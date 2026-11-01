@@ -7,7 +7,7 @@ import { ogPagina } from '@/lib/seo'
 export const metadata: Metadata = {
   title: { absolute: 'Armado de PC Gamer en La Serena | TECKWARE' },
   description:
-    'Armado profesional de PC Gamer en La Serena y Coquimbo: ensamblaje, cable management, instalación de Windows y prueba de estabilidad. Estándar $75.000, alta gama con refrigeración líquida $90.000.',
+    'Armado de PC gamer en La Serena con cable management, instalación del sistema y pruebas de estabilidad. Boleta y garantía de 30 días.',
   alternates: { canonical: '/armado-pc-gamer-la-serena' },
   openGraph: ogPagina('/armado-pc-gamer-la-serena'),
 }

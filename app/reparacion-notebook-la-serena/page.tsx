@@ -7,7 +7,7 @@ import { ogPagina } from '@/lib/seo'
 export const metadata: Metadata = {
   title: { absolute: 'Reparación de Notebooks en La Serena y Coquimbo | TECKWARE' },
   description:
-    'Reparación de notebooks HP, Lenovo, Dell, ASUS, Acer y más en La Serena y Coquimbo: no enciende, se calienta, lentitud, teclado, carga y upgrade a SSD. Entrega en 48 horas hábiles con informe técnico.',
+    'Mantención y reparación de notebooks en La Serena y Coquimbo: limpieza, pasta térmica, formateo y diagnóstico. Boleta y garantía de 30 días.',
   alternates: { canonical: '/reparacion-notebook-la-serena' },
   openGraph: ogPagina('/reparacion-notebook-la-serena'),
 }

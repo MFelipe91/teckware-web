@@ -7,7 +7,7 @@ import { ogPagina } from '@/lib/seo'
 export const metadata: Metadata = {
   title: { absolute: 'Mantención PS5 y PS4 en La Serena | Metal Líquido | TECKWARE' },
   description:
-    'Mantención de PlayStation 5 con cambio de metal líquido ($80.000) y de PS4 / PS3 ($55.000) en La Serena y Coquimbo. Limpieza interna, menos ruido y temperaturas más bajas.',
+    'Mantención de PS5 en La Serena y Coquimbo: limpieza interna y cambio de metal líquido para bajar temperatura y ruido. Garantía de 30 días.',
   alternates: { canonical: '/mantencion-ps5-la-serena' },
   openGraph: ogPagina('/mantencion-ps5-la-serena'),
 }

@@ -5,9 +5,9 @@ import { WA } from '@/lib/whatsapp'
 import { ogPagina } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Servicio Técnico Apple / MacBook en La Serena',
+  title: 'Servicio Técnico Apple y MacBook en La Serena',
   description:
-    'Servicio técnico Apple en La Serena y Coquimbo: reparación y mantención de MacBook Air y Pro, cambio de pasta térmica, upgrade de SSD, batería, limpieza interna y diagnóstico. Equipos Intel y Apple Silicon (M1, M2, M3).',
+    'Servicio técnico de MacBook e iMac en La Serena y Coquimbo: diagnóstico, limpieza, formateo de macOS y upgrades. Boleta y garantía de 30 días.',
   alternates: { canonical: '/servicio-tecnico-apple' },
   openGraph: ogPagina('/servicio-tecnico-apple'),
 }
