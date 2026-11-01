@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { EMPRESA, PLAZO, precioServicio } from '@/lib/constants'
 import { FOTOS } from '@/lib/fotos'
 import { CtaPair } from '@/components/shared/CtaPair'
+import { HeroFondo } from '@/components/home/HeroFondo'
 
 // Server Component: el texto llega visible en el HTML, así el H1 es el LCP.
 
@@ -18,11 +19,16 @@ const SELLOS = [`Entrega en ${PLAZO}`, 'Informe técnico', 'Garantía de 30 día
 
 export function Hero() {
   return (
-    <section className="bg-ink-950 px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-14 lg:pb-20" aria-label="Inicio">
-      <div className="max-w-[76rem] mx-auto">
-        <h1 className="max-w-[20ch]">Mantención y servicio técnico de computadores en La Serena y Coquimbo</h1>
+    <section className="bg-ink-950" aria-label="Inicio">
+      <div className="hero-banda px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-10 lg:pb-16">
+        <div className="relative max-w-[76rem] mx-auto">
+          <HeroFondo />
+          <h1 className="relative max-w-[20ch]">Mantención y servicio técnico de computadores en La Serena y Coquimbo</h1>
+        </div>
+      </div>
 
-        <div className="mt-10 lg:mt-12 pt-8 border-t border-white/10 grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
+      <div className="max-w-[76rem] mx-auto px-4 sm:px-6 lg:px-8 lg:box-content pb-14 lg:pb-20">
+        <div className="pt-8 grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
           <div>
             <p className="font-display text-xl sm:text-[1.375rem] leading-snug font-semibold text-fg">
               Reparamos tu hardware. Construimos tu software. Somos TECKWARE.
