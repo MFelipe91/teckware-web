@@ -359,7 +359,7 @@ Informe en `docs/auditoria-cierre.md`; las pruebas se repiten con `tests/auditor
 - [x] Bloque C: PC Gamer a pedido, cotización y fotos privadas. → `30ed7df`, `7b40bef`.
 - [x] Precios "desde" de `NIVELES_PC`: estudio del 2026-10-31, aprobado por el dueño como referencia.
       Revisarlos seguido: los componentes cambian de precio.
-- [ ] Publicar en `main` y repetir en producción las pruebas de solo lectura.
+- [x] Publicar en `main` y repetir en producción las pruebas de solo lectura. → `69e783e`, `6c5967e`.
 - [ ] El dueño prueba una solicitud y una cotización reales, con foto, y las revisa en `/admin`.
 - [ ] `/solicitar` todavía no guarda en la base.
 

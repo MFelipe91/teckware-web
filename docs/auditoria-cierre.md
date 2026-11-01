@@ -93,10 +93,39 @@ En las 28 páginas reales, `title` y `canonical` son únicos y correctos, y hay 
 también son únicas; la 404 repite la de la home, pero es `noindex`, así que no afecta. `/privacidad` y
 `/terminos` son `noindex`, y el domicilio legal aparece solo en `/privacidad`, como exige la sección 3.
 
-## Después del cierre (rama `feat/cierre-pro`)
+## Después del cierre (publicado en `main`)
 
-Medición local del 2026-10-31, antes de publicar. La comparación en producción (puntos 1, 4, 5, 6, 7 y 8)
-queda pendiente hasta publicar: se repite con `AUDIT_ETAPA=despues`.
+Publicado el 2026-11-01 (`69e783e` y `6c5967e`). Producción medida en solo lectura el mismo día, con 3 corridas
+de Lighthouse móvil por página (mediana). Capturas en `docs/auditoria/capturas/despues/`.
+
+| Página | Rendimiento | LCP (s) | TBT (ms) | CLS | JS gzip (KB) | Peso total (KB) |
+|---|---:|---:|---:|---:|---:|---:|
+| `/` | 96 → 97 | 1,78 → 1,92 | 149 → 111 | 0 → 0 | 192 → 169 | 528 → 429 |
+| `/mantencion` | 95 → 96 | 1,76 → 1,87 | 100 → 166 | 0 → 0 | 193 → 243 | 342 → 446 |
+| `/agendar` | 95 → 93 | 1,83 → 1,78 | 127 → 237 | 0 → 0 | 193 → 243 | 354 → 462 |
+| `/builds` | 83 → 91 | 3,04 → 2,14 | 394 → 247 | 0 → 0 | 186 → 248 | 339 → 447 |
+| `/mantencion-pc-gamer` | 87 → 93 | 3,26 → 2,02 | 221 → 185 | 0 → 0 | 193 → 242 | 367 → 447 |
+
+Accesibilidad, buenas prácticas y SEO de Lighthouse: 100 en las cinco páginas, antes y después.
+
+**JS:** cada página carga 169 KB propios. El resto, unos 74 KB, es la precarga de `/agendar`, que ocurre cuando
+su enlace queda a la vista: comprobado bloqueando la precarga en `/mantencion` (844 → 551 KB sin comprimir, los
+mismos 9 archivos de la portada). Se deja porque acelera el clic en "Agendar servicio". El presupuesto de 150 KB
+sigue **sin cumplirse**, por 19 KB.
+
+| Recorrido en producción (29 rutas, 375 y 1440 px) | Antes | Después |
+|---|---:|---:|
+| Infracciones de axe | 62 | 0 |
+| Contraste dudoso, a revisar a mano | 569 | 211 |
+| Páginas con scroll horizontal | 0 | 0 |
+| Imágenes rotas o sin `alt` | 0 | 0 |
+| Enlaces rotos | 0 | 0 (el único 404 es la ruta inexistente de la propia prueba) |
+| Títulos o descripciones repetidos | Ver hallazgo 16 | 0 |
+| Domicilio legal fuera de `/privacidad` | No | No |
+
+Pulido final (`69e783e`): barra fija de WhatsApp y chat en celular, para no tapar precios; precios antes del
+texto en la portada móvil; respuesta táctil y curvas de movimiento propias; controles nativos en oscuro.
+Figma no se usó: no estaba conectado en la sesión y el sitio no tiene archivo de diseño allí.
 
 | Prueba (local, Supabase falso) | Antes | Después |
 |---|---:|---:|
@@ -113,10 +142,9 @@ páginas de servicios; algunos artículos del blog pueden seguir levemente sobre
 
 Siguen abiertos:
 - **13:** `/solicitar` solo abre WhatsApp y no guarda en la base.
-- **6 y 7:** LCP y JS deben confirmarse en producción. En local, todas las páginas medidas dieron LCP cercano a
-  0,9 s, sin la diferencia de 3 s que tenían `/builds` y la landing, pero eso no es comparable con producción.
-  El presupuesto de 150 KB de JS sigue sin demostrarse.
-- **22:** contraste sobre fondos complejos, a revisar con la herramienta de nuevo en producción.
+- **7:** JS propio de 169 KB, sobre el presupuesto de 150 KB. El hallazgo 6 (LCP de 3 s en `/builds` y la
+  landing) quedó resuelto: ahora bajan de 2,2 s.
+- **22:** quedan 211 casos de contraste dudoso sobre fondos complejos, que la herramienta no puede resolver sola.
 - **23:** 19 imágenes pesadas sin uso en `public/images`.
 
 Capturas del rediseño en `docs/auditoria/bloque-b/index.html`.
