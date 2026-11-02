@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Search, Laptop, Monitor, RefreshCw, HardDrive, ShieldCheck } from 'lucide-react'
 import { ServiceLanding } from '@/components/landing/ServiceLanding'
 import { WA } from '@/lib/whatsapp'
+import { precioServicio } from '@/lib/constants'
 import { ogPagina } from '@/lib/seo'
 
 export const metadata: Metadata = {
@@ -40,7 +41,7 @@ export default function ServicioTecnicoLaSerenaPage() {
       marcas={['HP', 'Lenovo', 'Dell', 'ASUS', 'Acer', 'MSI', 'Samsung', 'Apple MacBook', 'PC armados', 'All-in-One']}
       precios={[
         { nombre: 'Diagnóstico electrónico', precio: '$30.000', tiempo: '48 h hábiles', href: WA.diagnostico() },
-        { nombre: 'Mantención Lógica (formateo)', precio: '$45.000', tiempo: '48 h hábiles', href: WA.mantencionLogica() },
+        { nombre: 'Mantención Lógica (formateo)', precio: precioServicio('mantencion-logica'), tiempo: '48 h hábiles', href: WA.mantencionLogica() },
         { nombre: 'Mantención Full', precio: '$75.000', tiempo: '48 h hábiles', href: WA.mantencionFull() },
       ]}
       faqs={[

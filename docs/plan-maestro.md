@@ -44,7 +44,7 @@
 
 **Precios:** la única fuente de verdad es `lib/constants.ts`. Si cambias un precio, cámbialo
 también en el prompt del chatbot (`app/api/chat/route.ts`) y en `lib/whatsapp.ts`.
-Referencia: Diagnóstico $30.000 · Mantención Lógica/Formateo **$45.000** · Mantención Full $75.000 ·
+Referencia: Diagnóstico $30.000 · Mantención Lógica/Formateo **$35.000** · Mantención Full $75.000 ·
 GPU desde $45.000 · Recuperación de datos desde $35.000 · Armado estándar $75.000 /
 alta gama $90.000 · PS3/PS4 $55.000 · PS5 $80.000.
 
@@ -131,7 +131,7 @@ alta gama $90.000 · PS3/PS4 $55.000 · PS5 $80.000.
 - JSON-LD `Service` en cada landing y `FAQPage` donde corresponde.
 - Blog `/blog` con 4 guías de mantención preventiva (JSON-LD `BlogPosting`).
 - Negocio de zona de servicio en todo el sitio. Horario real Lun–Vie 10:00–18:30.
-- Formateo a $45.000 en todos lados (web, chatbot, WhatsApp).
+- Formateo a $35.000 en todos lados (web, chatbot, WhatsApp).
 - Ficha de Google creada: categorías, servicios y descripción con prioridad en mantención.
 - Documentación: `docs/ficha-google.md`, `docs/directorios-nap.md` y
   `docs/seo-search-console-analitica.md`.

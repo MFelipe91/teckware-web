@@ -46,7 +46,7 @@ export const SERVICIOS = [
     id: 'mantencion-logica',
     nombre: 'Mantención Lógica',
     descripcion: 'Formateo e instalación limpia de Windows o macOS + optimización completa del sistema, drivers y software. Tu equipo como nuevo.',
-    precio: '$45.000',
+    precio: '$35.000',
     tiempo: PLAZO,
     icono: 'refresh-cw',
     featured: true,

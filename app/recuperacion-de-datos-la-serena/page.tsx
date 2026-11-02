@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { HardDrive, Database, Usb, ScanSearch, Lock, ShieldCheck } from 'lucide-react'
 import { ServiceLanding } from '@/components/landing/ServiceLanding'
 import { WA } from '@/lib/whatsapp'
+import { precioServicio } from '@/lib/constants'
 import { ogPagina } from '@/lib/seo'
 
 export const metadata: Metadata = {
@@ -39,7 +40,7 @@ export default function RecuperacionDatosLaSerenaPage() {
       precios={[
         { nombre: 'Recuperación de datos', precio: 'Desde $35.000', tiempo: '48 h hábiles', href: WA.recuperacion() },
         { nombre: 'Diagnóstico electrónico', precio: '$30.000', tiempo: '48 h hábiles', href: WA.diagnostico() },
-        { nombre: 'Formateo con respaldo', precio: '$45.000', tiempo: '48 h hábiles', href: WA.mantencionLogica() },
+        { nombre: 'Formateo con respaldo', precio: precioServicio('mantencion-logica'), tiempo: '48 h hábiles', href: WA.mantencionLogica() },
       ]}
       faqs={[
         { q: '¿Se pueden recuperar archivos de un notebook que no enciende?', a: 'En la mayoría de los casos sí, porque la información está en el disco y no en la placa. Retiramos el disco y recuperamos los archivos desde ahí.' },
