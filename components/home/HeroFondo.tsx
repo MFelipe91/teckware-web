@@ -25,11 +25,11 @@ export function HeroFondo() {
     <div className="hero-ventana" aria-hidden="true">
       <div className="hero-ventana-foto">
         <Image
-          src="/images/hardware-amd.jpg"
+          src="/images/pexels-alexandrep-junior-33798615.jpg"
           alt=""
           fill
-          sizes="(min-width: 1024px) 720px, 340px"
-          quality={60}
+          sizes="(min-width: 1024px) 430px, 200px"
+          quality={72}
           loading="eager"
           fetchPriority="high"
           className="hero-foto"
