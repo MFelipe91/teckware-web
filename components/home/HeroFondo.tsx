@@ -14,6 +14,12 @@ const TRAZAS = [
   { d: 'M20 424 L-24 468 H-170', pad: [-177, 468] },
 ] as const
 
+// En celular el hexágono queda bajo el título y las trazas salen de su lado izquierdo.
+const TRAZAS_MOVIL = [
+  { d: 'M0 150 H-70 L-105 115 H-395', pad: [-409, 115] },
+  { d: 'M0 200 H-40 L-70 170 H-235', pad: [-249, 170] },
+] as const
+
 export function HeroFondo() {
   return (
     <div className="hero-ventana" aria-hidden="true">
@@ -22,7 +28,7 @@ export function HeroFondo() {
           src="/images/hardware-amd.jpg"
           alt=""
           fill
-          sizes="(min-width: 1024px) 720px, (min-width: 768px) 540px, 440px"
+          sizes="(min-width: 1024px) 720px, 340px"
           quality={60}
           loading="eager"
           fetchPriority="high"
@@ -44,6 +50,14 @@ export function HeroFondo() {
             <g key={t.d} style={{ '--i': i } as React.CSSProperties}>
               <path d={t.d} pathLength={1} className="hero-traza" strokeWidth="2" strokeLinejoin="round" />
               <circle cx={t.pad[0]} cy={t.pad[1]} r="7" className="hero-pad" strokeWidth="2" />
+            </g>
+          ))}
+        </g>
+        <g className="hero-trazas-movil">
+          {TRAZAS_MOVIL.map((t, i) => (
+            <g key={t.d} style={{ '--i': i } as React.CSSProperties}>
+              <path d={t.d} pathLength={1} className="hero-traza" strokeWidth="5" strokeLinejoin="round" />
+              <circle cx={t.pad[0]} cy={t.pad[1]} r="14" className="hero-pad" strokeWidth="5" />
             </g>
           ))}
         </g>

@@ -4,7 +4,7 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID
 // Vercel solo sirve /_vercel/* en sus deploys; en local esos scripts darían 404
 const ON_VERCEL = process.env.VERCEL === '1'
 
-// Clics que cuentan como contacto (conversión) en GA4
+// Clics que cuentan como contacto (conversión) en GA4, más los que van a Instagram
 const GA_INIT = `
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -15,6 +15,7 @@ document.addEventListener('click', function (e) {
   if (!a) return;
   var href = a.getAttribute('href') || '';
   var name = /wa\\.me|whatsapp/i.test(href) ? 'click_whatsapp'
+    : /instagram\\.com/i.test(href) ? 'click_instagram'
     : href.indexOf('tel:') === 0 ? 'click_telefono'
     : href.indexOf('mailto:') === 0 ? 'click_email'
     : null;

@@ -20,7 +20,7 @@ const SELLOS = [`Entrega en ${PLAZO}`, 'Informe técnico', 'Garantía de 30 día
 export function Hero() {
   return (
     <section className="bg-ink-950" aria-label="Inicio">
-      <div className="hero-banda px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-10 lg:pb-16">
+      <div className="hero-banda px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-28 lg:pb-16">
         <div className="relative max-w-[76rem] mx-auto">
           <HeroFondo />
           <h1 className="relative max-w-[20ch]">Mantención y servicio técnico de computadores en La Serena y Coquimbo</h1>

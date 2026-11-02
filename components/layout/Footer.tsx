@@ -28,17 +28,16 @@ export function Footer() {
               {EMPRESA.tagline}
             </p>
             <p className="text-xs text-fg-subtle">RUT {EMPRESA.rut}</p>
-            <div className="flex gap-3">
-              <a
-                href={EMPRESA.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 text-fg-subtle hover:text-brand-bright transition-colors"
-                aria-label="Instagram TECKWARE"
-              >
-                <InstagramIcon size={18} />
-              </a>
-            </div>
+            <a
+              href={EMPRESA.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secundario"
+              aria-label={`Seguir a ${EMPRESA.instagramHandle} en Instagram`}
+            >
+              <InstagramIcon size={18} />
+              {EMPRESA.instagramHandle}
+            </a>
           </div>
 
           {/* Columna 2 — Navegación */}

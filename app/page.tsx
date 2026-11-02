@@ -5,6 +5,7 @@ import { PorQueElegirnos } from '@/components/home/PorQueElegirnos'
 import { Proceso } from '@/components/home/Proceso'
 import { Segmentos } from '@/components/home/Segmentos'
 import { GuiasBlog } from '@/components/home/GuiasBlog'
+import { InstagramBanda } from '@/components/home/InstagramBanda'
 import { BandaCta } from '@/components/shared/BandaCta'
 import { EMPRESA, PLAZO } from '@/lib/constants'
 import { getServices } from '@/lib/services'
@@ -26,6 +27,7 @@ export default async function Home() {
       <Hero />
       <ServiciosDestacados servicios={servicios} />
       <Proceso />
+      <InstagramBanda />
       <PorQueElegirnos />
       <Segmentos />
       <GuiasBlog />

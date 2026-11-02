@@ -216,6 +216,7 @@
   .btn:active:not([disabled]) { transform: scale(0.97); }
   .btn[disabled], .btn[aria-disabled="true"] { cursor: not-allowed; color: var(--color-fg-subtle); }
 
+  .btn-oscuro::before,
   .btn-primario::before,
   .btn-secundario::before,
   .btn-secundario::after {
@@ -337,19 +338,16 @@
     isolation: isolate;
     overflow: hidden;
     border-bottom: 1px solid rgba(255,255,255,0.10);
-    background:
-      radial-gradient(52% 110% at 88% 45%, color-mix(in oklab, var(--color-brand-deep) 60%, transparent), transparent 72%),
-      var(--color-ink-950);
+    background: var(--color-ink-950);
   }
+  /* En celular va bajo el título y asoma por el borde inferior: se ve entero sin tapar el texto. */
   .hero-ventana {
     position: absolute;
     z-index: -1;
-    /* En celular debe ocupar menos que el título, para que el título siga siendo el LCP. */
-    top: -4.5rem;
-    right: -5rem;
-    width: 16rem;
+    top: calc(100% + 0.75rem);
+    right: -1rem;
+    width: 12rem;
     aspect-ratio: 476 / 550;
-    opacity: 0.3;
   }
   .hero-ventana-foto {
     position: absolute;
@@ -361,9 +359,10 @@
   .hero-foto {
     object-fit: cover;
     object-position: 50% 30%;
-    filter: grayscale(1) contrast(1.1) brightness(0.7);
+    filter: grayscale(1) contrast(1.1) brightness(1.15);
     /* Acerca los tubos de cobre y deja fuera las marcas y la etiqueta de la foto. */
-    transform: scale(1.7);
+    /* En celular solo asoma la mitad superior: sube la foto para que se vean los tubos. */
+    transform: scale(1.7) translateY(-24%);
     transform-origin: 30% 40%;
   }
   /* Tiñe la foto con el azul del logo y la apaga hacia el lado del título. */
@@ -385,16 +384,9 @@
   .hero-trazado { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
   .hero-borde-interior { stroke: color-mix(in oklab, var(--color-brand-bright) 45%, transparent); }
   .hero-trazas { display: none; }
-  /* En celular el borde cruza el título: va apagado para no restarle lectura. */
-  .hero-trazado { opacity: 0.45; }
   .hero-traza { stroke: var(--color-brand-bright); }
   .hero-pad { stroke: var(--color-brand-bright); fill: var(--color-ink-950); }
 
-  @media (min-width: 48rem) {
-    .hero-ventana { top: -5.5rem; right: -7.5rem; width: 20rem; opacity: 0.6; }
-    .hero-trazado { opacity: 1; }
-    .hero-foto { filter: grayscale(1) contrast(1.1) brightness(1.15); }
-  }
   @media (min-width: 64rem) {
     /* Medidas en función del título: así el hexágono y las trazas calzan en cualquier ancho. */
     .hero-ventana {
@@ -402,10 +394,11 @@
       right: auto;
       left: calc(var(--titulo-h1) * 10.75);
       width: calc(var(--titulo-h1) * 4.4);
-      opacity: 1;
       transform: translateY(-50%);
     }
+    .hero-foto { transform: scale(1.7); }
     .hero-trazas { display: block; }
+    .hero-trazas-movil { display: none; }
   }
 
   /* Se dibuja una sola vez al cargar. Sin esta regla, las trazas quedan completas y quietas. */
@@ -419,6 +412,61 @@
       animation: entrada 240ms var(--ease-salida) both;
       animation-delay: calc(620ms + var(--i, 0) * 90ms);
     }
+  }
+
+  /* Banda de Instagram: el azul del logo de lado a lado, a mitad de la portada. */
+  .banda-azul { background: var(--color-brand); overflow: hidden; }
+  .banda-azul :focus-visible { outline-color: var(--color-fg); }
+  .ig-cuenta {
+    display: block;
+    width: fit-content;
+    margin-top: 0.25rem;
+    font-family: var(--font-saira), system-ui, sans-serif;
+    font-size: clamp(3rem, 13.5vw, 6.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: var(--color-fg);
+    text-decoration: underline transparent 0.06em;
+    text-underline-offset: 0.12em;
+    transition: text-decoration-color 160ms var(--ease-salida);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .ig-cuenta:hover { text-decoration-color: currentColor; }
+    .btn-oscuro:hover::before { background: var(--color-ink-800); }
+  }
+  @media (min-width: 64rem) {
+    /* Aquí comparte fila con los hexágonos: el tamaño se ajusta a la columna. */
+    .ig-cuenta { font-size: min(8.8vw, 6.5rem); }
+  }
+  .btn-oscuro { color: var(--color-fg); }
+  .btn-oscuro::before { background: var(--color-ink-950); }
+  .btn-oscuro:active::before { background: var(--color-ink-700); }
+
+  /* Tres hexágonos encajados: misma forma del logo y del título. */
+  .ig-panal { position: relative; width: min(100%, 15rem); aspect-ratio: 1 / 1.01; margin-inline: auto; }
+  @media (min-width: 64rem) { .ig-panal { width: 100%; } }
+  .ig-celda {
+    position: absolute;
+    width: 48.5%;
+    aspect-ratio: 476 / 550;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background: var(--color-ink-950);
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  }
+  .ig-celda-a { top: 0; left: 0; }
+  .ig-celda-b { top: 0; right: 0; }
+  .ig-celda-c { bottom: 0; left: 25.75%; }
+  .ig-foto { object-fit: cover; filter: grayscale(1) contrast(1.15) brightness(0.95); }
+  .ig-celda-a::after,
+  .ig-celda-c::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--color-brand-bright);
+    mix-blend-mode: color;
   }
 
   /* Preguntas frecuentes: la respuesta aparece con un fundido, donde el navegador lo permite. */

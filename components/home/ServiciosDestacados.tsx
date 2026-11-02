@@ -34,8 +34,8 @@ export function ServiciosDestacados({ servicios }: { servicios: Servicio[] }) {
           <article className="panel-corte flex flex-col self-start w-full">
             <div className="relative h-52 sm:h-64">
               <Image
-                src="/images/mantencionpc2.jpg"
-                alt="Mantención física de un PC con limpieza y pasta térmica"
+                src="/images/mantenimiento.jpg"
+                alt="Técnico aplicando pasta térmica sobre el procesador durante una mantención"
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 40vw, 100vw"

@@ -16,6 +16,8 @@ export const EMPRESA = {
   whatsapp: 'https://wa.me/56930209427',
   instagram: 'https://instagram.com/teckware.cl',
   instagramHandle: '@teckware.cl',
+  // Contado en la cuenta pública: 695 publicaciones al 2026-11-02.
+  instagramPublicaciones: 'Más de 690 publicaciones',
   dominio: 'https://www.teckware.cl',
   tagline: 'Tu tecnología, nuestra prioridad.',
   // Técnico responsable: el mismo nombre y título en la web, los informes y la Ficha de Google.
