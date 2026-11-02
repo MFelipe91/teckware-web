@@ -366,6 +366,16 @@ Informe en `docs/auditoria-cierre.md`; las pruebas se repiten con `tests/auditor
 **Ojo:** `.env.local` usa el Supabase de producción. Probar envíos solo con
 `AUDIT_TARGET=local npx playwright test`, que usa un Supabase falso.
 
+### 6.12 Portada e Instagram (rama `feat/hero-titulo`, 2026-11-02)
+
+- [x] Hexágono del logo con foto a todo color como fondo del título; en celular va bajo el texto.
+- [x] Banda de Instagram en la portada, ícono en el menú, botón en el pie y línea en `BandaCta`.
+      Clics medidos con `click_instagram` en GA4.
+- [x] Foto nueva de Mantención Full y menú en una línea a 1024 px.
+- [x] Mantención Lógica a $35.000; las landings leen el precio de `lib/constants.ts`.
+- [ ] Cambiar las fotos de archivo del hexágono y de la banda por fotos reales del taller.
+- [ ] Revisar "Más de 690 publicaciones" (`EMPRESA.instagramPublicaciones`) cuando la cifra crezca.
+
 ---
 
 ## 7. Fase 4 — Crecimiento (después del rediseño)
