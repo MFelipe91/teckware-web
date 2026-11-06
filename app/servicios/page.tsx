@@ -52,7 +52,7 @@ const FALLBACK_IMG = '/images/hardware-amd.jpg'
 export default async function ServiciosPage() {
   const SERVICIOS = await getServices()
   return (
-    <div className="min-h-screen bg-ink-900">
+    <div className="min-h-svh bg-ink-900">
       {/* Header */}
       <section className="relative bg-ink-950 pt-32 pb-14 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-[76rem] mx-auto">
@@ -101,7 +101,7 @@ export default async function ServiciosPage() {
                   {cond?.incluye && (
                     <ul className="space-y-1.5 mb-4">
                       {cond.incluye.map((linea) => (
-                        <li key={linea} className="flex items-start gap-2 text-[13px] text-fg-muted leading-snug">
+                        <li key={linea} className="flex items-start gap-2 text-sm text-fg-muted leading-snug">
                           <Check size={14} className="text-brand-bright shrink-0 mt-0.5" strokeWidth={2.5} />
                           <span>{linea}</span>
                         </li>
@@ -111,7 +111,7 @@ export default async function ServiciosPage() {
 
                   {/* Nota / condición específica */}
                   {cond?.nota && (
-                    <p className="flex items-start gap-2 text-xs text-fg-subtle leading-relaxed mb-5 pt-3 border-t border-white/5">
+                    <p className="flex items-start gap-2 text-sm text-fg-subtle leading-relaxed mb-5 pt-3 border-t border-white/5">
                       <Info size={13} className="text-fg-subtle shrink-0 mt-0.5" />
                       <span>{cond.nota}</span>
                     </p>

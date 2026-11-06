@@ -55,7 +55,7 @@ export function HubPage(props: HubPageProps) {
   const nombre = `${titulo} ${tituloAccent}`
 
   return (
-    <div className="min-h-screen bg-ink-900">
+    <div className="min-h-svh bg-ink-900">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd(faqs)) }} />
       <script
         type="application/ld+json"
@@ -66,7 +66,7 @@ export function HubPage(props: HubPageProps) {
         <CtaPair waHref={waHref} />
       </PageHeader>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
         <div>
           <h2 className="text-fg text-3xl sm:text-4xl">{cardsTitle}</h2>
           <div className="mt-5 space-y-4">
@@ -93,7 +93,7 @@ export function HubPage(props: HubPageProps) {
         </ul>
       </section>
 
-      <section className="bg-ink-800 px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <section className="bg-ink-800 px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         <div className="max-w-[76rem] mx-auto">
           <h2 className="text-fg mb-8 sm:mb-10">{puntosTitle}</h2>
           <ul className="grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3 border-t border-white/10">

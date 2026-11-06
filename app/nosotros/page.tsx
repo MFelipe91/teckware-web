@@ -38,13 +38,13 @@ const VALORES = [
 
 export default function NosotrosPage() {
   return (
-    <div className="min-h-screen bg-ink-900">
+    <div className="min-h-svh bg-ink-900">
       <PageHeader
         titulo="Quiénes somos"
         bajada="Un servicio técnico de La Serena donde te atiende la misma persona que trabaja en tu equipo."
       />
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
         <div>
           <h2 className="text-fg mb-6">La historia</h2>
           <div className="space-y-4 max-w-2xl">
@@ -81,7 +81,7 @@ export default function NosotrosPage() {
         </div>
       </section>
 
-      <section className="bg-ink-800 px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <section className="bg-ink-800 px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         <div className="max-w-[76rem] mx-auto grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
           <h2 className="text-fg">Cómo trabajamos</h2>
           <ul className="border-t border-white/10">

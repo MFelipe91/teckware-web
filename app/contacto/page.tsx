@@ -22,7 +22,7 @@ const CANALES = [
 
 export default function ContactoPage() {
   return (
-    <div className="min-h-screen bg-ink-900">
+    <div className="min-h-svh bg-ink-900">
       <PageHeader
         titulo="Contacto"
         bajada={`Te respondemos en horario hábil: ${EMPRESA.horario}. El canal principal es WhatsApp.`}
@@ -33,7 +33,7 @@ export default function ContactoPage() {
         </a>
       </PageHeader>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 grid gap-12 lg:gap-20 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 grid gap-12 lg:gap-20 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
         <section aria-label="Canales de contacto">
           <ul className="border-t border-white/10">
             {CANALES.map((c) => (

@@ -6,7 +6,7 @@ const ULTIMAS = [...POSTS].sort((a, b) => b.date.localeCompare(a.date)).slice(0,
 
 export function GuiasBlog() {
   return (
-    <section className="bg-ink-950 px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <section className="bg-ink-950 px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
       <div className="max-w-[76rem] mx-auto">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
           <h2 className="text-fg">Cuida tu equipo antes de que falle</h2>

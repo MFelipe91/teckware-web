@@ -4,7 +4,7 @@ import { NIVELES_PC, precioNivelPC } from '@/lib/constants'
 // Armado de PC gamer primero: es uno de los servicios principales. Empresas, a su página.
 export function Segmentos() {
   return (
-    <section className="bg-ink-900 px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <section className="bg-ink-900 px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
       <div className="max-w-[76rem] mx-auto grid gap-4 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
         <div className="panel-corte p-7 sm:p-10">
           <h2 className="text-fg">PC Gamer armado a pedido</h2>

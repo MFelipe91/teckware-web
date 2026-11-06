@@ -38,7 +38,7 @@ const INCLUYE = [
 
 export default function WebQAPage() {
   return (
-    <div className="min-h-screen bg-ink-900">
+    <div className="min-h-svh bg-ink-900">
       <PageHeader
         titulo="Desarrollo web y control de calidad para tu empresa"
         bajada="Construimos sitios, auditamos los que ya tienes y probamos tus aplicaciones con pruebas manuales y automatizadas."
@@ -48,7 +48,7 @@ export default function WebQAPage() {
         </a>
       </PageHeader>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
         <div>
           <h2 className="text-fg">Servicios</h2>
           <p className="mt-4 text-fg-muted">Desde una auditoría puntual hasta la construcción completa de tu sitio.</p>
@@ -69,7 +69,7 @@ export default function WebQAPage() {
         </ul>
       </section>
 
-      <section className="bg-ink-800 px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <section className="bg-ink-800 px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         <div className="max-w-[76rem] mx-auto">
           <h2 className="text-fg mb-8">Cómo trabajamos</h2>
           <ul className="grid gap-x-10 sm:grid-cols-2 border-t border-white/10">
@@ -83,7 +83,7 @@ export default function WebQAPage() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         <h2 className="text-fg mb-10">El proceso</h2>
         <ol className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {PROCESO_WEB.map(({ paso, titulo, desc }) => (
@@ -96,7 +96,7 @@ export default function WebQAPage() {
         </ol>
       </section>
 
-      <section className="bg-ink-950 px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <section className="bg-ink-950 px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         <div className="max-w-[76rem] mx-auto grid gap-8 lg:gap-20 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
           <h2 className="text-fg">Todo proyecto incluye</h2>
           <ul className="grid gap-x-10 gap-y-3 sm:grid-cols-2">

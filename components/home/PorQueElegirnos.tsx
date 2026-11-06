@@ -3,7 +3,7 @@ import { EMPRESA, POR_QUE_ELEGIRNOS } from '@/lib/constants'
 
 export function PorQueElegirnos() {
   return (
-    <section className="bg-ink-800 px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <section className="bg-ink-800 px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
       <div className="max-w-[76rem] mx-auto grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
         <div>
           <h2 className="text-fg">Quién trabaja en tu equipo</h2>

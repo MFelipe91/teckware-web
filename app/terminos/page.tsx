@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function TerminosPage() {
   return (
-    <div className="min-h-screen bg-ink-900 pt-24">
+    <div className="min-h-svh bg-ink-900 pt-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h1 className="mb-2">Términos de Servicio</h1>
         <p className="text-fg-subtle text-sm mb-10">Última actualización: Mayo 2026</p>

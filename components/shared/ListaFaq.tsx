@@ -3,7 +3,7 @@ import { ChevronDown } from 'lucide-react'
 // Preguntas frecuentes: título a la izquierda y respuestas plegables a la derecha.
 export function ListaFaq({ faqs }: { faqs: { q: string; a: string }[] }) {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 grid gap-8 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 grid gap-8 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
       <h2 className="text-fg">Preguntas frecuentes</h2>
       <div className="border-t border-white/10">
         {faqs.map(({ q, a }) => (

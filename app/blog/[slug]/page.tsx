@@ -48,7 +48,7 @@ export default async function BlogPostPage({ params }: Props) {
   const otros = POSTS.filter((p) => p.slug !== post.slug)
 
   return (
-    <div className="min-h-screen bg-ink-900 pt-16">
+    <div className="min-h-svh bg-ink-900 pt-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

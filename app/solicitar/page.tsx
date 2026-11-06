@@ -56,7 +56,7 @@ export default function SolicitarPage() {
   }
 
   return (
-    <div className="min-h-screen bg-ink-900">
+    <div className="min-h-svh bg-ink-900">
       {/* Header */}
       <section className="relative bg-ink-950 pt-32 pb-14 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-[76rem] mx-auto">
@@ -118,7 +118,7 @@ export default function SolicitarPage() {
           {/* Email (opcional) */}
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-fg mb-1.5">
-              Email <span className="text-fg-subtle text-xs">(opcional)</span>
+              Email <span className="text-fg-subtle meta-chica">(opcional)</span>
             </label>
             <input
               id="email"

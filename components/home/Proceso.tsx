@@ -2,7 +2,7 @@ import { PROCESO } from '@/lib/constants'
 
 export function Proceso({ titulo = 'Cómo funciona' }: { titulo?: string }) {
   return (
-    <section className="bg-ink-950 px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <section className="bg-ink-950 px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
       <div className="max-w-[76rem] mx-auto">
         <h2 className="text-fg mb-10 sm:mb-14">{titulo}</h2>
         <ol className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">

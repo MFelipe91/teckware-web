@@ -17,7 +17,7 @@ const fecha = (iso: string) =>
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-ink-900">
+    <div className="min-h-svh bg-ink-900">
       <PageHeader
         titulo="Guías de mantención"
         bajada="Consejos prácticos para que tu PC, notebook o consola rinda más y dure más. Escritos desde el taller, en La Serena."

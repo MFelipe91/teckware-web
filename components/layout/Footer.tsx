@@ -9,7 +9,7 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-ink-950 border-t border-white/10 pb-14 sm:pb-0">
+    <footer className="bg-ink-950 border-t border-white/10 pb-[calc(3.5rem+env(safe-area-inset-bottom))] sm:pb-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
@@ -27,7 +27,7 @@ export function Footer() {
             <p className="text-sm text-fg-muted leading-relaxed">
               {EMPRESA.tagline}
             </p>
-            <p className="text-xs text-fg-subtle">RUT {EMPRESA.rut}</p>
+            <p className="meta-chica text-fg-subtle">RUT {EMPRESA.rut}</p>
             <a
               href={EMPRESA.instagram}
               target="_blank"
@@ -126,14 +126,14 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-fg-subtle">
+          <p className="meta-chica text-fg-subtle">
             © {year} TECKWARE SpA. Todos los derechos reservados.
           </p>
           <div className="flex gap-6">
-            <Link href="/privacidad" className="inline-block py-1 text-xs text-fg-subtle hover:text-fg-muted transition-colors">
+            <Link href="/privacidad" className="inline-flex min-h-11 items-center meta-chica text-fg-subtle hover:text-fg-muted transition-colors">
               Privacidad
             </Link>
-            <Link href="/terminos" className="inline-block py-1 text-xs text-fg-subtle hover:text-fg-muted transition-colors">
+            <Link href="/terminos" className="inline-flex min-h-11 items-center meta-chica text-fg-subtle hover:text-fg-muted transition-colors">
               Términos
             </Link>
           </div>

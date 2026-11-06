@@ -43,7 +43,7 @@ export function ServiceLanding(props: ServiceLandingProps) {
   const nombre = `${titulo} ${tituloAccent}`
 
   return (
-    <div className="min-h-screen bg-ink-900">
+    <div className="min-h-svh bg-ink-900">
       {/* JSON-LD FAQ → rich snippet en Google */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd(faqs)) }} />
       {/* JSON-LD Service → vincula este servicio al negocio local */}
@@ -57,7 +57,7 @@ export function ServiceLanding(props: ServiceLandingProps) {
       </PageHeader>
 
       {/* Texto a la izquierda, lo que incluye a la derecha */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
         <div className="space-y-4">
           {intro.map((p, i) => <p key={i} className="text-fg-muted leading-relaxed">{p}</p>)}
         </div>
@@ -78,7 +78,7 @@ export function ServiceLanding(props: ServiceLandingProps) {
       </section>
 
       {precios && precios.length > 0 && (
-        <section className="bg-ink-950 px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <section className="bg-ink-950 px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
           <div className="max-w-[76rem] mx-auto grid gap-8 lg:gap-20 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
             <div>
               <h2 className="text-fg">Precios de referencia</h2>

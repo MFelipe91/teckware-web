@@ -23,7 +23,7 @@ export function ServiciosDestacados({ servicios }: { servicios: Servicio[] }) {
   const resto = [...prioritarios, ...extras].slice(0, 5)
 
   return (
-    <section className="bg-ink-900 px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <section className="bg-ink-900 px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
       <div className="max-w-[76rem] mx-auto">
         <div className="grid gap-4 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end mb-10 sm:mb-14">
           <h2 className="text-fg">Precios fijos, sin sorpresas</h2>

@@ -37,7 +37,7 @@ const CREDENCIALES = [
 
 export default function CiberseguridadPage() {
   return (
-    <div className="min-h-screen bg-ink-900">
+    <div className="min-h-svh bg-ink-900">
       <PageHeader
         titulo="Ciberseguridad para pymes y empresas"
         bajada="Revisamos cómo está protegida tu empresa, cerramos las brechas que encontramos y capacitamos a tu equipo."
@@ -47,7 +47,7 @@ export default function CiberseguridadPage() {
         </a>
       </PageHeader>
 
-      <section className="bg-ink-800 px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <section className="bg-ink-800 px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         <div className="max-w-[76rem] mx-auto grid gap-8 lg:gap-20 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
           <h2 className="text-fg">Los riesgos más comunes</h2>
           <ul className="grid gap-x-10 sm:grid-cols-2 border-t border-white/10">
@@ -61,7 +61,7 @@ export default function CiberseguridadPage() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         <h2 className="text-fg mb-8">Servicios</h2>
         <ul className="border-t border-white/10">
           {CIBER_SERVICIOS.map((s) => (
@@ -81,7 +81,7 @@ export default function CiberseguridadPage() {
         </ul>
       </section>
 
-      <section className="bg-ink-950 px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <section className="bg-ink-950 px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         <div className="max-w-[76rem] mx-auto grid gap-10 lg:gap-16 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
           <div>
             <h2 className="text-fg mb-4">¿Para quién es este servicio?</h2>
@@ -117,7 +117,7 @@ export default function CiberseguridadPage() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 grid gap-8 lg:gap-20 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 grid gap-8 lg:gap-20 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
         <h2 className="text-fg">Respaldo profesional</h2>
         <ul className="border-t border-white/10">
           {CREDENCIALES.map(({ titulo, org, desc }) => (

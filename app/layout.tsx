@@ -105,6 +105,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: '#060B19', // ink-900
+  // El contenido llega hasta el notch y la barra de gestos; los fijos se apartan con env(safe-area-inset-*).
+  viewportFit: 'cover',
 }
 
 export default function RootLayout({
@@ -120,7 +122,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(businessLd) }}
         />
       </head>
-      <body className="min-h-screen antialiased">
+      <body className="min-h-svh antialiased">
         <a href="#contenido" className="saltar">Saltar al contenido</a>
         <Navbar />
         <main id="contenido" tabIndex={-1}>{children}</main>

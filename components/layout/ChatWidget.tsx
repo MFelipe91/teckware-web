@@ -116,7 +116,7 @@ export function ChatWidget() {
             <div className="flex-1 min-w-0">
               <p className="text-sm font-bold text-fg leading-none mb-1">Teck, asistente de TECKWARE</p>
               <div className="flex items-center gap-1.5">
-                <span className="text-xs text-fg-subtle">Asistente virtual. Te ayuda a cotizar</span>
+                <span className="meta-chica text-fg-subtle">Asistente virtual. Te ayuda a cotizar</span>
               </div>
             </div>
             <button
@@ -234,12 +234,12 @@ export function ChatWidget() {
                 </button>
               </div>
               <div className="flex justify-between items-center mt-1.5 px-0.5">
-                <span className="text-xs text-fg-subtle">La IA puede cometer errores</span>
+                <span className="meta-chica text-fg-subtle">La IA puede cometer errores</span>
                 <a
                   href={WA.general()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-fg-subtle hover:text-brand-bright transition-colors flex items-center gap-1"
+                  className="meta-chica text-fg-subtle hover:text-brand-bright transition-colors flex items-center gap-1"
                 >
                   Preferir WhatsApp <ArrowRight size={11} aria-hidden="true" />
                 </a>
@@ -254,7 +254,7 @@ export function ChatWidget() {
         ref={fabRef}
         onClick={() => { setOpen(o => !o); setSeenCount(msgs.length) }}
         type="button"
-        className="fab fixed bottom-0 right-0 sm:bottom-24 sm:right-6 z-50 w-14 h-14 bg-brand hover:bg-brand-hover flex items-center justify-center"
+        className="fab fixed bottom-0 right-0 sm:bottom-24 sm:right-6 z-50 w-14 h-[calc(3.5rem+env(safe-area-inset-bottom))] pb-[env(safe-area-inset-bottom)] sm:h-14 sm:pb-0 bg-brand hover:bg-brand-hover flex items-center justify-center"
         aria-label={open ? 'Cerrar chat' : 'Abrir chat con Teck IA'}
       >
         {open

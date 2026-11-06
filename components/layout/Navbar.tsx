@@ -21,9 +21,9 @@ export function Navbar() {
   }, [open])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-ink-950 border-b border-white/8">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-ink-950 border-b border-white/8 pt-[env(safe-area-inset-top)]">
       <nav aria-label="Principal" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 xl:gap-6">
-        <Link href="/" className="shrink-0 flex items-center" aria-label="TECKWARE inicio">
+        <Link href="/" className="shrink-0 flex items-center min-h-11" aria-label="TECKWARE inicio">
           <Image
             src="/brand/logo-horizontal.webp"
             alt="TECKWARE"
