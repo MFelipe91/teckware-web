@@ -25,7 +25,7 @@ function ListaEnlaces({ enlaces }: { enlaces: Enlace[] }) {
         <li key={l.href}>
           <Link
             href={l.href}
-            className={`flex min-h-11 items-center text-sm transition-colors hover:text-brand-bright active:text-brand-bright ${
+            className={`flex min-h-11 items-center py-2.5 leading-snug text-sm transition-colors hover:text-brand-bright active:text-brand-bright ${
               l.destacado ? 'text-brand-bright font-medium' : 'text-fg-muted'
             }`}
           >

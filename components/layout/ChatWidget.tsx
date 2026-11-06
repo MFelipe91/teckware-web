@@ -98,7 +98,7 @@ export function ChatWidget() {
         role="dialog"
         aria-label="Chat con Teck, asistente de TECKWARE"
         inert={!open}
-        className={`fixed inset-x-0 bottom-[calc(3.5rem+env(safe-area-inset-bottom))] sm:inset-x-auto sm:bottom-[10.5rem] sm:right-6 z-50 w-full sm:w-[340px] sm:max-w-[calc(100vw-2rem)] origin-bottom-right transition-[opacity,scale,visibility] duration-200 ease-salida ${
+        className={`fixed inset-x-0 bottom-[calc(3.5rem+env(safe-area-inset-bottom))] sm:inset-x-auto sm:bottom-[10.5rem] lg:bottom-24 sm:right-6 z-50 w-full sm:w-[340px] sm:max-w-[calc(100vw-2rem)] origin-bottom-right transition-[opacity,scale,visibility] duration-200 ease-salida ${
           open
             ? 'opacity-100 scale-100 pointer-events-auto'
             : 'opacity-0 scale-95 motion-reduce:scale-100 pointer-events-none invisible'
@@ -254,7 +254,7 @@ export function ChatWidget() {
         ref={fabRef}
         onClick={() => { setOpen(o => !o); setSeenCount(msgs.length) }}
         type="button"
-        className="fab fixed bottom-0 right-0 sm:bottom-24 sm:right-6 z-50 w-14 h-[calc(3.5rem+env(safe-area-inset-bottom))] pb-[env(safe-area-inset-bottom)] sm:h-14 sm:pb-0 bg-brand hover:bg-brand-hover flex items-center justify-center"
+        className="fab fixed bottom-0 right-0 sm:bottom-24 lg:bottom-6 sm:right-6 z-50 w-14 h-[calc(3.5rem+env(safe-area-inset-bottom))] pb-[env(safe-area-inset-bottom)] sm:h-14 sm:pb-0 bg-brand hover:bg-brand-hover flex items-center justify-center"
         aria-label={open ? 'Cerrar chat' : 'Abrir chat con Teck IA'}
       >
         {open
