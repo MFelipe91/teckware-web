@@ -44,3 +44,10 @@ next-env.d.ts
 
 # master de marca regenerable (scripts/brand/generate-assets.mjs)
 /design/
+
+# Auditoría móvil: al repo van solo las capturas de 360 y 1440 px (el resto queda local)
+/docs/movil/*/pantalla/*
+!/docs/movil/*/pantalla/*-360.jpg
+!/docs/movil/*/pantalla/*-1440.jpg
+/docs/movil/*/completa/*
+!/docs/movil/*/completa/*-360.jpg

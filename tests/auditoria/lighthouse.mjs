@@ -10,7 +10,7 @@ import { chromium } from '@playwright/test'
 
 const BASE = (process.env.AUDIT_BASE_URL ?? 'https://www.teckware.cl').replace(/\/$/, '')
 const ETAPA = process.env.AUDIT_ETAPA === 'despues' ? 'despues' : 'antes'
-const PAGINAS = ['/', '/mantencion', '/agendar', '/builds', '/mantencion-pc-gamer']
+const PAGINAS = process.env.AUDIT_PAGINAS?.split(',') ?? ['/', '/mantencion', '/agendar', '/builds', '/mantencion-pc-gamer']
 const CORRIDAS = 3
 const BLOQUEADAS = ['*googletagmanager.com*', '*google-analytics.com*', '*analytics.google.com*', '*/_vercel/*', '*vercel-insights.com*']
 
@@ -73,7 +73,7 @@ const salida = {
   paginas: resultados,
   gtagKbGzipAprox: Math.round(zlib.gzipSync(gtagBytes).length / 1024),
 }
-const dir = path.join(process.cwd(), 'docs', 'auditoria', 'datos', ETAPA)
+const dir = process.env.AUDIT_DIR_DATOS ?? path.join(process.cwd(), 'docs', 'auditoria', 'datos', ETAPA)
 fs.mkdirSync(dir, { recursive: true })
 fs.writeFileSync(path.join(dir, 'lighthouse.json'), JSON.stringify(salida, null, 2))
 console.log('gtag KB gzip aprox:', salida.gtagKbGzipAprox)

@@ -376,6 +376,23 @@ Informe en `docs/auditoria-cierre.md`; las pruebas se repiten con `tests/auditor
 - [ ] Cambiar las fotos de archivo del hexágono y de la banda por fotos reales del taller.
 - [ ] Revisar "Más de 690 publicaciones" (`EMPRESA.instagramPublicaciones`) cuando la cifra crezca.
 
+### 6.13 Celular primero (rama `feat/movil`, desde 2026-11-06)
+
+La mayoría de los clientes llega desde Instagram y WhatsApp en el celular. Detalle y capturas en
+`docs/auditoria-movil.md`; prueba repetible `npx playwright test prod.movil`.
+
+- [x] Herramientas: context7 agregado al proyecto (`.mcp.json`), junto a Playwright, superpowers,
+      frontend-design y ui-ux-pro-max. Sin librerías nuevas: se usa framer-motion.
+- [x] Bloque 1 — diagnóstico móvil en 360/375/390/412 px (más 768 y 1440) de 24 páginas, con
+      Lighthouse móvil "antes". Resultado: 0 críticos, 5 altos, 7 medios, 5 bajos.
+- [ ] Aprobación del dueño del informe.
+- [ ] Bloque 2 — corrección móvil (texto ≥ 16 px, toques de 44 px, `svh`, `safe-area`, un solo botón
+      de WhatsApp, menú a pantalla completa, portada de ≤ 7 pantallas, atajos en `/servicios`,
+      pasos de `/agendar`, landings con precio arriba, pie compacto).
+- [ ] Bloque 3 — escritorio: revisar 768, 1024 y 1440 px.
+- [ ] Cierre: capturas y Lighthouse "después", tsc/lint/build y Preview de Vercel para revisar en el
+      celular antes de publicar.
+
 ---
 
 ## 7. Fase 4 — Crecimiento (después del rediseño)

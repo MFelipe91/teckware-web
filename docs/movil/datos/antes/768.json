@@ -1,0 +1,3609 @@
+[
+  {
+    "ruta": "/",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 48,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px span.block.text-sm.text-fg-muted «Test, limpieza, pasta Thermal Grizzly, B»",
+      "14px span.block.text-sm.text-fg-muted «Desarmado, limpieza de ventilador y disi»",
+      "14px span.block.text-sm.text-fg-muted «Limpieza física y cambio de metal líquid»",
+      "14px span.block.text-sm.text-fg-muted «Cable management y pruebas de estabilida»",
+      "14px li «Entrega en 48 h hábiles»",
+      "14px li «Informe técnico»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 49.152,
+        "lineas": 3
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 36,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.btn.btn-terciario.self-start «Ver precios» 83x27",
+      "a.btn.btn-terciario.justify-self-end «Cotizar» 53x27",
+      "a.btn.btn-terciario.justify-self-end «Cotizar» 53x27",
+      "a.btn.btn-terciario.justify-self-end «Cotizar» 53x27",
+      "a.btn.btn-terciario.justify-self-end «Cotizar» 53x27",
+      "a.btn.btn-terciario.justify-self-end «Cotizar» 53x27",
+      "a.btn.btn-terciario.mt-6 «Ver todos los servicios» 166x27"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Mantención y servicio técnico de computadores en La Serena y Coquimbo",
+      "h1Px": 49.152,
+      "h1Arriba": 112,
+      "h1Abajo": 259,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 1099,
+      "altoHeader": 65,
+      "primerCtaVisible": false
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Fpexels-alexandrep-junior-33798615.jpg&w=640&q=72",
+        "mostrada": "192x222",
+        "natural": "200x300",
+        "sobredimension": 0.5,
+        "sizes": "(min-width: 1024px) 430px, 200px",
+        "kb": 27,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Fmantenimiento.jpg&w=1920&q=72",
+        "mostrada": "720x256",
+        "natural": "768x512",
+        "sobredimension": 0.5,
+        "sizes": "(min-width: 1024px) 40vw, 100vw",
+        "kb": 57,
+        "sinDimensiones": false,
+        "encima": false
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Frevendo-TN0dhAnylPI-unsplash.jpg&w=828&q=60",
+        "mostrada": "116x134",
+        "natural": "384x256",
+        "sobredimension": 1.6,
+        "sizes": "(min-width: 1024px) 180px, 50vw",
+        "kb": 9,
+        "sinDimensiones": false,
+        "encima": false
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Fupgraderamssd.jpg&w=828&q=60",
+        "mostrada": "116x134",
+        "natural": "384x512",
+        "sobredimension": 1.6,
+        "sizes": "(min-width: 1024px) 180px, 50vw",
+        "kb": 28,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 7620
+  },
+  {
+    "ruta": "/mantencion",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 35,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.text-sm.text-fg-muted.leading-relaxed «La mayoría de las fallas que vemos no ll»",
+      "14px p.text-sm.text-fg-muted.leading-relaxed «En cada mantención te explicamos qué enc»",
+      "14px p.mt-5.text-sm.text-fg-subtle «Todos los precios incluyen IVA. Emitimos»",
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Limpieza profunda, pasta térmica premium»",
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Desarmado, limpieza de ventilador y disi»",
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Instalación limpia de Windows o macOS, d»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 31,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.btn.btn-terciario.justify-self-end «Ver detalle» 80x27",
+      "a.btn.btn-terciario.justify-self-end «Ver detalle» 80x27",
+      "a.btn.btn-terciario.justify-self-end «Ver detalle» 80x27",
+      "a.btn.btn-terciario.justify-self-end «Ver detalle» 80x27",
+      "a.btn.btn-terciario.justify-self-end «Cotizar» 53x27",
+      "a.btn.btn-terciario.justify-self-end «Ver empresas» 102x27",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28"
+    ],
+    "tactilesJuntos": 22,
+    "ejemplosJuntos": [
+      "a.btn.btn-terciario.justify-self-end «Ver detalle» ↔ button.fab.fixed.bottom-0",
+      "a.btn.btn-terciario.justify-self-end «Ver detalle» ↔ a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Mantención de computadores en La Serena y Coquimbo",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 205,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 454,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 5041
+  },
+  {
+    "ruta": "/servicios",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 33,
+      "13px": 37,
+      "12px": 14
+    },
+    "ejemplosTextoChico": [
+      "14px p.text-sm.text-fg-muted.mb-4 «Revisión técnica completa para identific»",
+      "13px span «Revisión completa de hardware y software»",
+      "13px span «Informe de la falla + presupuesto de rep»",
+      "13px span «Diagnóstico real e informe técnico, entr»",
+      "12px span «El valor del diagnóstico se descuenta de»",
+      "14px p.text-sm.text-fg-muted.mb-4 «Formateo e instalación limpia de Windows»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 49.152,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 24,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 24,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 24,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 25,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28",
+      "a.inline-block.py-1.text-sm «Empresas» 62x28",
+      "a.inline-block.py-1.text-sm «Blog» 28x28",
+      "a.inline-block.py-1.text-sm «Contacto» 57x28",
+      "a.inline-block.py-1.text-sm «Web & QA» 63x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Servicios y precios en La Serena y Coquimbo",
+      "h1Px": 49.152,
+      "h1Arriba": 128,
+      "h1Abajo": 226,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 322,
+      "altoHeader": 65,
+      "primerCtaVisible": null
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Fdiagnostico_tester.jpg&w=640&q=72",
+        "mostrada": "200x144",
+        "natural": "200x150",
+        "sobredimension": 0.5,
+        "sizes": "(min-width: 1024px) 240px, (min-width: 768px) 200px, 100vw",
+        "kb": 14,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2FFormateo_windows11.jpg&w=640&q=72",
+        "mostrada": "200x144",
+        "natural": "200x133",
+        "sobredimension": 0.5,
+        "sizes": "(min-width: 1024px) 240px, (min-width: 768px) 200px, 100vw",
+        "kb": 9,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Fmantenimiento.jpg&w=640&q=72",
+        "mostrada": "200x144",
+        "natural": "200x133",
+        "sobredimension": 0.5,
+        "sizes": "(min-width: 1024px) 240px, (min-width: 768px) 200px, 100vw",
+        "kb": 11,
+        "sinDimensiones": false,
+        "encima": false
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Frecuperacion-datos.jpg&w=640&q=72",
+        "mostrada": "200x144",
+        "natural": "200x150",
+        "sobredimension": 0.5,
+        "sizes": "(min-width: 1024px) 240px, (min-width: 768px) 200px, 100vw",
+        "kb": 26,
+        "sinDimensiones": false,
+        "encima": false
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2FGPU001.jpg&w=640&q=72",
+        "mostrada": "200x144",
+        "natural": "200x355",
+        "sobredimension": 0.5,
+        "sizes": "(min-width: 1024px) 240px, (min-width: 768px) 200px, 100vw",
+        "kb": 38,
+        "sinDimensiones": false,
+        "encima": false
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Fpcgamer01.jpg&w=640&q=72",
+        "mostrada": "200x144",
+        "natural": "200x266",
+        "sobredimension": 0.5,
+        "sizes": "(min-width: 1024px) 240px, (min-width: 768px) 200px, 100vw",
+        "kb": 34,
+        "sinDimensiones": false,
+        "encima": false
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Fpc-montaje.jpg&w=640&q=72",
+        "mostrada": "200x144",
+        "natural": "200x266",
+        "sobredimension": 0.5,
+        "sizes": "(min-width: 1024px) 240px, (min-width: 768px) 200px, 100vw",
+        "kb": 24,
+        "sinDimensiones": false,
+        "encima": false
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Fps5-consola.jpg&w=640&q=72",
+        "mostrada": "200x144",
+        "natural": "200x299",
+        "sobredimension": 0.5,
+        "sizes": "(min-width: 1024px) 240px, (min-width: 768px) 200px, 100vw",
+        "kb": 16,
+        "sinDimensiones": false,
+        "encima": false
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Fps5-metal-liquido.jpg&w=640&q=72",
+        "mostrada": "200x144",
+        "natural": "200x266",
+        "sobredimension": 0.5,
+        "sizes": "(min-width: 1024px) 240px, (min-width: 768px) 200px, 100vw",
+        "kb": 20,
+        "sinDimensiones": false,
+        "encima": false
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Fupgraderamssd.jpg&w=640&q=72",
+        "mostrada": "200x144",
+        "natural": "200x266",
+        "sobredimension": 0.5,
+        "sizes": "(min-width: 1024px) 240px, (min-width: 768px) 200px, 100vw",
+        "kb": 28,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 7198
+  },
+  {
+    "ruta": "/empresas",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 35,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.text-sm.text-fg-muted.leading-relaxed «En una pyme, un computador detenido es u»",
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Trabajamos directo contigo, sin intermed»",
+      "14px p.mt-5.text-sm.text-fg-subtle «Todos los precios incluyen IVA. Emitimos»",
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Mantención preventiva y soporte de los c»",
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Revisamos tus equipos, red, respaldos y »",
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Automatizamos tareas repetitivas (respue»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 31,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.btn.btn-terciario.justify-self-end «Cotizar» 53x27",
+      "a.btn.btn-terciario.justify-self-end «Cotizar» 53x27",
+      "a.btn.btn-terciario.justify-self-end «Cotizar» 53x27",
+      "a.btn.btn-terciario.justify-self-end «Ver servicios» 95x27",
+      "a.btn.btn-terciario.justify-self-end «Ver servicios» 95x27",
+      "a.btn.btn-terciario.justify-self-end «Ver mantención» 117x27",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28"
+    ],
+    "tactilesJuntos": 22,
+    "ejemplosJuntos": [
+      "a.btn.btn-terciario.justify-self-end «Cotizar» ↔ button.fab.fixed.bottom-0",
+      "a.btn.btn-terciario.justify-self-end «Cotizar» ↔ a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Soporte informático para empresas en La Serena y Coquimbo",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 205,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 454,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 4700
+  },
+  {
+    "ruta": "/builds",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 20,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.mt-2.text-sm.text-fg-muted «Completas el formulario con tu presupues»",
+      "14px p.mt-2.text-sm.text-fg-muted «Revisamos compatibilidad, stock y precio»",
+      "14px p.mt-2.text-sm.text-fg-muted «Con tu aprobación armamos el equipo. Una»",
+      "14px p.mt-2.text-sm.text-fg-muted «Hacemos pruebas de estrés y control de t»",
+      "14px p.mt-5.text-sm.text-ink-700 «Mira nuestro trabajo en Instagram: @teck»",
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Tu tecnología, nuestra prioridad.»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 29,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "input.w-5.h-5.accent-brand 20x20",
+      "input.w-5.h-5.accent-brand 20x20",
+      "input.w-5.h-5.accent-brand 20x20",
+      "input.w-5.h-5.accent-brand 20x20",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "PC Gamer a pedido",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 166,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 386,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [
+      {
+        "nombre": "presupuesto",
+        "tipo": "select-one",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 48
+      },
+      {
+        "nombre": "usos",
+        "tipo": "checkbox",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 20
+      },
+      {
+        "nombre": "usos",
+        "tipo": "checkbox",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 20
+      },
+      {
+        "nombre": "usos",
+        "tipo": "checkbox",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 20
+      },
+      {
+        "nombre": "usos",
+        "tipo": "checkbox",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 20
+      },
+      {
+        "nombre": "resolucion",
+        "tipo": "select-one",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 48
+      },
+      {
+        "nombre": "fps",
+        "tipo": "select-one",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 48
+      },
+      {
+        "nombre": "programas",
+        "tipo": "textarea",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 98
+      },
+      {
+        "nombre": "marcas",
+        "tipo": "text",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 50
+      },
+      {
+        "nombre": "componentes",
+        "tipo": "textarea",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 74
+      },
+      {
+        "nombre": "monitor",
+        "tipo": "select-one",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 48
+      },
+      {
+        "nombre": "plazo",
+        "tipo": "select-one",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 48
+      },
+      {
+        "nombre": "nombre",
+        "tipo": "text",
+        "inputmode": null,
+        "autocomplete": "name",
+        "px": 16,
+        "etiqueta": true,
+        "alto": 50
+      },
+      {
+        "nombre": "telefono",
+        "tipo": "tel",
+        "inputmode": null,
+        "autocomplete": "tel",
+        "px": 16,
+        "etiqueta": true,
+        "alto": 50
+      }
+    ],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 4311
+  },
+  {
+    "ruta": "/agendar",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 22,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px span.text-sm.font-bold.text-fg-muted «Diagnóstico / Revisión»",
+      "14px span.text-sm.font-bold.text-fg-muted «Mantención Lógica · Formateo»",
+      "14px span.text-sm.font-bold.text-fg-muted «Mantención Full · Físico + Sistema»",
+      "14px span.text-sm.font-bold.text-fg-muted «Armado PC Gamer»",
+      "14px span.text-sm.font-bold.text-fg-muted «Workstation / Empresarial»",
+      "14px span.text-sm.font-bold.text-fg-muted «Otro / Consultar»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 20,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 16,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 16,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 29,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "button.py-1.text-xs.font-semibold «Servicio» 45x24",
+      "button.py-1.text-xs.font-semibold «Equipo» 39x24",
+      "button.py-1.text-xs.font-semibold «Agenda» 42x24",
+      "button.py-1.text-xs.font-semibold «Resumen» 52x24",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "¿Qué necesita tu equipo?",
+      "h1Px": 38.4,
+      "h1Arriba": 96,
+      "h1Abajo": 134,
+      "h1CompletoEnPantalla": true,
+      "altoHero": null,
+      "altoHeader": 65,
+      "primerCtaVisible": null
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 2039
+  },
+  {
+    "ruta": "/solicitar",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 16,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.text-sm.text-fg-subtle «Al enviar, se abrirá WhatsApp con tu sol»",
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Tu tecnología, nuestra prioridad.»",
+      "12px p.text-xs.text-fg-subtle «RUT 78.398.912-3»",
+      "14px a.inline-block.py-1.text-sm «Servicio técnico»",
+      "14px a.inline-block.py-1.text-sm «Solicitar servicio»",
+      "14px a.inline-block.py-1.text-sm «Servicio técnico de computadores en La S»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 49.152,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 16,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 16,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 16,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 25,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28",
+      "a.inline-block.py-1.text-sm «Empresas» 62x28",
+      "a.inline-block.py-1.text-sm «Blog» 28x28",
+      "a.inline-block.py-1.text-sm «Contacto» 57x28",
+      "a.inline-block.py-1.text-sm «Web & QA» 63x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Cuéntanos qué necesitas",
+      "h1Px": 49.152,
+      "h1Arriba": 128,
+      "h1Abajo": 177,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 297,
+      "altoHeader": 65,
+      "primerCtaVisible": null
+    },
+    "campos": [
+      {
+        "nombre": "nombre",
+        "tipo": "text",
+        "inputmode": null,
+        "autocomplete": "name",
+        "px": 16,
+        "etiqueta": true,
+        "alto": 50
+      },
+      {
+        "nombre": "telefono",
+        "tipo": "tel",
+        "inputmode": null,
+        "autocomplete": "tel",
+        "px": 16,
+        "etiqueta": true,
+        "alto": 50
+      },
+      {
+        "nombre": "email",
+        "tipo": "email",
+        "inputmode": null,
+        "autocomplete": "email",
+        "px": 16,
+        "etiqueta": true,
+        "alto": 50
+      },
+      {
+        "nombre": "tipoEquipo",
+        "tipo": "select-one",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 50
+      },
+      {
+        "nombre": "servicio",
+        "tipo": "select-one",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 50
+      },
+      {
+        "nombre": "descripcion",
+        "tipo": "textarea",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 122
+      }
+    ],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 2137
+  },
+  {
+    "ruta": "/contacto",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 19,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.mt-1.mb-2.text-sm «Para llamarnos en horario de atención.»",
+      "14px p.mt-1.mb-2.text-sm «Para consultas detalladas o presupuestos»",
+      "14px p.mt-1.mb-2.text-sm «Nuestro trabajo y proyectos recientes.»",
+      "14px p.mt-3.text-sm.text-fg-subtle «Visita a domicilio solo para trabajos si»",
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Tu tecnología, nuestra prioridad.»",
+      "12px p.text-xs.text-fg-subtle «RUT 78.398.912-3»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 20,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 20,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 20,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 29,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.btn.btn-terciario «+56 9 3020 9427» 132x27",
+      "a.btn.btn-terciario «mariofelipe@teckware.cl» 185x27",
+      "a.btn.btn-terciario «@teckware.cl» 100x27",
+      "a.btn.btn-terciario «Ir al formulario» 111x27",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Contacto",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 166,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 386,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 2275
+  },
+  {
+    "ruta": "/nosotros",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 16,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.mt-5.text-sm.text-ink-700 «Mira nuestro trabajo en Instagram: @teck»",
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Tu tecnología, nuestra prioridad.»",
+      "12px p.text-xs.text-fg-subtle «RUT 78.398.912-3»",
+      "14px a.inline-block.py-1.text-sm «Servicio técnico»",
+      "14px a.inline-block.py-1.text-sm «Solicitar servicio»",
+      "14px a.inline-block.py-1.text-sm «Servicio técnico de computadores en La S»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 25,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28",
+      "a.inline-block.py-1.text-sm «Empresas» 62x28",
+      "a.inline-block.py-1.text-sm «Blog» 28x28",
+      "a.inline-block.py-1.text-sm «Contacto» 57x28",
+      "a.inline-block.py-1.text-sm «Web & QA» 63x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Quiénes somos",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 166,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 306,
+      "altoHeader": 65,
+      "primerCtaVisible": null
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 3015
+  },
+  {
+    "ruta": "/blog",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 19,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px span.text-sm.text-fg-subtle.lg:text-right «26 de octubre de 20265 min de lectura»",
+      "14px span.text-sm.text-fg-subtle.lg:text-right «26 de octubre de 20264 min de lectura»",
+      "14px span.text-sm.text-fg-subtle.lg:text-right «26 de octubre de 20264 min de lectura»",
+      "14px span.text-sm.text-fg-subtle.lg:text-right «26 de octubre de 20265 min de lectura»",
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Tu tecnología, nuestra prioridad.»",
+      "12px p.text-xs.text-fg-subtle «RUT 78.398.912-3»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 25,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28",
+      "a.inline-block.py-1.text-sm «Empresas» 62x28",
+      "a.inline-block.py-1.text-sm «Blog» 28x28",
+      "a.inline-block.py-1.text-sm «Contacto» 57x28",
+      "a.inline-block.py-1.text-sm «Web & QA» 63x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Guías de mantención",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 166,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 306,
+      "altoHeader": 65,
+      "primerCtaVisible": null
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 2249
+  },
+  {
+    "ruta": "/blog/cada-cuanto-hacer-mantencion-pc-gamer",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 18,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px a.inline-flex.items-center.gap-2 «Todas las guías»",
+      "14px span «Por Mario Felipe Busques Araya»",
+      "14px span «5 min de lectura»",
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Tu tecnología, nuestra prioridad.»",
+      "12px p.text-xs.text-fg-subtle «RUT 78.398.912-3»",
+      "14px a.inline-block.py-1.text-sm «Servicio técnico»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 26,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.inline-flex.items-center.gap-2 «Todas las guías» 117x20",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28",
+      "a.inline-block.py-1.text-sm «Empresas» 62x28",
+      "a.inline-block.py-1.text-sm «Blog» 28x28",
+      "a.inline-block.py-1.text-sm «Contacto» 57x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "¿Cada cuánto hacer mantención a tu PC gamer?",
+      "h1Px": 36,
+      "h1Arriba": 181,
+      "h1Abajo": 217,
+      "h1CompletoEnPantalla": true,
+      "altoHero": null,
+      "altoHeader": 65,
+      "primerCtaVisible": null
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 3105
+  },
+  {
+    "ruta": "/web-qa",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 36,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Análisis completo de tu sitio web: rendi»",
+      "14px span.text-fg-subtle «Plazo: 3–5 días hábiles.»",
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Landing page profesional orientada a con»",
+      "14px span.text-fg-subtle «Plazo: 5–10 días hábiles.»",
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Sitio web institucional multi-página con»",
+      "14px span.text-fg-subtle «Plazo: 2–4 semanas.»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 31,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28"
+    ],
+    "tactilesJuntos": 21,
+    "ejemplosJuntos": [
+      "a.btn.btn-terciario.justify-self-end «Solicitar» ↔ a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Desarrollo web y control de calidad para tu empresa",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 205,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 424,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 4106
+  },
+  {
+    "ruta": "/ciberseguridad",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 42,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.mt-1.5.text-sm.text-fg-muted «Correos o mensajes engañosos que buscan »",
+      "14px p.mt-1.5.text-sm.text-fg-muted «Cifrado malicioso de datos que paraliza »",
+      "14px p.mt-1.5.text-sm.text-fg-muted «Contraseñas débiles o reutilizadas expon»",
+      "14px p.mt-1.5.text-sm.text-fg-muted «Routers sin configurar, WiFi abierta y e»",
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Evaluación de vulnerabilidades en tu inf»",
+      "14px span.text-fg-subtle «Plazo: 5–7 días hábiles.»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 31,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.btn.btn-terciario «Solicitar» 61x27",
+      "a.btn.btn-terciario «Solicitar» 61x27",
+      "a.btn.btn-terciario «Solicitar» 61x27",
+      "a.btn.btn-terciario «Solicitar» 61x27",
+      "a.btn.btn-terciario «Solicitar» 61x27",
+      "a.btn.btn-terciario «Solicitar» 61x27",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Ciberseguridad para pymes y empresas",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 166,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 386,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 4940
+  },
+  {
+    "ruta": "/pagina-inexistente-auditoria",
+    "estado": 404,
+    "errores": [
+      "Failed to load resource: the server responded with a status of 404 ()"
+    ],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 15,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.text-sm.text-fg-muted.leading-relaxed «Tu tecnología, nuestra prioridad.»",
+      "12px p.text-xs.text-fg-subtle «RUT 78.398.912-3»",
+      "14px a.inline-block.py-1.text-sm «Servicio técnico»",
+      "14px a.inline-block.py-1.text-sm «Solicitar servicio»",
+      "14px a.inline-block.py-1.text-sm «Servicio técnico de computadores en La S»",
+      "14px a.inline-block.py-1.text-sm «Servicio técnico en Coquimbo»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 49.152,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 16,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 16,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 16,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 25,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28",
+      "a.inline-block.py-1.text-sm «Empresas» 62x28",
+      "a.inline-block.py-1.text-sm «Blog» 28x28",
+      "a.inline-block.py-1.text-sm «Contacto» 57x28",
+      "a.inline-block.py-1.text-sm «Web & QA» 63x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Esta página no existe",
+      "h1Px": 49.152,
+      "h1Arriba": 163,
+      "h1Abajo": 212,
+      "h1CompletoEnPantalla": true,
+      "altoHero": null,
+      "altoHeader": 65,
+      "primerCtaVisible": null
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 1701
+  },
+  {
+    "ruta": "/servicio-tecnico-computadores-la-serena",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 23,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.mt-1.text-sm.text-fg-muted «Equipos que no encienden, pantallazos az»",
+      "14px p.mt-1.text-sm.text-fg-muted «Instalación limpia de Windows o macOS, d»",
+      "14px p.mt-1.text-sm.text-fg-muted «Limpieza interna, pasta térmica, teclado»",
+      "14px p.mt-1.text-sm.text-fg-muted «Mantención física, cambio de componentes»",
+      "14px p.mt-1.text-sm.text-fg-muted «Rescatamos fotos y documentos de discos »",
+      "14px p.mt-1.text-sm.text-fg-muted «30 días de garantía en mano de obra, pre»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 28,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28",
+      "a.inline-block.py-1.text-sm «Empresas» 62x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Servicio técnico de computadores en La Serena",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 205,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 424,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 4511
+  },
+  {
+    "ruta": "/servicio-tecnico-coquimbo",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 23,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.mt-1.text-sm.text-fg-muted «Coordinas una hora por WhatsApp y traes »",
+      "14px p.mt-1.text-sm.text-fg-muted «Formateos y configuraciones en tu casa u»",
+      "14px p.mt-1.text-sm.text-fg-muted «Te explicamos la falla y el costo antes »",
+      "14px p.mt-1.text-sm.text-fg-muted «Notebooks, PC de escritorio, PC Gamer, M»",
+      "14px p.mt-1.text-sm.text-fg-muted «Mantención de equipos de oficina y sopor»",
+      "14px p.mt-1.text-sm.text-fg-muted «Garantía en mano de obra, precios con IV»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 28,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28",
+      "a.inline-block.py-1.text-sm «Empresas» 62x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Servicio técnico de computadores en Coquimbo",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 205,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 454,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 4230
+  },
+  {
+    "ruta": "/reparacion-notebook-la-serena",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 23,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.mt-1.text-sm.text-fg-muted «Revisamos alimentación, batería, placa y»",
+      "14px p.mt-1.text-sm.text-fg-muted «Limpieza interna del sistema de ventilac»",
+      "14px p.mt-1.text-sm.text-fg-muted «Migramos tu sistema a un SSD y ampliamos»",
+      "14px p.mt-1.text-sm.text-fg-muted «Reemplazo de teclados y reparación de bi»",
+      "14px p.mt-1.text-sm.text-fg-muted «Diagnóstico de batería, cargador y puert»",
+      "14px p.mt-1.text-sm.text-fg-muted «Garantía en la mano de obra, boleta y pr»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 28,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28",
+      "a.inline-block.py-1.text-sm «Empresas» 62x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Reparación de notebooks en La Serena",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 166,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 386,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 4366
+  },
+  {
+    "ruta": "/formateo-pc-la-serena",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 23,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.mt-1.text-sm.text-fg-muted «Antes de formatear respaldamos tus docum»",
+      "14px p.mt-1.text-sm.text-fg-muted «Instalación desde cero de Windows o macO»",
+      "14px p.mt-1.text-sm.text-fg-muted «Controladores correctos para tu modelo y»",
+      "14px p.mt-1.text-sm.text-fg-muted «Navegador, lector PDF, compresor y lo bá»",
+      "14px p.mt-1.text-sm.text-fg-muted «El formateo elimina malware, extensiones»",
+      "14px p.mt-1.text-sm.text-fg-muted «Garantía en la mano de obra, precio con »"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 28,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28",
+      "a.inline-block.py-1.text-sm «Empresas» 62x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Formateo de PC y notebook en La Serena",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 166,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 386,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 4223
+  },
+  {
+    "ruta": "/mantencion-pc-gamer",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 23,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.mt-1.text-sm.text-fg-muted «Removemos polvo de ventiladores, disipad»",
+      "14px p.mt-1.text-sm.text-fg-muted «Pasta térmica de alto rendimiento en el »",
+      "14px p.mt-1.text-sm.text-fg-muted «OCCT, FurMark, Superposition y CrystalDi»",
+      "14px p.mt-1.text-sm.text-fg-muted «Chequeamos conexiones, ventiladores, alm»",
+      "14px p.mt-1.text-sm.text-fg-muted «Actualización de BIOS, respaldo de tus a»",
+      "14px p.mt-1.text-sm.text-fg-muted «Todos los trabajos tienen garantía. Trab»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 28,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28",
+      "a.inline-block.py-1.text-sm «Empresas» 62x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Mantención de PC Gamer",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 166,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 386,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 4450
+  },
+  {
+    "ruta": "/armado-pc-gamer-la-serena",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 24,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.mt-1.text-sm.text-fg-muted «Revisamos compatibilidad de placa, CPU, »",
+      "14px p.mt-1.text-sm.text-fg-muted «Montaje cuidadoso de CPU, disipador, mem»",
+      "14px p.mt-1.text-sm.text-fg-muted «Cables ordenados para mejor flujo de air»",
+      "14px p.mt-1.text-sm.text-fg-muted «Configuración de BIOS, perfiles de memor»",
+      "14px p.mt-1.text-sm.text-fg-muted «Refrigeración líquida, setups estéticos »",
+      "14px p.mt-1.text-sm.text-fg-muted «Garantía en la mano de obra del armado, »"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 28,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28",
+      "a.inline-block.py-1.text-sm «Empresas» 62x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Armado de PC Gamer en La Serena",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 166,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 386,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 4392
+  },
+  {
+    "ruta": "/reparacion-notebook-gamer",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 23,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.mt-1.text-sm.text-fg-muted «Cambio de pasta térmica y thermal pads +»",
+      "14px p.mt-1.text-sm.text-fg-muted «Removemos el polvo que ahoga la refriger»",
+      "14px p.mt-1.text-sm.text-fg-muted «Ampliamos memoria y cambiamos a SSD NVMe»",
+      "14px p.mt-1.text-sm.text-fg-muted «Diagnóstico y reparación de pantalla, bi»",
+      "14px p.mt-1.text-sm.text-fg-muted «Reparación de teclado, puerto de carga, »",
+      "14px p.mt-1.text-sm.text-fg-muted «Todos los trabajos con garantía. Diagnós»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 28,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28",
+      "a.inline-block.py-1.text-sm «Empresas» 62x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Reparación de Notebook Gamer",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 166,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 386,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 4453
+  },
+  {
+    "ruta": "/servicio-tecnico-apple",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 23,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.mt-1.text-sm.text-fg-muted «Limpieza interna y cambio de pasta térmi»",
+      "14px p.mt-1.text-sm.text-fg-muted «Diagnóstico de salud de batería y reempl»",
+      "14px p.mt-1.text-sm.text-fg-muted «Ampliación de almacenamiento en modelos »",
+      "14px p.mt-1.text-sm.text-fg-muted «Revisión completa de hardware y software»",
+      "14px p.mt-1.text-sm.text-fg-muted «Limpieza de sistema, respaldo de datos y»",
+      "14px p.mt-1.text-sm.text-fg-muted «Trabajo con garantía, manejo responsable»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 28,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28",
+      "a.inline-block.py-1.text-sm «Empresas» 62x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Servicio Técnico Apple & MacBook",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 166,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 386,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 4453
+  },
+  {
+    "ruta": "/mantencion-ps5-la-serena",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 23,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.mt-1.text-sm.text-fg-muted «Desarme, limpieza de ventilador, disipad»",
+      "14px p.mt-1.text-sm.text-fg-muted «Retiro y aplicación nueva de metal líqui»",
+      "14px p.mt-1.text-sm.text-fg-muted «Cambio de pasta térmica para bajar tempe»",
+      "14px p.mt-1.text-sm.text-fg-muted «Probamos la consola en uso antes de entr»",
+      "14px p.mt-1.text-sm.text-fg-muted «Revisamos lectura, puertos y funcionamie»",
+      "14px p.mt-1.text-sm.text-fg-muted «Garantía en mano de obra, boleta y preci»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 28,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28",
+      "a.inline-block.py-1.text-sm «Empresas» 62x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Mantención de PS5 y PS4 en La Serena",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 166,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 386,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 4330
+  },
+  {
+    "ruta": "/recuperacion-de-datos-la-serena",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 960,
+      "topeBarra": 1024,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 768,
+    "vh": 1024,
+    "scrollWidth": 768,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {
+      "14px": 23,
+      "12px": 2
+    },
+    "ejemplosTextoChico": [
+      "14px p.mt-1.text-sm.text-fg-muted «Discos que hacen ruidos, se desconectan »",
+      "14px p.mt-1.text-sm.text-fg-muted «Sacamos tu información de un notebook o »",
+      "14px p.mt-1.text-sm.text-fg-muted «Recuperación desde memorias USB, tarjeta»",
+      "14px p.mt-1.text-sm.text-fg-muted «Búsqueda de archivos eliminados por erro»",
+      "14px p.mt-1.text-sm.text-fg-muted «Tu información se trata con reserva y so»",
+      "14px p.mt-1.text-sm.text-fg-muted «Te informamos qué se puede recuperar y c»"
+    ],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.4,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 28,
+    "ejemplosTactilesChicos": [
+      "a.shrink-0.flex.items-center 208x40",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.btn.btn-terciario.justify-self-end «Solicitar» 61x27",
+      "a.inline-block.py-1.text-sm «Mantención» 74x28",
+      "a.inline-block.py-1.text-sm «Servicio técnico» 99x28",
+      "a.inline-block.py-1.text-sm «PC Gamer» 63x28",
+      "a.inline-block.py-1.text-sm «Empresas» 62x28"
+    ],
+    "tactilesJuntos": 20,
+    "ejemplosJuntos": [
+      "a.inline-block.py-1.text-sm «Mantención» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Servicio técnico» ↔ a.inline-block.py-1.text-sm «Mantención»",
+      "a.inline-block.py-1.text-sm «PC Gamer» ↔ a.inline-block.py-1.text-sm «Servicio técnico»",
+      "a.inline-block.py-1.text-sm «Empresas» ↔ a.inline-block.py-1.text-sm «PC Gamer»",
+      "a.inline-block.py-1.text-sm «Blog» ↔ a.inline-block.py-1.text-sm «Empresas»",
+      "a.inline-block.py-1.text-sm «Contacto» ↔ a.inline-block.py-1.text-sm «Blog»"
+    ],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 768,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 688,
+        "y": 944,
+        "w": 56,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 688,
+        "y": 872,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 0,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Recuperación de datos en La Serena",
+      "h1Px": 38.4,
+      "h1Arriba": 128,
+      "h1Abajo": 166,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 386,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "208x40",
+        "natural": "208x40",
+        "sobredimension": 0.5,
+        "sizes": null,
+        "kb": 7,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "160x166",
+        "natural": "192x199",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 22,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 4162
+  }
+]

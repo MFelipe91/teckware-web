@@ -11,7 +11,7 @@ const PUERTO_SUPABASE = 54399
 
 export default defineConfig({
   testDir: 'tests/auditoria',
-  testMatch: local ? /local\..*\.spec\.ts/ : /prod\.spec\.ts/,
+  testMatch: local ? /local\..*\.spec\.ts/ : /prod\.(movil\.)?spec\.ts/,
   outputDir: 'test-results',
   workers: 1,
   fullyParallel: false,
