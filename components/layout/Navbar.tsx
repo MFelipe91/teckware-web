@@ -18,11 +18,17 @@ export function Navbar() {
     if (!open) return
     const raiz = document.documentElement
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false) }
+    // Si la pantalla crece hasta lg (p. ej. un iPad que se gira), el menú desaparece: se cierra
+    // para no dejar el fondo bloqueado.
+    const escritorio = window.matchMedia('(min-width: 64rem)')
+    const onAncho = () => { if (escritorio.matches) setOpen(false) }
     window.addEventListener('keydown', onKey)
+    escritorio.addEventListener('change', onAncho)
     raiz.dataset.menuAbierto = ''
     raiz.style.overflow = 'hidden'
     return () => {
       window.removeEventListener('keydown', onKey)
+      escritorio.removeEventListener('change', onAncho)
       delete raiz.dataset.menuAbierto
       raiz.style.overflow = ''
     }
