@@ -393,8 +393,9 @@ La mayoría de los clientes llega desde Instagram y WhatsApp en el celular. Deta
 - [x] Bloque 3 — escritorio 768/1024/1440: WhatsApp flotante oculto desde 1024 px (el navbar lo trae) y pie parejo.
 - [x] Cierre técnico: `node tests/auditoria/criterios-movil.mjs despues` PASA, tsc/lint/build OK, comparación
       en `docs/auditoria-movil.md`.
-- [ ] El dueño revisa la Preview en su celular: https://teckware-web-git-feat-movil-mfelipe91s-projects.vercel.app
-- [ ] Publicar (merge de `feat/movil` a `main`) con su aprobación y mirar Speed Insights a los pocos días.
+- [x] El dueño revisa la Preview en su celular: https://teckware-web-git-feat-movil-mfelipe91s-projects.vercel.app
+- [x] Publicado en producción el 2026-11-06 con aprobación del dueño (main = 552bedd).
+- [ ] Mirar Vercel Speed Insights a los pocos días (LCP, CLS e INP reales en celular).
 
 ---
 
