@@ -13,11 +13,11 @@ export function GuiasBlog() {
           <Link href="/blog" className="btn btn-terciario self-start sm:self-auto shrink-0">Ver todas las guías</Link>
         </div>
         <ul className="border-t border-white/10">
-          {ULTIMAS.map((p) => (
-            <li key={p.slug} className="border-b border-white/10">
-              <Link href={`/blog/${p.slug}`} className="group grid gap-2 py-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)_auto] lg:gap-10 lg:items-baseline">
+          {ULTIMAS.map((p, i) => (
+            <li key={p.slug} className={`border-b border-white/10 ${i >= 2 ? "max-sm:hidden" : ""}`}>
+              <Link href={`/blog/${p.slug}`} className="group grid gap-2 py-5 sm:py-6 active:bg-ink-900 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)_auto] lg:gap-10 lg:items-baseline">
                 <h3 className="text-xl text-fg group-hover:text-brand-bright transition-colors">{p.title}</h3>
-                <p className="text-sm text-fg-muted leading-relaxed">{p.description}</p>
+                <p className="text-sm text-fg-muted leading-relaxed max-sm:hidden">{p.description}</p>
                 <span className="text-sm text-fg-subtle whitespace-nowrap">{p.minutes} min de lectura</span>
               </Link>
             </li>

@@ -363,13 +363,13 @@
     border-bottom: 1px solid rgba(255,255,255,0.10);
     background: var(--color-ink-950);
   }
-  /* En celular va bajo el título y asoma por el borde inferior: se ve entero sin tapar el texto. */
+  /* En celular va bajo el título y asoma por el borde inferior, dentro del ancho de la pantalla. */
   .hero-ventana {
     position: absolute;
     z-index: -1;
     top: calc(100% + 0.75rem);
-    right: -1rem;
-    width: 12rem;
+    right: 0;
+    width: 10.5rem;
     aspect-ratio: 476 / 550;
   }
   .hero-ventana-foto {

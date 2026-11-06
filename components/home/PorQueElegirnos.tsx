@@ -13,8 +13,9 @@ export function PorQueElegirnos() {
           <Link href="/nosotros" className="btn btn-terciario mt-5">Conocer TECKWARE</Link>
         </div>
         <ul className="grid gap-x-10 sm:grid-cols-2 border-t border-white/10">
-          {POR_QUE_ELEGIRNOS.map((item) => (
-            <li key={item.titulo} className="py-5 border-b border-white/10">
+          {/* En celular, las 3 primeras: el detalle completo está en /nosotros. */}
+          {POR_QUE_ELEGIRNOS.map((item, i) => (
+            <li key={item.titulo} className={`py-5 border-b border-white/10 ${i >= 3 ? "max-sm:hidden" : ""}`}>
               <h3 className="text-[1.125rem] text-fg">{item.titulo}</h3>
               <p className="mt-1.5 text-sm text-fg-muted leading-relaxed">{item.descripcion}</p>
             </li>
