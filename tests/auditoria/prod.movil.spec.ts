@@ -70,7 +70,8 @@ function medir() {
   const textoChico: Record<string, number> = {}
   const ejemplosTextoChico: string[] = []
   for (const el of document.querySelectorAll('main p, main li, main span, main a, main td, main dd, main small, footer p, footer a, footer li')) {
-    if (!visible(el)) continue
+    // Metadatos cortos (RUT, ©, "Paso 1 de 4") pueden ir a 14 px: se marcan con .meta-chica.
+    if (!visible(el) || el.closest('.meta-chica')) continue
     const propio = [...el.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent ?? '').join('').trim()
     if (propio.length < 15) continue
     const fs = parseFloat(getComputedStyle(el).fontSize)
