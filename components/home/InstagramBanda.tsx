@@ -28,7 +28,8 @@ export function InstagramBanda() {
           </a>
         </div>
 
-        <div className="ig-panal" aria-hidden="true">
+        {/* Decorativo: en celular se omite para acortar la portada. */}
+        <div className="ig-panal max-sm:hidden" aria-hidden="true">
           <div className="ig-celda ig-celda-a">
             <Image src="/images/revendo-TN0dhAnylPI-unsplash.jpg" alt="" fill sizes="(min-width: 1024px) 180px, 50vw" quality={60} className="ig-foto" style={{ objectPosition: '55% 55%' }} />
           </div>

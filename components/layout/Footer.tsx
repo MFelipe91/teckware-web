@@ -1,19 +1,73 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Mail, MapPin, Clock, Phone } from 'lucide-react'
+import { ChevronDown, Mail, MapPin, Clock, Phone } from 'lucide-react'
 import { InstagramIcon } from '@/components/shared/InstagramIcon'
 import { EMPRESA, NAV_LINKS } from '@/lib/constants'
 import { LANDINGS } from '@/lib/landings'
+
+type Enlace = { href: string; label: string; destacado?: boolean }
+
+const NAVEGACION: Enlace[] = [
+  ...NAV_LINKS,
+  { href: '/web-qa', label: 'Web & QA' },
+  { href: '/ciberseguridad', label: 'Ciberseguridad' },
+  { href: '/nosotros', label: 'Nosotros' },
+  { href: '/solicitar', label: 'Solicitar servicio', destacado: true },
+]
+const SERVICIOS: Enlace[] = [...LANDINGS]
+
+const TITULO = 'font-display text-base font-semibold text-silver'
+
+function ListaEnlaces({ enlaces }: { enlaces: Enlace[] }) {
+  return (
+    <ul>
+      {enlaces.map((l) => (
+        <li key={l.href}>
+          <Link
+            href={l.href}
+            className={`flex min-h-11 items-center text-sm transition-colors hover:text-brand-bright active:text-brand-bright ${
+              l.destacado ? 'text-brand-bright font-medium' : 'text-fg-muted'
+            }`}
+          >
+            {l.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+// En celular las dos listas largas van plegadas: el pie pasa de ~2 pantallas a menos de una.
+// Desde sm se ven abiertas en columnas, como siempre. Los enlaces están en el HTML en ambos casos.
+function GrupoPlegable({ titulo, enlaces }: { titulo: string; enlaces: Enlace[] }) {
+  return (
+    <>
+      <details className="group border-b border-white/10 sm:hidden">
+        <summary className={`${TITULO} flex min-h-14 cursor-pointer list-none items-center justify-between gap-4`}>
+          {titulo}
+          <ChevronDown size={18} aria-hidden="true" className="text-fg-subtle transition-transform group-open:rotate-180 motion-reduce:transition-none" />
+        </summary>
+        <div className="pb-3">
+          <ListaEnlaces enlaces={enlaces} />
+        </div>
+      </details>
+      <div className="hidden sm:block">
+        <h2 className={`${TITULO} mb-2`}>{titulo}</h2>
+        <ListaEnlaces enlaces={enlaces} />
+      </div>
+    </>
+  )
+}
 
 export function Footer() {
   const year = new Date().getFullYear()
 
   return (
     <footer className="bg-ink-950 border-t border-white/10 pb-[calc(3.5rem+env(safe-area-inset-bottom))] sm:pb-0">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
 
-          {/* Columna 1 — Marca */}
+          {/* Marca */}
           <div className="space-y-4">
             <Link href="/" aria-label="TECKWARE inicio" className="block w-fit">
               <Image
@@ -21,7 +75,7 @@ export function Footer() {
                 alt="TECKWARE — Soluciones Tecnológicas"
                 width={160}
                 height={166}
-                className="block"
+                className="block w-28 sm:w-40 h-auto"
               />
             </Link>
             <p className="text-sm text-fg-muted leading-relaxed">
@@ -40,72 +94,22 @@ export function Footer() {
             </a>
           </div>
 
-          {/* Columna 2 — Navegación */}
-          <div>
-            <h2 className="font-display text-base font-semibold text-silver mb-4">Navegación</h2>
-            <ul className="space-y-1">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="inline-block py-1 text-sm text-fg-muted hover:text-brand-bright transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              {[
-                { href: '/web-qa', label: 'Web & QA' },
-                { href: '/ciberseguridad', label: 'Ciberseguridad' },
-                { href: '/nosotros', label: 'Nosotros' },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="inline-block py-1 text-sm text-fg-muted hover:text-brand-bright transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link href="/solicitar" className="inline-block py-1 text-sm text-brand-bright hover:underline font-medium">
-                  Solicitar servicio
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Columna 3 — Servicios */}
-          <div>
-            <h2 className="font-display text-base font-semibold text-silver mb-4">Servicios</h2>
-            <ul className="space-y-1">
-              {LANDINGS.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="inline-block py-1 text-sm text-fg-muted hover:text-brand-bright transition-colors"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Columna 4 — Contacto */}
-          <div>
-            <h2 className="font-display text-base font-semibold text-silver mb-4">Contacto</h2>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-2 text-sm text-fg-muted">
-                <MapPin size={15} className="text-brand-bright mt-0.5 shrink-0" />
+          {/* Contacto: en celular va antes de las listas, que van plegadas */}
+          <div className="lg:order-last">
+            <h2 className={`${TITULO} mb-2`}>Contacto</h2>
+            <ul>
+              <li className="flex items-start gap-2 py-2.5 text-sm text-fg-muted">
+                <MapPin size={15} className="text-brand-bright mt-1 shrink-0" />
                 <span>{EMPRESA.direccion}</span>
               </li>
-              <li className="flex items-center gap-2 text-sm text-fg-muted">
+              <li className="flex items-center gap-2 py-2.5 text-sm text-fg-muted">
                 <Clock size={15} className="text-brand-bright shrink-0" />
                 <span>{EMPRESA.horario}</span>
               </li>
               <li>
                 <a
                   href={`mailto:${EMPRESA.email}`}
-                  className="flex items-center gap-2 text-sm text-fg-muted hover:text-brand-bright transition-colors"
+                  className="flex min-h-11 items-center gap-2 text-sm text-fg-muted hover:text-brand-bright active:text-brand-bright transition-colors"
                 >
                   <Mail size={15} className="text-brand-bright shrink-0" />
                   {EMPRESA.email}
@@ -114,7 +118,7 @@ export function Footer() {
               <li>
                 <a
                   href={EMPRESA.telefonoHref}
-                  className="flex items-center gap-2 text-sm text-fg-muted hover:text-brand-bright transition-colors"
+                  className="flex min-h-11 items-center gap-2 text-sm text-fg-muted hover:text-brand-bright active:text-brand-bright transition-colors"
                 >
                   <Phone size={15} className="text-brand-bright shrink-0" />
                   {EMPRESA.telefono}
@@ -122,10 +126,17 @@ export function Footer() {
               </li>
             </ul>
           </div>
+
+          <div className="border-t border-white/10 sm:border-0">
+            <GrupoPlegable titulo="Navegación" enlaces={NAVEGACION} />
+          </div>
+          <div className="-mt-8 sm:mt-0">
+            <GrupoPlegable titulo="Servicios" enlaces={SERVICIOS} />
+          </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+        {/* Barra inferior */}
+        <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4">
           <p className="meta-chica text-fg-subtle">
             © {year} TECKWARE SpA. Todos los derechos reservados.
           </p>

@@ -153,6 +153,12 @@ export default function AgendarPage() {
   const canNext1 = !!form.servicio
   const canNext2 = !!form.equipoTipo && !!form.problema.trim()
   const canNext3 = nombreValido.success && telefonoValido.success
+  // Por qué "Siguiente" sigue desactivado: un botón gris sin explicación parece roto.
+  const pistaPaso =
+    step === 1 && !canNext1 ? 'Elige un servicio para continuar'
+    : step === 2 && !canNext2 ? 'Elige el tipo de equipo y cuéntanos qué le pasa'
+    : step === 3 && !canNext3 ? 'Completa tu nombre y teléfono'
+    : null
 
   // Condiciones del servicio seleccionado (mapeado a constants.ts)
   const condSel = form.servicio && COND_MAP[form.servicio]
@@ -242,7 +248,11 @@ export default function AgendarPage() {
 
         {/* Progress bar */}
         <div className="mb-8">
-          <div className="flex justify-between mb-2">
+          {/* En celular, un texto legible en vez de 4 botones apretados. */}
+          <p className="sm:hidden mb-2 text-sm text-fg-muted" aria-live="polite">
+            Paso {step} de 4 · <span className="font-semibold text-brand-bright">{STEP_LABELS[step - 1]}</span>
+          </p>
+          <div className="hidden sm:flex justify-between mb-2">
             {STEP_LABELS.map((label, i) => (
               <button
                 key={label}
@@ -250,7 +260,7 @@ export default function AgendarPage() {
                 disabled={i + 1 >= step}
                 aria-current={i + 1 === step ? 'step' : undefined}
                 onClick={() => goTo((i + 1) as Step)}
-                className={`py-1 text-sm font-semibold transition-colors ${
+                className={`min-h-11 text-sm font-semibold transition-colors ${
                   i + 1 === step
                     ? 'text-brand-bright'
                     : i + 1 < step
@@ -258,7 +268,7 @@ export default function AgendarPage() {
                     : 'text-fg-subtle cursor-default'
                 }`}
               >
-                {i + 1 < step && <CheckCircle2 size={10} className="inline mr-1 text-brand-bright" />}
+                {i + 1 < step && <CheckCircle2 size={14} className="inline mr-1 text-brand-bright" />}
                 {label}
               </button>
             ))}
@@ -272,7 +282,7 @@ export default function AgendarPage() {
         </div>
 
         {/* Card */}
-        <div className="panel-corte p-6 sm:p-8">
+        <div className="panel-corte p-5 sm:p-8">
 
           {/* STEP 1 — Servicio */}
           {step === 1 && (
@@ -487,6 +497,7 @@ export default function AgendarPage() {
                     id={`${uid}-telefono`}
                     autoComplete="tel"
                     type="tel"
+                    inputMode="tel"
                     placeholder="+56 9 XXXX XXXX"
                     value={form.telefono}
                     onChange={(e) => set('telefono', e.target.value)}
@@ -628,7 +639,7 @@ export default function AgendarPage() {
 
           {/* Navigation buttons */}
           {step < 4 && (
-            <div className="flex justify-between mt-8 pt-6 border-t border-white/8">
+            <div className="flex flex-wrap items-center justify-between gap-3 mt-8 pt-6 border-t border-white/8">
               <button
                 type="button"
                 onClick={() => goTo(Math.max(1, step - 1) as Step)}
@@ -650,6 +661,7 @@ export default function AgendarPage() {
                 {step === 3 ? 'Ver resumen' : 'Siguiente'}
                 <ArrowRight size={15} strokeWidth={2.5} />
               </button>
+              {pistaPaso && <p className="basis-full text-right text-sm text-fg-subtle">{pistaPaso}</p>}
             </div>
           )}
         </div>

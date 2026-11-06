@@ -103,6 +103,7 @@ export default function SolicitarPage() {
             <input
               id="telefono"
               type="tel"
+              inputMode="tel"
               autoComplete="tel"
               {...register('telefono')}
               aria-invalid={!!errors.telefono}
@@ -195,6 +196,7 @@ export default function SolicitarPage() {
             <textarea
               id="descripcion"
               rows={4}
+              enterKeyHint="send"
               {...register('descripcion')}
               aria-invalid={!!errors.descripcion}
               aria-describedby={errors.descripcion ? 'descripcion-error' : undefined}

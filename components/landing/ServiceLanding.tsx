@@ -41,6 +41,7 @@ export function ServiceLanding(props: ServiceLandingProps) {
   } = props
   const otros = LANDINGS.filter((l) => l.href !== path)
   const nombre = `${titulo} ${tituloAccent}`
+  const precioPrincipal = precios?.[0]
 
   return (
     <div className="min-h-svh bg-ink-900">
@@ -53,12 +54,19 @@ export function ServiceLanding(props: ServiceLandingProps) {
       />
 
       <PageHeader titulo={nombre} bajada={subtitle}>
+        {/* El precio va arriba: en celular, quien llega desde Instagram lo ve sin desplazarse. */}
+        {precioPrincipal && (
+          <p className="mb-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span className="price text-2xl text-fg">{precioPrincipal.precio}</span>
+            <span className="text-fg-muted">{precioPrincipal.nombre} · {precioPrincipal.tiempo}</span>
+          </p>
+        )}
         <CtaPair waHref={waHref} />
       </PageHeader>
 
-      {/* Texto a la izquierda, lo que incluye a la derecha */}
+      {/* Texto a la izquierda, lo que incluye a la derecha. En celular, lo que incluye va primero. */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
-        <div className="space-y-4">
+        <div className="space-y-4 order-last lg:order-none">
           {intro.map((p, i) => <p key={i} className="text-fg-muted leading-relaxed">{p}</p>)}
         </div>
         <div>

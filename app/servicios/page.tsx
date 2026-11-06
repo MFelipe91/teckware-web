@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import {
-  Laptop, Monitor, Gamepad2, Tablet, Apple, Receipt, Check, Info, ShieldCheck,
+  Laptop, Monitor, Gamepad2, Tablet, Apple, Receipt, Check, ChevronDown, Info, ShieldCheck,
 } from 'lucide-react'
 import {
   SERVICIOS_ADICIONALES, EQUIPOS, IVA_NOTA,
@@ -49,6 +49,32 @@ const SERVICE_IMAGES: Record<string, string> = {
 }
 const FALLBACK_IMG = '/images/hardware-amd.jpg'
 
+function Detalle({ cond }: { cond: (typeof SERVICIO_CONDICIONES)[string] | undefined }) {
+  return (
+    <>
+      {/* Qué incluye */}
+      {cond?.incluye && (
+        <ul className="space-y-1.5 mb-4">
+          {cond.incluye.map((linea) => (
+            <li key={linea} className="flex items-start gap-2 text-sm text-fg-muted leading-snug">
+              <Check size={14} className="text-brand-bright shrink-0 mt-0.5" strokeWidth={2.5} />
+              <span>{linea}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {/* Nota / condición específica */}
+      {cond?.nota && (
+        <p className="flex items-start gap-2 text-sm text-fg-subtle leading-relaxed mb-5 pt-3 border-t border-white/5">
+          <Info size={13} className="text-fg-subtle shrink-0 mt-0.5" />
+          <span>{cond.nota}</span>
+        </p>
+      )}
+    </>
+  )
+}
+
 export default async function ServiciosPage() {
   const SERVICIOS = await getServices()
   return (
@@ -65,8 +91,27 @@ export default async function ServiciosPage() {
         </div>
       </section>
 
+      {/* Atajos: en celular la lista es larga, así se salta directo al servicio que interesa */}
+      <nav
+        aria-label="Ir a un servicio"
+        className="sticky top-[calc(4rem+env(safe-area-inset-top))] z-40 bg-ink-900/95 backdrop-blur border-b border-white/10"
+      >
+        <ul className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-2 overflow-x-auto [scrollbar-width:none] py-2">
+          {SERVICIOS.map((s) => (
+            <li key={s.id} className="shrink-0">
+              <a
+                href={`#${s.id}`}
+                className="flex min-h-11 items-center px-3.5 border border-white/12 text-sm text-fg-muted whitespace-nowrap hover:text-fg hover:border-white/25 active:bg-ink-700 transition-colors"
+              >
+                {s.nombre}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
       {/* Servicios principales */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-16 sm:py-20">
         <div className="border-t border-white/10">
           {SERVICIOS.map((servicio) => {
             const img = SERVICE_IMAGES[servicio.id] ?? FALLBACK_IMG
@@ -77,9 +122,10 @@ export default async function ServiciosPage() {
             return (
               <article
                 key={servicio.id}
-                className="py-7 border-b border-white/10 grid gap-5 md:grid-cols-[200px_minmax(0,1fr)] lg:grid-cols-[240px_minmax(0,1fr)_200px] lg:gap-10"
+                id={servicio.id}
+                className="scroll-mt-36 py-7 border-b border-white/10 grid gap-5 md:grid-cols-[200px_minmax(0,1fr)] lg:grid-cols-[240px_minmax(0,1fr)_200px] lg:gap-10"
               >
-                <div className="relative h-44 md:h-36 overflow-hidden rounded-sm">
+                <div className="relative h-36 overflow-hidden rounded-sm max-md:hidden">
                   <Image
                     src={img}
                     alt={`${servicio.nombre} — TECKWARE La Serena`}
@@ -97,24 +143,18 @@ export default async function ServiciosPage() {
                   <h2 className="text-2xl text-fg mb-2">{servicio.nombre}</h2>
                   <p className="text-sm text-fg-muted mb-4 leading-relaxed">{servicio.descripcion}</p>
 
-                  {/* Qué incluye */}
-                  {cond?.incluye && (
-                    <ul className="space-y-1.5 mb-4">
-                      {cond.incluye.map((linea) => (
-                        <li key={linea} className="flex items-start gap-2 text-sm text-fg-muted leading-snug">
-                          <Check size={14} className="text-brand-bright shrink-0 mt-0.5" strokeWidth={2.5} />
-                          <span>{linea}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-
-                  {/* Nota / condición específica */}
-                  {cond?.nota && (
-                    <p className="flex items-start gap-2 text-sm text-fg-subtle leading-relaxed mb-5 pt-3 border-t border-white/5">
-                      <Info size={13} className="text-fg-subtle shrink-0 mt-0.5" />
-                      <span>{cond.nota}</span>
-                    </p>
+                  {(cond?.incluye || cond?.nota) && (
+                    <>
+                      {/* En celular el detalle va plegado: la página no se hace eterna. */}
+                      <details className="group md:hidden mb-4 border-y border-white/10">
+                        <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-fg">
+                          Qué incluye
+                          <ChevronDown size={18} aria-hidden="true" className="text-fg-subtle transition-transform group-open:rotate-180 motion-reduce:transition-none" />
+                        </summary>
+                        <div className="pb-3"><Detalle cond={cond} /></div>
+                      </details>
+                      <div className="hidden md:block"><Detalle cond={cond} /></div>
+                    </>
                   )}
 
                   </div>

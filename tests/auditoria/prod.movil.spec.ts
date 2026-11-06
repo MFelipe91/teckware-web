@@ -93,7 +93,9 @@ function medir() {
   const objetivos = [...document.querySelectorAll('a[href], button, [role="button"], input:not([type=hidden]), select, textarea, summary')]
     .filter(visible)
     .map((el) => {
-      const r = el.getBoundingClientRect()
+      // Una casilla dentro de su <label> se toca por toda la etiqueta: esa es su área táctil.
+      const area = el.matches('input[type=checkbox], input[type=radio]') && el.closest('label') ? el.closest('label')! : el
+      const r = area.getBoundingClientRect()
       const enTexto = getComputedStyle(el).display === 'inline' && !!el.closest('p, li') && (el.closest('p, li')?.textContent ?? '').trim().length > (el.textContent ?? '').trim().length + 10
       return { el, r: { x: r.left, y: r.top + scrollY, w: r.width, h: r.height }, enTexto }
     })

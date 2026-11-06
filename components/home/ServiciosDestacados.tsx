@@ -33,8 +33,8 @@ export function ServiciosDestacados({ servicios }: { servicios: Servicio[] }) {
 
         <div>
           <ul className="border-t border-white/10">
-            {lista.map((s) => (
-              <li key={s.id} className="py-5 border-b border-white/10 grid gap-x-6 gap-y-2 grid-cols-[minmax(0,1fr)_auto]">
+            {lista.map((s, i) => (
+              <li key={s.id} className={`py-5 border-b border-white/10 ${i >= 3 ? "max-sm:hidden" : ""} grid gap-x-6 gap-y-2 grid-cols-[minmax(0,1fr)_auto]`}>
                 <h3 className="text-fg">{s.nombre}</h3>
                 <span className="price text-xl text-fg text-right">{s.precio}</span>
                 <p className="text-sm text-fg-muted leading-relaxed max-sm:hidden">{s.descripcion}</p>

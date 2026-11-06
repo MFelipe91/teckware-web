@@ -112,9 +112,9 @@ export function CotizacionForm() {
 
       <fieldset>
         <legend className={ETIQUETA}>¿Para qué lo usarás?</legend>
-        <div className="flex flex-wrap gap-x-6 gap-y-2">
+        <div className="flex flex-wrap gap-x-6">
           {USOS.map((u) => (
-            <label key={u} className="inline-flex items-center gap-2.5 min-h-[32px] text-fg-muted cursor-pointer">
+            <label key={u} className="inline-flex items-center gap-3 min-h-11 text-fg-muted cursor-pointer">
               <input type="checkbox" value={u} {...register('usos')} className="w-5 h-5 accent-brand" />
               {u}
             </label>
@@ -187,7 +187,7 @@ export function CotizacionForm() {
         </div>
         <div>
           <label htmlFor="telefono" className={ETIQUETA}>WhatsApp</label>
-          <input id="telefono" type="tel" autoComplete="tel" {...register('telefono')} {...aria('telefono')} className={CAMPO} placeholder="+56 9 1234 5678" />
+          <input id="telefono" type="tel" inputMode="tel" enterKeyHint="done" autoComplete="tel" {...register('telefono')} {...aria('telefono')} className={CAMPO} placeholder="+56 9 1234 5678" />
           <ErrorCampo id="telefono" mensaje={errors.telefono?.message} />
         </div>
       </div>
