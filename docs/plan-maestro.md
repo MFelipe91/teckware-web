@@ -385,13 +385,16 @@ La mayoría de los clientes llega desde Instagram y WhatsApp en el celular. Deta
       frontend-design y ui-ux-pro-max. Sin librerías nuevas: se usa framer-motion.
 - [x] Bloque 1 — diagnóstico móvil en 360/375/390/412 px (más 768 y 1440) de 24 páginas, con
       Lighthouse móvil "antes". Resultado: 0 críticos, 5 altos, 7 medios, 5 bajos.
-- [ ] Aprobación del dueño del informe.
-- [ ] Bloque 2 — corrección móvil (texto ≥ 16 px, toques de 44 px, `svh`, `safe-area`, un solo botón
-      de WhatsApp, menú a pantalla completa, portada de ≤ 7 pantallas, atajos en `/servicios`,
-      pasos de `/agendar`, landings con precio arriba, pie compacto).
-- [ ] Bloque 3 — escritorio: revisar 768, 1024 y 1440 px.
-- [ ] Cierre: capturas y Lighthouse "después", tsc/lint/build y Preview de Vercel para revisar en el
-      celular antes de publicar.
+- [x] Aprobación del dueño del informe (2026-11-06).
+- [x] Bloque 2 — corrección móvil: texto ≥ 16 px, toques de 44 px, `svh`, `safe-area`, un solo botón verde
+      de WhatsApp, menú a pantalla completa, chat como hoja, portada 12,6 → 8,0 pantallas, `/servicios`
+      14,2 → 9,1 con atajos, pasos de `/agendar`, landings con precio arriba, pie compacto.
+      Spec `docs/superpowers/specs/2026-11-06-movil-design.md`, plan `docs/superpowers/plans/2026-11-06-movil.md`.
+- [x] Bloque 3 — escritorio 768/1024/1440: WhatsApp flotante oculto desde 1024 px (el navbar lo trae) y pie parejo.
+- [x] Cierre técnico: `node tests/auditoria/criterios-movil.mjs despues` PASA, tsc/lint/build OK, comparación
+      en `docs/auditoria-movil.md`.
+- [ ] El dueño revisa la Preview en su celular: https://teckware-web-git-feat-movil-mfelipe91s-projects.vercel.app
+- [ ] Publicar (merge de `feat/movil` a `main`) con su aprobación y mirar Speed Insights a los pocos días.
 
 ---
 

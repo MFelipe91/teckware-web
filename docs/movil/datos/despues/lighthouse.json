@@ -1,0 +1,292 @@
+{
+  "base": "http://localhost:3200",
+  "fecha": "2026-11-06T15:09:16.776Z",
+  "paginas": [
+    {
+      "ruta": "/",
+      "mediana": {
+        "rendimiento": 77,
+        "accesibilidad": 100,
+        "buenasPracticas": 100,
+        "seo": 100,
+        "lcpMs": 1470,
+        "cls": 0,
+        "tbtMs": 840,
+        "fcpMs": 1470,
+        "jsKbGzip": 173,
+        "pesoTotalKb": 463,
+        "fugasAnalitica": 0
+      },
+      "corridas": [
+        {
+          "rendimiento": 77,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1470,
+          "cls": 0,
+          "tbtMs": 840,
+          "fcpMs": 1470,
+          "jsKbGzip": 173,
+          "pesoTotalKb": 463,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 78,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1405,
+          "cls": 0,
+          "tbtMs": 806,
+          "fcpMs": 1405,
+          "jsKbGzip": 173,
+          "pesoTotalKb": 463,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 71,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 2133,
+          "cls": 0,
+          "tbtMs": 944,
+          "fcpMs": 2133,
+          "jsKbGzip": 173,
+          "pesoTotalKb": 463,
+          "fugasAnalitica": 0
+        }
+      ]
+    },
+    {
+      "ruta": "/mantencion",
+      "mediana": {
+        "rendimiento": 75,
+        "accesibilidad": 100,
+        "buenasPracticas": 100,
+        "seo": 100,
+        "lcpMs": 1321,
+        "cls": 0,
+        "tbtMs": 1316,
+        "fcpMs": 1321,
+        "jsKbGzip": 247,
+        "pesoTotalKb": 474,
+        "fugasAnalitica": 0
+      },
+      "corridas": [
+        {
+          "rendimiento": 69,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 2238,
+          "cls": 0,
+          "tbtMs": 1371,
+          "fcpMs": 2238,
+          "jsKbGzip": 247,
+          "pesoTotalKb": 474,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 75,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1321,
+          "cls": 0,
+          "tbtMs": 1316,
+          "fcpMs": 1321,
+          "jsKbGzip": 247,
+          "pesoTotalKb": 474,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 76,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1248,
+          "cls": 0,
+          "tbtMs": 1179,
+          "fcpMs": 1248,
+          "jsKbGzip": 247,
+          "pesoTotalKb": 474,
+          "fugasAnalitica": 0
+        }
+      ]
+    },
+    {
+      "ruta": "/agendar",
+      "mediana": {
+        "rendimiento": 78,
+        "accesibilidad": 100,
+        "buenasPracticas": 100,
+        "seo": 100,
+        "lcpMs": 1225,
+        "cls": 0,
+        "tbtMs": 992,
+        "fcpMs": 1225,
+        "jsKbGzip": 247,
+        "pesoTotalKb": 501,
+        "fugasAnalitica": 0
+      },
+      "corridas": [
+        {
+          "rendimiento": 77,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1225,
+          "cls": 0,
+          "tbtMs": 1093,
+          "fcpMs": 1225,
+          "jsKbGzip": 247,
+          "pesoTotalKb": 501,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 78,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1328,
+          "cls": 0,
+          "tbtMs": 992,
+          "fcpMs": 1328,
+          "jsKbGzip": 247,
+          "pesoTotalKb": 501,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 78,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1190,
+          "cls": 0,
+          "tbtMs": 985,
+          "fcpMs": 1190,
+          "jsKbGzip": 247,
+          "pesoTotalKb": 501,
+          "fugasAnalitica": 0
+        }
+      ]
+    },
+    {
+      "ruta": "/mantencion-pc-gamer",
+      "mediana": {
+        "rendimiento": 74,
+        "accesibilidad": 100,
+        "buenasPracticas": 100,
+        "seo": 100,
+        "lcpMs": 1538,
+        "cls": 0,
+        "tbtMs": 1284,
+        "fcpMs": 1538,
+        "jsKbGzip": 247,
+        "pesoTotalKb": 474,
+        "fugasAnalitica": 0
+      },
+      "corridas": [
+        {
+          "rendimiento": 74,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1252,
+          "cls": 0,
+          "tbtMs": 1383,
+          "fcpMs": 1252,
+          "jsKbGzip": 247,
+          "pesoTotalKb": 474,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 77,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1538,
+          "cls": 0,
+          "tbtMs": 1062,
+          "fcpMs": 1538,
+          "jsKbGzip": 247,
+          "pesoTotalKb": 474,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 74,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1638,
+          "cls": 0,
+          "tbtMs": 1284,
+          "fcpMs": 1638,
+          "jsKbGzip": 247,
+          "pesoTotalKb": 474,
+          "fugasAnalitica": 0
+        }
+      ]
+    },
+    {
+      "ruta": "/servicio-tecnico-computadores-la-serena",
+      "mediana": {
+        "rendimiento": 72,
+        "accesibilidad": 100,
+        "buenasPracticas": 100,
+        "seo": 100,
+        "lcpMs": 1452,
+        "cls": 0,
+        "tbtMs": 1711,
+        "fcpMs": 1452,
+        "jsKbGzip": 247,
+        "pesoTotalKb": 474,
+        "fugasAnalitica": 0
+      },
+      "corridas": [
+        {
+          "rendimiento": 76,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1184,
+          "cls": 0,
+          "tbtMs": 1234,
+          "fcpMs": 1184,
+          "jsKbGzip": 247,
+          "pesoTotalKb": 474,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 70,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1818,
+          "cls": 0,
+          "tbtMs": 1732,
+          "fcpMs": 1818,
+          "jsKbGzip": 247,
+          "pesoTotalKb": 474,
+          "fugasAnalitica": 0
+        },
+        {
+          "rendimiento": 72,
+          "accesibilidad": 100,
+          "buenasPracticas": 100,
+          "seo": 100,
+          "lcpMs": 1452,
+          "cls": 0,
+          "tbtMs": 1711,
+          "fcpMs": 1452,
+          "jsKbGzip": 247,
+          "pesoTotalKb": 474,
+          "fugasAnalitica": 0
+        }
+      ]
+    }
+  ],
+  "gtagKbGzipAprox": 175
+}

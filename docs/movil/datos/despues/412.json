@@ -1,0 +1,2752 @@
+[
+  {
+    "ruta": "/",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": {
+      "alto": 851,
+      "abajo": 915,
+      "vh": 915,
+      "cabe": true,
+      "tapadoPorFab": false,
+      "bloqueaScroll": false
+    },
+    "chat": {
+      "panel": "0,399 412x460",
+      "vw": 412,
+      "vh": 915,
+      "cabe": true,
+      "chocaConWhatsApp": false,
+      "debajoDelHeader": false
+    },
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [
+      "li.pt-4.border-t-2.border-brand-bright «Paso 2Traes tu equipoTe confirmamos la h» [328→625]",
+      "h3.mt-2.text-fg «Traes tu equipo» [328→625]",
+      "p.mt-2.text-sm.text-fg-muted «Te confirmamos la hora y la dirección de» [328→625]",
+      "li.pt-4.border-t-2.border-brand-bright «Paso 3Diagnóstico y trabajoLo testeamos » [641→937]",
+      "span.price.text-sm.text-brand-bright «Paso 3» [641→691]",
+      "h3.mt-2.text-fg «Diagnóstico y trabajo» [641→937]",
+      "p.mt-2.text-sm.text-fg-muted «Lo testeamos con software profesional, h» [641→937]",
+      "li.pt-4.border-t-2.border-brand-bright «Paso 4Entrega con informeEn 48 h hábiles» [953→1250]",
+      "span.price.text-sm.text-brand-bright «Paso 4» [953→1004]",
+      "h3.mt-2.text-fg «Entrega con informe» [953→1250]",
+      "p.mt-2.text-sm.text-fg-muted «En 48 h hábiles tu equipo está listo, co» [953→1250]"
+    ],
+    "totalDesbordes": 11,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.728,
+        "lineas": 4
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Mantención y servicio técnico de computadores en La Serena y Coquimbo",
+      "h1Px": 38.728,
+      "h1Arriba": 96,
+      "h1Abajo": 251,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 1271,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Fpexels-alexandrep-junior-33798615.jpg&w=640&q=72",
+        "mostrada": "168x194",
+        "natural": "200x300",
+        "sobredimension": 0.6,
+        "sizes": "(min-width: 1024px) 430px, 200px",
+        "kb": 39,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 5916
+  },
+  {
+    "ruta": "/mantencion",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [
+      "li.pt-4.border-t-2.border-brand-bright «Paso 2Traes tu equipoTe confirmamos la h» [328→625]",
+      "h3.mt-2.text-fg «Traes tu equipo» [328→625]",
+      "p.mt-2.text-sm.text-fg-muted «Te confirmamos la hora y la dirección de» [328→625]",
+      "li.pt-4.border-t-2.border-brand-bright «Paso 3Diagnóstico y trabajoLo testeamos » [641→937]",
+      "span.price.text-sm.text-brand-bright «Paso 3» [641→691]",
+      "h3.mt-2.text-fg «Diagnóstico y trabajo» [641→937]",
+      "p.mt-2.text-sm.text-fg-muted «Lo testeamos con software profesional, h» [641→937]",
+      "li.pt-4.border-t-2.border-brand-bright «Paso 4Entrega con informeEn 48 h hábiles» [953→1250]",
+      "span.price.text-sm.text-brand-bright «Paso 4» [953→1004]",
+      "h3.mt-2.text-fg «Entrega con informe» [953→1250]",
+      "p.mt-2.text-sm.text-fg-muted «En 48 h hábiles tu equipo está listo, co» [953→1250]"
+    ],
+    "totalDesbordes": 11,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 3
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Mantención de computadores en La Serena y Coquimbo",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 220,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 550,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 5887
+  },
+  {
+    "ruta": "/servicios",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [
+      "li.shrink-0 «Mantención Full» [394→539]",
+      "a.flex.min-h-11.items-center «Mantención Full» [394→539]",
+      "li.shrink-0 «Recuperación de Datos» [547→742]",
+      "a.flex.min-h-11.items-center «Recuperación de Datos» [547→742]",
+      "li.shrink-0 «Mantención GPU» [750→900]",
+      "a.flex.min-h-11.items-center «Mantención GPU» [750→900]",
+      "li.shrink-0 «Armado PC Gamer» [908→1070]",
+      "a.flex.min-h-11.items-center «Armado PC Gamer» [908→1070]",
+      "li.shrink-0 «Armado Alta Gama» [1078→1244]",
+      "a.flex.min-h-11.items-center «Armado Alta Gama» [1078→1244]",
+      "li.shrink-0 «Mantención PS3 / PS4» [1252→1440]",
+      "a.flex.min-h-11.items-center «Mantención PS3 / PS4» [1252→1440]"
+    ],
+    "totalDesbordes": 20,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.728,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 24,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 24,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 24,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Servicios y precios en La Serena y Coquimbo",
+      "h1Px": 38.728,
+      "h1Arriba": 128,
+      "h1Abajo": 205,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 325,
+      "altoHeader": 65,
+      "primerCtaVisible": null
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 6889
+  },
+  {
+    "ruta": "/empresas",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [
+      "li.pt-4.border-t-2.border-brand-bright «Paso 2Traes tu equipoTe confirmamos la h» [328→625]",
+      "h3.mt-2.text-fg «Traes tu equipo» [328→625]",
+      "p.mt-2.text-sm.text-fg-muted «Te confirmamos la hora y la dirección de» [328→625]",
+      "li.pt-4.border-t-2.border-brand-bright «Paso 3Diagnóstico y trabajoLo testeamos » [641→937]",
+      "span.price.text-sm.text-brand-bright «Paso 3» [641→691]",
+      "h3.mt-2.text-fg «Diagnóstico y trabajo» [641→937]",
+      "p.mt-2.text-sm.text-fg-muted «Lo testeamos con software profesional, h» [641→937]",
+      "li.pt-4.border-t-2.border-brand-bright «Paso 4Entrega con informeEn 48 h hábiles» [953→1250]",
+      "span.price.text-sm.text-brand-bright «Paso 4» [953→1004]",
+      "h3.mt-2.text-fg «Entrega con informe» [953→1250]",
+      "p.mt-2.text-sm.text-fg-muted «En 48 h hábiles tu equipo está listo, co» [953→1250]"
+    ],
+    "totalDesbordes": 11,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 3
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Soporte informático para empresas en La Serena y Coquimbo",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 220,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 550,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 5377
+  },
+  {
+    "ruta": "/builds",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "PC Gamer a pedido",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 148,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 389,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [
+      {
+        "nombre": "presupuesto",
+        "tipo": "select-one",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 48
+      },
+      {
+        "nombre": "usos",
+        "tipo": "checkbox",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 20
+      },
+      {
+        "nombre": "usos",
+        "tipo": "checkbox",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 20
+      },
+      {
+        "nombre": "usos",
+        "tipo": "checkbox",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 20
+      },
+      {
+        "nombre": "usos",
+        "tipo": "checkbox",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 20
+      },
+      {
+        "nombre": "resolucion",
+        "tipo": "select-one",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 48
+      },
+      {
+        "nombre": "fps",
+        "tipo": "select-one",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 48
+      },
+      {
+        "nombre": "programas",
+        "tipo": "textarea",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 98
+      },
+      {
+        "nombre": "marcas",
+        "tipo": "text",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 50
+      },
+      {
+        "nombre": "componentes",
+        "tipo": "textarea",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 74
+      },
+      {
+        "nombre": "monitor",
+        "tipo": "select-one",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 48
+      },
+      {
+        "nombre": "plazo",
+        "tipo": "select-one",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 48
+      },
+      {
+        "nombre": "nombre",
+        "tipo": "text",
+        "inputmode": null,
+        "autocomplete": "name",
+        "px": 16,
+        "etiqueta": true,
+        "alto": 50
+      },
+      {
+        "nombre": "telefono",
+        "tipo": "tel",
+        "inputmode": "tel",
+        "autocomplete": "tel",
+        "px": 16,
+        "etiqueta": true,
+        "alto": 50
+      }
+    ],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 5022
+  },
+  {
+    "ruta": "/agendar",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 20,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 16,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "¿Qué necesita tu equipo?",
+      "h1Px": 36,
+      "h1Arriba": 96,
+      "h1Abajo": 132,
+      "h1CompletoEnPantalla": true,
+      "altoHero": null,
+      "altoHeader": 65,
+      "primerCtaVisible": null
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "112x116",
+        "natural": "192x199",
+        "sobredimension": 0.9,
+        "sizes": null,
+        "kb": 39,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 2537
+  },
+  {
+    "ruta": "/solicitar",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.728,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 16,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Cuéntanos qué necesitas",
+      "h1Px": 38.728,
+      "h1Arriba": 128,
+      "h1Abajo": 205,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 325,
+      "altoHeader": 65,
+      "primerCtaVisible": null
+    },
+    "campos": [
+      {
+        "nombre": "nombre",
+        "tipo": "text",
+        "inputmode": null,
+        "autocomplete": "name",
+        "px": 16,
+        "etiqueta": true,
+        "alto": 50
+      },
+      {
+        "nombre": "telefono",
+        "tipo": "tel",
+        "inputmode": "tel",
+        "autocomplete": "tel",
+        "px": 16,
+        "etiqueta": true,
+        "alto": 50
+      },
+      {
+        "nombre": "email",
+        "tipo": "email",
+        "inputmode": null,
+        "autocomplete": "email",
+        "px": 16,
+        "etiqueta": true,
+        "alto": 50
+      },
+      {
+        "nombre": "tipoEquipo",
+        "tipo": "select-one",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 50
+      },
+      {
+        "nombre": "servicio",
+        "tipo": "select-one",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 50
+      },
+      {
+        "nombre": "descripcion",
+        "tipo": "textarea",
+        "inputmode": null,
+        "autocomplete": null,
+        "px": 16,
+        "etiqueta": true,
+        "alto": 122
+      }
+    ],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "112x116",
+        "natural": "192x199",
+        "sobredimension": 0.9,
+        "sizes": null,
+        "kb": 39,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 2191
+  },
+  {
+    "ruta": "/contacto",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 20,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 20,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 20,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Contacto",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 148,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 360,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "112x116",
+        "natural": "192x199",
+        "sobredimension": 0.9,
+        "sizes": null,
+        "kb": 39,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 2361
+  },
+  {
+    "ruta": "/nosotros",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Quiénes somos",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 148,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 309,
+      "altoHeader": 65,
+      "primerCtaVisible": null
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "112x116",
+        "natural": "192x199",
+        "sobredimension": 0.9,
+        "sizes": null,
+        "kb": 39,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 3154
+  },
+  {
+    "ruta": "/blog",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 24,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 24,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 24,
+        "lineas": 2
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Guías de mantención",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 148,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 309,
+      "altoHeader": 65,
+      "primerCtaVisible": null
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "112x116",
+        "natural": "192x199",
+        "sobredimension": 0.9,
+        "sizes": null,
+        "kb": 39,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 2578
+  },
+  {
+    "ruta": "/blog/cada-cuanto-hacer-mantencion-pc-gamer",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 3
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 2
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "¿Cada cuánto hacer mantención a tu PC gamer?",
+      "h1Px": 36,
+      "h1Arriba": 196,
+      "h1Abajo": 304,
+      "h1CompletoEnPantalla": true,
+      "altoHero": null,
+      "altoHeader": 65,
+      "primerCtaVisible": null
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "112x116",
+        "natural": "192x199",
+        "sobredimension": 0.9,
+        "sizes": null,
+        "kb": 39,
+        "sinDimensiones": false,
+        "encima": false
+      }
+    ],
+    "altoPagina": 3990
+  },
+  {
+    "ruta": "/web-qa",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 3
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Desarrollo web y control de calidad para tu empresa",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 220,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 461,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 5271
+  },
+  {
+    "ruta": "/ciberseguridad",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Ciberseguridad para pymes y empresas",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 184,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 425,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 5587
+  },
+  {
+    "ruta": "/pagina-inexistente-auditoria",
+    "estado": 404,
+    "errores": [
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    ],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 38.728,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 16,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Esta página no existe",
+      "h1Px": 38.728,
+      "h1Arriba": 163,
+      "h1Abajo": 201,
+      "h1CompletoEnPantalla": true,
+      "altoHero": null,
+      "altoHeader": 65,
+      "primerCtaVisible": null
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      },
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-stack.webp&w=384&q=75",
+        "mostrada": "112x116",
+        "natural": "192x199",
+        "sobredimension": 0.9,
+        "sizes": null,
+        "kb": 39,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 1694
+  },
+  {
+    "ruta": "/servicio-tecnico-computadores-la-serena",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 3
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Servicio técnico de computadores en La Serena",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 220,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 577,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 5196
+  },
+  {
+    "ruta": "/servicio-tecnico-coquimbo",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 3
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Servicio técnico de computadores en Coquimbo",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 220,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 635,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 4977
+  },
+  {
+    "ruta": "/reparacion-notebook-la-serena",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 2
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Reparación de notebooks en La Serena",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 184,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 541,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 5125
+  },
+  {
+    "ruta": "/formateo-pc-la-serena",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Formateo de PC y notebook en La Serena",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 184,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 569,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 4994
+  },
+  {
+    "ruta": "/mantencion-pc-gamer",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 2
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Mantención de PC Gamer",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 148,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 534,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 5345
+  },
+  {
+    "ruta": "/armado-pc-gamer-la-serena",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Armado de PC Gamer en La Serena",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 184,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 569,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 5129
+  },
+  {
+    "ruta": "/reparacion-notebook-gamer",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 2
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Reparación de Notebook Gamer",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 184,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 570,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 5299
+  },
+  {
+    "ruta": "/servicio-tecnico-apple",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Servicio Técnico Apple & MacBook",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 184,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 541,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 5242
+  },
+  {
+    "ruta": "/mantencion-ps5-la-serena",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Mantención de PS5 y PS4 en La Serena",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 184,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 540,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 5011
+  },
+  {
+    "ruta": "/recuperacion-de-datos-la-serena",
+    "estado": 200,
+    "errores": [],
+    "cls": {
+      "valor": 0,
+      "fuentes": []
+    },
+    "pie": {
+      "ultimo": "Términos",
+      "abajo": 811,
+      "topeBarra": 859,
+      "tapado": false
+    },
+    "menu": null,
+    "chat": null,
+    "vw": 412,
+    "vh": 915,
+    "scrollWidth": 412,
+    "scrollHorizontal": false,
+    "desbordes": [],
+    "totalDesbordes": 0,
+    "textoChico": {},
+    "ejemplosTextoChico": [],
+    "titulosCortados": [],
+    "tamTitulos": [
+      {
+        "tag": "H1",
+        "px": 36,
+        "lineas": 2
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      },
+      {
+        "tag": "H2",
+        "px": 30,
+        "lineas": 1
+      }
+    ],
+    "tactilesChicos": 0,
+    "ejemplosTactilesChicos": [],
+    "tactilesJuntos": 0,
+    "ejemplosJuntos": [],
+    "fijos": [
+      {
+        "cual": "header.fixed.top-0.left-0 «MantenciónServicio técnicoPC GamerEmpres»",
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 65
+      },
+      {
+        "cual": "a.fab.fixed.z-50 «Escríbenos por WhatsApp»",
+        "x": 0,
+        "y": 859,
+        "w": 356,
+        "h": 56
+      },
+      {
+        "cual": "button.fab.fixed.bottom-0",
+        "x": 356,
+        "y": 859,
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "choques": [],
+    "altoBarraInferior": 56,
+    "espacioInferior": 0,
+    "hero": {
+      "h1Texto": "Recuperación de datos en La Serena",
+      "h1Px": 36,
+      "h1Arriba": 112,
+      "h1Abajo": 184,
+      "h1CompletoEnPantalla": true,
+      "altoHero": 540,
+      "altoHeader": 65,
+      "primerCtaVisible": true
+    },
+    "campos": [],
+    "imagenes": [
+      {
+        "src": "/_next/image?url=%2Fbrand%2Flogo-horizontal.webp&w=640&q=75",
+        "mostrada": "187x36",
+        "natural": "208x40",
+        "sobredimension": 0.6,
+        "sizes": null,
+        "kb": 10,
+        "sinDimensiones": false,
+        "encima": true
+      }
+    ],
+    "altoPagina": 4881
+  }
+]

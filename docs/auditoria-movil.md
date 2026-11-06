@@ -208,3 +208,64 @@ Velocidad, accesibilidad y SEO ya están en verde: el Bloque 2 no debe empeorarl
 3. **Portada:** acortar a 7 pantallas o menos (A1) y primera pantalla con acción (M4).
 4. **Páginas:** atajos en `/servicios` (M2), pasos de `/agendar` (M3), landings con precio arriba (M5) y pie compacto (A5).
 5. **Cierre:** medición "después" con la misma prueba y Lighthouse, y Preview para revisar en el celular.
+
+---
+
+## Después de corregir (Bloques 2 y 3, 2026-11-06)
+
+Medición con la misma prueba (`AUDIT_ETAPA=despues npx playwright test prod.movil`) sobre el build de
+producción de la rama `feat/movil`, y verificación automática con `node tests/auditoria/criterios-movil.mjs despues`:
+**PASA todos los criterios**. Capturas en `docs/movil/despues/` (360 y 1440 px en el repositorio).
+
+| Métrica (suma de las 24 páginas) | Antes | Después |
+|---|---|---|
+| Textos de frase bajo 16 px (por ancho de celular) | 702 | **0** |
+| Botones y enlaces bajo 44 px (por ancho de celular) | 678 | **0** |
+| Objetivos táctiles a menos de 8 px de otro | 481 | **0** |
+| Desplazamiento horizontal (6 anchos) | 0 | 0 |
+| CLS en celular | 0,000 | 0,000 |
+| CLS portada a 1440 px | 0,047 | **0,000** |
+| H1 completo en la primera pantalla | 24/24 | 24/24 |
+
+| Largo a 360 px (pantallas) | Antes | Después |
+|---|---|---|
+| Portada `/` | 12,6 | **8,0** |
+| `/servicios` | 14,2 | **9,1** |
+| `/mantencion-pc-gamer` | 7,9 | 7,2 |
+| `/agendar` | 4,0 | 3,5 |
+| `/contacto` | 3,9 | 3,2 |
+| Promedio de las 24 páginas | 7,3 | **6,2** |
+
+### Qué se hizo, por hallazgo
+
+| Hallazgo | Solución |
+|---|---|
+| A1 Portada larga y precios repetidos | "Otros servicios con precio fijo" ya no repite los del título; "Cómo funciona" es un carrusel en celular; en celular, 3 razones, 2 guías y sin el panal decorativo |
+| A2 Texto de 13–14 px | `--text-sm` = 16 px en todo el sitio; 14 px solo en metadatos (`.meta-chica`: RUT, ©, notas del chat) |
+| A3 Toques chicos | Enlaces de 44 px (`.btn-terciario`, pie, pasos de agenda, casillas, logo); filas del pie de 44 px |
+| A4 Dos colores de WhatsApp | `.btn-whatsapp` verde en todo botón que abre WhatsApp; en celular el genérico se omite donde la barra fija ya lo ofrece |
+| A5 Pie de 2 pantallas | Contacto primero y listas plegables en celular; 980 px → ~1 pantalla |
+| M1 Menú | Pantalla completa, fondo bloqueado, Esc cierra, se cierra al navegar y oculta la barra fija |
+| M2 `/servicios` | Barra de atajos fija; "Qué incluye" plegable en celular; sin fotos de archivo bajo 768 px |
+| M3 `/agendar` | "Paso N de 4 · Nombre" en celular; pista de por qué "Siguiente" está desactivado; tarjeta más ancha |
+| M4 Primera pantalla de la portada | H1 de 34 px en 4 líneas; hexágono completo dentro de la pantalla |
+| M5 Landings | Precio y plazo junto al título; "Qué incluye" antes de los párrafos en celular |
+| M6 `100vh` | `min-h-svh` con respaldo `100vh` |
+| M7 Notch y barra de gestos | `viewport-fit=cover` y `env(safe-area-inset-*)` en navbar, barra inferior, chat y pie |
+| B1 Chat | Hoja inferior de ancho completo en celular |
+| B4 Formularios | `inputmode="tel"` y `enterkeyhint` |
+| Escritorio (Bloque 3) | Desde 1024 px el WhatsApp flotante se oculta (el navbar ya lo trae) y deja de tapar precios; pie con filas parejas |
+
+### Lighthouse móvil (después)
+
+Mediana de 3 corridas, mismo script y perfil móvil, contra el build local de `feat/movil` (la Preview de Vercel pide inicio de sesión, así que Lighthouse no puede abrirla).
+
+| Página | LCP antes → después | CLS | Accesibilidad | SEO | Peso |
+|---|---|---|---|---|---|
+| `/` | 1,7 s → **1,5 s** | 0 | 100 | 100 | 463 KB |
+| `/mantencion` | 1,9 s → **1,3 s** | 0 | 100 | 100 | 474 KB |
+| `/agendar` | 1,6 s → **1,2 s** | 0 | 100 | 100 | 501 KB |
+| `/mantencion-pc-gamer` | 1,8 s → **1,5 s** | 0 | 100 | 100 | 474 KB |
+| `/servicio-tecnico-computadores-la-serena` | 1,7 s → **1,5 s** | 0 | 100 | 100 | 474 KB |
+
+**Rendimiento y TBT no se comparan con la tabla "antes":** este computador estaba con más carga (otro proyecto corriendo) y el TBT depende de la CPU local. Control en las mismas condiciones, midiendo producción (código anterior) en ese momento: `/` TBT 994 ms (rendimiento 73) y `/mantencion-pc-gamer` 1.730 ms (70), frente a 840 ms (77) y 1.284 ms (74) de la versión nueva. Es decir, la versión nueva no agrega carga; la cifra definitiva se mira en Vercel Speed Insights después de publicar.
