@@ -609,7 +609,7 @@ export default function AgendarPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={registrarSolicitud}
-                className="btn btn-primario w-full"
+                className="btn btn-whatsapp w-full"
               >
                 Enviar solicitud por WhatsApp
                 <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />

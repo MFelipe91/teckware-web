@@ -4,8 +4,10 @@ import { WA } from '@/lib/whatsapp'
 
 // Par de acciones de toda la web: WhatsApp es la principal (es donde se cierra el trato) y
 // Agendar la secundaria. Un solo componente para que nunca vuelvan a quedar distintos.
+// En celular, el WhatsApp genérico se oculta: la barra fija inferior ya lo ofrece siempre.
+// Si la página trae un mensaje propio (landings), se muestra igual, porque llega ya escrito.
 export function CtaPair({
-  waHref = WA.general(),
+  waHref,
   children,
 }: {
   waHref?: string
@@ -14,7 +16,12 @@ export function CtaPair({
 }) {
   return (
     <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-x-4 gap-y-3">
-      <a href={waHref} target="_blank" rel="noopener noreferrer" className="btn btn-primario w-full sm:w-auto">
+      <a
+        href={waHref ?? WA.general()}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`btn btn-whatsapp w-full sm:w-auto ${waHref ? '' : 'max-sm:hidden'}`}
+      >
         <MessageCircle size={18} aria-hidden="true" />
         Escríbenos por WhatsApp
       </a>

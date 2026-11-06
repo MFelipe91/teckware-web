@@ -27,7 +27,7 @@ export default function ContactoPage() {
         titulo="Contacto"
         bajada={`Te respondemos en horario hábil: ${EMPRESA.horario}. El canal principal es WhatsApp.`}
       >
-        <a href={WA.general()} target="_blank" rel="noopener noreferrer" className="btn btn-primario w-full sm:w-auto">
+        <a href={WA.general()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp w-full sm:w-auto">
           <MessageCircle size={18} aria-hidden="true" />
           Escríbenos por WhatsApp
         </a>

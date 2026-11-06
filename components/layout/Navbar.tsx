@@ -13,12 +13,27 @@ export function Navbar() {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
 
+  // Menú abierto: Esc lo cierra, el fondo no se desplaza y la barra fija se oculta (ver globals.css).
   useEffect(() => {
     if (!open) return
+    const raiz = document.documentElement
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false) }
     window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
+    raiz.dataset.menuAbierto = ''
+    raiz.style.overflow = 'hidden'
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      delete raiz.dataset.menuAbierto
+      raiz.style.overflow = ''
+    }
   }, [open])
+
+  // Al cambiar de página (también con atrás/adelante) el menú se cierra.
+  const [rutaMenu, setRutaMenu] = useState(pathname)
+  if (rutaMenu !== pathname) {
+    setRutaMenu(pathname)
+    setOpen(false)
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-ink-950 border-b border-white/8 pt-[env(safe-area-inset-top)]">
@@ -61,7 +76,7 @@ export function Navbar() {
           <InstagramIcon size={21} />
         </a>
 
-        <a href={WA.general()} target="_blank" rel="noopener noreferrer" className="btn btn-primario hidden lg:inline-flex whitespace-nowrap">
+        <a href={WA.general()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp hidden lg:inline-flex whitespace-nowrap">
           <MessageCircle size={17} aria-hidden="true" />
           WhatsApp
         </a>
@@ -77,7 +92,7 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="menu-movil lg:hidden bg-ink-950 border-t border-white/8 px-4 pb-5">
+        <div className="menu-movil lg:hidden fixed inset-x-0 top-[calc(4rem+env(safe-area-inset-top))] bottom-0 overflow-y-auto overscroll-contain bg-ink-950 border-t border-white/8 px-4 pt-2 pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
           <ul>
             {NAV_LINKS.map((link) => (
               <li key={link.href} className="border-b border-white/8">
@@ -85,14 +100,14 @@ export function Navbar() {
                   href={link.href}
                   onClick={() => setOpen(false)}
                   aria-current={pathname === link.href ? 'page' : undefined}
-                  className={`block py-3.5 font-display text-lg font-medium ${pathname === link.href ? 'text-fg' : 'text-fg-muted'}`}
+                  className={`flex min-h-14 items-center font-display text-xl font-medium active:text-brand-bright ${pathname === link.href ? 'text-fg' : 'text-fg-muted'}`}
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
           </ul>
-          <a href={WA.general()} target="_blank" rel="noopener noreferrer" className="btn btn-primario w-full mt-5">
+          <a href={WA.general()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp w-full mt-5">
             <MessageCircle size={17} aria-hidden="true" />
             Escríbenos por WhatsApp
           </a>

@@ -98,7 +98,7 @@ export function ChatWidget() {
         role="dialog"
         aria-label="Chat con Teck, asistente de TECKWARE"
         inert={!open}
-        className={`fixed bottom-[4.5rem] sm:bottom-[10.5rem] right-4 sm:right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)] origin-bottom-right transition-[opacity,scale,visibility] duration-200 ease-salida ${
+        className={`fixed inset-x-0 bottom-[calc(3.5rem+env(safe-area-inset-bottom))] sm:inset-x-auto sm:bottom-[10.5rem] sm:right-6 z-50 w-full sm:w-[340px] sm:max-w-[calc(100vw-2rem)] origin-bottom-right transition-[opacity,scale,visibility] duration-200 ease-salida ${
           open
             ? 'opacity-100 scale-100 pointer-events-auto'
             : 'opacity-0 scale-95 motion-reduce:scale-100 pointer-events-none invisible'
@@ -139,7 +139,7 @@ export function ChatWidget() {
                   href={WA.general()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-primario"
+                  className="btn btn-whatsapp"
                 >
                   Chatear por WhatsApp
                   <ArrowRight size={14} />

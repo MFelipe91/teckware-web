@@ -251,6 +251,14 @@
   .btn-primario:active::before { background: var(--color-brand-deep); }
   .btn-primario[disabled]::before, .btn-primario[aria-disabled="true"]::before { background: var(--color-ink-700); }
 
+  /* Todo botón que abre WhatsApp usa este verde: el mismo de la barra fija, reconocible al instante. */
+  .btn-whatsapp { color: #FFFFFF; }
+  .btn-whatsapp::before { background: var(--color-whatsapp-solid); }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-whatsapp:hover::before { background: var(--color-whatsapp-hover); }
+  }
+  .btn-whatsapp:active::before { background: var(--color-whatsapp-hover); }
+
   .btn-secundario { color: var(--btn-sec-texto, var(--color-fg)); }
   /* Anillo: polígono exterior e interior, con el centro transparente para cualquier fondo. */
   .btn-secundario::before {
@@ -494,6 +502,10 @@
     font-variant-numeric: tabular-nums;
     font-weight: 600;
   }
+
+  /* Con el menú móvil abierto, la barra de WhatsApp y el chat se ocultan (el menú ya trae WhatsApp).
+     Va en utilities para ganarle a la clase "flex" del propio botón. */
+  html[data-menu-abierto] .fab { display: none; }
 
   /* Metadatos cortos (RUT, ©, "Paso 1 de 4"): los únicos textos que pueden ir a 14 px. */
   .meta-chica { font-size: var(--text-xs); line-height: var(--text-xs--line-height); }

@@ -210,7 +210,7 @@ export default function SolicitarPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="btn btn-primario w-full sm:w-auto"
+            className="btn btn-whatsapp w-full sm:w-auto"
           >
             <MessageCircle size={18} aria-hidden="true" />
             Enviar por WhatsApp

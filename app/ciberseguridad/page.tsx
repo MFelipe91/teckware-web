@@ -42,7 +42,7 @@ export default function CiberseguridadPage() {
         titulo="Ciberseguridad para pymes y empresas"
         bajada="Revisamos cómo está protegida tu empresa, cerramos las brechas que encontramos y capacitamos a tu equipo."
       >
-        <a href={WA.ciberseguridad()} target="_blank" rel="noopener noreferrer" className="btn btn-primario w-full sm:w-auto">
+        <a href={WA.ciberseguridad()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp w-full sm:w-auto">
           Solicitar auditoría
         </a>
       </PageHeader>
@@ -110,7 +110,7 @@ export default function CiberseguridadPage() {
                 </li>
               ))}
             </ul>
-            <a href={WA.ciberseguridad('Revisión de riesgos')} target="_blank" rel="noopener noreferrer" className="btn btn-primario w-full">
+            <a href={WA.ciberseguridad('Revisión de riesgos')} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp w-full">
               Pedir revisión
             </a>
           </div>

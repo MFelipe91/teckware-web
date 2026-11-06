@@ -132,7 +132,7 @@ export default async function ServiciosPage() {
                       href={waLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-primario"
+                      className="btn btn-whatsapp"
                     >
                       Solicitar
                     </a>
@@ -185,7 +185,7 @@ export default async function ServiciosPage() {
               href={WA.general()}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-primario"
+              className="btn btn-whatsapp"
             >
               Consultar precio
             </a>

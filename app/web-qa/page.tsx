@@ -43,7 +43,7 @@ export default function WebQAPage() {
         titulo="Desarrollo web y control de calidad para tu empresa"
         bajada="Construimos sitios, auditamos los que ya tienes y probamos tus aplicaciones con pruebas manuales y automatizadas."
       >
-        <a href={WA.webQA()} target="_blank" rel="noopener noreferrer" className="btn btn-primario w-full sm:w-auto">
+        <a href={WA.webQA()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp w-full sm:w-auto">
           Solicitar cotización
         </a>
       </PageHeader>
