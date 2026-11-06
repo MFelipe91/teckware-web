@@ -65,7 +65,7 @@ export default async function BlogPostPage({ params }: Props) {
       />
 
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <Link href="/blog" className="inline-flex items-center gap-2 mb-8 text-sm text-fg-muted hover:text-brand-bright transition-colors">
+        <Link href="/blog" className="inline-flex min-h-11 items-center gap-2 mb-6 text-sm text-fg-muted hover:text-brand-bright transition-colors">
           <ArrowLeft size={14} />
           Todas las guías
         </Link>

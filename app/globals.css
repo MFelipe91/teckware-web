@@ -231,6 +231,7 @@
 
   .btn-oscuro::before,
   .btn-primario::before,
+  .btn-whatsapp::before,
   .btn-secundario::before,
   .btn-secundario::after {
     content: "";
