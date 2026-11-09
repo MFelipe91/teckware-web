@@ -9,7 +9,8 @@ const DIR = path.join(process.cwd(), 'docs', 'movil', 'datos', ETAPA)
 const ANCHOS = [360, 375, 390, 412, 768, 1440]
 const CELULAR = (w) => w <= 412
 // Rediseño Gaming Premium (2026-11): las fotos ocupan espacio, la portada puede llegar a 9,5.
-const LARGO_MAX = { '/': ETAPA === 'rediseno' ? 9.5 : 8, '/servicios': 10 }
+// /servicios reúne desde 2026-11 lo que era /mantencion (13 servicios con precio + mantención preventiva).
+const LARGO_MAX = { '/': ETAPA === 'rediseno' ? 9.5 : 8, '/servicios': ETAPA === 'rediseno' ? 14 : 10 }
 
 const fallas = []
 const falla = (criterio, ruta, ancho, detalle) => fallas.push(`${criterio.padEnd(20)} ${String(ancho).padEnd(5)} ${ruta}  ${detalle}`)

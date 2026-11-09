@@ -15,7 +15,7 @@ const DIR_DATOS = path.join(process.cwd(), 'docs', 'movil', 'datos', ETAPA)
 
 const RUTA_404 = '/pagina-inexistente-auditoria'
 const RUTAS = [
-  '/', '/mantencion', '/servicios', '/empresas', '/builds', '/agendar', '/solicitar', '/contacto',
+  '/', '/servicios', '/empresas', '/builds', '/agendar', '/solicitar', '/contacto',
   '/nosotros', '/blog', `/blog/${POSTS[0].slug}`, '/web-qa', '/ciberseguridad', RUTA_404,
   ...LANDINGS.map((l) => l.href),
 ]

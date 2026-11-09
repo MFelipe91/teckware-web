@@ -10,8 +10,7 @@ export const metadata: Metadata = {
 
 const ENLACES = [
   { href: '/', label: 'Inicio' },
-  { href: '/mantencion', label: 'Mantención de computadores' },
-  { href: '/servicios', label: 'Servicios y precios' },
+  { href: '/servicios', label: 'Mantención, servicios y precios' },
   { href: '/blog', label: 'Guías de mantención' },
 ]
 

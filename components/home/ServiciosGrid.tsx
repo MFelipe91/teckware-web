@@ -17,18 +17,32 @@ const SERVICIOS: Tarjeta[] = [
   { titulo: 'Ciberseguridad', detalle: 'Protege tus datos y equipos', href: '/ciberseguridad', foto: STOCK.ciber },
 ]
 
-export function ServiciosGrid() {
+export function ServiciosGrid({
+  antetitulo = 'Nuestros servicios',
+  titulo = <>Soluciones completas para <span className="acento">tus equipos</span></>,
+  id = 'servicios',
+  empresas = true,
+  ocultarEnCelular = false,
+}: {
+  antetitulo?: string
+  titulo?: React.ReactNode
+  id?: string
+  /** Línea final hacia /empresas. */
+  empresas?: boolean
+  /** Oculta la sección en celular (cuando la página ya trae otra lista de servicios). */
+  ocultarEnCelular?: boolean
+}) {
   return (
-    <section id="servicios" className="halo px-4 sm:px-6 lg:px-8 py-14 sm:py-20 scroll-mt-20" aria-labelledby="servicios-titulo">
+    <section id={id} className={`${ocultarEnCelular ? "max-sm:hidden " : ""}halo px-4 sm:px-6 lg:px-8 py-14 sm:py-20 scroll-mt-20`} aria-labelledby={`${id}-titulo`}>
       <div className="max-w-[76rem] mx-auto">
         <div className="text-center">
           <p className="antetitulo">
             <span className="h-px w-8 bg-brand-bright/60" aria-hidden="true" />
-            Nuestros servicios
+            {antetitulo}
             <span className="h-px w-8 bg-brand-bright/60" aria-hidden="true" />
           </p>
-          <h2 id="servicios-titulo" className="mt-3 text-fg">
-            Soluciones completas para <span className="acento">tus equipos</span>
+          <h2 id={`${id}-titulo`} className="mt-3 text-fg">
+            {titulo}
           </h2>
         </div>
 
@@ -58,10 +72,12 @@ export function ServiciosGrid() {
           ))}
         </ul>
 
+        {empresas && (
         <p className="mt-8 text-center text-fg-muted">
           ¿Tienes una empresa o una pyme?{' '}
           <Link href="/empresas" className="btn btn-terciario">Soluciones para empresas</Link>
         </p>
+        )}
       </div>
     </section>
   )

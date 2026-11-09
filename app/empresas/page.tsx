@@ -69,8 +69,8 @@ export default function EmpresasPage() {
           icon: Building2,
           titulo: 'Mantención preventiva',
           desc: 'Todos los servicios de mantención: PC, notebooks, formateo y consolas, con precios publicados.',
-          href: '/mantencion',
-          cta: 'Ver mantención',
+          href: '/servicios',
+          cta: 'Ver servicios',
         },
       ]}
       puntosTitle="Por qué trabajar con TECKWARE"

@@ -11,7 +11,6 @@ const NAVEGACION: Enlace[] = [
   ...NAV_LINKS,
   { href: '/web-qa', label: 'Web & QA' },
   { href: '/ciberseguridad', label: 'Ciberseguridad' },
-  { href: '/nosotros', label: 'Nosotros' },
   { href: '/solicitar', label: 'Solicitar servicio', destacado: true },
 ]
 const SERVICIOS: Enlace[] = [...LANDINGS]

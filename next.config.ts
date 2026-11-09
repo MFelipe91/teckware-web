@@ -28,6 +28,10 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  // /mantencion se fusionó con /servicios (2026-11): redirección permanente para no perder SEO.
+  async redirects() {
+    return [{ source: '/mantencion', destination: '/servicios', permanent: true }]
+  },
   async headers() {
     return [
       {

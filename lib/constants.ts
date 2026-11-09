@@ -514,13 +514,13 @@ export const CIBER_SERVICIOS = [
   },
 ] as const
 
-// Menú principal, en orden de prioridad del negocio (la mantención primero).
-// Web & QA y Ciberseguridad viven dentro de /empresas; Nosotros, en el footer.
+// Menú principal, en orden de prioridad del negocio. /servicios reúne mantención y precios
+// (la antigua /mantencion redirige ahí). Web & QA y Ciberseguridad viven dentro de /empresas.
 export const NAV_LINKS = [
-  { href: '/mantencion', label: 'Mantención' },
-  { href: '/servicios', label: 'Servicio técnico' },
+  { href: '/servicios', label: 'Servicios' },
   { href: '/builds', label: 'PC Gamer' },
   { href: '/empresas', label: 'Empresas' },
+  { href: '/nosotros', label: 'Nosotros' },
   { href: '/blog', label: 'Blog' },
   { href: '/contacto', label: 'Contacto' },
 ] as const
