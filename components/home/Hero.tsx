@@ -15,7 +15,9 @@ export function Hero() {
           src={STOCK.hero.src}
           alt=""
           fill
-          priority
+          loading="eager"
+          fetchPriority="high"
+          quality={70}
           sizes="(min-width: 1024px) 60vw, 100vw"
           className="object-cover object-[60%_50%]"
         />
