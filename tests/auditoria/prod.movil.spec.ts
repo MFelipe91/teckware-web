@@ -9,7 +9,7 @@ import { POSTS } from '../../lib/blog'
 // Las únicas interacciones son abrir el menú móvil y el chat (sin escribir ni enviar nada).
 // Uso: npx playwright test prod.movil   (AUDIT_BASE_URL, AUDIT_ETAPA=despues opcionales)
 
-const ETAPA = process.env.AUDIT_ETAPA === 'despues' ? 'despues' : 'antes'
+const ETAPA = ['despues', 'rediseno'].includes(process.env.AUDIT_ETAPA ?? '') ? process.env.AUDIT_ETAPA! : 'antes'
 const DIR_CAPTURAS = path.join(process.cwd(), 'docs', 'movil', ETAPA)
 const DIR_DATOS = path.join(process.cwd(), 'docs', 'movil', 'datos', ETAPA)
 

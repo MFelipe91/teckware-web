@@ -143,6 +143,17 @@ export const SERVICIOS = [
     whatsappKey: 'workstation',
   },
   {
+    // Servicio nuevo (2026-11): precio y alcance por confirmar con el dueño antes de publicar.
+    id: 'redes-wifi',
+    nombre: 'Redes y WiFi',
+    descripcion: 'Revisión de la señal, configuración del router y mejora de la cobertura WiFi en casa u oficina. Se cotiza según el lugar y los equipos.',
+    precio: 'A cotizar',
+    tiempo: 'A coordinar',
+    icono: 'wifi',
+    featured: false,
+    whatsappKey: 'redesWifi',
+  },
+  {
     id: 'domicilio',
     nombre: 'Visita a domicilio',
     descripcion: 'Para trabajos simples, como formateo o configuración, en La Serena y Coquimbo. Se suma un recargo por visita según ubicación; los trabajos de hardware se hacen en el taller.',

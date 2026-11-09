@@ -1,51 +1,58 @@
+import Image from 'next/image'
 import Link from 'next/link'
-import { IVA_NOTA } from '@/lib/constants'
-import type { Servicio } from '@/lib/services'
-import { WA } from '@/lib/whatsapp'
+import { ArrowRight, ShieldCheck } from 'lucide-react'
+import { IVA_NOTA, precioServicio } from '@/lib/constants'
+import { STOCK, type Foto } from '@/lib/fotos'
 
-function enlaceWa(s: Servicio): string {
-  const fn = WA[s.whatsappKey as keyof typeof WA]
-  return typeof fn === 'function' ? (fn as () => string)() : WA.servicio(s.nombre)
-}
+type Destacado = { nombre: string; detalle: string; precio: string; href: string; foto: Foto }
 
-// Lo que el título de la portada ya muestra con precio (PC gamer, notebook, PS5 y armado) no se repite.
-const EN_PORTADA = ['mantencion-full', 'consola-ps5', 'armado-estandar']
-// Primero lo que más conviene mostrar; el resto, según lo destacado en el panel.
-const PRIMERO = ['mantencion-logica', 'diagnostico', 'mantencion-gpu']
+// Precios siempre desde lib/constants.ts (fuente única). Maqueta B: tarjetas con foto y cifra grande.
+const DESTACADOS: Destacado[] = [
+  { nombre: 'Mantención PC gamer', detalle: 'Test, limpieza, pasta Thermal Grizzly', precio: precioServicio('mantencion-full'), href: '/mantencion-pc-gamer', foto: STOCK.pcGamer },
+  { nombre: 'Mantención notebook', detalle: 'Limpieza, ventilador y pasta térmica', precio: precioServicio('mantencion-full'), href: '/reparacion-notebook-la-serena', foto: STOCK.notebook },
+  { nombre: 'Mantención PS5', detalle: 'Limpieza y cambio de metal líquido', precio: precioServicio('consola-ps5'), href: '/mantencion-ps5-la-serena', foto: STOCK.ps5 },
+  { nombre: 'Armado PC gamer', detalle: 'Cable management y pruebas', precio: precioServicio('armado-estandar'), href: '/armado-pc-gamer-la-serena', foto: STOCK.armado },
+]
 
-export function ServiciosDestacados({ servicios }: { servicios: Servicio[] }) {
-  const disponibles = servicios.filter((s) => !EN_PORTADA.includes(s.id))
-  const prioritarios = PRIMERO
-    .map((id) => disponibles.find((s) => s.id === id))
-    .filter((s): s is Servicio => !!s)
-  const extras = disponibles.filter((s) => s.featured && !prioritarios.includes(s))
-  const lista = [...prioritarios, ...extras].slice(0, 4)
-  if (!lista.length) return null
-
+export function ServiciosDestacados() {
   return (
-    <section className="bg-ink-900 px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
-      <div className="max-w-[76rem] mx-auto grid gap-8 lg:gap-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+    <section className="bg-ink-900 px-4 sm:px-6 lg:px-8 py-12 sm:py-20" aria-labelledby="precios-titulo">
+      <div className="max-w-[76rem] mx-auto grid gap-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,9fr)] lg:items-center">
         <div>
-          <h2 className="text-fg">Otros servicios con precio fijo</h2>
-          <p className="mt-4 text-fg-muted max-w-md">Sabes el costo antes de que empecemos. {IVA_NOTA}</p>
-          <Link href="/servicios" className="btn btn-terciario mt-4 max-lg:hidden">Ver todos los servicios</Link>
+          <p className="antetitulo">Precios destacados</p>
+          <h2 id="precios-titulo" className="mt-3 text-fg">
+            Precios claros, <span className="acento">sin sorpresas</span>
+          </h2>
+          <p className="mt-4 text-fg-muted">Sabes el costo antes de que empecemos. {IVA_NOTA}</p>
+          <Link href="/servicios" className="btn btn-secundario mt-6 w-full sm:w-auto">
+            Ver todos los precios <ArrowRight size={18} aria-hidden="true" />
+          </Link>
         </div>
 
-        <div>
-          <ul className="border-t border-white/10">
-            {lista.map((s, i) => (
-              <li key={s.id} className={`py-5 border-b border-white/10 ${i >= 3 ? "max-sm:hidden" : ""} grid gap-x-6 gap-y-2 grid-cols-[minmax(0,1fr)_auto]`}>
-                <h3 className="text-fg">{s.nombre}</h3>
-                <span className="price text-xl text-fg text-right">{s.precio}</span>
-                <p className="text-sm text-fg-muted leading-relaxed max-sm:hidden">{s.descripcion}</p>
-                <a href={enlaceWa(s)} target="_blank" rel="noopener noreferrer" className="btn btn-terciario justify-self-end self-start max-sm:col-span-2 max-sm:justify-self-start" aria-label={`Cotizar ${s.nombre}`}>
-                  Cotizar
-                </a>
-              </li>
-            ))}
-          </ul>
-          <Link href="/servicios" className="btn btn-terciario mt-4 lg:hidden">Ver todos los servicios</Link>
-        </div>
+        <ul className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-5">
+          {DESTACADOS.map((d) => (
+            <li key={d.nombre}>
+              <Link href={d.href} className="tarjeta tarjeta-enlace group flex h-full flex-col">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image src={d.foto.src} alt={d.foto.alt} fill sizes="(min-width: 768px) 18vw, 50vw" className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink-800 to-transparent" aria-hidden="true" />
+                </div>
+                <div className="flex flex-1 flex-col p-3.5 sm:p-4">
+                  <h3 className="text-lg text-fg">{d.nombre}</h3>
+                  <span className="price mt-1 text-2xl sm:text-3xl text-fg">{d.precio}</span>
+                  <span className="mt-1 text-sm text-fg-muted leading-snug">{d.detalle}</span>
+                </div>
+              </Link>
+            </li>
+          ))}
+          <li className="col-span-2 md:col-span-1">
+            <div className="tarjeta flex h-full flex-col items-center justify-center gap-2 p-5 text-center border-brand-bright/40">
+              <ShieldCheck size={44} strokeWidth={1.5} className="text-cian" aria-hidden="true" />
+              <p className="font-display text-2xl font-bold leading-tight text-fg">Garantía de 30 días</p>
+              <p className="text-sm text-fg-muted">En todos los trabajos, con boleta</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
   )

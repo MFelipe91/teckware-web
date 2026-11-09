@@ -50,6 +50,7 @@ export const WA = {
   recuperacion:    () => svc('Recuperación de Datos', conIva('recuperacion-datos')),
   upgrade:         () => BASE + enc('Hola TECKWARE! 👋\n\nMe interesa una *Asesoría y Upgrade Personalizado*.\n\nEquipo actual: \nComponente a instalar/cambiar: \nPresupuesto aproximado: \n\nQuedo atento/a a su respuesta.'),
   domicilio:       () => BASE + enc('Hola TECKWARE! 👋\n\nMe interesa una *visita a domicilio* para un trabajo simple (formateo o configuración).\n\nComuna / sector: \nQué necesitas: \nDisponibilidad horaria:\n\nQuedo atento/a a su respuesta.'),
+  redesWifi:       () => BASE + enc('Hola TECKWARE! 👋\n\nMe interesa el servicio de *Redes y WiFi*.\n\nLugar (casa u oficina) y comuna: \nProblema (poca señal, cortes, configuración): \n\nQuedo atento/a a su respuesta.'),
   workstation:     () => BASE + enc('Hola TECKWARE! 👋\n\nMe interesa el servicio *Empresarial / Workstation*.\n\nEmpresa: \nEquipos (cantidad y tipo): \nRequerimiento: \n\nQuedo atento/a a su respuesta.'),
 
   // Formateo y mantenimiento (alias legacy)

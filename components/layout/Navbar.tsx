@@ -84,7 +84,8 @@ export function Navbar() {
 
         <a href={WA.general()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp hidden lg:inline-flex whitespace-nowrap">
           <MessageCircle size={17} aria-hidden="true" />
-          WhatsApp
+          <span className="xl:hidden">WhatsApp</span>
+          <span className="hidden xl:inline">Cotizar por WhatsApp</span>
         </a>
 
         <button

@@ -1,35 +1,33 @@
 import type { Metadata } from 'next'
 import { Hero } from '@/components/home/Hero'
-import { ServiciosDestacados } from '@/components/home/ServiciosDestacados'
+import { TrustBar } from '@/components/home/TrustBar'
+import { ServiciosGrid } from '@/components/home/ServiciosGrid'
 import { PorQueElegirnos } from '@/components/home/PorQueElegirnos'
 import { Proceso } from '@/components/home/Proceso'
-import { Segmentos } from '@/components/home/Segmentos'
-import { GuiasBlog } from '@/components/home/GuiasBlog'
+import { ServiciosDestacados } from '@/components/home/ServiciosDestacados'
 import { InstagramBanda } from '@/components/home/InstagramBanda'
+import { GuiasBlog } from '@/components/home/GuiasBlog'
 import { BandaCta } from '@/components/shared/BandaCta'
 import { EMPRESA, PLAZO } from '@/lib/constants'
-import { getServices } from '@/lib/services'
 import { ogPagina } from '@/lib/seo'
-
-// Revalida cada 5 min: los servicios destacados del panel cambian poco y así no se
-// consulta Supabase en cada visita.
-export const revalidate = 300
 
 export const metadata: Metadata = {
   alternates: { canonical: '/' },
   openGraph: ogPagina('/'),
 }
 
-export default async function Home() {
-  const servicios = await getServices()
+// Portada "Gaming Premium" (maqueta B). Precios y textos salen de lib/constants.ts, así la
+// página es estática y no consulta la base en cada visita.
+export default function Home() {
   return (
     <>
       <Hero />
-      <ServiciosDestacados servicios={servicios} />
-      <Proceso />
-      <InstagramBanda />
+      <TrustBar />
+      <ServiciosGrid />
       <PorQueElegirnos />
-      <Segmentos />
+      <Proceso />
+      <ServiciosDestacados />
+      <InstagramBanda />
       <GuiasBlog />
       <BandaCta
         titulo="Cuéntanos qué le pasa a tu equipo"

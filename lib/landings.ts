@@ -12,4 +12,5 @@ export const LANDINGS = [
   { href: '/servicio-tecnico-apple', label: 'Servicio técnico MacBook / Apple' },
   { href: '/mantencion-ps5-la-serena', label: 'Mantención PS5 y PS4' },
   { href: '/recuperacion-de-datos-la-serena', label: 'Recuperación de datos' },
+  { href: '/redes-wifi-la-serena', label: 'Redes y WiFi' },
 ] as const

@@ -45,6 +45,8 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: false,
     remotePatterns: [
       { protocol: 'https', hostname: 'img.youtube.com' },
+      // Fotos de stock de uso libre (lib/fotos.ts)
+      { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'kkibglmqzpfaecnmwevx.supabase.co' },
     ],
   },

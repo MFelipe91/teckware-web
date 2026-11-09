@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { IBM_Plex_Sans, Saira } from 'next/font/google'
+import { Inter, Rajdhani } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
@@ -13,18 +13,19 @@ import { SITE_URL } from '@/lib/site'
 // Con verificación por DNS (propiedad de Dominio, vía Cloudflare) no hace falta.
 const GOOGLE_VERIFICATION = process.env.GOOGLE_SITE_VERIFICATION
 
-const plex = IBM_Plex_Sans({
+// Texto: Inter, legible en celular. Titulares, botones y precios: Rajdhani, técnica y
+// condensada como el logotipo (dirección Gaming Premium).
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-plex',
+  variable: '--font-cuerpo',
 })
 
-// Titulares, botones y precios: técnica y levemente condensada, combina con el logo.
-const saira = Saira({
+const rajdhani = Rajdhani({
   subsets: ['latin'],
-  axes: ['wdth'],
+  weight: ['500', '600', '700'],
   display: 'swap',
-  variable: '--font-saira',
+  variable: '--font-titulo',
 })
 
 export const metadata: Metadata = {
@@ -115,7 +116,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es-CL" className={`${plex.variable} ${saira.variable}`}>
+    <html lang="es-CL" className={`${inter.variable} ${rajdhani.variable}`}>
       <head>
         <script
           type="application/ld+json"
