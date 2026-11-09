@@ -8,14 +8,17 @@ import { WA } from '@/lib/whatsapp'
 // Si la página trae un mensaje propio (landings), se muestra igual, porque llega ya escrito.
 export function CtaPair({
   waHref,
+  centrado = false,
   children,
 }: {
   waHref?: string
+  /** Centra los botones (bandas de cierre con texto centrado). */
+  centrado?: boolean
   /** Acción terciaria opcional (enlace), a continuación del par. */
   children?: React.ReactNode
 }) {
   return (
-    <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-x-4 gap-y-3">
+    <div className={`flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-x-4 gap-y-3 ${centrado ? "sm:justify-center" : ""}`}>
       <a
         href={waHref ?? WA.general()}
         target="_blank"
