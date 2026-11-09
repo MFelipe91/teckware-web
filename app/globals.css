@@ -78,6 +78,13 @@
   --color-cian: #00BFFF;
   --color-cian-hover: #33CCFF;
 
+  /* Instagram: el degradado propio de la red, solo para su banda en la portada. */
+  --color-ig-morado: #833AB4;
+  --color-ig-magenta: #C13584;
+  --color-ig-rosa: #E1306C;
+  --color-ig-naranjo: #F77737;
+  --color-ig-amarillo: #FCAF45;
+
   /* WhatsApp (afordancia reconocible) y estados */
   --color-whatsapp: #22C55E;
   --color-whatsapp-solid: #15803D;  /* botón relleno con texto blanco */
@@ -237,6 +244,7 @@
   .btn-primario::before,
   .btn-whatsapp::before,
   .btn-cian::before,
+  .btn-blanco::before,
   .btn-secundario::before,
   .btn-secundario::after {
     content: "";
@@ -272,6 +280,14 @@
     .btn-cian:hover::before { background: var(--color-cian-hover); }
   }
   .btn-cian:active::before { background: var(--color-brand-bright); }
+
+  /* Sobre fondos de color (banda de Instagram): botón blanco con texto oscuro. */
+  .btn-blanco { color: var(--color-ink-950); }
+  .btn-blanco::before { background: #FFFFFF; }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-blanco:hover::before { background: var(--color-fg); }
+  }
+  .btn-blanco:active::before { background: var(--color-silver); }
 
   .btn-secundario { color: var(--btn-sec-texto, var(--color-fg)); }
   /* Anillo: polígono exterior e interior, con el centro transparente para cualquier fondo. */
@@ -537,6 +553,43 @@
   .btn-oscuro { color: var(--color-fg); }
   .btn-oscuro::before { background: var(--color-ink-950); }
   .btn-oscuro:active::before { background: var(--color-ink-700); }
+
+  /* Banda de Instagram: degradado de la red con un velo oscuro del lado del texto, para que el
+     blanco tenga contraste AA sobre el magenta. */
+  .ig-degradado {
+    background:
+      radial-gradient(28rem 20rem at 100% 100%, color-mix(in oklab, var(--color-ig-amarillo) 55%, transparent), transparent 70%),
+      linear-gradient(125deg, var(--color-ig-morado) 0%, var(--color-ig-magenta) 42%, var(--color-ig-rosa) 72%, var(--color-ig-naranjo) 100%);
+  }
+  .ig-degradado::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(100deg, rgba(25, 6, 45, 0.42) 0%, rgba(25, 6, 45, 0.18) 55%, transparent 80%);
+  }
+  .ig-degradado :focus-visible { outline-color: #FFFFFF; }
+  .ig-perfil {
+    display: block;
+    padding: 1.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 1rem;
+    background: rgba(20, 6, 40, 0.28);
+    backdrop-filter: blur(6px);
+    transition: background-color 160ms var(--ease-salida), transform 160ms var(--ease-salida);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .ig-perfil:hover { background: rgba(20, 6, 40, 0.4); transform: translateY(-2px); }
+  }
+  .ig-anillo {
+    display: block;
+    flex: none;
+    width: 4.5rem;
+    height: 4.5rem;
+    padding: 3px;
+    border-radius: 9999px;
+    background: conic-gradient(from 210deg, var(--color-ig-amarillo), var(--color-ig-naranjo), var(--color-ig-rosa), var(--color-ig-magenta), var(--color-ig-morado), var(--color-ig-amarillo));
+  }
 
   /* Tres hexágonos encajados: misma forma del logo y del título. */
   .ig-panal { position: relative; width: min(100%, 15rem); aspect-ratio: 1 / 1.01; margin-inline: auto; }

@@ -33,7 +33,7 @@ export function ServiciosDestacados() {
           {DESTACADOS.map((d) => (
             <li key={d.nombre}>
               <Link href={d.href} className="tarjeta tarjeta-enlace group flex h-full flex-col">
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden max-sm:hidden">
                   <Image src={d.foto.src} alt={d.foto.alt} fill sizes="(min-width: 768px) 18vw, 50vw" className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink-800 to-transparent" aria-hidden="true" />
                 </div>
@@ -46,7 +46,7 @@ export function ServiciosDestacados() {
             </li>
           ))}
           <li className="col-span-2 md:col-span-1">
-            <div className="tarjeta flex h-full flex-col items-center justify-center gap-2 p-5 text-center border-brand-bright/40">
+            <div className="tarjeta flex h-full items-center gap-4 p-4 border-brand-bright/40 md:flex-col md:justify-center md:gap-2 md:p-5 md:text-center">
               <ShieldCheck size={44} strokeWidth={1.5} className="text-cian" aria-hidden="true" />
               <p className="font-display text-2xl font-bold leading-tight text-fg">Garantía de 30 días</p>
               <p className="text-sm text-fg-muted">En todos los trabajos, con boleta</p>

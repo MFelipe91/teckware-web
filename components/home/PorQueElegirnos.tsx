@@ -22,12 +22,12 @@ export function PorQueElegirnos() {
           </Link>
         </div>
 
-        <div className="relative mt-10 aspect-[16/10] lg:mt-0 lg:aspect-auto lg:h-full lg:min-h-[26rem]">
+        <div className="relative mt-8 aspect-[16/9] lg:mt-0 lg:aspect-auto lg:h-full lg:min-h-[26rem]">
           <Image src={STOCK.tecnico.src} alt={STOCK.tecnico.alt} fill sizes="(min-width: 1024px) 34vw, 100vw" className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-transparent to-ink-950/40 lg:bg-gradient-to-r lg:from-ink-950 lg:via-transparent lg:to-ink-950" aria-hidden="true" />
         </div>
 
-        <ul className="px-4 sm:px-6 lg:px-8 py-10 lg:py-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+        <ul className="px-4 sm:px-6 lg:px-8 py-8 lg:py-16 grid grid-cols-2 gap-x-4 gap-y-3 lg:grid-cols-1 lg:gap-4">
           {POR_QUE_ELEGIRNOS.map((item) => (
             <li key={item.titulo} className="flex items-start gap-3">
               <CircleCheck size={24} strokeWidth={1.75} className="text-cian shrink-0" aria-hidden="true" />

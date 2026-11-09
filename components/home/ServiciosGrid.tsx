@@ -36,7 +36,7 @@ export function ServiciosGrid() {
           {SERVICIOS.map((s) => (
             <li key={s.href}>
               <Link href={s.href} className="tarjeta tarjeta-enlace group flex h-full flex-col">
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden">
                   <Image
                     src={s.foto.src}
                     alt={s.foto.alt}
@@ -49,7 +49,7 @@ export function ServiciosGrid() {
                 <div className="flex flex-1 flex-col p-3.5 sm:p-5">
                   <h3 className="text-lg sm:text-xl text-fg">{s.titulo}</h3>
                   <p className="mt-1 text-sm text-fg-muted leading-snug">{s.detalle}</p>
-                  <span className="mt-auto pt-3 inline-flex items-center gap-1.5 font-display font-bold text-brand-bright">
+                  <span className="mt-auto pt-3 max-sm:hidden inline-flex items-center gap-1.5 font-display font-bold text-brand-bright">
                     Saber más <ArrowRight size={16} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5" />
                   </span>
                 </div>
