@@ -86,7 +86,7 @@ export function Footer() {
               href={EMPRESA.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-secundario"
+              className="btn btn-instagram"
               aria-label={`Seguir a ${EMPRESA.instagramHandle} en Instagram`}
             >
               <InstagramIcon size={18} />

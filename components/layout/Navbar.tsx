@@ -118,7 +118,7 @@ export function Navbar() {
             <MessageCircle size={17} aria-hidden="true" />
             Escríbenos por WhatsApp
           </a>
-          <a href={EMPRESA.instagram} target="_blank" rel="noopener noreferrer" className="btn btn-secundario w-full mt-3">
+          <a href={EMPRESA.instagram} target="_blank" rel="noopener noreferrer" className="btn btn-instagram w-full mt-3">
             <InstagramIcon size={17} />
             Síguenos en Instagram
           </a>

@@ -245,6 +245,7 @@
   .btn-whatsapp::before,
   .btn-cian::before,
   .btn-blanco::before,
+  .btn-instagram::before,
   .btn-secundario::before,
   .btn-secundario::after {
     content: "";
@@ -288,6 +289,18 @@
     .btn-blanco:hover::before { background: var(--color-fg); }
   }
   .btn-blanco:active::before { background: var(--color-silver); }
+
+  /* Todo acceso a Instagram: el degradado de la red. El naranjo queda en el borde del ícono y el
+     texto blanco va sobre rosa y morado, con contraste suficiente. */
+  .btn-instagram { color: #FFFFFF; }
+  .btn-instagram::before {
+    background: linear-gradient(100deg, var(--color-ig-naranjo) 0%, #D62976 24%, var(--color-ig-magenta) 58%, var(--color-ig-morado) 100%);
+    transition: filter 120ms ease;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-instagram:hover::before { filter: brightness(1.12) saturate(1.1); }
+  }
+  .btn-instagram:active::before { filter: brightness(0.92); }
 
   .btn-secundario { color: var(--btn-sec-texto, var(--color-fg)); }
   /* Anillo: polígono exterior e interior, con el centro transparente para cualquier fondo. */

@@ -28,9 +28,9 @@ export function BandaCta({
           href={EMPRESA.instagram}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${nota ? 'mt-1' : 'mt-6'} inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-ink-900 underline underline-offset-4`}
+          className={`btn btn-instagram ${nota ? 'mt-4' : 'mt-6'}`}
         >
-          <InstagramIcon size={16} />
+          <InstagramIcon size={18} />
           Mira nuestro trabajo en {EMPRESA.instagramHandle}
         </a>
       </div>
