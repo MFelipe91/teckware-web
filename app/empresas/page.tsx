@@ -4,6 +4,7 @@ import { HubPage } from '@/components/landing/HubPage'
 import { precioServicio } from '@/lib/constants'
 import { WA } from '@/lib/whatsapp'
 import { ogPagina } from '@/lib/seo'
+import { STOCK } from '@/lib/fotos'
 
 export const metadata: Metadata = {
   title: 'Soporte informático para empresas en La Serena',
@@ -17,6 +18,7 @@ export default function EmpresasPage() {
   return (
     <HubPage
       path="/empresas"
+      foto={STOCK.ciber}
       eyebrow="Para pymes y oficinas"
       titulo="Soporte informático para empresas en"
       tituloAccent="La Serena y Coquimbo"

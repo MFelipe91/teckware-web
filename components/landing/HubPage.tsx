@@ -6,7 +6,8 @@ import { Proceso } from '@/components/home/Proceso'
 import { BandaCta } from '@/components/shared/BandaCta'
 import { CtaPair } from '@/components/shared/CtaPair'
 import { ListaFaq } from '@/components/shared/ListaFaq'
-import { PageHeader } from '@/components/shared/PageHeader'
+import { HeroInterior } from '@/components/shared/HeroInterior'
+import { STOCK, type Foto } from '@/lib/fotos'
 
 // Plantilla de los hubs de categoría (/mantencion, /empresas): agrupan servicios y
 // enlazan a sus landings, así el menú apunta a una página que posiciona la categoría.
@@ -28,6 +29,8 @@ export type HubLink = { href: string; label: string }
 export type HubPageProps = {
   path: string
   eyebrow: string
+  /** Foto del hero (stock o real). */
+  foto?: Foto
   titulo: string
   tituloAccent: string
   subtitle: string
@@ -49,7 +52,7 @@ const isExternal = (href: string) => href.startsWith('http')
 
 export function HubPage(props: HubPageProps) {
   const {
-    path, titulo, tituloAccent, subtitle, intro, cardsTitle, cards,
+    path, eyebrow, foto = STOCK.tecnico, titulo, tituloAccent, subtitle, intro, cardsTitle, cards,
     puntosTitle, puntos, faqs, linksTitle, links, waHref, ctaTitle, ctaText,
   } = props
   const nombre = `${titulo} ${tituloAccent}`
@@ -62,45 +65,59 @@ export function HubPage(props: HubPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd({ name: nombre, description: subtitle, path })) }}
       />
 
-      <PageHeader titulo={nombre} bajada={subtitle}>
+      <HeroInterior antetitulo={eyebrow} titulo={<>{titulo} <span className="acento">{tituloAccent}</span></>} bajada={subtitle} foto={foto}>
         <CtaPair waHref={waHref} />
-      </PageHeader>
+      </HeroInterior>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
-        <div>
-          <h2 className="text-fg text-3xl sm:text-4xl">{cardsTitle}</h2>
-          <div className="mt-5 space-y-4">
-            {intro.map((p, i) => <p key={i} className="text-sm text-fg-muted leading-relaxed">{p}</p>)}
+      <section className="halo px-4 sm:px-6 lg:px-8 py-12 sm:py-20" aria-labelledby="hub-cards">
+        <div className="max-w-[76rem] mx-auto">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-end">
+            <h2 id="hub-cards" className="text-fg">{cardsTitle}</h2>
+            <div className="space-y-4">
+              {intro.map((p, i) => <p key={i} className="text-fg-muted leading-relaxed">{p}</p>)}
+            </div>
           </div>
+          <ul className="mt-10 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {cards.map(({ icon: Icon, titulo, desc, precio, href, cta }) => {
+              const contenido = (
+                <>
+                  <div className="flex items-start justify-between gap-4">
+                    <Icon size={30} strokeWidth={1.6} className="text-cian shrink-0" aria-hidden="true" />
+                    {precio && <span className="price text-lg text-fg text-right">{precio}</span>}
+                  </div>
+                  <h3 className="mt-4 text-fg">{titulo}</h3>
+                  <p className="mt-2 text-sm text-fg-muted leading-relaxed">{desc}</p>
+                  <span className="mt-auto pt-4 font-display font-bold text-brand-bright">{cta} →</span>
+                </>
+              )
+              const clase = 'tarjeta tarjeta-enlace flex h-full flex-col p-5 sm:p-6'
+              return (
+                <li key={titulo}>
+                  {isExternal(href) ? (
+                    <a href={href} target="_blank" rel="noopener noreferrer" className={clase}>{contenido}</a>
+                  ) : (
+                    <Link href={href} className={clase}>{contenido}</Link>
+                  )}
+                </li>
+              )
+            })}
+          </ul>
           <p className="mt-5 text-sm text-fg-subtle">{IVA_NOTA}</p>
         </div>
-        <ul className="border-t border-white/10">
-          {cards.map(({ titulo, desc, precio, href, cta }) => {
-            const clase = 'btn btn-terciario justify-self-end self-start'
-            return (
-              <li key={titulo} className="py-5 border-b border-white/10 grid grid-cols-[minmax(0,1fr)_auto] gap-x-6 gap-y-2">
-                <h3 className="text-fg">{titulo}</h3>
-                <span className="price text-xl text-fg text-right">{precio}</span>
-                <p className="text-sm text-fg-muted leading-relaxed">{desc}</p>
-                {isExternal(href) ? (
-                  <a href={href} target="_blank" rel="noopener noreferrer" className={clase}>{cta}</a>
-                ) : (
-                  <Link href={href} className={clase}>{cta}</Link>
-                )}
-              </li>
-            )
-          })}
-        </ul>
       </section>
 
-      <section className="bg-ink-800 px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+      <section className="bg-ink-950 border-y border-white/10 px-4 sm:px-6 lg:px-8 py-12 sm:py-20" aria-labelledby="hub-puntos">
         <div className="max-w-[76rem] mx-auto">
-          <h2 className="text-fg mb-8 sm:mb-10">{puntosTitle}</h2>
-          <ul className="grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3 border-t border-white/10">
-            {puntos.map(({ titulo, desc }) => (
-              <li key={titulo} className="py-5 border-b border-white/10">
-                <h3 className="text-[1.125rem] text-fg">{titulo}</h3>
-                <p className="mt-1.5 text-sm text-fg-muted leading-relaxed">{desc}</p>
+          <p className="antetitulo">{eyebrow}</p>
+          <h2 id="hub-puntos" className="mt-3 text-fg mb-8 sm:mb-10">{puntosTitle}</h2>
+          <ul className="grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {puntos.map(({ icon: Icon, titulo, desc }) => (
+              <li key={titulo} className="tarjeta flex gap-4 p-5">
+                <Icon size={26} strokeWidth={1.6} className="text-brand-bright shrink-0 mt-0.5" aria-hidden="true" />
+                <div>
+                  <h3 className="text-lg text-fg">{titulo}</h3>
+                  <p className="mt-1.5 text-sm text-fg-muted leading-relaxed">{desc}</p>
+                </div>
               </li>
             ))}
           </ul>

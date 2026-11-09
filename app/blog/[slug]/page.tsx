@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, MessageCircle } from 'lucide-react'
 import { POSTS, BLOG_AUTHOR, getPost } from '@/lib/blog'
 import { articleLd } from '@/lib/structured-data'
 import { WA } from '@/lib/whatsapp'
+import { FOTO_BLOG, STOCK } from '@/lib/fotos'
 
 // Solo existen las guías definidas en lib/blog.ts; cualquier otro slug → 404
 export const dynamicParams = false
@@ -46,6 +48,7 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound()
 
   const otros = POSTS.filter((p) => p.slug !== post.slug)
+  const portada = FOTO_BLOG[post.slug] ?? STOCK.placa
 
   return (
     <div className="min-h-svh bg-ink-900 pt-16">
@@ -77,6 +80,10 @@ export default async function BlogPostPage({ params }: Props) {
           <span>{post.minutes} min de lectura</span>
         </div>
 
+        <div className="tarjeta relative mb-10 aspect-[16/9]">
+          <Image src={portada.src} alt={portada.alt} fill loading="eager" fetchPriority="high" sizes="(min-width: 768px) 720px, 100vw" className="object-cover" />
+        </div>
+
         <p className="text-lg text-fg-muted leading-relaxed mb-10">{post.intro}</p>
 
         {post.sections.map((s) => (
@@ -96,7 +103,7 @@ export default async function BlogPostPage({ params }: Props) {
         ))}
 
         {/* CTA al servicio relacionado */}
-        <aside className="panel-corte mt-14 p-7 sm:p-8">
+        <aside className="tarjeta mt-14 p-7 sm:p-8 border-brand-bright/40">
           <p className="font-display text-2xl font-semibold text-fg mb-2">¿Prefieres que lo revisemos nosotros?</p>
           <p className="text-fg-muted leading-relaxed mb-6">
             Diagnóstico claro antes de cualquier trabajo, pago al retirar y 30 días de garantía. Atendemos en La Serena y Coquimbo.
@@ -104,7 +111,7 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="flex flex-wrap gap-3">
             <Link
               href={post.related.href}
-              className="btn btn-primario"
+              className="btn btn-cian"
             >
               {post.related.label}
             </Link>
@@ -112,8 +119,9 @@ export default async function BlogPostPage({ params }: Props) {
               href={WA.servicio(post.related.label)}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-secundario"
+              className="btn btn-whatsapp"
             >
+              <MessageCircle size={18} aria-hidden="true" />
               Consultar por WhatsApp
             </a>
           </div>
@@ -123,10 +131,10 @@ export default async function BlogPostPage({ params }: Props) {
       {/* Otras guías */}
       <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
         <h2 className="text-fg text-3xl mb-5">Otras guías</h2>
-        <ul className="border-t border-white/10">
+        <ul className="grid gap-3">
           {otros.map((p) => (
-            <li key={p.slug} className="border-b border-white/10">
-              <Link href={`/blog/${p.slug}`} className="block py-3 text-fg-muted hover:text-brand-bright transition-colors">
+            <li key={p.slug}>
+              <Link href={`/blog/${p.slug}`} className="tarjeta tarjeta-enlace flex min-h-11 items-center px-5 py-4 text-fg hover:text-brand-bright transition-colors">
                 {p.title}
               </Link>
             </li>

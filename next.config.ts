@@ -1,17 +1,23 @@
 import type { NextConfig } from 'next'
 
+// Seguridad (docs/seguridad.md). 'unsafe-eval' solo en desarrollo: Next lo necesita para recargar en vivo.
+const dev = process.env.NODE_ENV !== 'production'
+
 const securityHeaders = [
   { key: 'X-Frame-Options', value: 'DENY' },
   { key: 'X-Content-Type-Options', value: 'nosniff' },
   { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
   { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
   { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()' },
-  { key: 'X-XSS-Protection', value: '1; mode=block' },
+  // El filtro XSS antiguo de los navegadores se desactiva (recomendación actual); protege la CSP.
+  { key: 'X-XSS-Protection', value: '0' },
+  { key: 'X-Permitted-Cross-Domain-Policies', value: 'none' },
+  { key: 'Cross-Origin-Opener-Policy', value: 'same-origin' },
   {
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
+      `script-src 'self' 'unsafe-inline'${dev ? " 'unsafe-eval'" : ''} https://www.googletagmanager.com https://www.google-analytics.com`,
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: blob: https:",
@@ -20,6 +26,10 @@ const securityHeaders = [
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",
+      "object-src 'none'",
+      "worker-src 'self' blob:",
+      "manifest-src 'self'",
+      ...(dev ? [] : ['upgrade-insecure-requests']),
     ].join('; '),
   },
 ]

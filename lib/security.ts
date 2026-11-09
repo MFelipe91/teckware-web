@@ -80,6 +80,22 @@ export function rateLimit(
   return { ok: true, retryAfter: 0 }
 }
 
+/**
+ * Las APIs del sitio solo aceptan llamadas desde el propio sitio (o sin cabecera Origin, como
+ * hace el navegador en algunos GET). Frena el uso de los formularios y del chat desde otras webs.
+ */
+export function mismoOrigen(req: Request): boolean {
+  const origen = req.headers.get('origin')
+  if (!origen) return true
+  try {
+    const host = new URL(origen).host
+    const propio = req.headers.get('x-forwarded-host') ?? req.headers.get('host')
+    return host === propio || host === 'www.teckware.cl' || host === 'teckware.cl' || host.endsWith('-mfelipe91s-projects.vercel.app')
+  } catch {
+    return false
+  }
+}
+
 /** Extrae la IP del cliente desde los headers estándar de proxy (Vercel). */
 export function clientIp(req: Request): string {
   const xff = req.headers.get('x-forwarded-for')

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createServerClient } from '@/lib/supabase-server'
-import { clientIp, rateLimit, solicitudSchema } from '@/lib/security'
+import { clientIp, rateLimit, solicitudSchema, mismoOrigen } from '@/lib/security'
 
 /**
  * POST /api/solicitudes
@@ -8,6 +8,10 @@ import { clientIp, rateLimit, solicitudSchema } from '@/lib/security'
  * Corre server-side con SERVICE_ROLE_KEY, por lo que bypassa RLS.
  */
 export async function POST(req: Request) {
+  // Solo desde el propio sitio: frena el envío automatizado desde otras webs.
+  if (!mismoOrigen(req)) {
+    return NextResponse.json({ error: 'Origen no permitido' }, { status: 403 })
+  }
   if (!rateLimit(`solicitudes:${clientIp(req)}`, 10, 60_000).ok) {
     return NextResponse.json({ error: 'Demasiadas solicitudes' }, { status: 429 })
   }

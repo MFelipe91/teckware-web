@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createServerClient } from '@/lib/supabase-server'
-import { clientIp, rateLimit } from '@/lib/security'
+import { clientIp, rateLimit, mismoOrigen } from '@/lib/security'
 
 const BUCKET = 'booking-photos'
 const MAX_SIZE = 5 * 1024 * 1024 // 5 MB
@@ -26,6 +26,10 @@ function tipoReal(b: Buffer): string | null {
 }
 
 export async function POST(req: Request) {
+  // Solo desde el propio sitio: frena el envío automatizado desde otras webs.
+  if (!mismoOrigen(req)) {
+    return NextResponse.json({ error: 'Origen no permitido' }, { status: 403 })
+  }
   if (!rateLimit(`upload:${clientIp(req)}`, 10, 60_000).ok) {
     return NextResponse.json({ error: 'Demasiados intentos. Espera un minuto.' }, { status: 429 })
   }

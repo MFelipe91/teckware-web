@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createServerClient } from '@/lib/supabase-server'
-import { clientIp, rateLimit } from '@/lib/security'
+import { clientIp, rateLimit, mismoOrigen } from '@/lib/security'
 import { cotizacionSchema, resumenCotizacion } from '@/lib/cotizacion'
 
 /**
@@ -9,6 +9,10 @@ import { cotizacionSchema, resumenCotizacion } from '@/lib/cotizacion'
  * para verla en /admin junto con las demás. El detalle queda en "problema".
  */
 export async function POST(req: Request) {
+  // Solo desde el propio sitio: frena el envío automatizado desde otras webs.
+  if (!mismoOrigen(req)) {
+    return NextResponse.json({ error: 'Origen no permitido' }, { status: 403 })
+  }
   if (!rateLimit(`cotizaciones:${clientIp(req)}`, 10, 60_000).ok) {
     return NextResponse.json({ error: 'Demasiadas solicitudes' }, { status: 429 })
   }
